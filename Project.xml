@@ -19,12 +19,23 @@
 
 	<set name="BUILD_DIR" value="export" />
 
-	<assets path="assets" />
+	<assets path="assets" exclude=".ogg" if="web" />
+	<assets path="assets" exclude=".mp3" unless="web" />
+
+	<icon path="extras/appicons/icon16.png" size="16" />
+	<icon path="extras/appicons/icon32.png" size="32" />
+	<icon path="extras/appicons/icon64.png" size="64" />
+	<icon path="extras/appicons/icon.png" />
+
 	<source path="src" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
+	<haxelib name="lime" />
+	<haxelib name="openfl" />
 	<haxelib name="flixel" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="hxcpp-debug-server" if="debug" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -36,7 +47,9 @@
 	<haxedef name="message.reporting" value="pretty" />
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
-	<!-- _________________________________ Custom _______________________________ -->
+	<!-- ______________________________ Haxeflags _____________________________ -->
 
-	<!--Place custom nodes like icons here-->
+	<haxeflag name="-dce no" />
+	<haxeflag name="--macro" value="include('funkin')" />
+	<haxeflag name="--macro" value="addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')" />
 </project>
