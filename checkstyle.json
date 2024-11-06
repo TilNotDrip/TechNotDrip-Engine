@@ -1,0 +1,139 @@
+{
+    "defaultSeverity": "INFO",
+    "checks": [
+        {
+            "props": {},
+            "type": "AvoidStarImport"
+        },
+		{
+            "props": {
+                "thresholdSimilar": 100,
+                "thresholdIdentical": 60
+            },
+            "type": "CodeSimilarity"
+        },
+        {
+            "props": {},
+            "type": "CommentedOutCode"
+        },
+		{
+            "props": {
+				"allowSingleline": true,
+                "policy": "aligned"
+            },
+            "type": "ConditionalCompilation"
+        },
+        {
+            "props": {
+                "format": "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$",
+                "tokens": ["INLINE"]
+            },
+            "type": "ConstantName"
+        },
+		{
+            "props": {},
+            "type": "DefaultComesLast"
+        },
+		{
+            "props": {
+				"option": "empty",
+                "tokens": [
+					"ABSTRACT_DEF",
+					"CATCH",
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+					"FOR",
+					"FUNCTION",
+					"IF",
+                    "INTERFACE_DEF",
+                    "OBJECT_DECL",
+                    "SWITCH",
+                    "TRY",
+					"TYPEDEF_DEF",
+                    "WHILE"
+                ]
+            },
+            "type": "EmptyBlock"
+        },
+        {
+            "props": {
+                "enforceEmptyPackage": true
+            },
+            "type": "EmptyPackage"
+        },
+        {
+            "props": {
+                "excludeNames": ["new", "toString"],
+                "fieldType": "BOTH",
+                "ignoreOverride": true,
+                "modifier": "PUBLIC",
+                "requireParams": true,
+                "requireReturn": true,
+                "tokens": [
+                    "ABSTRACT_DEF",
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+                    "INTERFACE_DEF"
+                ]
+            },
+            "type": "FieldDocComment"
+        },
+        {
+            "props": {
+                "modifiers": [
+                    "OVERRIDE",
+                    "PUBLIC_PRIVATE",
+                    "STATIC",
+                    "EXTERN",
+                    "MACRO",
+                    "INLINE",
+                    "DYNAMIC",
+                    "FINAL"
+                ]
+            },
+            "type": "ModifierOrder"
+        },
+        {
+            "props": {},
+            "type": "SimplifyBooleanExpression"
+        },
+        {
+            "props": {},
+            "type": "SimplifyBooleanReturn"
+        },
+		{
+            "props": {
+                "spaceIfCondition": "should",
+                "spaceAroundBinop": true,
+                "spaceForLoop": "should",
+                "ignoreRangeOperator": true,
+                "spaceWhileLoop": "should",
+                "spaceCatch": "should",
+                "spaceSwitchCase": "should",
+                "noSpaceAroundUnop": true
+            },
+            "type": "Spacing"
+        },
+		{
+            "props": {},
+            "type": "TrailingWhitespace"
+        },
+        {
+            "props": {},
+            "type": "UnusedLocalVar"
+        },
+        {
+            "props": {
+                "typeHintPolicy": "enforce_all"
+            },
+            "type": "VarTypeHint"
+        },
+        {
+            "props": {
+				"allowTrailingComma": false,
+                "tokens": [",", ";"]
+            },
+            "type": "WhitespaceAfter"
+        }
+    ]
+}
