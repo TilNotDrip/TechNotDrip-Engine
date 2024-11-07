@@ -10,4 +10,5 @@ RECOVER_*.fla
 !.vscode/settings.json
 !.vscode/tasks.json
 
+docs/dox/
 export/
