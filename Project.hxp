@@ -12,6 +12,15 @@ using StringTools;
  */
 class Project extends HXProject
 {
+	/**
+	 * Whether the game should be compiled into dox instead.
+	 *
+	 * Developers should set this to **false** immediately after use.
+	 *
+	 * @default false
+	 */
+	public final DOX_GENERATION:Bool = false;
+
 	public function new()
 	{
 		super();
@@ -95,6 +104,9 @@ class Project extends HXProject
 
 	public function setupHaxeDefines():Void
 	{
+		if (DOX_GENERATION)
+			haxedefs.set('doc-gen', '');
+
 		if (!debug)
 			haxedefs.set('FLX_NO_DEBUG', '');
 
@@ -122,6 +134,12 @@ class Project extends HXProject
 		haxeflags.push('-dce no');
 		haxeflags.push("--macro include('funkin')");
 		haxeflags.push("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
+
+		if (DOX_GENERATION)
+		{
+			haxeflags.push('--no-output');
+			haxeflags.push('-xml docs/dox/' + Std.string(target).toLowerCase());
+		}
 	}
 
 	function getBuildDirectory():String
