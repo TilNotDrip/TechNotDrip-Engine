@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
@@ -35,6 +36,8 @@ class Main extends Sprite
 
 		FlxG.mouse.useSystemCursor = true;
 		FlxG.mouse.visible = false;
+
+		FlxSprite.defaultAntialiasing = true;
 	}
 }
 

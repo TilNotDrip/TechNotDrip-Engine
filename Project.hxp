@@ -133,6 +133,7 @@ class Project extends HXProject
 	{
 		haxeflags.push('-dce no');
 		haxeflags.push("--macro include('funkin')");
+		haxeflags.push("--macro include('flixel', true, ['flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*'])");
 		haxeflags.push("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
 
 		if (DOX_GENERATION)
