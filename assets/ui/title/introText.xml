@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<introText>
+    <displayText>
+        <text beat="1">
+            The
+            Funkin Crew Inc
+        </text>
+        <text beat="3">
+            presents
+        </text>
+
+        <deleteText beat="4" />
+
+        <text beat="5">
+            In association
+            with
+        </text>
+        <text beat="7">
+            newgrounds
+        </text>
+        <showNgSpr beat="7" />
+
+        <deleteText beat="8" />
+        <hideNgSpr beat="8" />
+
+        <randomText beat="9" line="1" />
+        <randomText beat="11" line="2" />
+
+        <deleteText beat="12" />
+
+        <text beat="13">
+            Friday
+        </text>
+        <text beat="14">
+            Night
+        </text>
+        <text beat="15">
+            Funkin
+        </text>
+
+        <finishIntro beat="16" />
+    </displayText>
+
+    <randomTexts>
+        <text>
+            shoutouts to tom fulp
+            lmao
+        </text>
+        <text>
+            Ludum dare
+            extraordinaire
+        </text>
+        <text>
+            cyberzone
+            coming soon
+        </text>
+        <text>
+            love to thriftman
+            swag
+        </text>
+        <text>
+            ultimate rhythm gaming
+            probably
+        </text>
+        <text>
+            dope ass game
+            playstation magazine
+        </text>
+        <text>
+            in loving memory of
+            henryeyes
+        </text>
+        <text>
+            dancin
+            forever
+        </text>
+        <text>
+            funkin
+            forever
+        </text>
+        <text>
+            ritz dx
+            rest in peace lol
+        </text>
+        <text>
+            rate five
+            pls no blam
+        </text>
+        <text>
+            rhythm gaming
+            ultimate
+        </text>
+        <text>
+            game of the year
+            forever
+        </text>
+        <text>
+            you already know
+            we really out here
+        </text>
+        <text>
+            rise and grind
+            love to luis
+        </text>
+        <text>
+            like parappa
+            but cooler
+        </text>
+        <text>
+            album of the year
+            chuckie finster
+        </text>
+        <text>
+            free gitaroo man
+            with love to wandaboy
+        </text>
+        <text>
+            better than geometry dash
+            fight me robtop
+        </text>
+        <text>
+            kiddbrute for president
+            vote now
+        </text>
+        <text>
+            play dead estate
+            on newgrounds
+        </text>
+        <text>
+            this is a god damn prototype
+            we workin on it okay
+        </text>
+        <text>
+            women are real
+            this is official
+        </text>
+        <text>
+            too over exposed
+            newgrounds cant handle us
+        </text>
+        <text>
+            Hatsune Miku
+            biggest inspiration
+        </text>
+        <text>
+            too many people
+            my head hurts
+        </text>
+        <text>
+            newgrounds
+            forever
+        </text>
+        <text>
+            refined taste in music
+            if i say so myself
+        </text>
+        <text>
+            his name isnt keith
+            dumb eggy lol
+        </text>
+        <text>
+            his name isnt evan
+            silly tiktok
+        </text>
+        <text>
+            stream chuckie finster
+            on spotify
+        </text>
+        <text>
+            never forget to
+            pray to god
+        </text>
+        <text>
+            dont play rust
+            we only funkin
+        </text>
+        <text>
+            good bye
+            my penis
+        </text>
+        <text>
+            dababy
+            biggest inspiration
+        </text>
+        <text>
+            fashionably late
+            but here it is
+        </text>
+        <text>
+            yooooooooooo
+            yooooooooo
+        </text>
+        <text>
+            pico funny
+            pico funny
+        </text>
+        <text>
+            updates each friday
+            on time every time
+        </text>
+        <text>
+            shoutouts to mason
+            for da homies
+        </text>
+        <text>
+            bonk
+            get in the discord call
+        </text>
+        <text>
+            carpal tunnel
+            game design
+        </text>
+        <text>
+            downscroll
+            i dont know what that is
+        </text>
+        <text>
+            warning
+            choking hazard
+        </text>
+        <text>
+            devin chat
+            what an honorable man
+        </text>
+        <text>
+            kickstarter exclusive
+            intro text
+        </text>
+        <text>
+            cussing
+            we have it
+        </text>
+        <text>
+            parental advisory
+            explicit content
+        </text>
+        <text>
+            pico says
+            trans rights
+        </text>
+        <text>
+            album of the year
+            damage control
+        </text>
+        <text>
+            proudly made
+            via newgrounds pms
+        </text>
+        <text>
+            nicotine induced
+            game development
+        </text>
+        <text>
+            free crackheads
+            with love to figburn
+        </text>
+        <text>
+            press square
+            to open your popit menu
+        </text>
+        <text>
+            jojo sez
+            shoooooooom
+        </text>
+        <text>
+            updates each pico day
+            on time every time
+        </text>
+        <text>
+            macromedia software
+            legally obtained
+        </text>
+        <text>
+            under judgement
+            proud resident
+        </text>
+        <text>
+            make tom proud
+            weekly second
+        </text>
+        <text>
+            to enable pen pressure
+            disable windows ink
+        </text>
+        <text>
+            trending
+            only on x
+        </text>
+    </randomTexts>
+</introText>

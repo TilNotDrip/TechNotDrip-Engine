@@ -7,6 +7,11 @@ import flixel.util.FlxSignal;
 	CONDUCTOR TODO:
 	* Add time changes, so most things arent hardcoded
  */
+//
+
+/**
+ * The conductor is an class that handles most of the music timing.
+ */
 class Conductor implements IFlxDestroyable
 {
 	/**
@@ -101,6 +106,22 @@ class Conductor implements IFlxDestroyable
 
 		bpm = 100;
 		time = 0;
+	}
+
+	/**
+	 * Updates the current conductor time.
+	 * @param songTime The time to set it to. If not specified the FlxG.sound.music time will be used instead.
+	 */
+	public function update(?songTime:Float):Void
+	{
+		if (songTime != null)
+		{
+			time = songTime;
+		}
+		else
+		{
+			time = FlxG.sound.music.time ?? 0.0;
+		}
 	}
 
 	function set_time(value:Float):Float

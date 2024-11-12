@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
+import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
 import openfl.display.Sprite;
@@ -31,6 +32,9 @@ class Main extends Sprite
 		var flxGame:FlxGame = new FlxGame(flxGameData.width, flxGameData.height, flxGameData.initState, flxGameData.framerate, flxGameData.framerate,
 			!flxGameData.showSplash, flxGameData.startFullscreen);
 		addChild(flxGame);
+
+		var performanceStats:PerformanceStats = new PerformanceStats(5, 5, 0xFFFFFF);
+		addChild(performanceStats);
 
 		Assets.cache.enabled = false;
 

@@ -18,7 +18,11 @@ class PathsCache
 	 *
 	 * You should only put something here if you use it on a daily basis.
 	 */
-	final removeExcludeKeys:Array<String> = [];
+	final removeExcludeKeys:Array<String> = [
+		'assets/ui/fonts/alphabet/bold.' + Paths.IMAGE_EXT,
+		'assets/ui/fonts/alphabet/default.' + Paths.IMAGE_EXT,
+		'assets/ui/mainmenu/freakyMenu.' + Paths.AUDIO_EXT
+	];
 
 	var cachedAudioKeys:Array<String>;
 	var cachedImageKeys:Array<String>;
