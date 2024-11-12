@@ -21,7 +21,7 @@ class PathsCache
 	final removeExcludeKeys:Array<String> = [
 		'assets/ui/fonts/alphabet/bold.' + Paths.IMAGE_EXT,
 		'assets/ui/fonts/alphabet/default.' + Paths.IMAGE_EXT,
-		'assets/ui/mainmenu/freakyMenu.' + Paths.AUDIO_EXT
+		'assets/ui/menu/freakyMenu.' + Paths.AUDIO_EXT
 	];
 
 	var cachedAudioKeys:Array<String>;

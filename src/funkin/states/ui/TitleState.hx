@@ -53,7 +53,9 @@ class TitleState extends FunkinState
 	override public function create():Void
 	{
 		conductor.bpm = 102;
-		FlxG.sound.playMusic(Paths.content.audio('ui/mainmenu/freakyMenu'));
+		FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+
+		initPostIntroObjects();
 
 		if (!seenIntro)
 		{
@@ -63,8 +65,6 @@ class TitleState extends FunkinState
 		{
 			skipIntro();
 		}
-
-		initPostIntroObjects();
 
 		super.create();
 	}
@@ -196,10 +196,12 @@ class TitleState extends FunkinState
 				enterSpr.animation.play('press', true);
 			}
 
-			FlxG.sound.play(Paths.content.audio('ui/mainmenu/confirmMenu'), 0.7);
+			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'), 0.7);
 
 			new FlxTimer().start(2, (tmr:FlxTimer) ->
 			{
+				FlxG.switchState(MenuState.new);
+
 				Paths.content.cache.removeImage(Paths.location.image('ui/title/logoBumpin'));
 				Paths.content.cache.removeImage(Paths.location.image('ui/title/gfDanceTitle'));
 				Paths.content.cache.removeImage(Paths.location.image('ui/title/titleEnter'));
@@ -219,14 +221,17 @@ class TitleState extends FunkinState
 			FlxG.camera.flash(0xFFFFFFFF, seenIntro ? 1 : 4);
 		}
 
-		textGroup.destroy();
-
 		for (spr in [logoBumpin, gfDance, enterSpr])
 		{
 			if (spr != null)
 			{
 				spr.visible = true;
 			}
+		}
+
+		if (textGroup != null)
+		{
+			textGroup.destroy();
 		}
 
 		seenIntro = true;
