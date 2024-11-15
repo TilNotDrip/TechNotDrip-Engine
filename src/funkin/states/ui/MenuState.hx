@@ -8,6 +8,8 @@ import flixel.util.typeLimit.NextState;
 
 class MenuState extends FunkinState
 {
+	public static var curSelected:Int = 0;
+
 	public static var menuItems:Array<MenuItem> = [
 		{
 			id: 'storymode',
@@ -18,24 +20,22 @@ class MenuState extends FunkinState
 			classToSwitch: null
 		},
 		{
+			id: 'credits',
+			classToSwitch: null
+		},
+		{
 			id: 'merch',
 			website: 'https://needlejuicerecords.com/en-ca/collections/friday-night-funkin'
 		},
 		{
 			id: 'options',
 			classToSwitch: null
-		},
-		{
-			id: 'credits',
-			classToSwitch: null
 		}
 	];
 
-	var menuItemGroup:FlxTypedGroup<FlxSprite> = null;
-
 	var camFollow:FlxObject = null;
 
-	public static var curSelected:Int = 0;
+	var menuItemGroup:FlxTypedGroup<FlxSprite> = null;
 
 	var selected:Bool = false;
 
@@ -50,7 +50,7 @@ class MenuState extends FunkinState
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
 
-		var bg:FlxSprite = new FlxSprite(Paths.content.imageGraphic('ui/menu/menuBGYellow')); // i would do normal menuBG, but it looks yucky
+		var bg:FlxSprite = new FlxSprite(Paths.content.imageGraphic('ui/menu/menuBGYellow'));
 		bg.scrollFactor.set(0, 0.17);
 		bg.setGraphicSize(Std.int(bg.width * 1.2));
 		bg.updateHitbox();
