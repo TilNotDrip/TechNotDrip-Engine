@@ -25,6 +25,8 @@ class Project extends HXProject
 	{
 		super();
 
+		setenv('HAXEPATH', './'); // Fixes an issue for haxelibs that use native C++ files until Haxe 5 releases.
+
 		setupApplicationSettings();
 		setupWindowSettings();
 		setupPathSettings();
@@ -36,12 +38,13 @@ class Project extends HXProject
 	public function setupApplicationSettings():Void
 	{
 		meta.title = 'Friday Night Funkin\': TechNotDrip Engine';
+		meta.version = '0.1.0';
+		meta.packageName = 'com.technotdrip.tilnotdrip';
+		meta.company = 'TilNotDrip';
+
 		app.file = 'TechNotDrip';
 		app.main = 'Main';
-		meta.version = '0.1.0';
-		meta.company = 'TilNotDrip';
 		app.preloader = 'flixel.system.FlxPreloader';
-		app.swfVersion = 11.8;
 	}
 
 	public function setupWindowSettings():Void
@@ -68,6 +71,7 @@ class Project extends HXProject
 		{
 			window.orientation = LANDSCAPE;
 			window.fullscreen = false;
+			window.resizable = false;
 			window.width = 0;
 			window.height = 0;
 		}
@@ -75,7 +79,7 @@ class Project extends HXProject
 
 	public function setupPathSettings():Void
 	{
-		app.path = getBuildDirectory();
+		app.path = 'export/' + ((debug) ? 'debug' : 'release');
 
 		var excludeList:Array<String> = [];
 		excludeList.push((platformType == WEB) ? 'ogg' : 'mp3');
@@ -83,69 +87,72 @@ class Project extends HXProject
 		// TODO: Maybe scan the entire assets folder instead like base fnf.
 		includeAssets("assets", "assets", ['*'], excludeList);
 
-		icons.push(new Icon('extras/appicons/icon16.png', 16));
-		icons.push(new Icon('extras/appicons/icon32.png', 32));
-		icons.push(new Icon('extras/appicons/icon64.png', 64));
-		icons.push(new Icon('extras/appicons/icon.png'));
+		addIcon('extras/appicons/icon16.png', 16);
+		addIcon('extras/appicons/icon32.png', 32);
+		addIcon('extras/appicons/icon64.png', 64);
+		addIcon('extras/appicons/icon.png');
 
 		sources.push('src');
 	}
 
 	public function setupHaxelibs():Void
 	{
-		haxelibs.push(new Haxelib('lime', '8.2.1'));
-		haxelibs.push(new Haxelib('openfl', '9.4.0'));
-		haxelibs.push(new Haxelib('flixel', '5.8.0'));
-		haxelibs.push(new Haxelib('flixel-addons', '3.2.3'));
-
-		if (debug)
-			haxelibs.push(new Haxelib('hxcpp-debug-server', '1.2.4'));
+		addHaxelib('lime', '8.2.1');
+		addHaxelib('openfl', '9.4.0');
+		addHaxelib('flixel', '5.8.0');
+		addHaxelib('flixel-addons', '3.2.3');
+		addHaxelib('hxcpp-debug-server', '1.2.4', debug);
 	}
 
 	public function setupHaxeDefines():Void
 	{
-		if (DOX_GENERATION)
-			haxedefs.set('doc-gen', '');
-
-		if (!debug)
-			haxedefs.set('FLX_NO_DEBUG', '');
-
-		haxedefs.set('FLX_NO_HEALTH', '');
-
-		if (platformType == MOBILE)
-		{
-			haxedefs.set('FLX_NO_KEYBOARD', '');
-			haxedefs.set('FLX_NO_MOUSE', '');
-		}
-
-		if (platformType == DESKTOP)
-		{
-			haxedefs.set('FLX_NO_TOUCH', '');
-		}
-
-		haxedefs.set('message.reporting', 'pretty');
-
-		if (!debug)
-			haxedefs.set('NAPE_RELEASE_BUILD', '');
+		addHaxeDefine('doc-gen', DOX_GENERATION);
+		addHaxeDefine('FLX_NO_DEBUG', !debug);
+		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
+		addHaxeDefine('FLX_NO_HEALTH');
+		addHaxeDefine('FLX_NO_KEYBOARD', platformType == MOBILE);
+		addHaxeDefine('FLX_NO_MOUSE', platformType == MOBILE);
+		addHaxeDefine('FLX_NO_TOUCH', platformType != MOBILE);
+		addHaxeDefine('message.reporting', 'pretty');
+		addHaxeDefine('NAPE_RELEASE_BUILD', !debug);
 	}
 
 	public function setupHaxeFlags():Void
 	{
-		haxeflags.push('-dce no');
-		haxeflags.push("--macro include('funkin')");
-		haxeflags.push("--macro include('flixel', true, ['flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*'])");
-		haxeflags.push("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
-
-		if (DOX_GENERATION)
-		{
-			haxeflags.push('--no-output');
-			haxeflags.push('-xml docs/dox/' + Std.string(target).toLowerCase());
-		}
+		addHaxeFlag('-dce no');
+		addHaxeFlag("--macro include('funkin')");
+		addHaxeFlag("--macro include('flixel', true, ['flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*'])");
+		addHaxeFlag("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
+		addHaxeFlag('--no-output', DOX_GENERATION);
+		addHaxeFlag('-xml docs/dox/' + Std.string(target).toLowerCase() + '.xml', DOX_GENERATION);
 	}
 
-	function getBuildDirectory():String
+	public function addHaxelib(name:String, version:String = '', conditions:Bool = true):Void
 	{
-		var buildDir:String = 'export/' + ((debug) ? 'debug' : 'release');
-		return buildDir;
+		if (!conditions)
+			return;
+
+		haxelibs.push(new Haxelib(name, version));
+	}
+
+	public function addHaxeDefine(name:String, value:String = '', conditions:Bool = true):Void
+	{
+		if (!conditions)
+			return;
+
+		haxedefs.set(name, value);
+	}
+
+	public function addHaxeFlag(name:String, conditions:Bool = true):Void
+	{
+		if (!conditions)
+			return;
+
+		haxeflags.push(name);
+	}
+
+	public function addIcon(path:String, ?size:Int):Void
+	{
+		icons.push(new Icon(path, size));
 	}
 }
