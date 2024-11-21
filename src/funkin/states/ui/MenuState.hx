@@ -62,6 +62,22 @@ class MenuState extends FunkinState
 
 		menuItemGroup = new FlxTypedGroup<FlxSprite>();
 		add(menuItemGroup);
+		
+		leftWatermarkText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+        rightWatermarkText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+
+        leftWatermarkText.scrollFactor.set(0, 0);
+        rightWatermarkText.scrollFactor.set(0, 0);
+        leftWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        rightWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+
+        // TODO: move the version numbers to a variable, im just too lazy rn
+        leftWatermarkText.text = "Friday Night Funkin' v0.4";
+        rightWatermarkText.text = "TechNotDrip Engine v0.1 [ALPHA]";
+
+        add(leftWatermarkText);
+        add(rightWatermarkText);
+  }
 
 		super.create();
 
