@@ -78,7 +78,6 @@ class MenuState extends FunkinState
 
         add(leftWatermarkText);
         add(rightWatermarkText);
-  }
 
 		super.create();
 
