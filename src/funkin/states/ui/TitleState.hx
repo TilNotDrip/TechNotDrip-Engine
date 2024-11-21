@@ -1,7 +1,6 @@
 package funkin.states.ui;
 
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.system.debug.watch.Watch;
 import funkin.objects.ui.Alphabet;
 import haxe.xml.Access;
 
@@ -52,8 +51,13 @@ class TitleState extends FunkinState
 
 	override public function create():Void
 	{
-		conductor.bpm = 102;
-		FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+		Paths.content.cache.clear();
+
+		if (FlxG.sound.music == null)
+		{
+			conductor.bpm = 102;
+			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+		}
 
 		initPostIntroObjects();
 
@@ -67,6 +71,41 @@ class TitleState extends FunkinState
 		}
 
 		super.create();
+	}
+
+	override public function update(elapsed:Float):Void
+	{
+		#if desktop
+		if (FlxG.keys.justPressed.ESCAPE)
+		{
+			FlxG.stage.application.window.close();
+		}
+		#end
+
+		conductor.update();
+
+		if (!seenIntro)
+		{
+			handleIntroUpdate();
+		}
+		else
+		{
+			handlePostIntroUpdate();
+		}
+
+		super.update(elapsed);
+	}
+
+	override public function destroy():Void
+	{
+		Paths.content.cache.removeImage(Paths.location.image('ui/title/logoBumpin'));
+		Paths.content.cache.removeImage(Paths.location.image('ui/title/gfDanceTitle'));
+		Paths.content.cache.removeImage(Paths.location.image('ui/title/titleEnter'));
+
+		if (ngSpr != null)
+			Paths.content.cache.removeImage(ngSpr.graphic.key);
+
+		super.destroy();
 	}
 
 	function initIntroObjects():Void
@@ -97,13 +136,13 @@ class TitleState extends FunkinState
 			ngSpr.loadGraphic(Paths.content.imageGraphic('ui/title/newgrounds_logo_animated'), true, 600);
 			ngSpr.animation.add('idle', [0, 1], 4);
 			ngSpr.animation.play('idle');
-			ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.55));
+			ngSpr.setGraphicSize(Math.floor(ngSpr.width * 0.55));
 			ngSpr.y += 25;
 		}
 		else
 		{
 			ngSpr.loadGraphic(Paths.content.imageGraphic('ui/title/newgrounds_logo'));
-			ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
+			ngSpr.setGraphicSize(Math.floor(ngSpr.width * 0.8));
 		}
 
 		ngSpr.visible = false;
@@ -154,29 +193,6 @@ class TitleState extends FunkinState
 		curRandomText = FlxG.random.getObject(randomArray);
 	}
 
-	override public function update(elapsed:Float):Void
-	{
-		#if desktop
-		if (FlxG.keys.justPressed.ESCAPE)
-		{
-			FlxG.stage.application.window.close();
-		}
-		#end
-
-		conductor.update();
-
-		if (!seenIntro)
-		{
-			handleIntroUpdate();
-		}
-		else
-		{
-			handlePostIntroUpdate();
-		}
-
-		super.update(elapsed);
-	}
-
 	function handleIntroUpdate():Void
 	{
 		if (FlxG.keys.justPressed.ENTER)
@@ -201,13 +217,6 @@ class TitleState extends FunkinState
 			new FlxTimer().start(2, (tmr:FlxTimer) ->
 			{
 				FlxG.switchState(MenuState.new);
-
-				Paths.content.cache.removeImage(Paths.location.image('ui/title/logoBumpin'));
-				Paths.content.cache.removeImage(Paths.location.image('ui/title/gfDanceTitle'));
-				Paths.content.cache.removeImage(Paths.location.image('ui/title/titleEnter'));
-
-				if (ngSpr != null)
-					Paths.content.cache.removeImage(ngSpr.graphic.key);
 			});
 
 			transitioning = true;
@@ -232,6 +241,11 @@ class TitleState extends FunkinState
 		if (textGroup != null)
 		{
 			textGroup.destroy();
+		}
+
+		if (ngSpr != null && ngSpr.visible)
+		{
+			ngSpr.visible = false;
 		}
 
 		seenIntro = true;
