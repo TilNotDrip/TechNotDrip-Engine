@@ -5,6 +5,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.typeLimit.NextState;
+import flixel.text.FlxText;
 
 class MenuState extends FunkinState
 {
@@ -63,8 +64,8 @@ class MenuState extends FunkinState
 		menuItemGroup = new FlxTypedGroup<FlxSprite>();
 		add(menuItemGroup);
 		
-		leftWatermarkText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
-        rightWatermarkText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+		var leftWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+        var rightWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
 
         leftWatermarkText.scrollFactor.set(0, 0);
         rightWatermarkText.scrollFactor.set(0, 0);
