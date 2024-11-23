@@ -4,8 +4,9 @@ import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.util.typeLimit.NextState;
 import flixel.text.FlxText;
+import flixel.util.typeLimit.NextState;
+import funkin.macros.Git;
 
 class MenuState extends FunkinState
 {
@@ -42,7 +43,7 @@ class MenuState extends FunkinState
 
 	override public function create():Void
 	{
-		if (FlxG.sound.music != null)
+		if (FlxG.sound.music == null)
 		{
 			conductor.bpm = 102;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
@@ -63,21 +64,27 @@ class MenuState extends FunkinState
 
 		menuItemGroup = new FlxTypedGroup<FlxSprite>();
 		add(menuItemGroup);
-		
+
 		var leftWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
-        var rightWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+		var rightWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
 
-        leftWatermarkText.scrollFactor.set(0, 0);
-        rightWatermarkText.scrollFactor.set(0, 0);
-        leftWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        rightWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		leftWatermarkText.scrollFactor.set(0, 0);
+		rightWatermarkText.scrollFactor.set(0, 0);
+		leftWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		rightWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 
-        // TODO: move the version numbers to a variable, im just too lazy rn
-        leftWatermarkText.text = "Friday Night Funkin' v0.4";
-        rightWatermarkText.text = "TechNotDrip Engine v0.1 [ALPHA]";
+		// TODO: move the version numbers to a variable, im just too lazy rn
+		leftWatermarkText.text = "Based off of Friday Night Funkin' v" + Constants.FNF_VERSION;
 
-        add(leftWatermarkText);
-        add(rightWatermarkText);
+		var versionString:String = 'v' + Constants.VERSION;
+
+		if (!['stable', 'main', 'master'].contains(Constants.GIT_BRANCH.toLowerCase()))
+			versionString += ' [' + Constants.GIT_BRANCH.toUpperCase() + ']';
+
+		rightWatermarkText.text = "TechNotDrip Engine " + versionString;
+
+		add(leftWatermarkText);
+		add(rightWatermarkText);
 
 		super.create();
 
