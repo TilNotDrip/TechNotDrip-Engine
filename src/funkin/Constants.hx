@@ -12,7 +12,7 @@ class Constants
 	/**
 	 * The version of Friday Night Funkin' that TechNotDrip Engine is based off of.
 	 */
-	public static final FNF_VERSION:String = '0.4';
+	public static final FNF_VERSION:String = '0.5.3';
 
 	/**
 	 * The current Git Commit Hash.
