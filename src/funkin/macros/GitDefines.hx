@@ -4,7 +4,7 @@ package funkin.macros;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
-class Git
+class GitDefines
 {
 	/**
 	 * Get the SHA1 hash of the current Git commit.
@@ -25,7 +25,8 @@ class Git
 	}
 
 	/**
-	 * Get whether the local Git repository is dirty or not.
+	 * Get whether the local Git repository is modified or not.
+	 * @return Is the git repository modified?
 	 */
 	public static macro function gitModified():ExprOf<Bool>
 	{
