@@ -14,6 +14,11 @@ using StringTools;
 class Project extends HXProject
 {
 	/**
+	 * The version of TechNotDrip Engine.
+	 */
+	public final TECHNOTDRIP_VERSION:String = '0.1.0';
+
+	/**
 	 * Whether the game should be compiled into dox instead.
 	 *
 	 * Developers should set this to **false** immediately after use.
@@ -45,7 +50,7 @@ class Project extends HXProject
 	public function setupApplicationSettings():Void
 	{
 		meta.title = 'Friday Night Funkin\': TechNotDrip Engine';
-		meta.version = '0.1.0';
+		meta.version = TECHNOTDRIP_VERSION;
 		meta.packageName = 'com.technotdrip.tilnotdrip';
 		meta.company = 'TilNotDrip';
 
