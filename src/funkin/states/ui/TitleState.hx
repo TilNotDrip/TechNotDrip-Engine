@@ -75,14 +75,14 @@ class TitleState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
-		#if desktop
-		if (FlxG.keys.justPressed.ESCAPE)
+		if (controls.BACK && !transitioning)
 		{
+			#if desktop
 			FlxG.stage.application.window.close();
+			#end
 		}
-		#end
 
-		conductor.update();
+		super.update(elapsed);
 
 		if (!seenIntro)
 		{
@@ -92,8 +92,6 @@ class TitleState extends FunkinState
 		{
 			handlePostIntroUpdate();
 		}
-
-		super.update(elapsed);
 	}
 
 	override public function destroy():Void
@@ -104,6 +102,12 @@ class TitleState extends FunkinState
 
 		if (ngSpr != null)
 			Paths.content.cache.removeImage(ngSpr.graphic.key);
+
+		if (inEasterEgg)
+		{
+			conductor.bpm = 102;
+			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+		}
 
 		super.destroy();
 	}
@@ -195,7 +199,7 @@ class TitleState extends FunkinState
 
 	function handleIntroUpdate():Void
 	{
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			skipIntro();
 		}
@@ -205,7 +209,7 @@ class TitleState extends FunkinState
 
 	function handlePostIntroUpdate():Void
 	{
-		if (FlxG.keys.justPressed.ENTER && !transitioning)
+		if (controls.ACCEPT && !transitioning)
 		{
 			if (enterSpr != null && enterSpr.animation != null)
 			{

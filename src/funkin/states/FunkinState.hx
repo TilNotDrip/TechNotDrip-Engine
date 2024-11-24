@@ -3,12 +3,18 @@ package funkin.states;
 import flixel.FlxBasic;
 import flixel.FlxState;
 import flixel.util.FlxSort;
+import funkin.util.Controls;
 
 /**
  * A FunkinState is a regular FlxState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
  */
 class FunkinState extends FlxState
 {
+	private var controls(get, never):Controls;
+
+	inline private function get_controls():Controls
+		return Controls.instance;
+
 	/**
 	 * The conductor that controls everything music-wise inside this state.
 	 */
@@ -22,6 +28,12 @@ class FunkinState extends FlxState
 		conductor.sectionHit.add(sectionHit);
 
 		super();
+	}
+
+	override public function update(elasped:Float):Void
+	{
+		conductor.update();
+		super.update(elapsed);
 	}
 
 	override public function destroy():Void
