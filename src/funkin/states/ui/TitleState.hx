@@ -75,12 +75,14 @@ class TitleState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
+		#if desktop
 		if (controls.BACK && !transitioning)
 		{
-			#if desktop
 			FlxG.stage.application.window.close();
-			#end
 		}
+		#end
+
+		conductor.update();
 
 		super.update(elapsed);
 

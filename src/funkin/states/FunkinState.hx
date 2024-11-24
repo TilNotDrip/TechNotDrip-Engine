@@ -30,12 +30,6 @@ class FunkinState extends FlxState
 		super();
 	}
 
-	override public function update(elasped:Float):Void
-	{
-		conductor.update();
-		super.update(elapsed);
-	}
-
 	override public function destroy():Void
 	{
 		conductor.destroy();
