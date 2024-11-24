@@ -103,12 +103,6 @@ class TitleState extends FunkinState
 		if (ngSpr != null)
 			Paths.content.cache.removeImage(ngSpr.graphic.key);
 
-		if (inEasterEgg)
-		{
-			conductor.bpm = 102;
-			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
-		}
-
 		super.destroy();
 	}
 
