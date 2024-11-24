@@ -52,11 +52,12 @@ class MenuState extends FunkinState
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
 
-		var bg:FlxSprite = new FlxSprite(Paths.content.imageGraphic('ui/menu/menuBGYellow'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.content.imageGraphic('ui/menu/menuBGYellow'));
 		bg.scrollFactor.set(0, 0.17);
-		bg.setGraphicSize(Std.int(bg.width * 1.2));
+		bg.setGraphicSize(Math.floor(bg.width * 1.2));
 		bg.updateHitbox();
 		bg.screenCenter();
+		bg.active = false;
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -65,25 +66,20 @@ class MenuState extends FunkinState
 		menuItemGroup = new FlxTypedGroup<FlxSprite>();
 		add(menuItemGroup);
 
-		var leftWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
-		var rightWatermarkText:FlxText = new FlxText(0, FlxG.height - 18, FlxG.width, '', 12);
+		var fnfWatermark:FlxText = new FlxText(5, FlxG.height - 18, 0, 'Based on Friday Night Funkin\' v' + Constants.FNF_VERSION, 12);
+		fnfWatermark.setFormat(Paths.location.get('ui/fonts/vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		fnfWatermark.scrollFactor.set();
+		add(fnfWatermark);
 
-		leftWatermarkText.scrollFactor.set(0, 0);
-		rightWatermarkText.scrollFactor.set(0, 0);
-		leftWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		rightWatermarkText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		var tndWatermark:FlxText = new FlxText(-5, FlxG.height - 18, FlxG.width, 'TechNotDrip Engine v${Constants.TECHNOTDRIP_VERSION}', 12);
+		tndWatermark.setFormat(Paths.location.get('ui/fonts/vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		tndWatermark.scrollFactor.set();
+		add(tndWatermark);
 
-		leftWatermarkText.text = "Based off of Friday Night Funkin' v" + Constants.FNF_VERSION;
+		var gitBranch:String = Constants.GIT_BRANCH;
 
-		var versionString:String = 'v' + Constants.VERSION;
-
-		if (!['stable', 'main', 'master'].contains(Constants.GIT_BRANCH.toLowerCase()))
-			versionString += ' [' + Constants.GIT_BRANCH.toUpperCase() + ']';
-
-		rightWatermarkText.text = "TechNotDrip Engine " + versionString;
-
-		add(leftWatermarkText);
-		add(rightWatermarkText);
+		if (!['stable', 'main', 'master', null].contains(gitBranch.toLowerCase()))
+			tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : '')) + ' [' + gitBranch.toUpperCase() + '] [' + Constants.GIT_HASH_SPLICED + ']';
 
 		super.create();
 

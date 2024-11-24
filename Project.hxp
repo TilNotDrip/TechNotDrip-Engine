@@ -2,6 +2,7 @@ package;
 
 import hxp.*;
 import lime.tools.*;
+import sys.io.Process;
 
 using StringTools;
 
@@ -20,6 +21,12 @@ class Project extends HXProject
 	 * @default false
 	 */
 	public final DOX_GENERATION:Bool = false;
+
+	public var GIT_HASH:String = null;
+
+	public var GIT_BRANCH:String = null;
+
+	public var GIT_MODIFIED:Null<Bool> = null;
 
 	public function new()
 	{
@@ -115,6 +122,9 @@ class Project extends HXProject
 		addHaxeDefine('FLX_NO_TOUCH', platformType != MOBILE);
 		addHaxeDefine('message.reporting', 'pretty');
 		addHaxeDefine('NAPE_RELEASE_BUILD', !debug);
+		addHaxeDefine('TND_GIT_HASH', getGitHash(false));
+		addHaxeDefine('TND_GIT_BRANCH', getGitBranch());
+		addHaxeDefine('TND_GIT_MODIFIED', getGitModified());
 	}
 
 	public function setupHaxeFlags():Void
@@ -154,5 +164,71 @@ class Project extends HXProject
 	public function addIcon(path:String, ?size:Int):Void
 	{
 		icons.push(new Icon(path, size));
+	}
+
+	function getGitHash(splice:Bool = false):String
+	{
+		if (GIT_HASH == null)
+		{
+			var gitProcess:Process = new Process('git', ['rev-parse', 'HEAD']);
+
+			if (gitProcess.exitCode() != 0)
+			{
+				trace('[WARNING]: Unable to get current git repository hash.');
+				return null;
+			}
+			else
+			{
+				GIT_HASH = gitProcess.stdout.readLine().trim();
+			}
+
+			gitProcess.close();
+		}
+
+		return GIT_HASH;
+	}
+
+	function getGitBranch():String
+	{
+		if (GIT_BRANCH == null)
+		{
+			var gitProcess:Process = new Process('git', ['rev-parse', '--abbrev-ref', 'HEAD']);
+
+			if (gitProcess.exitCode() != 0)
+			{
+				trace('[WARNING]: Unable to get current git repository branch.');
+				return null;
+			}
+			else
+			{
+				GIT_BRANCH = gitProcess.stdout.readLine().trim();
+			}
+
+			gitProcess.close();
+		}
+
+		return GIT_BRANCH;
+	}
+
+	function getGitModified():Bool
+	{
+		if (GIT_MODIFIED == null)
+		{
+			var gitProcess:Process = new Process('git', ['status', '--porcelain']);
+
+			if (gitProcess.exitCode() != 0)
+			{
+				trace('[WARNING]: Unable to get current git repository branch.');
+				return null;
+			}
+			else
+			{
+				GIT_MODIFIED = gitProcess.stdout.readLine().trim().length > 0;
+			}
+
+			gitProcess.close();
+		}
+
+		return GIT_MODIFIED;
 	}
 }
