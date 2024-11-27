@@ -6,8 +6,8 @@ import flixel.input.keyboard.FlxKey;
 import flixel.system.debug.watch.Tracker.TrackerProfile;
 import flixel.util.FlxDestroyUtil.IFlxDestroyable;
 import flixel.util.FlxSignal;
+import flixel.util.typeLimit.OneOfTwo;
 import funkin.macros.ControlsMacro;
-import haxe.ds.Either;
 
 @:build(funkin.macros.ControlsMacro.build())
 class Controls implements IFlxDestroyable
@@ -85,8 +85,8 @@ class Controls implements IFlxDestroyable
 				Reflect.setField(this, variableName, false);
 		}
 
-		var keysDown:Array<Either<FlxKey, FlxGamepadInputID>> = [];
-		var keysReleased:Array<Either<FlxKey, FlxGamepadInputID>> = [];
+		var keysDown:Array<OneOfTwo<FlxKey, FlxGamepadInputID>> = [];
+		var keysReleased:Array<OneOfTwo<FlxKey, FlxGamepadInputID>> = [];
 
 		@:privateAccess
 		for (key in FlxG.keys._keyListArray)
@@ -94,9 +94,9 @@ class Controls implements IFlxDestroyable
 			if (key != null)
 			{
 				if (key.justPressed)
-					keysDown.push(Either.Left(key.ID));
+					keysDown.push(key.ID);
 				else if (key.justReleased)
-					keysReleased.push(Either.Left(key.ID));
+					keysReleased.push(key.ID);
 			}
 		}
 
@@ -108,9 +108,9 @@ class Controls implements IFlxDestroyable
 				if (key != null)
 				{
 					if (key.justPressed)
-						keysDown.push(Either.Right(key.ID));
+						keysDown.push(key.ID);
 					else if (key.justReleased)
-						keysReleased.push(Either.Right(key.ID));
+						keysReleased.push(key.ID);
 				}
 			}
 		}
@@ -120,16 +120,8 @@ class Controls implements IFlxDestroyable
 			var key:Int = -1;
 			var variableNames:Array<String> = [];
 
-			switch (eitherKey)
-			{
-				case Left(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, false);
-
-				case Right(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, true);
-			}
+			key = cast eitherKey;
+			variableNames = getControlNamesFromKey(key, Std.isOfType(eitherKey, FlxGamepadInputID));
 
 			for (variableName in variableNames)
 			{
@@ -150,16 +142,8 @@ class Controls implements IFlxDestroyable
 			var key:Int = -1;
 			var variableNames:Array<String> = [];
 
-			switch (eitherKey)
-			{
-				case Left(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, false);
-
-				case Right(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, true);
-			}
+			key = cast eitherKey;
+			variableNames = getControlNamesFromKey(key, Std.isOfType(eitherKey, FlxGamepadInputID));
 
 			for (variableName in variableNames)
 			{
@@ -170,7 +154,7 @@ class Controls implements IFlxDestroyable
 					if (ControlsMacro.variablesWithRandP.contains(variableName))
 						Reflect.setField(this, variableName + '_R', true);
 
-					released.dispatch();
+					released.dispatch(); // why doesnt this work rahhh
 				}
 			}
 		}
