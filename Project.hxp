@@ -228,7 +228,14 @@ class Project extends HXProject
 			}
 			else
 			{
-				GIT_MODIFIED = gitProcess.stdout.readLine().trim().length > 0;
+				try
+				{
+					GIT_MODIFIED = gitProcess.stdout.readLine().trim().length > 0;
+				}
+				catch(e)
+				{
+					return false; // idk it breaks sometimes
+				}
 			}
 
 			gitProcess.close();

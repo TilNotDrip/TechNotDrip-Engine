@@ -1,6 +1,6 @@
 package funkin;
 
-import funkin.macros.Git;
+import funkin.macros.GitDefines;
 
 class Constants
 {

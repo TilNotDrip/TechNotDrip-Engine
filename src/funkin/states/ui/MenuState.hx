@@ -6,7 +6,7 @@ import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.typeLimit.NextState;
-import funkin.macros.Git;
+import funkin.macros.GitDefines;
 
 class MenuState extends FunkinState
 {
