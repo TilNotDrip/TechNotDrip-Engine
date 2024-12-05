@@ -284,20 +284,16 @@ abstract FeatureFlag(String) {
 
 		if (isEnabled(project)) {
 			// If this flag was already enabled, disable the inverse.
-			project.info('Enabling feature flag ${this}');
 			getInverse().disable(project, false);
 		} else if (getInverse().isEnabled(project)) {
 			// If the inverse flag was already enabled, disable this flag.
-			project.info('Disabling feature flag ${this}');
 			disable(project, false);
 		} else {
 			if (enableByDefault) {
 				// Enable this flag if it was unset, and disable the inverse.
-				project.info('Enabling feature flag ${this}');
 				enable(project, true);
 			} else {
 				// Disable this flag if it was unset, and enable the inverse.
-				project.info('Disabling feature flag ${this}');
 				disable(project, true);
 			}
 		}
@@ -310,7 +306,7 @@ abstract FeatureFlag(String) {
 	 * @param andInverse Also disable the feature flag's inverse.
 	 */
 	public function enable(project:Project, andInverse:Bool = true) {
-		project.setHaxedef(this, "");
+		project.haxedefs.set(this, "");
 		if (andInverse) {
 			getInverse().disable(project, false);
 		}
@@ -323,7 +319,7 @@ abstract FeatureFlag(String) {
 	 * @param andInverse Also enable the feature flag's inverse.
 	 */
 	public function disable(project:Project, andInverse:Bool = true) {
-		project.unsetHaxedef(this);
+		project.haxedefs.remove(this);
 		if (andInverse) {
 			getInverse().enable(project, false);
 		}
