@@ -257,3 +257,102 @@ class Project extends HXProject
 		return GIT_MODIFIED;
 	}
 }
+
+/**
+ * An object representing a feature flag, which can be enabled or disabled.
+ * Includes features such as automatic generation of compile defines and inversion.
+ */
+abstract FeatureFlag(String) {
+	static final INVERSE_PREFIX:String = "NO_";
+
+	public function new(input:String) {
+		this = input;
+	}
+
+	@:from
+	public static function fromString(input:String):FeatureFlag {
+		return new FeatureFlag(input);
+	}
+
+	/**
+	 * Enable/disable a feature flag if it is unset, and handle the inverse flag.
+	 * Doesn't override a feature flag that was set explicitly.
+	 * @param enableByDefault Whether to enable this feature flag if it is unset.
+	 */
+	public function apply(project:Project, enableByDefault:Bool = false):Void {
+		// TODO: Name this function better?
+
+		if (isEnabled(project)) {
+			// If this flag was already enabled, disable the inverse.
+			project.info('Enabling feature flag ${this}');
+			getInverse().disable(project, false);
+		} else if (getInverse().isEnabled(project)) {
+			// If the inverse flag was already enabled, disable this flag.
+			project.info('Disabling feature flag ${this}');
+			disable(project, false);
+		} else {
+			if (enableByDefault) {
+				// Enable this flag if it was unset, and disable the inverse.
+				project.info('Enabling feature flag ${this}');
+				enable(project, true);
+			} else {
+				// Disable this flag if it was unset, and enable the inverse.
+				project.info('Disabling feature flag ${this}');
+				disable(project, true);
+			}
+		}
+	}
+
+	/**
+	 * Enable this feature flag by setting the appropriate compile define.
+	 *
+	 * @param project The project to modify.
+	 * @param andInverse Also disable the feature flag's inverse.
+	 */
+	public function enable(project:Project, andInverse:Bool = true) {
+		project.setHaxedef(this, "");
+		if (andInverse) {
+			getInverse().disable(project, false);
+		}
+	}
+
+	/**
+	 * Disable this feature flag by removing the appropriate compile define.
+	 *
+	 * @param project The project to modify.
+	 * @param andInverse Also enable the feature flag's inverse.
+	 */
+	public function disable(project:Project, andInverse:Bool = true) {
+		project.unsetHaxedef(this);
+		if (andInverse) {
+			getInverse().enable(project, false);
+		}
+	}
+
+	/**
+	 * Query if this feature flag is enabled.
+	 * @param project The project to query.
+	 */
+	public function isEnabled(project:Project):Bool {
+		// Check both Haxedefs and Defines for this flag.
+		return project.haxedefs.exists(this) || project.defines.exists(this);
+	}
+
+	/**
+	 * Query if this feature flag's inverse is enabled.
+	 */
+	public function isDisabled(project:Project):Bool {
+		return getInverse().isEnabled(project);
+	}
+
+	/**
+	 * Return the inverse of this feature flag.
+	 * @return A new feature flag that is the inverse of this one.
+	 */
+	public function getInverse():FeatureFlag {
+		if (this.startsWith(INVERSE_PREFIX)) {
+			return this.substring(INVERSE_PREFIX.length);
+		}
+		return INVERSE_PREFIX + this;
+	}
+}
