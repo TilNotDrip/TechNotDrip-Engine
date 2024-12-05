@@ -21,7 +21,7 @@ jobs:
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@1.5.1
+        uses: krdlab/setup-haxe@master
         with:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
@@ -53,7 +53,7 @@ jobs:
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@1.5.1
+        uses: krdlab/setup-haxe@master
         with:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
@@ -84,7 +84,7 @@ jobs:
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@1.5.1
+        uses: krdlab/setup-haxe@master
         with:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
