@@ -131,7 +131,7 @@ class Project extends HXProject
 
 	public function setupHaxeDefines():Void
 	{
-		addHaxeDefine('doc-gen', DOX_GENERATION);
+		addHaxeDefine('doc-gen', DOX_GENERATION.isEnabled(this));
 		addHaxeDefine('FLX_NO_DEBUG', !debug);
 		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
 		addHaxeDefine('FLX_NO_HEALTH');
@@ -151,8 +151,8 @@ class Project extends HXProject
 		addHaxeFlag("--macro include('funkin')");
 		addHaxeFlag("--macro include('flixel', true, ['flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*'])");
 		addHaxeFlag("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
-		addHaxeFlag('--no-output', DOX_GENERATION);
-		addHaxeFlag('-xml docs/dox/' + Std.string(target).toLowerCase() + '.xml', DOX_GENERATION);
+		addHaxeFlag('--no-output', DOX_GENERATION.isEnabled(this));
+		addHaxeFlag('-xml docs/dox/' + Std.string(target).toLowerCase() + '.xml', DOX_GENERATION.isEnabled(this));
 	}
 
 	public function addHaxelib(name:String, version:String = '', conditions:Bool = true):Void
