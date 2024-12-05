@@ -19,13 +19,18 @@ class Project extends HXProject
 	public final TECHNOTDRIP_VERSION:String = '0.1.0';
 
 	/**
+	 * `-DDOX_GENERATION`
 	 * Whether the game should be compiled into dox instead.
-	 *
-	 * Developers should set this to **false** immediately after use.
-	 *
-	 * @default false
+	 * Developers can set this by checking the flag above.
 	 */
-	public final DOX_GENERATION:Bool = false;
+	public final DOX_GENERATION:FeatureFlag = "DOX_GENERATION";
+
+	/**
+	 * `-DSHOW_GIT`
+	 * Whether the git hashes/branches should be shown in MenuState.
+	 * Developers can set this by checking the flag above.
+	 */
+	public final SHOW_GIT:FeatureFlag = "SHOW_GIT";
 
 	public var GIT_HASH:String = null;
 
@@ -42,6 +47,7 @@ class Project extends HXProject
 		setupApplicationSettings();
 		setupWindowSettings();
 		setupPathSettings();
+		setupFeatureFlags();
 		setupHaxelibs();
 		setupHaxeDefines();
 		setupHaxeFlags();
@@ -105,6 +111,13 @@ class Project extends HXProject
 		addIcon('extras/appicons/icon.png');
 
 		sources.push('src');
+	}
+
+	public function setupFeatureFlags():Void
+	{
+		// The second parameter is the default value unless overridden!
+		DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
+		SHOW_GIT.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
 	}
 
 	public function setupHaxelibs():Void

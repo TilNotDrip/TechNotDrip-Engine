@@ -76,10 +76,9 @@ class MenuState extends FunkinState
 		tndWatermark.scrollFactor.set();
 		add(tndWatermark);
 
-		var gitBranch:String = Constants.GIT_BRANCH;
-
-		if (!['stable', 'main', 'master', null].contains(gitBranch.toLowerCase()))
-			tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : '')) + ' [' + gitBranch.toUpperCase() + '] [' + Constants.GIT_HASH_SPLICED + ']';
+		#if SHOW_GIT
+		tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : '')) + ' [' + Constants.GIT_BRANCH.toUpperCase() + '] [' + Constants.GIT_HASH_SPLICED + ']';
+		#end
 
 		super.create();
 
