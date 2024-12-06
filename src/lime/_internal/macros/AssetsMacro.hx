@@ -1,7 +1,5 @@
 package lime._internal.macros;
 
-package lime._internal.macros;
-
 #if macro
 import haxe.crypto.BaseCode;
 import haxe.io.Bytes;
