@@ -1,24 +1,32 @@
 package funkin.structures;
 
-typedef WeekStructure = {
-    var name:String;
+typedef WeekStructure =
+{
+	var name:String;
 
-    @:optional
-    var motto:String;
+	var songs:Array<String>;
 
-    var songs:Array<String>;
+	@:optional
+	var ?startLocked:Bool;
 
-    @:optional
-    var displayCharacters:Array<StoryCharacter>;
+	@:optional
+	var ?songToUnlock:String;
 
-    @:optional
-    var weekBG:String; // NOTE: Should be a path or #HEX.
-}
+	@:optional
+	var ?weekToUnlock:String;
 
-typedef StoryCharacter = {
-    var path:String;
+	@:optional
+	var ?visibleWhenLocked:Bool;
 
-    var position:Array<PositionStructure>;
+	@:optional
+	var ?sprites:Array<ObjectStructure>;
 
-    var animations:Array<AnimationStructure>;
+	@:optional
+	var ?motto:String;
+
+	@:optional
+	var ?storyPosition:Int;
+
+	@:optional
+	var ?background:String;
 }

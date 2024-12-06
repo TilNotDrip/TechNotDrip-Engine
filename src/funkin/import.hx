@@ -3,6 +3,8 @@ package funkin;
 #if !macro
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.sound.FlxSound;
 import flixel.text.FlxText;
@@ -10,7 +12,11 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import funkin.Constants;
+import funkin.objects.FunkinSprite.FunkinSpriteGroup as FlxSpriteGroup; // overwrite FlxSpriteGroup with FunkinSprites cuz they cool
+import funkin.objects.FunkinSprite;
+import funkin.util.FunkinSpriteUtil;
+import funkin.util.MathUtil;
+import funkin.util.SystemUtil;
 import funkin.util.paths.Paths;
 import haxe.Exception;
 

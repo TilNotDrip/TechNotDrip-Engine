@@ -3,7 +3,6 @@ package funkin.util.paths;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFramesCollection;
-import haxe.io.Bytes;
 import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
@@ -13,6 +12,11 @@ import openfl.media.Sound;
  */
 class PathsContent
 {
+	/**
+	 * The main cache for this engine.
+	 *
+	 * Contains BitmapData, FlxGraphic, and Sound objects.
+	 */
 	public var cache:PathsCache = null;
 
 	/**
@@ -54,6 +58,17 @@ class PathsContent
 	{
 		var assetKey:String = Paths.location.image(key);
 		return cache.getFlxGraphic(assetKey);
+	}
+
+	/**
+	 * Returns text from a json file.
+	 * @param key The text key to use for returning the text inside.
+	 * @return A string with text from a json file.
+	 */
+	public function json(key:String):String
+	{
+		var fileText:String = text(key + '.json');
+		return fileText;
 	}
 
 	/**

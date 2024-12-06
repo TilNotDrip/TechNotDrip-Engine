@@ -1,6 +1,5 @@
 package funkin.states.ui;
 
-import flixel.group.FlxGroup.FlxTypedGroup;
 import funkin.objects.ui.Alphabet;
 import haxe.xml.Access;
 #if js

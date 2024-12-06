@@ -3,7 +3,6 @@ package funkin.states.ui;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.typeLimit.NextState;
 import funkin.macros.GitDefines;
@@ -15,7 +14,7 @@ class MenuState extends FunkinState
 	public static var menuItems:Array<MenuItem> = [
 		{
 			id: 'storymode',
-			classToSwitch: null
+			classToSwitch: StoryState.new
 		},
 		{
 			id: 'freeplay',
@@ -37,7 +36,7 @@ class MenuState extends FunkinState
 
 	var camFollow:FlxObject = null;
 
-	var menuItemGroup:FlxTypedGroup<FlxSprite> = null;
+	var menuItemGroup:FlxTypedGroup<FunkinSprite> = null;
 
 	var selected:Bool = false;
 
@@ -52,7 +51,7 @@ class MenuState extends FunkinState
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.content.imageGraphic('ui/menu/menuBGYellow'));
+		var bg:FunkinSprite = new FunkinSprite().loadTexture('ui/menu/menuBGYellow');
 		bg.scrollFactor.set(0, 0.17);
 		bg.setGraphicSize(Math.floor(bg.width * 1.2));
 		bg.updateHitbox();
@@ -63,7 +62,7 @@ class MenuState extends FunkinState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		menuItemGroup = new FlxTypedGroup<FlxSprite>();
+		menuItemGroup = new FlxTypedGroup<FunkinSprite>();
 		add(menuItemGroup);
 
 		var fnfWatermark:FlxText = new FlxText(5, FlxG.height - 18, 0, 'Based on Friday Night Funkin\' v' + Constants.FNF_VERSION, 12);
@@ -77,7 +76,12 @@ class MenuState extends FunkinState
 		add(tndWatermark);
 
 		#if SHOW_GIT
-		tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : '')) + ' [' + Constants.GIT_BRANCH.toUpperCase() + '] [' + Constants.GIT_HASH_SPLICED + ']';
+		tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : ''))
+			+ ' ['
+			+ Constants.GIT_BRANCH.toUpperCase()
+			+ '] ['
+			+ Constants.GIT_HASH_SPLICED
+			+ ']';
 		#end
 
 		super.create();
@@ -105,7 +109,7 @@ class MenuState extends FunkinState
 			selected = true;
 			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'));
 
-			menuItemGroup.forEach((item:FlxSprite) ->
+			menuItemGroup.forEach((item:FunkinSprite) ->
 			{
 				if (curSelected == menuItemGroup.members.indexOf(item))
 				{
@@ -123,10 +127,10 @@ class MenuState extends FunkinState
 				}
 			});
 
-			new FlxTimer().start(1, (_) ->
+			new FlxTimer().start(1, (tmr:FlxTimer) ->
 			{
 				if (menuItems[curSelected].website != null)
-					FlxG.openURL(menuItems[curSelected].website);
+					SystemUtil.openURL(menuItems[curSelected].website);
 
 				if (menuItems[curSelected].classToSwitch != null)
 					FlxG.switchState(menuItems[curSelected].classToSwitch);
@@ -146,7 +150,7 @@ class MenuState extends FunkinState
 	{
 		if (menuItemGroup != null)
 		{
-			menuItemGroup.forEach((spr:FlxSprite) ->
+			menuItemGroup.forEach((spr:FunkinSprite) ->
 			{
 				spr.destroy();
 				menuItemGroup.remove(spr, true);
@@ -155,9 +159,10 @@ class MenuState extends FunkinState
 
 		var spacing:Float = 160;
 		var top:Float = (FlxG.height - (spacing * (menuItems.length - 1))) / 2;
+
 		for (i => item in menuItems)
 		{
-			var itemSpr:FlxSprite = new FlxSprite(0, top + (spacing * i));
+			var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
 			itemSpr.frames = Paths.content.sparrowAtlas('ui/menu/items/' + item.id);
 			itemSpr.animation.addByPrefix('idle', item.id + ' idle');
 			itemSpr.animation.addByPrefix('selected', item.id + ' selected');
@@ -168,7 +173,7 @@ class MenuState extends FunkinState
 		}
 	}
 
-	public function changeItem(?indexHop:Int = 0):Void
+	function changeItem(?indexHop:Int = 0):Void
 	{
 		curSelected += indexHop;
 
@@ -180,7 +185,7 @@ class MenuState extends FunkinState
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
 
-		menuItemGroup.forEach(function(item:FlxSprite)
+		menuItemGroup.forEach((item:FunkinSprite) ->
 		{
 			if (curSelected == menuItemGroup.members.indexOf(item))
 			{

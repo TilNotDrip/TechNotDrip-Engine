@@ -11,4 +11,5 @@ RECOVER_*.fla
 !.vscode/tasks.json
 
 docs/dox/
+dump/
 export/

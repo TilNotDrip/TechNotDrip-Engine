@@ -1,7 +1,6 @@
 package funkin.objects.ui;
 
 import flixel.graphics.frames.FlxFramesCollection;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 
 class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 {
@@ -100,7 +99,7 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 					letterSpr.setPosition(letterX, letterY + maxHeight - letterSpr.height);
 					add(letterSpr);
 
-					letterX += cast(letterSpr.width, Int);
+					letterX += Math.floor(letterSpr.width);
 			}
 		}
 	}
@@ -120,7 +119,7 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 	}
 }
 
-class AlphabetLetter extends FlxSprite
+class AlphabetLetter extends FunkinSprite
 {
 	/**
 	 * The letter that this object displays.

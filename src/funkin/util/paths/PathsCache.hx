@@ -1,6 +1,9 @@
 package funkin.util.paths;
 
 import flixel.graphics.FlxGraphic;
+import haxe.Http;
+import haxe.io.Bytes;
+import lime.media.AudioBuffer;
 import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
@@ -57,7 +60,19 @@ class PathsCache
 
 			try
 			{
-				audio = Assets.getSound(key, false);
+				if (key.startsWith('https://'))
+				{
+					var audioRequest:Http = new Http(key);
+
+					audioRequest.onBytes = (data:Bytes) ->
+					{
+						audio = Sound.fromAudioBuffer(AudioBuffer.fromBytes(data));
+					}
+				}
+				else
+				{
+					audio = Assets.getSound(key, false);
+				}
 			}
 			catch (e:Exception)
 			{
@@ -89,7 +104,21 @@ class PathsCache
 
 			try
 			{
-				bitmapData = Assets.getBitmapData(key, false);
+				if (key.startsWith('https://'))
+				{
+					var imageRequest:Http = new Http(key);
+
+					imageRequest.onBytes = (data:Bytes) ->
+					{
+						bitmapData = BitmapData.fromBytes(data);
+					}
+
+					imageRequest.request();
+				}
+				else
+				{
+					bitmapData = Assets.getBitmapData(key, false);
+				}
 			}
 			catch (e:Exception)
 			{

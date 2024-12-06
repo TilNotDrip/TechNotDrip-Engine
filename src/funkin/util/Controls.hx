@@ -9,19 +9,30 @@ import flixel.util.FlxSignal;
 import funkin.macros.ControlsMacro;
 import haxe.ds.Either;
 
+/**
+ * The base controls input manager for TechNotDrip Engine.
+ */
 @:build(funkin.macros.ControlsMacro.build())
 class Controls implements IFlxDestroyable
 {
+	/**
+	 * The current and main instance of this Controls class.
+	 */
 	public static var instance(get, never):Controls;
+
 	static var _instance:Null<Controls> = null;
 
 	static function get_instance():Controls
 	{
 		if (_instance == null)
 			_instance = new Controls(getDefaultMappings(), FlxG.gamepads.getFirstActiveGamepad());
+
 		return _instance;
 	}
 
+	/**
+	 * @return Returns the default binds for controls.
+	 */
 	public static function getDefaultMappings():ControlMappings
 	{
 		return [
@@ -50,9 +61,6 @@ class Controls implements IFlxDestroyable
 	{
 		this.mappings = mappings;
 		this.gamepad = gamepad;
-
-		FlxG.debugger.addTrackerProfile(new TrackerProfile(Controls, Reflect.fields(this)));
-		FlxG.debugger.track(this);
 
 		pressed = new FlxSignal();
 		released = new FlxSignal();

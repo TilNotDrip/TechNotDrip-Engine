@@ -4,15 +4,16 @@ import flixel.FlxBasic;
 import flixel.FlxState;
 import flixel.util.FlxSort;
 import funkin.util.Controls;
+import haxe.Timer;
 
 /**
  * A FunkinState is a regular FlxState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
  */
 class FunkinState extends FlxState
 {
-	private var controls(get, never):Controls;
+	var controls(get, never):Controls;
 
-	inline private function get_controls():Controls
+	inline function get_controls():Controls
 		return Controls.instance;
 
 	/**
