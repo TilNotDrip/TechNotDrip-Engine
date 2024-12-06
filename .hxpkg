@@ -4,7 +4,8 @@
 		"pkgs": [
 			{
 				"name": "lime",
-				"version": "8.2.1"
+				"link": "https://github.com/player-03/lime",
+				"branch": "AssetsMacro_conflict"
 			},
 			{
 				"name": "openfl",
