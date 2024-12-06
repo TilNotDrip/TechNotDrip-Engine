@@ -27,6 +27,7 @@ jobs:
       - name: Install Haxe Libraries using HxPKG
         run: |
           sudo apt install libvlccore-dev libvlc-dev -y
+          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install
       - name: Compile Application
@@ -58,6 +59,7 @@ jobs:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
         run: |
+          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install
       - name: Compile Application
@@ -89,6 +91,7 @@ jobs:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
         run: |
+          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install
       - name: Compile Application
