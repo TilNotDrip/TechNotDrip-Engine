@@ -16,8 +16,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            export/release/linux/haxe
-            export/release/linux/obj
+            export/release/linux/
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
@@ -49,8 +48,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            export/release/windows/haxe
-            export/release/windows/obj
+            export/release/windows/
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
@@ -81,8 +79,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            export/release/macos/haxe
-            export/release/macos/obj
+            export/release/macos/
             .haxelib
           key: ${{ runner.os }}-cache-compile
       - name: Setup Haxe
