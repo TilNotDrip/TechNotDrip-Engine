@@ -54,7 +54,7 @@ class Save
 			var controlValue:Null<{keyboard:Array<Int>, gamepad:Array<Int>}> = getControls().get(name);
 
 			if (keyboard != null)
-				controlValue.keyboard = gamepad;
+				controlValue.keyboard = keyboard;
 
 			if (gamepad != null)
 				controlValue.gamepad = gamepad;
