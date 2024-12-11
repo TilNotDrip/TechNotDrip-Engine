@@ -12,6 +12,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import funkin.data.save.Save;
 import funkin.objects.FunkinSprite.FunkinSpriteGroup as FlxSpriteGroup; // overwrite FlxSpriteGroup with FunkinSprites cuz they cool
 import funkin.objects.FunkinSprite;
 import funkin.util.FunkinSpriteUtil;

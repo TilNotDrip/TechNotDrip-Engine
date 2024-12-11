@@ -25,7 +25,7 @@ class Controls implements IFlxDestroyable
 	static function get_instance():Controls
 	{
 		if (_instance == null)
-			_instance = new Controls(getDefaultMappings(), FlxG.gamepads.getFirstActiveGamepad());
+			_instance = new Controls(Save.instance.getControls(), FlxG.gamepads.getFirstActiveGamepad());
 
 		return _instance;
 	}

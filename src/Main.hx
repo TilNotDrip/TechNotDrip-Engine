@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
+import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
@@ -20,6 +21,8 @@ class Main extends Sprite
 		startFullscreen: false
 	};
 
+	public static var performanceStats:PerformanceStats;
+
 	public function new()
 	{
 		super();
@@ -33,7 +36,7 @@ class Main extends Sprite
 			!flxGameData.showSplash, flxGameData.startFullscreen);
 		addChild(flxGame);
 
-		var performanceStats:PerformanceStats = new PerformanceStats(5, 5, 0xFFFFFF);
+		performanceStats = new PerformanceStats(5, 5, 0xFFFFFF);
 		addChild(performanceStats);
 
 		Assets.cache.enabled = false;
@@ -44,6 +47,8 @@ class Main extends Sprite
 		FlxG.fixedTimestep = false;
 
 		FlxSprite.defaultAntialiasing = true;
+
+		Save.instance.setOptionValues();
 	}
 }
 
