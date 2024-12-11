@@ -103,7 +103,8 @@ class Save
 	 */
 	public function setOptionValues():Void
 	{
-		FlxG.updateFramerate = FlxG.drawFramerate = options.fps;
+		FlxG.updateFramerate = options.fps;
+		FlxG.drawFramerate = options.fps;
 
 		if (Main.performanceStats != null)
 			Main.performanceStats.visible = options.fpsCounter;
