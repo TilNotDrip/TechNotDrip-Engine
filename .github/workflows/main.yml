@@ -61,7 +61,7 @@ jobs:
         run: |
           haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
-          haxelib run hxpkg install
+          haxelib run hxpkg install --force
       - name: Compile Application
         run: haxelib run lime build windows
       - name: Upload Artifact
@@ -93,7 +93,7 @@ jobs:
         run: |
           haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
-          haxelib run hxpkg install
+          haxelib run hxpkg install --force
       - name: Compile Application
         run: haxelib run lime build macos
       - name: Upload Artifact
