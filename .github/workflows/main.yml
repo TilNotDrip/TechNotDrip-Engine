@@ -25,7 +25,7 @@ jobs:
           haxe-version: latest
       - name: Install Haxe Libraries using HxPKG
         run: |
-          sudo apt install libvlccore-dev libvlc-dev -y
+          sudo apt install libvlccore-dev libvlc-dev -y -q
           haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
