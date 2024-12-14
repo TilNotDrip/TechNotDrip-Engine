@@ -33,6 +33,10 @@
 			{
 				"name": "format",
 				"version": "3.5.0"
+			},
+			{
+				"name": "hscript",
+				"version": "2.6.0"
 			}
 		]
 	}
