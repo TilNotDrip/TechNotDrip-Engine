@@ -1,5 +1,6 @@
 package funkin.util;
 
+import funkin.data.song.Song;
 import funkin.structures.WeekStructure;
 import haxe.Json;
 
@@ -60,7 +61,9 @@ class Week
 
 		for (id in songIds)
 		{
-			displayNames.push(id);
+			var songObject:Song = Song.getSongByID(id);
+			var songName:String = songObject?.getDisplayName('default') ?? id;
+			displayNames.push(songName);
 		}
 
 		return displayNames;
