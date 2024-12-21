@@ -60,7 +60,6 @@ class StoryState extends FunkinState
 		grpOfWeekSprGrps.z = 100;
 		add(grpOfWeekSprGrps);
 
-		var lastHeight:Int = 0;
 		for (i => week in loadedWeeks)
 		{
 			var weekSpr:WeekItem = new WeekItem(0, colorBG.y + colorBG.height + 10, week.id);
