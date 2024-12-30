@@ -29,6 +29,7 @@ class FreeplayState extends FunkinState
 		add(backingCard);
 
 		bgDad = new FunkinSprite(backingCard.pinkBack.width * 0.74, 0).loadTexture('ui/freeplay/freeplayBGdad');
+		bgDad.setGraphicSize(0, FlxG.height);
 		bgDad.shader = angleMaskShader;
 		add(bgDad);
 
@@ -49,6 +50,12 @@ class FreeplayState extends FunkinState
 		if (controls.ACCEPT)
 		{
 			backingCard.confirm();
+		}
+
+		if (controls.BACK)
+		{
+			FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
+			FlxG.switchState(MenuState.new);
 		}
 	}
 }

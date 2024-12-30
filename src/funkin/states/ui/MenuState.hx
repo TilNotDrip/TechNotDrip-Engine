@@ -102,7 +102,10 @@ class MenuState extends FunkinState
 			changeItem(1);
 
 		if (controls.BACK)
+		{
+			FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
 			FlxG.switchState(TitleState.new);
+		}
 
 		if (controls.ACCEPT && !selected)
 		{

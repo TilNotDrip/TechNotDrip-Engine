@@ -21,12 +21,6 @@ class BackingCard extends FlxSpriteGroup
 		instance.conductor.beatHit.add(beatHit);
 	}
 
-	override public function destroy():Void
-	{
-		instance.conductor.beatHit.remove(beatHit);
-		super.destroy();
-	}
-
 	/**
 	 * Called when entering from MenuState
 	 */

@@ -252,13 +252,10 @@ class FunkinSprite extends FlxSprite
 	@:privateAccess
 	public function animationExists(name:String):Bool
 	{
-		if (animationIsNull)
-			return false;
-
 		if (atlas != null)
 			return atlas.anim.symbolDictionary.get(name) != null;
 		else
-			return animation.getByName(name) != null;
+			return animation?.exists(name) ?? false;
 	}
 }
 
