@@ -122,10 +122,10 @@ class Project extends HXProject
 
 	public function setupHaxelibs():Void
 	{
-		addHaxelib('lime', '8.2.1');
-		addHaxelib('openfl', '9.4.0');
-		addHaxelib('flixel', '5.8.0');
-		addHaxelib('flixel-addons', '3.2.3');
+		addHaxelib('lime', '8.2.2');
+		addHaxelib('openfl', '9.4.1');
+		addHaxelib('flixel', '5.9.0');
+		addHaxelib('flixel-addons', '3.3.0');
 		addHaxelib('hxcpp-debug-server', '1.2.4', debug);
 	}
 

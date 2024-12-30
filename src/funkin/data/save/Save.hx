@@ -22,6 +22,7 @@ class Save
 	public static final SAVE_VERSION:String = '1';
 
 	public static var instance(get, never):Save;
+
 	static var _instance:Null<Save> = null;
 
 	static function get_instance():Save
@@ -42,7 +43,7 @@ class Save
 		else
 			this.data = data;
 
-		#if debug
+		#if FLX_DEBUG
 		registerConsoleFunctions();
 		#end
 	}
@@ -178,6 +179,8 @@ class Save
 				FlxG.save.mergeData(gameSave.data, true);
 
 				return gameSave;
+
+			default:
 		}
 
 		return null;

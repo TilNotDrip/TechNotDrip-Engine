@@ -4,19 +4,19 @@
 		"pkgs": [
 			{
 				"name": "lime",
-				"version": "8.2.1"
+				"version": "8.2.2"
 			},
 			{
 				"name": "openfl",
-				"version": "9.4.0"
+				"version": "9.4.1"
 			},
 			{
 				"name": "flixel",
-				"version": "5.8.0"
+				"version": "5.9.0"
 			},
 			{
 				"name": "flixel-addons",
-				"version": "3.2.3"
+				"version": "3.3.0"
 			},
 			{
 				"name": "hxcpp",

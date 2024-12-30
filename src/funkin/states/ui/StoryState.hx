@@ -5,11 +5,14 @@ import funkin.util.Week;
 
 class StoryState extends FunkinState
 {
+	/**
+	 * The weeks that the game has successfully loaded.
+	 */
+	public var loadedWeeks:Array<Week> = [];
+
 	static var curSelected:Int = 0;
 
 	var selectedWeek:Bool = false;
-
-	public var loadedWeeks:Array<Week> = [];
 
 	var colorBG:FunkinSprite;
 
