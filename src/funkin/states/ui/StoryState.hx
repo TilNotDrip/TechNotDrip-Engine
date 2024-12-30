@@ -29,7 +29,6 @@ class StoryState extends FunkinState
 	override public function create():Void
 	{
 		loadedWeeks = Week.fetchAllWeeks();
-		trace(loadedWeeks);
 
 		grpWeekItems = new FlxTypedGroup<WeekItem>();
 		grpWeekItems.z = 10;

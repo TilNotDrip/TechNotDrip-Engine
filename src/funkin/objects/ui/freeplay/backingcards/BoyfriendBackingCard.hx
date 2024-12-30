@@ -196,8 +196,6 @@ class BoyfriendBackingCard extends BackingCard
 		if (instance.conductor.curBeat % beatFreq != 0)
 			return;
 
-		trace('beat!');
-
 		FlxTween.cancelTweensOf(glow);
 		FlxTween.cancelTweensOf(glowDark);
 
