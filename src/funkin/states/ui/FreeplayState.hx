@@ -26,7 +26,7 @@ class FreeplayState extends FunkinState
 	override public function create():Void
 	{
 		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.state = 'Freeplay Menu';
+		DiscordRPC.details = 'Freeplay Menu';
 		#end
 
 		backingCard = new BoyfriendBackingCard(this);

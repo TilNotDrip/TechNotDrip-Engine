@@ -58,7 +58,7 @@ class MenuState extends FunkinState
 		FlxTransitionableState.skipNextTransOut = false;
 
 		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.state = 'Main Menu';
+		DiscordRPC.details = 'Main Menu';
 		#end
 
 		var bg:FunkinSprite = new FunkinSprite().loadTexture('ui/menu/menuBGYellow');
@@ -217,7 +217,7 @@ class MenuState extends FunkinState
 		});
 
 		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.details = 'Has ' + menuItems[curSelected].name + ' selected';
+		DiscordRPC.state = 'Has ' + menuItems[curSelected].name + ' selected';
 		#end
 	}
 }

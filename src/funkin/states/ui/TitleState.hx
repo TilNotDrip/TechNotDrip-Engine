@@ -62,8 +62,8 @@ class TitleState extends FunkinState
 		}
 
 		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.state = 'Title Screen';
-		DiscordRPC.details = 'Watching Intro';
+		DiscordRPC.details = 'Title Screen';
+		DiscordRPC.state = 'Watching Intro';
 		#end
 
 		initPostIntroObjects();
@@ -231,7 +231,7 @@ class TitleState extends FunkinState
 	function skipIntro():Void
 	{
 		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.details = null; // Maybe add something here?
+		DiscordRPC.state = null; // Maybe add something here?
 		#end
 
 		if (true) // TODO: Replace this with Flashing Lights option.
