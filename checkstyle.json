@@ -134,6 +134,12 @@
                 "tokens": [",", ";"]
             },
             "type": "WhitespaceAfter"
+        },
+        {
+            "props": {
+                "format": "^\\s*(TODO|FIXME|HACK|XXX|BUG)"
+            },
+            "type": "TODOComment"
         }
     ]
 }
