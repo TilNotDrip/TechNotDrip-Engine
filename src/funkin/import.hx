@@ -23,4 +23,8 @@ import haxe.Exception;
 
 using Lambda;
 using StringTools;
+
+#if FUNKIN_DISCORD_RPC
+import funkin.api.DiscordRPC;
+#end
 #end

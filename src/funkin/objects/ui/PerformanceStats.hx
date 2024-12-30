@@ -71,7 +71,14 @@ class PerformanceStats extends TextField
 	function getRandomAccessMemory():String
 	{
 		if (randomAccessMemory != null)
-			return 'MEM: ' + FlxStringUtil.formatBytes(randomAccessMemory);
+		{
+			var formattedBytes:String = FlxStringUtil.formatBytes(randomAccessMemory);
+
+			if (formattedBytes == '0MB') // mustve broke on our end!
+				return '';
+
+			return 'MEM: ' + formattedBytes;
+		}
 
 		return '';
 	}

@@ -9,6 +9,9 @@ import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
 import openfl.display.Sprite;
+#if FUNKIN_DISCORD_RPC
+import funkin.api.DiscordRPC;
+#end
 
 class Main extends Sprite
 {
@@ -49,6 +52,12 @@ class Main extends Sprite
 		FlxSprite.defaultAntialiasing = true;
 
 		Save.instance.setOptionValues();
+
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.loadDiscordConfig();
+		DiscordRPC.initialize();
+		DiscordRPC.largeImageKey = 'Version: ' + funkin.Constants.TECHNOTDRIP_VERSION;
+		#end
 	}
 }
 

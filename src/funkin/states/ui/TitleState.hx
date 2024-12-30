@@ -61,16 +61,17 @@ class TitleState extends FunkinState
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
 		}
 
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.state = 'Title Screen';
+		DiscordRPC.details = 'Watching Intro';
+		#end
+
 		initPostIntroObjects();
 
 		if (!seenIntro)
-		{
 			initIntroObjects();
-		}
 		else
-		{
 			skipIntro();
-		}
 
 		super.create();
 	}
@@ -88,8 +89,6 @@ class TitleState extends FunkinState
 
 		conductor.update();
 
-		super.update(elapsed);
-
 		if (!seenIntro)
 		{
 			handleIntroUpdate();
@@ -98,6 +97,8 @@ class TitleState extends FunkinState
 		{
 			handlePostIntroUpdate();
 		}
+
+		super.update(elapsed);
 	}
 
 	override public function destroy():Void
@@ -229,6 +230,10 @@ class TitleState extends FunkinState
 
 	function skipIntro():Void
 	{
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.details = null; // Maybe add something here?
+		#end
+
 		if (true) // TODO: Replace this with Flashing Lights option.
 		{
 			FlxG.camera.flash(0xFFFFFFFF, seenIntro ? 1 : 4);

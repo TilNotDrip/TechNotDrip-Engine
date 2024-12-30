@@ -11,25 +11,31 @@ class MenuState extends FunkinState
 {
 	public static var curSelected:Int = 0;
 
+	// Maybe move to config file?
 	public static var menuItems:Array<MenuItem> = [
 		{
 			id: 'storymode',
+			name: 'Story Mode',
 			classToSwitch: StoryState.new
 		},
 		{
 			id: 'freeplay',
+			name: 'Freeplay',
 			classToSwitch: FreeplayState.new
 		},
 		{
 			id: 'credits',
+			name: 'Credits',
 			classToSwitch: null
 		},
 		{
 			id: 'merch',
+			name: 'Merch',
 			website: 'https://needlejuicerecords.com/en-ca/collections/friday-night-funkin'
 		},
 		{
 			id: 'options',
+			name: 'Options',
 			classToSwitch: null
 		}
 	];
@@ -50,6 +56,10 @@ class MenuState extends FunkinState
 
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxTransitionableState.skipNextTransOut = false;
+
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.state = 'Main Menu';
+		#end
 
 		var bg:FunkinSprite = new FunkinSprite().loadTexture('ui/menu/menuBGYellow');
 		bg.scrollFactor.set(0, 0.17);
@@ -149,6 +159,9 @@ class MenuState extends FunkinState
 		super.update(elapsed);
 	}
 
+	/**
+	 * Generates the Menu Items.
+	 */
 	public function generateMenuItems():Void
 	{
 		if (menuItemGroup != null)
@@ -190,7 +203,7 @@ class MenuState extends FunkinState
 
 		menuItemGroup.forEach((item:FunkinSprite) ->
 		{
-			if (curSelected == menuItemGroup.members.indexOf(item))
+			if (menuItemGroup.members.indexOf(item) == curSelected)
 			{
 				camFollow.setPosition(FlxG.width / 2, item.getGraphicMidpoint().y);
 				item.animation.play('selected', true);
@@ -202,12 +215,17 @@ class MenuState extends FunkinState
 			item.centerOrigin();
 			item.offset.copyFrom(item.origin);
 		});
+
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.details = 'Has ' + menuItems[curSelected].name + ' selected';
+		#end
 	}
 }
 
 typedef MenuItem =
 {
 	var id:String;
+	var name:String;
 	@:optional var classToSwitch:NextState;
 	@:optional var website:String;
 }

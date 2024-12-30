@@ -28,6 +28,10 @@ class FunkinState extends FlxState
 		conductor.beatHit.add(beatHit);
 		conductor.sectionHit.add(sectionHit);
 
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.clearValues();
+		#end
+
 		super();
 	}
 

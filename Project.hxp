@@ -18,6 +18,13 @@ class Project extends HXProject
 	 */
 	public final TECHNOTDRIP_VERSION:String = '0.1.0';
 
+		/**
+	 * `-DFUNKIN_DISCORD_RPC`
+	 * Whether the game should be compiled into dox instead.
+	 * Developers can set this by checking the flag above.
+	 */
+	public final FUNKIN_DISCORD_RPC:FeatureFlag = 'FUNKIN_DISCORD_RPC';
+
 	/**
 	 * `-DFUNKIN_DOX_GENERATION`
 	 * Whether the game should be compiled into dox instead.
@@ -116,6 +123,7 @@ class Project extends HXProject
 	public function setupFeatureFlags():Void
 	{
 		// The second parameter is the default value unless overridden!
+		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP); // Will be enabled if its on desktop (windows, linux, mac)!
 		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
 		FUNKIN_GIT_DETAILS.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
 	}
@@ -128,6 +136,7 @@ class Project extends HXProject
 		addHaxelib('flixel-addons', '3.3.0');
 		addHaxelib('flxanimate', 'git');
 		addHaxelib('hxcpp-debug-server', '1.2.4', debug);
+		addHaxelib('hxdiscord_rpc', '1.2.4', FUNKIN_DISCORD_RPC.isEnabled(this));
 	}
 
 	public function setupHaxeDefines():Void

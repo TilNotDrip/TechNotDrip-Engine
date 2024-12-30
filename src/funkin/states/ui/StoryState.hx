@@ -30,6 +30,10 @@ class StoryState extends FunkinState
 	{
 		loadedWeeks = Week.fetchAllWeeks();
 
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.state = 'Story Mode Menu';
+		#end
+
 		grpWeekItems = new FlxTypedGroup<WeekItem>();
 		grpWeekItems.z = 10;
 		add(grpWeekItems);
