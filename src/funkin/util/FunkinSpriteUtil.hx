@@ -16,8 +16,7 @@ class FunkinSpriteUtil
 
 		if (isAnimated)
 		{
-			// TODO: Animation Type finding.
-			sprite.frames = Paths.content.sparrowAtlas(structure.path);
+			sprite.loadFrames(structure.path);
 		}
 		else
 		{
@@ -52,15 +51,8 @@ class FunkinSpriteUtil
 
 		for (anim in structure)
 		{
-			if (anim?.indices != null && anim?.indices?.length > 0)
-			{
-				sprite.animation.addByIndices(anim.name, anim.prefix, anim.indices, '', anim?.framerate ?? 24, anim?.looped ?? false, anim?.flipX ?? false,
-					anim.flipY ?? false);
-			}
-			else
-			{
-				sprite.animation.addByPrefix(anim.name, anim.prefix, anim?.framerate ?? 24, anim?.looped ?? false, anim?.flipX ?? false, anim?.flipY ?? false);
-			}
+			// TODO: Work with flipX and flipY.
+			sprite.addAnimation(anim.name, anim.prefix, anim?.indices ?? [], anim?.framerate ?? 24, anim?.looped ?? false);
 		}
 
 		return sprite;

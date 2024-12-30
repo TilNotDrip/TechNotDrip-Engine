@@ -1,5 +1,7 @@
 package funkin.objects;
 
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flxanimate.FlxAnimate;
 import funkin.structures.ObjectStructure;
 
 /**
@@ -12,6 +14,11 @@ class FunkinSprite extends FlxSprite
 	 * This is basically visible/alpha, but it doesn't lag when you make it visible again.
 	 */
 	public var doInvisibleDraw:Bool = false;
+
+	/**
+	 * The Animate Atlas Object if the animation is one.
+	 */
+	public var atlas:FlxAnimate;
 
 	public function new(x:Float = 0, y:Float = 0)
 	{
@@ -39,18 +46,219 @@ class FunkinSprite extends FlxSprite
 		return this;
 	}
 
+	/**
+	 * Loads frames and applies it to this sprite.
+	 * @param path The path of where frames should load from.
+	 * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
+	 */
+	public function loadFrames(path:String):FunkinSprite
+	{
+		if (Paths.location.exists(path + '.xml'))
+		{
+			frames = Paths.content.sparrowAtlas(path);
+		}
+		else if (Paths.location.exists(path + '/Animation.json'))
+		{
+			atlas = new FlxAnimate(0, 0, Paths.location.get(path), {
+				ShowPivot: false
+			});
+		}
+
+		return this;
+	}
+
 	override public function draw():Void
 	{
+		var oldAlpha:Float = alpha;
 		if (doInvisibleDraw)
-		{
-			// kinda how psych engine does it for cached characters.
-			var oldAlpha:Float = alpha;
 			alpha = 0.0001;
-			super.draw();
-			alpha = oldAlpha;
+
+		if (atlas != null)
+		{
+			updateAtlasDummy();
+			atlas.draw();
 		}
 		else
+		{
 			super.draw();
+		}
+
+		if (doInvisibleDraw)
+		{
+			alpha = oldAlpha;
+
+			if (atlas != null)
+				atlas.alpha = alpha;
+		}
+	}
+
+	/**
+	 * Updates the Atlas dummy's values, so it looks like it belongs to this sprite.
+	 * @see The Orignal Code: https://github.com/CodenameCrew/CodenameEngine/blob/f6deda2c84984202effdfc5f6b577c2d956aa7b5/source/funkin/backend/FunkinSprite.hx#L209C2-L232C3
+	 */
+	@:privateAccess
+	public function updateAtlasDummy():Void
+	{
+		atlas.cameras = cameras;
+		atlas.scrollFactor = scrollFactor;
+		atlas.scale = scale;
+		atlas.offset = offset;
+		atlas.x = x;
+		atlas.y = y;
+		atlas.angle = angle;
+		atlas.alpha = alpha;
+		atlas.visible = visible;
+		atlas.flipX = flipX;
+		atlas.flipY = flipY;
+		atlas.shader = shader;
+		atlas.antialiasing = antialiasing;
+		atlas.colorTransform = colorTransform;
+	}
+
+	// ANIMATION BINDINGS
+
+	/**
+	 * The current playing animation.
+	 */
+	public var currentAnim(default, null):String = '';
+
+	var animationStunned:Bool = false;
+
+	/**
+	 * Plays an animation.
+	 * @param name The name of the animation to play.
+	 * @param restart Should the animation restart if it's already playing?
+	 * @param stunAnimations Should the animations be "stunned" until this one is finished?
+	 * @param reversed 
+	 */
+	public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
+	{
+		if (animationStunned)
+			return;
+
+		if (atlas != null)
+			atlas.anim.play(name, restart, reversed);
+		else
+			animation.play(name, restart, reversed);
+
+		animationStunned = stunAnimations;
+		currentAnim = name;
+	}
+
+	/**
+	 * Adds an Animation to the sprite.
+	 * @param name The name of the animation to add.
+	 * @param anim The actual animation name.
+	 * @param indices The frame indices to use. (Optional)
+	 * @param frameRate The Frame Rate of the animation. (Optional)
+	 * @param looped Should the animation loop? (Optional)
+	 */
+	public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
+	{
+		if (indices != null && indices.length > 0)
+		{
+			if (atlas != null)
+				atlas.anim.addBySymbolIndices(name, anim, indices, frameRate, looped);
+			else
+				animation.addByIndices(name, anim, indices, '', frameRate, looped);
+		}
+		else
+		{
+			if (atlas != null)
+				atlas.anim.addBySymbol(name, anim, frameRate, looped);
+			else
+				animation.addByPrefix(name, anim, frameRate, looped);
+		}
+	}
+
+	/**
+	 * Is the current animation null?
+	 */
+	public var animationIsNull(get, never):Bool;
+
+	function get_animationIsNull():Bool
+	{
+		return (atlas != null) ? atlas.anim.curSymbol == null : animation.curAnim == null;
+	}
+
+	/**
+	 * Is the current animation finished?
+	 */
+	public var animFinished(get, never):Bool;
+
+	function get_animFinished():Bool
+	{
+		if (animationIsNull)
+			return false;
+
+		return ((atlas != null) ? atlas.anim.finished : animation.curAnim.finished) ?? false;
+	}
+
+	/**
+	 * Finishes the current animation playing.
+	 */
+	public function finishAnimation():Void
+	{
+		if (animationIsNull)
+			return;
+
+		if (atlas != null)
+			atlas.anim.curFrame = atlas.anim.length - 1;
+		else
+			animation.curAnim.finish();
+	}
+
+	/**
+	 * Is the current animation paused?
+	 */
+	public var animPaused(get, set):Bool;
+
+	function get_animPaused():Bool
+	{
+		if (animationIsNull)
+			return false;
+
+		return ((atlas != null) ? atlas.anim.isPlaying : animation.curAnim.paused) ?? false;
+	}
+
+	function set_animPaused(value:Bool):Bool
+	{
+		if (animationIsNull)
+			return value;
+
+		if (atlas != null)
+		{
+			if (value)
+				atlas.anim.pause();
+			else
+				atlas.anim.resume();
+		}
+		else
+		{
+			if (value)
+				animation.curAnim.pause();
+			else
+				animation.curAnim.resume();
+		}
+
+		return value;
+	}
+
+	/**
+	 * Checks if the animation specified exists.
+	 * @param name The animation name to check for.
+	 * @return If the animation exists.
+	 */
+	@:privateAccess
+	public function animationExists(name:String):Bool
+	{
+		if (animationIsNull)
+			return false;
+
+		if (atlas != null)
+			return atlas.anim.symbolDictionary.get(name) != null;
+		else
+			return animation.getByName(name) != null;
 	}
 }
 

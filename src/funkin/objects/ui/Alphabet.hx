@@ -142,10 +142,10 @@ class AlphabetLetter extends FunkinSprite
 		var animName:String = getLetterPrefix(letter);
 
 		frames = head.textFrames;
-		animation.addByPrefix('letter', animName, 24);
+		addAnimation('letter', animName);
 
-		if (animation.exists('letter'))
-			animation.play('letter');
+		if (animationExists('letter'))
+			playAnimation('letter');
 		else
 			trace("[WARNING]: " + (cast(head.letterType, String)) + " doesn't have " + letter + '!');
 

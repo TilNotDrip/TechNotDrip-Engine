@@ -18,7 +18,7 @@ class MenuState extends FunkinState
 		},
 		{
 			id: 'freeplay',
-			classToSwitch: null
+			classToSwitch: FreeplayState.new
 		},
 		{
 			id: 'credits',
@@ -164,9 +164,9 @@ class MenuState extends FunkinState
 		{
 			var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
 			itemSpr.frames = Paths.content.sparrowAtlas('ui/menu/items/' + item.id);
-			itemSpr.animation.addByPrefix('idle', item.id + ' idle');
-			itemSpr.animation.addByPrefix('selected', item.id + ' selected');
-			itemSpr.animation.play('idle');
+			itemSpr.addAnimation('idle', item.id + ' idle', [], 30, true);
+			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
+			itemSpr.playAnimation('idle');
 			itemSpr.updateHitbox();
 			itemSpr.x = FlxG.width / 2;
 			menuItemGroup.add(itemSpr);
