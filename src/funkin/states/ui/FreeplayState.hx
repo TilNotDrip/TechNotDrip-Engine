@@ -44,6 +44,7 @@ class FreeplayState extends FunkinState
 	override public function update(elapsed:Float):Void
 	{
 		// FINE CRUSHER ARE YOU HAPPY
+		// yes
 		conductor.update();
 		super.update(elapsed);
 
