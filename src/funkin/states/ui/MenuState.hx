@@ -75,7 +75,7 @@ class MenuState extends FunkinState
 		tndWatermark.scrollFactor.set();
 		add(tndWatermark);
 
-		#if SHOW_GIT
+		#if FUNKIN_GIT_DETAILS
 		tndWatermark.text += ((Constants.GIT_MODIFIED ? '*' : ''))
 			+ ' ['
 			+ Constants.GIT_BRANCH.toUpperCase()

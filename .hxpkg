@@ -19,6 +19,11 @@
 				"version": "3.3.0"
 			},
 			{
+				"name": "flxanimate",
+				"link": "https://github.com/Dot-Stuff/flxanimate",
+				"branch": "ef85c132044d897a04c5008da29674d88f83c4d6"
+			},
+			{
 				"name": "hxcpp",
 				"version": "4.3.2"
 			},
@@ -37,11 +42,6 @@
 			{
 				"name": "hscript",
 				"version": "2.6.0"
-			},
-			{
-				"name": "flxanimate",
-				"link": "https://github.com/Dot-Stuff/flxanimate",
-				"branch": "ef85c132044d897a04c5008da29674d88f83c4d6"
 			}
 		]
 	}

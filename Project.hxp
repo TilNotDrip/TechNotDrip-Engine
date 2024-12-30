@@ -19,18 +19,18 @@ class Project extends HXProject
 	public final TECHNOTDRIP_VERSION:String = '0.1.0';
 
 	/**
-	 * `-DDOX_GENERATION`
+	 * `-DFUNKIN_DOX_GENERATION`
 	 * Whether the game should be compiled into dox instead.
 	 * Developers can set this by checking the flag above.
 	 */
-	public final DOX_GENERATION:FeatureFlag = "DOX_GENERATION";
+	public final FUNKIN_DOX_GENERATION:FeatureFlag = 'FUNKIN_DOX_GENERATION';
 
 	/**
-	 * `-DSHOW_GIT`
+	 * `-DFUNKIN_GIT_DETAILS`
 	 * Whether the git hashes/branches should be shown in MenuState.
 	 * Developers can set this by checking the flag above.
 	 */
-	public final SHOW_GIT:FeatureFlag = "SHOW_GIT";
+	public final FUNKIN_GIT_DETAILS:FeatureFlag = 'FUNKIN_GIT_DETAILS';
 
 	public var GIT_HASH:String = null;
 
@@ -116,8 +116,8 @@ class Project extends HXProject
 	public function setupFeatureFlags():Void
 	{
 		// The second parameter is the default value unless overridden!
-		DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
-		SHOW_GIT.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
+		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
+		FUNKIN_GIT_DETAILS.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
 	}
 
 	public function setupHaxelibs():Void
@@ -132,7 +132,7 @@ class Project extends HXProject
 
 	public function setupHaxeDefines():Void
 	{
-		addHaxeDefine('doc-gen', DOX_GENERATION.isEnabled(this));
+		addHaxeDefine('doc-gen', FUNKIN_DOX_GENERATION.isEnabled(this));
 		addHaxeDefine('FLX_NO_DEBUG', !debug);
 		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
 		addHaxeDefine('FLX_NO_HEALTH');
@@ -152,8 +152,8 @@ class Project extends HXProject
 		addHaxeFlag("--macro include('funkin')");
 		addHaxeFlag("--macro include('flixel', true, ['flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*'])");
 		addHaxeFlag("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
-		addHaxeFlag('--no-output', DOX_GENERATION.isEnabled(this));
-		addHaxeFlag('-xml docs/dox/' + Std.string(target).toLowerCase() + '.xml', DOX_GENERATION.isEnabled(this));
+		addHaxeFlag('--no-output', FUNKIN_DOX_GENERATION.isEnabled(this));
+		addHaxeFlag('-xml docs/dox/' + Std.string(target).toLowerCase() + '.xml', FUNKIN_DOX_GENERATION.isEnabled(this));
 	}
 
 	public function addHaxelib(name:String, version:String = '', conditions:Bool = true):Void

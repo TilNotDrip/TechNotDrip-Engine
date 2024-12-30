@@ -1,6 +1,7 @@
 package funkin.macros;
 
 #if !display
+#if FUNKIN_GIT_DETAILS
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
@@ -33,4 +34,5 @@ class GitDefines
 		return macro $v{Context.defined('TND_GIT_MODIFIED')};
 	}
 }
+#end
 #end
