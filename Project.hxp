@@ -20,7 +20,7 @@ class Project extends HXProject
 
 		/**
 	 * `-DFUNKIN_DISCORD_RPC`
-	 * Whether the game should be compiled into dox instead.
+	 * Whether the game should have Discord RPC.
 	 * Developers can set this by checking the flag above.
 	 */
 	public final FUNKIN_DISCORD_RPC:FeatureFlag = 'FUNKIN_DISCORD_RPC';
