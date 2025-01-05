@@ -102,7 +102,8 @@ class BoyfriendBackingCard extends BackingCard
 
 	override public function introDone():Void
 	{
-		super.startIntroTween();
+		super.introDone();
+
 		orangeBack.visible = true;
 		orangeBackTwo.visible = true;
 		cardGlow.visible = true;

@@ -1,6 +1,7 @@
 package funkin.objects;
 
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.util.FlxSignal.FlxTypedSignal;
 import flxanimate.FlxAnimate;
 import funkin.structures.ObjectStructure;
 
@@ -53,6 +54,12 @@ class FunkinSprite extends FlxSprite
 	 */
 	public function loadFrames(path:String):FunkinSprite
 	{
+		if (atlas != null)
+		{
+			atlas.destroy();
+			atlas = null;
+		}
+
 		if (Paths.location.exists(path + '.xml'))
 		{
 			frames = Paths.content.sparrowAtlas(path);
@@ -65,6 +72,14 @@ class FunkinSprite extends FlxSprite
 		}
 
 		return this;
+	}
+
+	override public function destroy():Void
+	{
+		if (atlas != null)
+			atlas.destroy();
+
+		super.destroy();
 	}
 
 	override public function draw():Void
@@ -92,9 +107,17 @@ class FunkinSprite extends FlxSprite
 		}
 	}
 
+	override public function update(elapsed:Float):Void
+	{
+		if (atlas != null)
+			atlas.update(elapsed);
+
+		super.update(elapsed);
+	}
+
 	/**
 	 * Updates the Atlas dummy's values, so it looks like it belongs to this sprite.
-	 * @see The Orignal Code: https://github.com/CodenameCrew/CodenameEngine/blob/f6deda2c84984202effdfc5f6b577c2d956aa7b5/source/funkin/backend/FunkinSprite.hx#L209C2-L232C3
+	 * @see The Original Code: https://github.com/CodenameCrew/CodenameEngine/blob/f6deda2c84984202effdfc5f6b577c2d956aa7b5/source/funkin/backend/FunkinSprite.hx#L209C2-L232C3
 	 */
 	@:privateAccess
 	public function updateAtlasDummy():Void
@@ -129,7 +152,7 @@ class FunkinSprite extends FlxSprite
 	 * @param name The name of the animation to play.
 	 * @param restart Should the animation restart if it's already playing?
 	 * @param stunAnimations Should the animations be "stunned" until this one is finished?
-	 * @param reversed 
+	 * @param reversed Should the animation be reversed?
 	 */
 	public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
 	{
@@ -155,19 +178,19 @@ class FunkinSprite extends FlxSprite
 	 */
 	public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
 	{
-		if (indices != null && indices.length > 0)
+		if (atlas != null)
 		{
-			if (atlas != null)
-				atlas.anim.addBySymbolIndices(name, anim, indices, frameRate, looped);
+			if (indices != null && indices.length > 0)
+				atlas.anim.addBySymbolIndices(name, anim + '\\', indices, frameRate, looped);
 			else
-				animation.addByIndices(name, anim, indices, '', frameRate, looped);
+				atlas.anim.addBySymbol(name, anim + '\\', frameRate, looped);
 		}
 		else
 		{
-			if (atlas != null)
-				atlas.anim.addBySymbol(name, anim, frameRate, looped);
+			if (indices != null && indices.length > 0)
+				animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
 			else
-				animation.addByPrefix(name, anim, frameRate, looped);
+				animation.addByPrefix(name, anim + '0', frameRate, looped);
 		}
 	}
 
@@ -256,6 +279,38 @@ class FunkinSprite extends FlxSprite
 			return atlas.anim.symbolDictionary.get(name) != null;
 		else
 			return animation?.exists(name) ?? false;
+	}
+
+	/**
+	 * Called when an animation is finished.
+	 */
+	public var onAnimFinished(get, never):FlxTypedSignal<String->Void>;
+
+	var _onAnimFinished:FlxTypedSignal<String->Void>;
+
+	function get_onAnimFinished():FlxTypedSignal<String->Void>
+	{
+		if (_onAnimFinished == null)
+		{
+			_onAnimFinished = new FlxTypedSignal<String->Void>();
+
+			if (atlas != null)
+			{
+				atlas.anim.onComplete.add(() ->
+				{
+					_onAnimFinished.dispatch(currentAnim);
+				});
+			}
+			else
+			{
+				animation.onFinish.add((_) ->
+				{
+					_onAnimFinished.dispatch(currentAnim);
+				});
+			}
+		}
+
+		return _onAnimFinished;
 	}
 }
 

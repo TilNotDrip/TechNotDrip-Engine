@@ -9,6 +9,7 @@ import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
 import openfl.display.Sprite;
+import sys.thread.Thread;
 #if FUNKIN_DISCORD_RPC
 import funkin.api.DiscordRPC;
 #end

@@ -179,7 +179,7 @@ class MenuState extends FunkinState
 		for (i => item in menuItems)
 		{
 			var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
-			itemSpr.frames = Paths.content.sparrowAtlas('ui/menu/items/' + item.id);
+			itemSpr.loadFrames('ui/menu/items/' + item.id);
 			itemSpr.addAnimation('idle', item.id + ' idle', [], 30, true);
 			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
 			itemSpr.playAnimation('idle');

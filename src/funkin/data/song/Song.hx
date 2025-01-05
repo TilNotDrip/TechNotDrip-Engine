@@ -73,6 +73,17 @@ class Song
 		return metadata.name;
 	}
 
+	/**
+	 * Get the Freeplay Icon for this song.
+	 * @param variation The variation to get the icon from.
+	 * @return The name.
+	 */
+	public function getFreeplayIcon(variation:String = 'default'):String
+	{
+		var metadata:SongMetadata = metadatas.get(variation);
+		return metadata.icon;
+	}
+
 	static function getSongMetadata(id:String, variation:String):SongMetadata
 	{
 		var path:String = 'gameplay/songs/' + id + '/';

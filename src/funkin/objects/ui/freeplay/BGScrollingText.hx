@@ -28,8 +28,7 @@ class BGScrollingText extends FlxSpriteGroup
 		add(grpTexts);
 
 		var testText:FlxText = new FlxText(0, 0, 0, text, this.size);
-		testText.font = "5by7";
-		testText.bold = bold;
+		testText.font = Paths.location.get('ui/fonts/5by7' + (bold ? '_b' : '') + '.ttf');
 		testText.updateHitbox();
 		grpTexts.add(testText);
 
@@ -40,9 +39,7 @@ class BGScrollingText extends FlxSpriteGroup
 			var lmfao:Int = i + 1;
 
 			var coolText:FlxText = new FlxText((lmfao * testText.frameWidth) + (lmfao * 20), 0, 0, text, this.size);
-
-			coolText.font = "5by7";
-			coolText.bold = bold;
+			coolText.font = testText.font;
 			coolText.updateHitbox();
 			grpTexts.add(coolText);
 		}

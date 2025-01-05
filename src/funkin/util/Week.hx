@@ -16,6 +16,11 @@ class Week
 	 */
 	final data:WeekStructure = null;
 
+	/**
+	 * All songs.
+	 */
+	public var songs(get, null):Array<Song>;
+
 	public function new(id:String)
 	{
 		this.id = id;
@@ -54,17 +59,23 @@ class Week
 		return data?.motto ?? 'idfk it didnt load';
 	}
 
-	public function getDisplaySongNames():Array<String>
+	function get_songs():Array<Song>
 	{
 		var songIds:Array<String> = data?.songs ?? [];
-		var displayNames:Array<String> = [];
+		var songObjs:Array<Song> = [];
 
 		for (id in songIds)
-		{
-			var songObject:Song = Song.getSongByID(id);
-			var songName:String = songObject?.getDisplayName('default') ?? id;
-			displayNames.push(songName);
-		}
+			songObjs.push(Song.getSongByID(id));
+
+		return songObjs;
+	}
+
+	public function getDisplaySongNames():Array<String>
+	{
+		var displayNames:Array<String> = [];
+
+		for (obj in songs)
+			displayNames.push(obj.getDisplayName('default'));
 
 		return displayNames;
 	}
