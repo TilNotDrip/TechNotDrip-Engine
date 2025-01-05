@@ -53,7 +53,7 @@ class PerformanceStats extends TextField
 		}
 
 		var currentCount:Int = times.length;
-		framesPerSecond = Math.round((currentCount + cacheCount) / 2);
+		framesPerSecond = Math.round(((currentCount + cacheCount) / 2) * (60 / 64));
 
 		if (currentCount != cacheCount)
 		{
