@@ -63,11 +63,8 @@ class PathsCache
 				if (key.startsWith('https://'))
 				{
 					var audioRequest:Http = new Http(key);
-
-					audioRequest.onBytes = (data:Bytes) ->
-					{
-						audio = Sound.fromAudioBuffer(AudioBuffer.fromBytes(data));
-					}
+					audioRequest.request();
+					audio = Sound.fromAudioBuffer(AudioBuffer.fromBytes(audioRequest.responseBytes));
 				}
 				else
 				{
@@ -107,13 +104,8 @@ class PathsCache
 				if (key.startsWith('https://'))
 				{
 					var imageRequest:Http = new Http(key);
-
-					imageRequest.onBytes = (data:Bytes) ->
-					{
-						bitmapData = BitmapData.fromBytes(data);
-					}
-
 					imageRequest.request();
+					bitmapData = BitmapData.fromBytes(imageRequest.responseBytes);
 				}
 				else
 				{
@@ -171,40 +163,40 @@ class PathsCache
 
 	/**
 	 * Clears out the cached objects inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all objects.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all objects.
 	 * @param bypassExcludeKeys Whether to remove the objects even if it's inside of the exclude list.
 	 */
-	public function clear(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clear(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		clearImages(false, bypassExcludeKeys);
 		clearAudios(false, bypassExcludeKeys);
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 
 	/**
 	 * Clears out the cached audios inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all audios.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all audios.
 	 * @param bypassExcludeKeys Whether to remove the audios even if it's inside of the exclude list.
 	 */
-	public function clearAudios(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clearAudios(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		for (audio in cachedAudioKeys)
 		{
 			removeAudio(audio, bypassExcludeKeys);
 		}
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 
 	/**
 	 * Clears out the cached images inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all images.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all images.
 	 * @param bypassExcludeKeys Whether to remove the images even if it's inside of the exclude list.
 	 */
-	public function clearImages(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clearImages(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		for (image in cachedImageKeys)
 		{
@@ -213,7 +205,7 @@ class PathsCache
 
 		FlxG.bitmap.reset(); // Flixel likes to cache all texts and transitions, nothing wrong with it but this is a graphic clear.
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 

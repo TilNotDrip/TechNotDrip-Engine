@@ -2,9 +2,6 @@ package funkin.states.ui;
 
 import funkin.objects.ui.Alphabet;
 import haxe.xml.Access;
-#if js
-import js.Browser;
-#end
 
 /**
  * The Title Screen.
@@ -80,11 +77,7 @@ class TitleState extends FunkinState
 	{
 		if (controls.BACK && !transitioning)
 		{
-			#if desktop
-			FlxG.stage.application.window.close();
-			#elseif js
-			Browser.window.close();
-			#end
+			SystemUtil.close();
 		}
 
 		conductor.update();
