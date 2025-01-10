@@ -1,6 +1,7 @@
 package funkin.states.ui;
 
 import funkin.objects.ui.Alphabet;
+import funkin.substates.FunkinTransition;
 import haxe.xml.Access;
 
 /**
@@ -57,6 +58,8 @@ class TitleState extends FunkinState
 			conductor.bpm = 102;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
 		}
+
+		FunkinTransition.skipNextTransitionOut = true;
 
 		#if FUNKIN_DISCORD_RPC
 		DiscordRPC.details = 'Title Screen';

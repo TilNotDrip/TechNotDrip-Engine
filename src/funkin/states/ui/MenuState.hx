@@ -6,6 +6,7 @@ import flixel.effects.FlxFlicker;
 import flixel.text.FlxText;
 import flixel.util.typeLimit.NextState;
 import funkin.macros.GitDefines;
+import funkin.substates.FunkinTransition;
 
 class MenuState extends FunkinState
 {
@@ -149,8 +150,8 @@ class MenuState extends FunkinState
 					FlxG.switchState(menuItems[curSelected].classToSwitch);
 				else
 				{
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
+					FunkinTransition.skipNextTransitionIn = true;
+					FunkinTransition.skipNextTransitionOut = true;
 					FlxG.resetState();
 				}
 			});

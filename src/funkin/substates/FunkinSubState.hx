@@ -1,16 +1,16 @@
-package funkin.states;
+package funkin.substates;
 
 import flixel.FlxBasic;
-import flixel.FlxState;
+import flixel.FlxSubState;
 import flixel.util.FlxSort;
-import funkin.substates.FunkinTransition;
+import funkin.states.FunkinState;
 import funkin.util.Controls;
 import haxe.Timer;
 
 /**
- * A FunkinState is a regular FlxState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
+ * A FunkinSubState is a regular FlxSubState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
  */
-class FunkinState extends FlxState
+class FunkinSubState extends FlxSubState
 {
 	var controls(get, never):Controls;
 
@@ -18,9 +18,19 @@ class FunkinState extends FlxState
 		return Controls.instance;
 
 	/**
-	 * The conductor that controls everything music-wise inside this state.
+	 * The conductor that controls everything music-wise inside this substate.
 	 */
 	public var conductor:Conductor = null;
+
+	/**
+	 * The parent FunkinState.
+	 */
+	var parentState(get, never):FunkinState;
+
+	function get_parentState():FunkinState
+	{
+		return cast(_parentState, FunkinState);
+	}
 
 	public function new()
 	{
@@ -29,17 +39,7 @@ class FunkinState extends FlxState
 		conductor.beatHit.add(beatHit);
 		conductor.sectionHit.add(sectionHit);
 
-		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.clearValues();
-		#end
-
 		super();
-	}
-
-	override public function create():Void
-	{
-		super.create();
-		openSubState(new FunkinTransition(true));
 	}
 
 	override public function destroy():Void
@@ -48,12 +48,6 @@ class FunkinState extends FlxState
 		conductor = null;
 
 		super.destroy();
-	}
-
-	override public function startOutro(onOutroComplete:() -> Void):Void
-	{
-		if (subState == null || !Std.isOfType(subState, FunkinTransition))
-			openSubState(new FunkinTransition(false, onOutroComplete));
 	}
 
 	/**
