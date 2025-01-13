@@ -220,6 +220,9 @@ class TitleState extends FunkinState
 			if (enterSpr != null && enterSpr.animation != null)
 			{
 				enterSpr.animation.play('press', true);
+
+				if (!Save.instance.options.flashingLights)
+					enterSpr.animation.pause();
 			}
 
 			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'), 0.7);
