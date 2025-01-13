@@ -33,4 +33,18 @@ class SystemUtil
 		Browser.window.close();
 		#end
 	}
+
+	/**
+	 * Shows an alert to the user.
+	 * @param title The title of the alert, if supported.
+	 * @param content The content of the message.
+	 */
+	public static function alert(title:String, content:String):Void
+	{
+		#if desktop
+		FlxG.stage.application.window.alert(content, title);
+		#elseif js
+		Browser.window.alert(content);
+		#end
+	}
 }

@@ -127,8 +127,7 @@ class MenuState extends FunkinState
 			{
 				if (curSelected == menuItemGroup.members.indexOf(item))
 				{
-					// TODO: CHANGE THIS TO FLASHING LIGHTS WHEN IT EXISTS!
-					if (true)
+					if (Save.instance.options.flashingLights)
 					{
 						FlxFlicker.flicker(item, 1, 0.06, false, false);
 					}

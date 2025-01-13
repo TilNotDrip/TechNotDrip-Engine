@@ -135,6 +135,8 @@ class Project extends HXProject
 		addHaxelib('flixel', '5.9.0');
 		addHaxelib('flixel-addons', '3.3.0');
 		addHaxelib('flxanimate', 'git');
+		addHaxelib('thx.core', '0.44.0');
+		addHaxelib('thx.semver', '0.2.2');
 		addHaxelib('hxcpp-debug-server', '1.2.4', debug);
 		addHaxelib('hxdiscord_rpc', '1.2.4', FUNKIN_DISCORD_RPC.isEnabled(this));
 	}

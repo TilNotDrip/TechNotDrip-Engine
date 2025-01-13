@@ -19,7 +19,12 @@ class Save
 	/**
 	 * The current version of save file.
 	 */
-	public static final SAVE_VERSION:String = '1';
+	public static final SAVE_VERSION:Version = '1.1.0';
+
+	/**
+	 * The version rule for save files, means that they are compatible with this version.
+	 */
+	public static final SAVE_VERSION_RULE:VersionRule = '1.x';
 
 	public static var instance(get, never):Save;
 
@@ -151,6 +156,7 @@ class Save
 				fpsCounter: true,
 				fullscreen: false,
 				antialiasing: true,
+				flashingLights: true,
 				autoPause: true,
 				systemCursor: false,
 				safeMode: true,
@@ -169,6 +175,7 @@ class Save
 		{
 			case EMPTY:
 				FlxG.log.add('[SAVE] No save data found, binding new...');
+				return new Save();
 
 			case ERROR(msg):
 				FlxG.log.add('[SAVE] Error loading save! More info: $msg');
@@ -184,5 +191,27 @@ class Save
 		}
 
 		return null;
+	}
+
+	/**
+	 * Backs up a save file into the backup slots, starting from 1000.
+	 * @param data The save data to backup.
+	 * @return The slot it was saved at.
+	 */
+	public static function saveToBackupSlot(data:Dynamic):Int
+	{
+		var backupSave:FlxSave = new FlxSave();
+		var slot:Int = 999;
+
+		while (backupSave.status != EMPTY)
+		{
+			slot++;
+			backupSave.bind(SAVE_NAME + slot, SAVE_PATH);
+		}
+
+		backupSave.mergeData(data, true);
+		backupSave.destroy();
+
+		return slot;
 	}
 }

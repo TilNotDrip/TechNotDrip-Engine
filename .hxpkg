@@ -46,6 +46,14 @@
 			{
 				"name": "hxdiscord_rpc",
 				"version": "1.2.4"
+			},
+			{
+				"name": "thx.core",
+				"version": "0.44.0"
+			},
+			{
+				"name": "thx.semver",
+				"version": "0.2.2"
 			}
 		]
 	}

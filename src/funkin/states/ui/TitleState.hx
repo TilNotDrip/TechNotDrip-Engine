@@ -85,6 +85,8 @@ class TitleState extends FunkinState
 
 		conductor.update();
 
+		super.update(elapsed);
+
 		if (!seenIntro)
 		{
 			handleIntroUpdate();
@@ -93,8 +95,6 @@ class TitleState extends FunkinState
 		{
 			handlePostIntroUpdate();
 		}
-
-		super.update(elapsed);
 	}
 
 	override public function destroy():Void
@@ -203,9 +203,18 @@ class TitleState extends FunkinState
 	}
 
 	var transitioning:Bool = false;
+	var enterTimer:FlxTimer;
 
 	function handlePostIntroUpdate():Void
 	{
+		// Maybe make a FlxSkipableTimer?
+		// TODO: Make this work
+		/*if (enterTimer != null && !enterTimer.finished && controls.ACCEPT)
+			{
+				enterTimer.cancel();
+				enterTimer.onComplete(null);
+		}*/
+
 		if (controls.ACCEPT && !transitioning)
 		{
 			if (enterSpr != null && enterSpr.animation != null)
@@ -215,7 +224,7 @@ class TitleState extends FunkinState
 
 			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'), 0.7);
 
-			new FlxTimer().start(2, (tmr:FlxTimer) ->
+			enterTimer = new FlxTimer().start(2, (tmr:FlxTimer) ->
 			{
 				FlxG.switchState(MenuState.new);
 			});
@@ -230,7 +239,7 @@ class TitleState extends FunkinState
 		DiscordRPC.state = null; // Maybe add something here?
 		#end
 
-		if (true) // TODO: Replace this with Flashing Lights option.
+		if (Save.instance.options.flashingLights)
 		{
 			FlxG.camera.flash(0xFFFFFFFF, seenIntro ? 1 : 4);
 		}

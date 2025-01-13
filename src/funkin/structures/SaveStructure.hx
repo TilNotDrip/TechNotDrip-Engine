@@ -89,6 +89,11 @@ typedef OptionStructure =
 	var antialiasing:Bool;
 
 	/**
+	 * If flashing lights are enabled.
+	 */
+	var flashingLights:Bool;
+
+	/**
 	 * If auto pause is on.
 	 * Auto pause pauses the game when you tab out.
 	 */

@@ -7,16 +7,38 @@ class SaveMigrator
 {
 	public static function migrateSave(saveData:Dynamic):Save
 	{
-		var version:Null<String> = saveData.version;
+		var version:Null<Version> = null;
+
+		try
+		{
+			version = Version.stringToVersion(saveData?.version);
+		}
+		catch (e)
+		{
+			trace('[SAVE NOTICE] Migrating save data has an invalid version.');
+			version = null;
+		}
 
 		if (version == null)
 			return new Save();
 
-		switch (version)
+		if (Save.SAVE_VERSION != version && version > Save.SAVE_VERSION)
 		{
-			default:
-				return new Save(saveData);
+			var slot:Int = Save.saveToBackupSlot(saveData);
+			SystemUtil.alert('Save Warning!',
+				'The current save loaded is a higher version than what this game supports!\nThis may make unexpected things happen!\nJust in case, the game has put this save in ${Save.SAVE_NAME}$slot as a backup.');
 		}
+		else if (version != Save.SAVE_VERSION && version.satisfies(Save.SAVE_VERSION_RULE))
+		{
+			trace('Old/New version ($version) compatible with new/old (${Save.SAVE_VERSION})');
+			var defaultData:Dynamic = Save.getDefault();
+
+			saveData = ReflectUtil.deepMerge(defaultData, saveData, false);
+
+			saveData.version = Save.SAVE_VERSION;
+		}
+
+		return new Save(saveData);
 	}
 
 	/**
@@ -96,6 +118,7 @@ class SaveMigrator
 		newSave.options.fpsCounter = options.get('fpsCounter');
 		newSave.options.fullscreen = options.get('fullscreen');
 		newSave.options.antialiasing = options.get('antialiasing');
+		newSave.options.flashingLights = options.get('flashingLights');
 		newSave.options.autoPause = options.get('autoPause');
 		newSave.options.systemCursor = options.get('systemCursor');
 		newSave.options.safeMode = options.get('safeMode');

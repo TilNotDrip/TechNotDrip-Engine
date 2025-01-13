@@ -17,9 +17,12 @@ import funkin.objects.FunkinSprite.FunkinSpriteGroup;
 import funkin.objects.FunkinSprite;
 import funkin.util.FunkinSpriteUtil;
 import funkin.util.MathUtil;
+import funkin.util.ReflectUtil;
 import funkin.util.SystemUtil;
 import funkin.util.paths.Paths;
 import haxe.Exception;
+import thx.semver.Version;
+import thx.semver.VersionRule;
 
 using Lambda;
 using StringTools;
