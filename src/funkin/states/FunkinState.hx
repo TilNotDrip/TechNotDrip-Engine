@@ -3,12 +3,20 @@ package funkin.states;
 import flixel.FlxBasic;
 import flixel.FlxState;
 import flixel.util.FlxSort;
+import funkin.substates.FunkinTransition;
+import funkin.util.Controls;
+import haxe.Timer;
 
 /**
  * A FunkinState is a regular FlxState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
  */
 class FunkinState extends FlxState
 {
+	var controls(get, never):Controls;
+
+	inline function get_controls():Controls
+		return Controls.instance;
+
 	/**
 	 * The conductor that controls everything music-wise inside this state.
 	 */
@@ -21,7 +29,17 @@ class FunkinState extends FlxState
 		conductor.beatHit.add(beatHit);
 		conductor.sectionHit.add(sectionHit);
 
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.clearValues();
+		#end
+
 		super();
+	}
+
+	override public function create():Void
+	{
+		super.create();
+		openSubState(new FunkinTransition(true));
 	}
 
 	override public function destroy():Void
@@ -30,6 +48,12 @@ class FunkinState extends FlxState
 		conductor = null;
 
 		super.destroy();
+	}
+
+	override public function startOutro(onOutroComplete:() -> Void):Void
+	{
+		if (subState == null || !Std.isOfType(subState, FunkinTransition))
+			openSubState(new FunkinTransition(false, onOutroComplete));
 	}
 
 	/**

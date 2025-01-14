@@ -1,7 +1,10 @@
 package funkin.util.paths;
 
 /**
- * I wanted to name this FunkinPath but that would mess up my muscle memory.
+ * This is a paths class mostly used for getting content from files.
+ *
+ * `content` = Returning content / Content cache.
+ * `location` = Getting path locations, will be more useful when mod support comes into play.
  */
 class Paths
 {

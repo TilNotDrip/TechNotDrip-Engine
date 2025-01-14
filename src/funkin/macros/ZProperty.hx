@@ -1,9 +1,11 @@
 package funkin.macros;
 
 #if !display
+#if macro
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
+@:dox(hide)
 class ZProperty
 {
 	/**
@@ -25,4 +27,5 @@ class ZProperty
 		return fields;
 	}
 }
+#end
 #end

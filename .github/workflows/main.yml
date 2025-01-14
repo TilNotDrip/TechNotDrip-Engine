@@ -1,0 +1,100 @@
+name: Build
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  buildLinux:
+    name: Build Linux Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/linux/
+            .haxelib
+          key: ${{ runner.os }}-cache-compile
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          sudo apt install libvlccore-dev libvlc-dev -y -q
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+      - name: Compile Application
+        run: haxelib run lime build linux
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-LINUX
+          path: export/release/linux/bin/
+
+  buildWindows:
+    name: Build Windows Application
+    runs-on: windows-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/windows/
+            .haxelib
+          key: ${{ runner.os }}-cache-compile
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+      - name: Compile Application
+        run: haxelib run lime build windows
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-WINDOWS
+          path: export/release/windows/bin/
+
+  buildMacOS:
+    name: Build MacOS Application
+    runs-on: macos-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/macos/
+            .haxelib
+          key: ${{ runner.os }}-cache-compile
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+      - name: Compile Application
+        run: haxelib run lime build macos
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-MACOS
+          path: export/release/macos/bin/

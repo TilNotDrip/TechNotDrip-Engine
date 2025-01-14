@@ -7,6 +7,11 @@ import flixel.util.FlxSignal;
 	CONDUCTOR TODO:
 	* Add time changes, so most things arent hardcoded
  */
+//
+
+/**
+ * The conductor is an class that handles most of the music timing.
+ */
 class Conductor implements IFlxDestroyable
 {
 	/**
@@ -68,30 +73,15 @@ class Conductor implements IFlxDestroyable
 	 */
 	public var crochet(get, null):Float;
 
-	function get_crochet():Float
-	{
-		return calculateCrochet(bpm);
-	}
-
 	/**
 	 * The length between a step, in miliseconds.
 	 */
 	public var stepCrochet(get, null):Float;
 
-	function get_stepCrochet():Float
-	{
-		return crochet / beatSteps;
-	}
-
 	/**
 	 * The length between a section, in miliseconds.
 	 */
 	public var sectionCrochet(get, null):Float;
-
-	function get_sectionCrochet():Float
-	{
-		return crochet * sectionBeats;
-	}
 
 	public function new()
 	{
@@ -101,6 +91,32 @@ class Conductor implements IFlxDestroyable
 
 		bpm = 100;
 		time = 0;
+	}
+
+	/**
+	 * Updates the current conductor time.
+	 * @param songTime The time to set it to. If not specified the FlxG.sound.music time will be used instead.
+	 */
+	public function update(?songTime:Float):Void
+	{
+		if (songTime != null)
+		{
+			time = songTime;
+		}
+		else
+		{
+			time = FlxG.sound.music.time ?? 0.0;
+		}
+	}
+
+	/**
+	 * Cleans up this Conductor to the best of our abilities.
+	 */
+	public function destroy():Void
+	{
+		stepHit.destroy();
+		beatHit.destroy();
+		sectionHit.destroy();
 	}
 
 	function set_time(value:Float):Float
@@ -127,14 +143,19 @@ class Conductor implements IFlxDestroyable
 		return value;
 	}
 
-	/**
-	 * Cleans up this Conductor to the best of our abilities.
-	 */
-	public function destroy():Void
+	function get_crochet():Float
 	{
-		stepHit.destroy();
-		beatHit.destroy();
-		sectionHit.destroy();
+		return calculateCrochet(bpm);
+	}
+
+	function get_stepCrochet():Float
+	{
+		return crochet / beatSteps;
+	}
+
+	function get_sectionCrochet():Float
+	{
+		return crochet * sectionBeats;
 	}
 
 	/**
@@ -142,7 +163,7 @@ class Conductor implements IFlxDestroyable
 	 * @param bpm The bpm to use for calculating.
 	 * @return The crochet, in miliseconds.
 	 */
-	public static function calculateCrochet(bpm:Float):Float
+	inline static function calculateCrochet(bpm:Float):Float
 	{
 		return ((60 / bpm) * 1000);
 	}

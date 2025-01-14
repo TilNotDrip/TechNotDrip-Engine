@@ -24,6 +24,9 @@ class PathsLocation
 	 */
 	public function audio(key:String):String
 	{
+		if (key.startsWith('https://'))
+			return get(key);
+
 		return get(key + '.' + Paths.AUDIO_EXT);
 	}
 
@@ -34,6 +37,9 @@ class PathsLocation
 	 */
 	public function image(key:String):String
 	{
+		if (key.startsWith('https://'))
+			return get(key);
+
 		return get(key + '.' + Paths.IMAGE_EXT);
 	}
 
@@ -64,6 +70,10 @@ class PathsLocation
 	 */
 	public function get(key:String):String
 	{
+		// TODO: Better Link Detection system, this will do for the short run though.
+		if (key.startsWith('https://'))
+			return key;
+
 		return 'assets/' + key;
 	}
 
@@ -83,4 +93,63 @@ class PathsLocation
 
 		return false;
 	}
+
+	/**
+	 * Scans an entire path and returns all assets found.
+	 * @param key The path to scan.
+	 * @param ext If specified, will only return files that ends with `ext`.
+	 * @param recursive Recursively search through the game?
+	 * @param returnType Which type of paths do u want returned? (with assets/key/file, key/file, or just file).
+	 * @param returnExt Whether the extenstion of the file should be returned with it.
+	 * @return Array full of assets found inside of `key`.
+	 */
+	public function scan(key:String, ?ext:String = '', ?recursive:Bool = true, ?returnType:ScanReturnType = ASSETS_PATH_FILE,
+			?returnExt:Bool = true):Array<String>
+	{
+		var foundAssets:Array<String> = [];
+		var openflList:Array<String> = Assets.list();
+
+		if (!key.endsWith('/'))
+			key += '/';
+
+		if (ext != '' && !ext.startsWith('.'))
+			ext = '.' + ext;
+
+		for (asset in openflList)
+		{
+			var assetKey:String = 'assets/' + key;
+
+			if ((!asset.startsWith(assetKey) || !asset.endsWith(ext)) || (!recursive && asset.split(assetKey)[1].contains('/')))
+				continue;
+
+			var assetToPush:String = switch (returnType)
+			{
+				case ASSETS_PATH_FILE:
+					asset;
+
+				case PATH_FILE:
+					asset.split('assets/')[1];
+
+				case FILE:
+					var assetSplit:Array<String> = asset.split('/');
+					assetSplit[assetSplit.length - 1];
+			}
+
+			if (!returnExt)
+				assetToPush = assetToPush.split('.')[0];
+
+			// Avoid duplicates especially if your removing all extentions.
+			if (!foundAssets.contains(assetToPush))
+				foundAssets.push(assetToPush);
+		}
+
+		return foundAssets;
+	}
+}
+
+enum ScanReturnType
+{
+	ASSETS_PATH_FILE;
+	PATH_FILE;
+	FILE;
 }

@@ -1,0 +1,60 @@
+[
+	{
+		"profile": "default",
+		"pkgs": [
+			{
+				"name": "lime",
+				"version": "8.2.2"
+			},
+			{
+				"name": "openfl",
+				"version": "9.4.1"
+			},
+			{
+				"name": "flixel",
+				"version": "5.9.0"
+			},
+			{
+				"name": "flixel-addons",
+				"version": "3.3.0"
+			},
+			{
+				"name": "flxanimate",
+				"link": "https://github.com/Dot-Stuff/flxanimate",
+				"branch": "ef85c132044d897a04c5008da29674d88f83c4d6"
+			},
+			{
+				"name": "hxcpp",
+				"version": "4.3.2"
+			},
+			{
+				"name": "hxcpp-debug-server",
+				"version": "1.2.4"
+			},
+			{
+				"name": "hxp",
+				"version": "1.3.0"
+			},
+			{
+				"name": "format",
+				"version": "3.5.0"
+			},
+			{
+				"name": "hscript",
+				"version": "2.6.0"
+			},
+			{
+				"name": "hxdiscord_rpc",
+				"version": "1.2.4"
+			},
+			{
+				"name": "thx.core",
+				"version": "0.44.0"
+			},
+			{
+				"name": "thx.semver",
+				"version": "0.2.2"
+			}
+		]
+	}
+]

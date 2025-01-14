@@ -1,0 +1,92 @@
+{
+    "name": "Week 1",
+    "songs": [
+        "bopeebo",
+        "fresh",
+        "dadbattle"
+    ],
+    "startLocked": false,
+    "songToUnlock": "",
+    "weekToUnlock": "",
+    "visibleWhenLocked": true,
+    "sprites": [
+        {
+            "id": "dad",
+            "path": "ui/story/props/dad",
+            "position":
+            {
+                "x": 110,
+                "y": 4
+            },
+            "animation":
+            {
+                "type": "sparrow",
+                "anims":
+                [
+                    {
+                        "name": "idle",
+                        "prefix": "idle0",
+                        "framerate": 24
+                    }
+                ]
+            }
+        },
+        {
+            "id": "bf",
+            "path": "ui/story/props/bf",
+            "position":
+            {
+                "x": 476,
+                "y": 24
+            },
+            "animation":
+            {
+                "type": "sparrow",
+                "anims":
+                [
+                    {
+                        "name": "idle",
+                        "prefix": "idle0",
+                        "framerate": 24
+                    },
+                    {
+                        "name": "confirm",
+                        "prefix": "confirm0",
+                        "framerate": 24
+                    }
+                ]
+            }
+        },
+        {
+            "id": "gf",
+            "path": "ui/story/props/gf",
+            "position":
+            {
+                "x": 895,
+                "y": 24
+            },
+            "animation":
+            {
+                "type": "sparrow",
+                "anims":
+                [
+                    {
+                        "name": "danceLeft",
+                        "prefix": "idle0",
+                        "framerate": 24,
+                        "indices": [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                    },
+                    {
+                        "name": "danceRight",
+                        "prefix": "idle0",
+                        "framerate": 24,
+                        "indices": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+                    }
+                ]
+            }
+        }
+    ],
+    "background": "#F9CF51",
+    "motto": "DADDY DEAREST",
+    "storyPosition": 1
+}

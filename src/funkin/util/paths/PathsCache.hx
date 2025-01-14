@@ -1,6 +1,9 @@
 package funkin.util.paths;
 
 import flixel.graphics.FlxGraphic;
+import haxe.Http;
+import haxe.io.Bytes;
+import lime.media.AudioBuffer;
 import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
@@ -18,7 +21,11 @@ class PathsCache
 	 *
 	 * You should only put something here if you use it on a daily basis.
 	 */
-	final removeExcludeKeys:Array<String> = [];
+	final removeExcludeKeys:Array<String> = [
+		'assets/ui/fonts/alphabet/bold.' + Paths.IMAGE_EXT,
+		'assets/ui/fonts/alphabet/default.' + Paths.IMAGE_EXT,
+		'assets/ui/menu/freakyMenu.' + Paths.AUDIO_EXT
+	];
 
 	var cachedAudioKeys:Array<String>;
 	var cachedImageKeys:Array<String>;
@@ -53,7 +60,16 @@ class PathsCache
 
 			try
 			{
-				audio = Assets.getSound(key, false);
+				if (key.startsWith('https://'))
+				{
+					var audioRequest:Http = new Http(key);
+					audioRequest.request();
+					audio = Sound.fromAudioBuffer(AudioBuffer.fromBytes(audioRequest.responseBytes));
+				}
+				else
+				{
+					audio = Assets.getSound(key, false);
+				}
 			}
 			catch (e:Exception)
 			{
@@ -85,7 +101,16 @@ class PathsCache
 
 			try
 			{
-				bitmapData = Assets.getBitmapData(key, false);
+				if (key.startsWith('https://'))
+				{
+					var imageRequest:Http = new Http(key);
+					imageRequest.request();
+					bitmapData = BitmapData.fromBytes(imageRequest.responseBytes);
+				}
+				else
+				{
+					bitmapData = Assets.getBitmapData(key, false);
+				}
 			}
 			catch (e:Exception)
 			{
@@ -138,40 +163,40 @@ class PathsCache
 
 	/**
 	 * Clears out the cached objects inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all objects.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all objects.
 	 * @param bypassExcludeKeys Whether to remove the objects even if it's inside of the exclude list.
 	 */
-	public function clear(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clear(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		clearImages(false, bypassExcludeKeys);
 		clearAudios(false, bypassExcludeKeys);
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 
 	/**
 	 * Clears out the cached audios inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all audios.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all audios.
 	 * @param bypassExcludeKeys Whether to remove the audios even if it's inside of the exclude list.
 	 */
-	public function clearAudios(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clearAudios(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		for (audio in cachedAudioKeys)
 		{
 			removeAudio(audio, bypassExcludeKeys);
 		}
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 
 	/**
 	 * Clears out the cached images inside of this instance.
-	 * @param runGarbageCollecter Whether to run the garbage collector after clearing all images.
+	 * @param runGarbageCollector Whether to run the garbage collector after clearing all images.
 	 * @param bypassExcludeKeys Whether to remove the images even if it's inside of the exclude list.
 	 */
-	public function clearImages(?runGarbageCollecter:Bool = true, ?bypassExcludeKeys:Bool = false):Void
+	public function clearImages(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
 		for (image in cachedImageKeys)
 		{
@@ -180,7 +205,7 @@ class PathsCache
 
 		FlxG.bitmap.reset(); // Flixel likes to cache all texts and transitions, nothing wrong with it but this is a graphic clear.
 
-		if (runGarbageCollecter)
+		if (runGarbageCollector)
 			System.gc();
 	}
 

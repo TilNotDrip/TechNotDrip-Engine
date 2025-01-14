@@ -2,10 +2,17 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
+import funkin.data.save.Save;
+import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import openfl.Assets;
 import openfl.display.Sprite;
+import sys.thread.Thread;
+#if FUNKIN_DISCORD_RPC
+import funkin.api.DiscordRPC;
+#end
 
 class Main extends Sprite
 {
@@ -17,6 +24,8 @@ class Main extends Sprite
 		showSplash: false,
 		startFullscreen: false
 	};
+
+	public static var performanceStats:PerformanceStats;
 
 	public function new()
 	{
@@ -31,10 +40,25 @@ class Main extends Sprite
 			!flxGameData.showSplash, flxGameData.startFullscreen);
 		addChild(flxGame);
 
+		performanceStats = new PerformanceStats(5, 5, 0xFFFFFF);
+		addChild(performanceStats);
+
 		Assets.cache.enabled = false;
 
 		FlxG.mouse.useSystemCursor = true;
 		FlxG.mouse.visible = false;
+
+		FlxG.fixedTimestep = false;
+
+		FlxSprite.defaultAntialiasing = true;
+
+		Save.instance.setOptionValues();
+
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.loadDiscordConfig();
+		DiscordRPC.initialize();
+		DiscordRPC.largeImageKey = 'Version: ' + funkin.Constants.TECHNOTDRIP_VERSION;
+		#end
 	}
 }
 
