@@ -1,0 +1,132 @@
+package;
+
+import hxp.*;
+import lime.tools.*;
+
+using StringTools;
+
+/**
+ * This is the main project file for TechNotDrip Engine.
+ *
+ * This works exactly like an Project.xml but in Haxe Syntax.
+ */
+class Project extends HXProject
+{
+	public function new()
+	{
+		super();
+
+		setupApplicationSettings();
+		setupWindowSettings();
+		setupPathSettings();
+		setupHaxelibs();
+		setupHaxeDefines();
+		setupHaxeFlags();
+	}
+
+	public function setupApplicationSettings():Void
+	{
+		meta.title = 'Friday Night Funkin\': TechNotDrip Engine';
+		app.file = 'TechNotDrip';
+		app.main = 'Main';
+		meta.version = '0.1.0';
+		meta.company = 'TilNotDrip';
+		app.preloader = 'flixel.system.FlxPreloader';
+		app.swfVersion = 11.8;
+	}
+
+	public function setupWindowSettings():Void
+	{
+		window.width = 1280;
+		window.height = 720;
+		window.background = 0;
+		window.hardware = true;
+		window.vsync = false;
+
+		if (platformType == WEB)
+		{
+			window.resizable = true;
+		}
+
+		if (platformType == DESKTOP)
+		{
+			window.orientation = LANDSCAPE;
+			window.fullscreen = false;
+			window.resizable = true;
+		}
+
+		if (platformType == MOBILE)
+		{
+			window.orientation = LANDSCAPE;
+			window.fullscreen = false;
+			window.width = 0;
+			window.height = 0;
+		}
+	}
+
+	public function setupPathSettings():Void
+	{
+		app.path = getBuildDirectory();
+
+		var excludeList:Array<String> = [];
+		excludeList.push((platformType == WEB) ? 'ogg' : 'mp3');
+
+		// TODO: Maybe scan the entire assets folder instead like base fnf.
+		includeAssets("assets", "assets", ['*'], excludeList);
+
+		icons.push(new Icon('extras/appicons/icon16.png', 16));
+		icons.push(new Icon('extras/appicons/icon32.png', 32));
+		icons.push(new Icon('extras/appicons/icon64.png', 64));
+		icons.push(new Icon('extras/appicons/icon.png'));
+
+		sources.push('src');
+	}
+
+	public function setupHaxelibs():Void
+	{
+		haxelibs.push(new Haxelib('lime', '8.2.1'));
+		haxelibs.push(new Haxelib('openfl', '9.4.0'));
+		haxelibs.push(new Haxelib('flixel', '5.8.0'));
+		haxelibs.push(new Haxelib('flixel-addons', '3.2.3'));
+
+		if (debug)
+			haxelibs.push(new Haxelib('hxcpp-debug-server', '1.2.4'));
+	}
+
+	public function setupHaxeDefines():Void
+	{
+		if (!debug)
+			haxedefs.set('FLX_NO_DEBUG', '');
+
+		haxedefs.set('FLX_NO_HEALTH', '');
+
+		if (platformType == MOBILE)
+		{
+			haxedefs.set('FLX_NO_KEYBOARD', '');
+			haxedefs.set('FLX_NO_MOUSE', '');
+		}
+
+		if (platformType == DESKTOP)
+		{
+			haxedefs.set('FLX_NO_TOUCH', '');
+		}
+
+		haxedefs.set('message.reporting', 'pretty');
+
+		if (!debug)
+			haxedefs.set('NAPE_RELEASE_BUILD', '');
+	}
+
+	public function setupHaxeFlags():Void
+	{
+		haxeflags.push('-dce no');
+		haxeflags.push("--macro include('funkin')");
+		haxeflags.push("--macro addMetadata('@:build(funkin.macros.ZProperty.build())', 'flixel.FlxBasic')");
+	}
+
+	function getBuildDirectory():String
+	{
+		var buildDir:String = 'export/' + ((debug) ? 'debug' : 'release');
+		return buildDir;
+	}
+}

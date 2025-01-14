@@ -1,0 +1,13 @@
+.DS_STORE
+RECOVER_*.fla
+
+.haxelib/
+.vs/
+.vscode/
+
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+export/
