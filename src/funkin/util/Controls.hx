@@ -75,71 +75,33 @@ class Controls implements IFlxDestroyable
 
 	function update()
 	{
-		for (variableName in ControlsMacro.variablesWithRandP)
-		{
-			if (Reflect.field(this, variableName + '_P'))
-				Reflect.setField(this, variableName + '_P', false);
-
-			if (Reflect.field(this, variableName + '_R'))
-				Reflect.setField(this, variableName + '_R', false);
-		}
-
 		for (variableName in ControlsMacro.variablesToAdd)
 		{
 			if (ControlsMacro.variablesWithRandP.contains(variableName))
-				continue;
-
-			if (Reflect.field(this, variableName))
-				Reflect.setField(this, variableName, false);
-		}
-
-		var keysDown:Array<Either<FlxKey, FlxGamepadInputID>> = [];
-		var keysReleased:Array<Either<FlxKey, FlxGamepadInputID>> = [];
-
-		@:privateAccess
-		for (key in FlxG.keys._keyListArray)
-		{
-			if (key != null)
 			{
-				if (key.justPressed)
-					keysDown.push(Either.Left(key.ID));
-				else if (key.justReleased)
-					keysReleased.push(Either.Left(key.ID));
+				if (Reflect.field(this, variableName + '_P'))
+					Reflect.setField(this, variableName + '_P', false);
+
+				if (Reflect.field(this, variableName + '_R'))
+					Reflect.setField(this, variableName + '_R', false);
+			}
+			else
+			{
+				if (Reflect.field(this, variableName))
+					Reflect.setField(this, variableName, false);
 			}
 		}
 
-		if (gamepad != null)
+		for (variableName in mappings.keys())
 		{
-			@:privateAccess
-			for (key in gamepad.buttons)
-			{
-				if (key != null)
-				{
-					if (key.justPressed)
-						keysDown.push(Either.Right(key.ID));
-					else if (key.justReleased)
-						keysReleased.push(Either.Right(key.ID));
-				}
-			}
-		}
+			var mapping = mappings.get(variableName);
 
-		for (eitherKey in keysDown)
-		{
-			var key:Int = -1;
-			var variableNames:Array<String> = [];
+			var isPressed:Bool = FlxG.keys.anyJustPressed(mapping.keyboard);
 
-			switch (eitherKey)
-			{
-				case Left(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, false);
+			if (gamepad != null && gamepad.anyJustPressed(mapping.gamepad))
+				isPressed = true;
 
-				case Right(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, true);
-			}
-
-			for (variableName in variableNames)
+			if (isPressed)
 			{
 				if (!Reflect.field(this, variableName))
 				{
@@ -151,25 +113,13 @@ class Controls implements IFlxDestroyable
 					pressed.dispatch();
 				}
 			}
-		}
 
-		for (eitherKey in keysReleased)
-		{
-			var key:Int = -1;
-			var variableNames:Array<String> = [];
+			var isReleased:Bool = FlxG.keys.anyJustReleased(mapping.keyboard);
 
-			switch (eitherKey)
-			{
-				case Left(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, false);
+			if (gamepad != null && gamepad.anyJustReleased(mapping.gamepad))
+				isReleased = true;
 
-				case Right(keyy):
-					key = cast keyy;
-					variableNames = getControlNamesFromKey(key, true);
-			}
-
-			for (variableName in variableNames)
+			if (isReleased)
 			{
 				if (Reflect.field(this, variableName))
 				{
@@ -182,20 +132,6 @@ class Controls implements IFlxDestroyable
 				}
 			}
 		}
-	}
-
-	function getControlNamesFromKey(key:Int, isGamepad:Bool):Array<String>
-	{
-		var controlNames:Array<String> = [];
-		for (variableName in mappings.keys())
-		{
-			var mapping = mappings.get(variableName);
-
-			if ((isGamepad ? mapping.gamepad : mapping.keyboard).contains(key) && !controlNames.contains(variableName))
-				controlNames.push(variableName);
-		}
-
-		return controlNames;
 	}
 }
 
