@@ -68,7 +68,7 @@ class PathsCache
 				}
 				else
 				{
-					audio = Assets.getSound(key, false);
+					audio = FlxG.assets.getSoundUnsafe(key, false);
 				}
 			}
 			catch (e:Exception)
@@ -109,7 +109,7 @@ class PathsCache
 				}
 				else
 				{
-					bitmapData = Assets.getBitmapData(key, false);
+					bitmapData = FlxG.assets.getBitmapDataUnsafe(key, false);
 				}
 			}
 			catch (e:Exception)
@@ -182,7 +182,9 @@ class PathsCache
 	 */
 	public function clearAudios(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
-		for (audio in cachedAudioKeys)
+		final keysToRemove:Array<String> = cachedAudioKeys.copy();
+
+		for (audio in keysToRemove)
 		{
 			removeAudio(audio, bypassExcludeKeys);
 		}
@@ -198,7 +200,9 @@ class PathsCache
 	 */
 	public function clearImages(?runGarbageCollector:Bool = true, ?bypassExcludeKeys:Bool = false):Void
 	{
-		for (image in cachedImageKeys)
+		final keysToRemove:Array<String> = cachedImageKeys.copy();
+
+		for (image in keysToRemove)
 		{
 			removeImage(image, bypassExcludeKeys);
 		}

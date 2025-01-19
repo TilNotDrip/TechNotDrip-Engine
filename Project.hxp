@@ -144,6 +144,7 @@ class Project extends HXProject
 	public function setupHaxeDefines():Void
 	{
 		addHaxeDefine('doc-gen', FUNKIN_DOX_GENERATION.isEnabled(this));
+		addHaxeDefine('FLX_CUSTOM_ASSETS_DIRECTORY', 'assets', debug);
 		addHaxeDefine('FLX_NO_DEBUG', !debug);
 		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
 		addHaxeDefine('FLX_NO_HEALTH');

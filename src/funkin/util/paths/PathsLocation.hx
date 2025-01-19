@@ -86,7 +86,7 @@ class PathsLocation
 	{
 		var path:String = get(key);
 
-		if (Assets.exists(path))
+		if (FlxG.assets.exists(path))
 		{
 			return true;
 		}
@@ -107,7 +107,7 @@ class PathsLocation
 			?returnExt:Bool = true):Array<String>
 	{
 		var foundAssets:Array<String> = [];
-		var openflList:Array<String> = Assets.list();
+		var openflList:Array<String> = FlxG.assets.list();
 
 		if (!key.endsWith('/'))
 			key += '/';

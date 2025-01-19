@@ -10,15 +10,16 @@ import js.Browser;
 class SystemUtil
 {
 	/**
-	 * Opens a URL in the user's browser.
-	 * @param url The URL Link to open.
+	 * Shows an alert to the user.
+	 * @param title The title of the alert, if supported.
+	 * @param content The content of the message.
 	 */
-	public static function openURL(url:String):Void
+	public static function alert(title:String, content:String):Void
 	{
-		#if Linux
-		Sys.command('/usr/bin/xdg-open $url &');
-		#else
-		FlxG.openURL(url);
+		#if desktop
+		FlxG.stage.application.window.alert(content, title);
+		#elseif js
+		Browser.window.alert(content);
 		#end
 	}
 
@@ -35,16 +36,15 @@ class SystemUtil
 	}
 
 	/**
-	 * Shows an alert to the user.
-	 * @param title The title of the alert, if supported.
-	 * @param content The content of the message.
+	 * Opens a URL in the user's browser.
+	 * @param url The URL Link to open.
 	 */
-	public static function alert(title:String, content:String):Void
+	public static function openURL(url:String):Void
 	{
-		#if desktop
-		FlxG.stage.application.window.alert(content, title);
-		#elseif js
-		Browser.window.alert(content);
+		#if linux
+		Sys.command('/usr/bin/xdg-open $url &');
+		#else
+		FlxG.openURL(url);
 		#end
 	}
 }

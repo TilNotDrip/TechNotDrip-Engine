@@ -89,7 +89,7 @@ class PathsContent
 	public function text(key:String):String
 	{
 		var assetKey:String = Paths.location.get(key);
-		return Assets.getText(assetKey);
+		return FlxG.assets.getText(assetKey, false);
 	}
 
 	/**
