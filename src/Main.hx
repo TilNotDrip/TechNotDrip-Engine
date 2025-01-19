@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
+import funkin.Constants;
 import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
@@ -15,6 +16,11 @@ import funkin.api.DiscordRPC;
 
 class Main extends Sprite
 {
+	/**
+	 * The FPS and Memory overlay at the top left of the screen.
+	 */
+	public static var performanceStats:PerformanceStats;
+
 	var flxGameData:FlxGameInit = {
 		width: 1280,
 		height: 720,
@@ -23,8 +29,6 @@ class Main extends Sprite
 		showSplash: false,
 		startFullscreen: false
 	};
-
-	public static var performanceStats:PerformanceStats;
 
 	public function new()
 	{
@@ -56,7 +60,8 @@ class Main extends Sprite
 		#if FUNKIN_DISCORD_RPC
 		DiscordRPC.loadDiscordConfig();
 		DiscordRPC.initialize();
-		DiscordRPC.largeImageKey = 'Version: ' + funkin.Constants.TECHNOTDRIP_VERSION;
+		DiscordRPC.largeImageKey = 'logo';
+		DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
 		#end
 	}
 }
