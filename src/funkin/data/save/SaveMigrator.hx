@@ -28,7 +28,8 @@ class SaveMigrator
 			SystemUtil.alert('Save Warning!',
 				'The current save loaded is a higher version than what this game supports!\nThis may make unexpected things happen!\nJust in case, the game has put this save in ${Save.SAVE_NAME}$slot as a backup.');
 		}
-		else if (version != Save.SAVE_VERSION && version.satisfies(Save.SAVE_VERSION_RULE))
+
+		if (version != Save.SAVE_VERSION && version.satisfies(Save.SAVE_VERSION_RULE))
 		{
 			trace('Old/New version ($version) compatible with new/old (${Save.SAVE_VERSION})');
 			var defaultData:Dynamic = Save.getDefault();
