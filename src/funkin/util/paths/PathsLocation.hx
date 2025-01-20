@@ -136,7 +136,11 @@ class PathsLocation
 			}
 
 			if (!returnExt)
-				assetToPush = assetToPush.split('.')[0];
+			{
+				var assetSplit:Array<String> = asset.split('.');
+				assetSplit.pop();
+				assetToPush = assetSplit.join('.');
+			}
 
 			// Avoid duplicates especially if your removing all extentions.
 			if (!foundAssets.contains(assetToPush))
