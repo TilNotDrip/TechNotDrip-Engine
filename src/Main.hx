@@ -60,7 +60,6 @@ class Main extends Sprite
 		#if FUNKIN_DISCORD_RPC
 		DiscordRPC.loadDiscordConfig();
 		DiscordRPC.initialize();
-		DiscordRPC.largeImageKey = 'logo';
 		DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
 		#end
 	}
