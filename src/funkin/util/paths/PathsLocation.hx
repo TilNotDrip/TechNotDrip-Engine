@@ -137,7 +137,7 @@ class PathsLocation
 
 			if (!returnExt)
 			{
-				var assetSplit:Array<String> = asset.split('.');
+				var assetSplit:Array<String> = assetToPush.split('.');
 				assetSplit.pop();
 				assetToPush = assetSplit.join('.');
 			}
