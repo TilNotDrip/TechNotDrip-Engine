@@ -1,9 +1,16 @@
 package funkin.objects.ui;
 
 import flixel.graphics.frames.FlxFramesCollection;
+import funkin.structures.AlphabetStructure;
+import haxe.Json;
 
 class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 {
+	/**
+	 * Data for the current letter type.
+	 */
+	public var data:AlphabetStructure;
+
 	/**
 	 * The text that this group displays.
 	 */
@@ -22,6 +29,8 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 	public function new(x:Float, y:Float, text:String = '', letterType:LetterType = DEFAULT)
 	{
 		super(x, y);
+
+		data = cast Json.parse(Paths.content.json(letterType.getPath()));
 
 		this.letterType = letterType;
 		this.text = text;
@@ -98,6 +107,16 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 					letterSpr.letter = letter;
 					letterSpr.setPosition(letterX, letterY + maxHeight - letterSpr.height);
 					add(letterSpr);
+
+					for (offsetObj in data.offsets)
+					{
+						if (offsetObj?.character == letter)
+						{
+							letterSpr.x += offsetObj?.x ?? 0;
+							letterSpr.y += offsetObj?.y ?? 0;
+							break;
+						}
+					}
 
 					letterX += Math.floor(letterSpr.width);
 			}
