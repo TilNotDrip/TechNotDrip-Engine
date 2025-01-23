@@ -49,14 +49,22 @@ class Week
 		return weekData;
 	}
 
+	/**
+	 * @return Grabs the background color from the current week data.
+	 * @default #F9CF51
+	 */
 	public function getBGColor():FlxColor
 	{
 		return FlxColor.fromString(data?.background ?? '#F9CF51');
 	}
 
+	/**
+	 * @return Grabs the motto from the current week data.
+	 * @default Unknown
+	 */
 	public function getMotto():String
 	{
-		return data?.motto ?? 'idfk it didnt load';
+		return data?.motto ?? 'Unknown';
 	}
 
 	function get_songs():Array<Song>
@@ -70,6 +78,9 @@ class Week
 		return songObjs;
 	}
 
+	/**
+	 * @return Grabs the songs display names.
+	 */
 	public function getDisplaySongNames():Array<String>
 	{
 		var displayNames:Array<String> = [];
@@ -80,6 +91,11 @@ class Week
 		return displayNames;
 	}
 
+	/**
+	 * Builds the sprites for Story Mode.
+	 * @param sprGroup The sprite group to add the sprites to.
+	 * @return Story Mode Menu Characters.
+	 */
 	public function buildSprites(?sprGroup:FunkinSpriteGroup = null):FunkinSpriteGroup
 	{
 		var sprGrp:FunkinSpriteGroup = sprGroup ?? new FunkinSpriteGroup();
