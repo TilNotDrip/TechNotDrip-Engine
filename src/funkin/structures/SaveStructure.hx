@@ -52,15 +52,15 @@ typedef ProgressStructure =
 typedef HighscoreStructures =
 {
 	/**
-	 * Story Mode Highscores. 
-	 * 
+	 * Story Mode Highscores.
+	 *
 	 * Week ID => Highscore.
 	 */
 	var storyMode:Map<String, Int>;
 
 	/**
-	 * Freeplay Highscores. 
-	 * 
+	 * Freeplay Highscores.
+	 *
 	 * Song ID => Highscore.
 	 */
 	var freeplay:Map<String, Int>;
@@ -69,14 +69,14 @@ typedef HighscoreStructures =
 typedef OptionStructure =
 {
 	/**
-	 * Max FPS
+	 * The frames-per-second that the game will run at.
 	 */
 	var fps:Int;
 
 	/**
 	 * If the FPS Counter is visible.
 	 */
-	var fpsCounter:Bool;
+	var showFps:Bool;
 
 	/**
 	 * Should the game be fullscreen?

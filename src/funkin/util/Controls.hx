@@ -51,10 +51,24 @@ class Controls implements IFlxDestroyable
 		];
 	}
 
+	/**
+	 * The current mapping for the controls.
+	 */
 	public var mappings:ControlMappings;
+
+	/**
+	 * The gamepad thats connected to the users system.
+	 */
 	public var gamepad:FlxGamepad = null;
 
+	/**
+	 * A signal that gets sent once a bind gets pressed.
+	 */
 	public var pressed:FlxSignal;
+
+	/**
+	 * A signal that gets sent once a bind gets released.
+	 */
 	public var released:FlxSignal;
 
 	public function new(mappings:ControlMappings, gamepad:FlxGamepad)

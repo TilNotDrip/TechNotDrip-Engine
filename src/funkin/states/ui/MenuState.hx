@@ -10,10 +10,10 @@ import funkin.substates.FunkinTransition;
 
 class MenuState extends FunkinState
 {
-	public static var curSelected:Int = 0;
+	static var curSelected:Int = 0;
 
-	// Maybe move to config file?
-	public static var menuItems:Array<MenuItem> = [
+	// TODO: maybe move to config file?
+	static final menuItems:Array<MenuItem> = [
 		{
 			id: 'storymode',
 			name: 'Story Mode',
@@ -146,7 +146,9 @@ class MenuState extends FunkinState
 					SystemUtil.openURL(menuItems[curSelected].website);
 
 				if (menuItems[curSelected].classToSwitch != null)
+				{
 					FlxG.switchState(menuItems[curSelected].classToSwitch);
+				}
 				else
 				{
 					FunkinTransition.skipNextTransitionIn = true;

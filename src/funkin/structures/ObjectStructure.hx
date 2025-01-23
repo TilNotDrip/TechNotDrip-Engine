@@ -56,6 +56,7 @@ typedef ObjectStructure =
 	var ?scrollFactor:PointStructure;
 }
 
+// TODO: when we make a custom json parser, make it so you can use an array or dis
 typedef PointStructure =
 {
 	@:optional

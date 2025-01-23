@@ -4,6 +4,12 @@ import funkin.structures.ObjectStructure;
 
 class FunkinSpriteUtil
 {
+	/**
+	 * Creates a new `FunkinSprite` from a `ObjectStructure`.
+	 * @param spriteToUse The `FunkinSprite` object to apply this to.
+	 * @param structure The structure data to use when applying it.
+	 * @return Freshly made `FunkinSprite`.
+	 */
 	public static function createFromStructure(?spriteToUse:FunkinSprite = null, structure:ObjectStructure):FunkinSprite
 	{
 		if (structure == null)
@@ -44,6 +50,12 @@ class FunkinSpriteUtil
 		return sprite;
 	}
 
+	/**
+	 * Adds animations to a `FunkinSprite` from a array with `AnimationArrayStructure`'s.
+	 * @param sprite The `FunkinSprite` to apply this to.
+	 * @param structure The array filled with `AnimationArrayStructure`. to create animations from.
+	 * @return `FunkinSprite` with animations added.
+	 */
 	public static function addAnimationsFromStructure(sprite:FunkinSprite, structure:Array<AnimationArrayStructure>):FunkinSprite
 	{
 		if (sprite == null || structure == null)

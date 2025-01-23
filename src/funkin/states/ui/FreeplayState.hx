@@ -227,6 +227,10 @@ class FreeplayState extends FunkinState
 		}
 	}
 
+	/**
+	 * Changes the current song selection.
+	 * @param index How much to change it by?
+	 */
 	public function changeSelection(?index:Int = 0):Void
 	{
 		curSelected += index;

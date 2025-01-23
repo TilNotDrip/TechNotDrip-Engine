@@ -120,7 +120,7 @@ class StoryState extends FunkinState
 
 			grpWeekItems.members[curSelected].startFlashing();
 
-			new FlxTimer().start(1, (_) ->
+			new FlxTimer().start(1, (tmr:FlxTimer) ->
 			{
 				// TODO: Change this to PlayState
 				FlxG.switchState(MenuState.new);
@@ -149,6 +149,11 @@ class StoryState extends FunkinState
 
 	var danced:Bool = false;
 
+	/**
+	 * Auto determines the current idle animation that should be played.
+	 * @param spr The sprite to check the animations from.
+	 * @return idle or danceLeft/Right.
+	 */
 	public function getIdleAnimationForSprite(spr:FlxSprite):String
 	{
 		if (spr.animation.exists('danceLeft') || spr.animation.exists('danceRight'))

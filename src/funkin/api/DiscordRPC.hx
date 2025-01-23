@@ -17,12 +17,12 @@ import sys.thread.Thread;
 class DiscordRPC
 {
 	/**
-	 * Your application's Client ID. 
+	 * Your application's Client ID.
 	 * This determines what people actually see on Discord!
-	 * 
+	 *
 	 * You need to run `restart()` first for this to take effect!
-	 * 
-	 * 
+	 *
+	 *
 	 * Example:
 	 * ```haxe
 	 * "1323401168705163355"
@@ -246,7 +246,7 @@ class DiscordRPC
 
 	/**
 	 * Resets all the values back to either null or 0 (if it's a number type.)
-	 * @param alsoClearConfig Should the config values also be cleared? 
+	 * @param alsoClearConfig Should the config values also be cleared?
 	 */
 	public static function clearValues(?alsoClearConfig:Bool = false):Void
 	{
