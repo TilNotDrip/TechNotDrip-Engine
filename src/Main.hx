@@ -21,7 +21,7 @@ class Main extends Sprite
 	 */
 	public static var performanceStats:PerformanceStats;
 
-	var flxGameData:FlxGameInit = {
+	final flxGameData:FlxGameInit = {
 		width: 1280,
 		height: 720,
 		initState: TitleState.new,
