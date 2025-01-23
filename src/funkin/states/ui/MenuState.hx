@@ -13,7 +13,7 @@ class MenuState extends FunkinState
 	static var curSelected:Int = 0;
 
 	// TODO: maybe move to config file?
-	static final menuItems:Array<MenuItem> = [
+	static var menuItems:Array<MenuItem> = [
 		{
 			id: 'storymode',
 			name: 'Story Mode',
