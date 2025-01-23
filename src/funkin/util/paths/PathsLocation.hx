@@ -84,14 +84,7 @@ class PathsLocation
 	 */
 	public function exists(key:String):Bool
 	{
-		var path:String = get(key);
-
-		if (FlxG.assets.exists(path))
-		{
-			return true;
-		}
-
-		return false;
+		return FlxG.assets.exists(get(key));
 	}
 
 	/**
