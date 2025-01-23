@@ -26,19 +26,16 @@ class Save
 	 */
 	public static final SAVE_VERSION_RULE:VersionRule = '1.x';
 
+	/**
+	 * The latest instance of this class.
+	 */
 	public static var instance(get, never):Save;
 
 	static var _instance:Null<Save> = null;
 
-	static function get_instance():Save
-	{
-		if (_instance == null)
-		{
-			return _instance = loadFromSaveSlot(1);
-		}
-		return _instance;
-	}
-
+	/**
+	 * The recently loaded save data.
+	 */
 	public var data:SaveStructure = null;
 
 	public function new(?data:SaveStructure)
@@ -109,11 +106,19 @@ class Save
 	 */
 	public function setOptionValues():Void
 	{
-		FlxG.updateFramerate = options.fps;
-		FlxG.drawFramerate = options.fps;
+		if (options.fps > FlxG.drawFramerate)
+		{
+			FlxG.updateFramerate = options.fps;
+			FlxG.drawFramerate = options.fps;
+		}
+		else
+		{
+			FlxG.drawFramerate = options.fps;
+			FlxG.updateFramerate = options.fps;
+		}
 
 		if (Main.performanceStats != null)
-			Main.performanceStats.visible = options.fpsCounter;
+			Main.performanceStats.visible = options.showFps;
 
 		FlxG.fullscreen = options.fullscreen;
 
@@ -137,6 +142,9 @@ class Save
 		FlxG.save.mergeData(data, true);
 	}
 
+	/**
+	 * @return Returns the default save options
+	 */
 	public static function getDefault():SaveStructure
 	{
 		return {
@@ -144,6 +152,7 @@ class Save
 
 			volume: 1.0,
 			mute: false,
+
 			progress: {
 				storyMode: new Map<String, Int>(),
 				highscores: {
@@ -151,9 +160,11 @@ class Save
 					freeplay: new Map<String, Int>(),
 				}
 			},
+
 			options: {
+				// Graphics
 				fps: 60,
-				fpsCounter: true,
+				showFps: true,
 				fullscreen: false,
 				antialiasing: true,
 				flashingLights: true,
@@ -162,6 +173,7 @@ class Save
 				safeMode: true,
 				devMode: false
 			},
+
 			controls: Controls.getDefaultMappings()
 		};
 	}
@@ -213,5 +225,15 @@ class Save
 		backupSave.destroy();
 
 		return slot;
+	}
+
+	static function get_instance():Save
+	{
+		if (_instance == null)
+		{
+			return _instance = loadFromSaveSlot(1);
+		}
+
+		return _instance;
 	}
 }

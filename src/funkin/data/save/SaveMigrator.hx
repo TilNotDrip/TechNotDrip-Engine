@@ -116,7 +116,7 @@ class SaveMigrator
 		}
 
 		newSave.options.fps = options.get('fps');
-		newSave.options.fpsCounter = options.get('fpsCounter');
+		newSave.options.showFps = options.get('fpsCounter');
 		newSave.options.fullscreen = options.get('fullscreen');
 		newSave.options.antialiasing = options.get('antialiasing');
 		newSave.options.flashingLights = options.get('flashingLights');
