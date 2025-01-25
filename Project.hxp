@@ -123,7 +123,7 @@ class Project extends HXProject
 	public function setupFeatureFlags():Void
 	{
 		// The second parameter is the default value unless overridden!
-		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP); // Will be enabled if its on desktop (windows, linux, mac)!
+		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP && haxedefs.get('cpp')); // Will be enabled if its on desktop (windows, linux, mac)!
 		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
 		FUNKIN_GIT_DETAILS.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
 	}
