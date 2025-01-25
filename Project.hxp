@@ -64,7 +64,7 @@ class Project extends HXProject
 	{
 		meta.title = 'Friday Night Funkin\': TechNotDrip Engine';
 		meta.version = TECHNOTDRIP_VERSION;
-		meta.packageName = 'com.technotdrip.tilnotdrip';
+		meta.packageName = 'ca.technotdrip.tilnotdrip';
 		meta.company = 'TilNotDrip';
 
 		app.file = 'TechNotDrip';
