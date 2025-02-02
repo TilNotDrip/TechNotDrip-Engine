@@ -39,7 +39,13 @@ class FunkinState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		openSubState(new FunkinTransition(true));
+
+		if (FunkinTransition.instance == null)
+			new FunkinTransition();
+
+		openSubState(FunkinTransition.instance);
+		FunkinTransition.instance.onCompletion = null;
+		FunkinTransition.instance.startTransOut();
 	}
 
 	override public function destroy():Void
@@ -53,7 +59,11 @@ class FunkinState extends FlxState
 	override public function startOutro(onOutroComplete:() -> Void):Void
 	{
 		if (subState == null || !Std.isOfType(subState, FunkinTransition))
-			openSubState(new FunkinTransition(false, onOutroComplete));
+		{
+			openSubState(new FunkinTransition());
+			FunkinTransition.instance.onCompletion = onOutroComplete;
+			FunkinTransition.instance.startTransIn();
+		}
 	}
 
 	/**
