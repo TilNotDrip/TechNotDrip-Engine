@@ -132,7 +132,7 @@ class Project extends HXProject
 	{
 		addHaxelib('lime', '8.2.2');
 		addHaxelib('openfl', '9.4.1');
-		addHaxelib('flixel', '5.9.0');
+		addHaxelib('flixel', '6.0.0');
 		addHaxelib('flixel-addons', '3.3.0');
 		addHaxelib('flxanimate', 'git');
 		addHaxelib('thx.core', '0.44.0');
