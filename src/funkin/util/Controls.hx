@@ -71,6 +71,9 @@ class Controls implements IFlxDestroyable
 	 */
 	public var released:FlxSignal;
 
+	var pressJustDispatched:Bool = false;
+	var releaseJustDispatched:Bool = false;
+
 	public function new(mappings:ControlMappings, gamepad:FlxGamepad)
 	{
 		this.mappings = mappings;
@@ -87,7 +90,7 @@ class Controls implements IFlxDestroyable
 		FlxG.signals.preUpdate.remove(update);
 	}
 
-	function update()
+	function update():Void
 	{
 		for (variableName in ControlsMacro.variablesToAdd)
 		{
@@ -124,7 +127,15 @@ class Controls implements IFlxDestroyable
 					if (ControlsMacro.variablesWithRandP.contains(variableName))
 						Reflect.setField(this, variableName + '_P', true);
 
-					pressed.dispatch();
+					if (!pressJustDispatched)
+					{
+						pressed.dispatch();
+						pressJustDispatched = true;
+					}
+					else
+					{
+						pressJustDispatched = false;
+					}
 				}
 			}
 
@@ -142,7 +153,15 @@ class Controls implements IFlxDestroyable
 					if (ControlsMacro.variablesWithRandP.contains(variableName))
 						Reflect.setField(this, variableName + '_R', true);
 
-					released.dispatch();
+					if (!releaseJustDispatched)
+					{
+						released.dispatch();
+						releaseJustDispatched = true;
+					}
+					else
+					{
+						releaseJustDispatched = false;
+					}
 				}
 			}
 		}
