@@ -189,7 +189,7 @@ class Save
 				FlxG.log.add('[SAVE] No save data found, binding new...');
 				return new Save();
 
-			case SAVE_ERROR(msg, msg):
+			case SAVE_ERROR(msg):
 				FlxG.log.add('[SAVE] Error loading save! More info: $msg');
 
 			case BOUND(_, _):
