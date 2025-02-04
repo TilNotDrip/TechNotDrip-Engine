@@ -113,7 +113,11 @@ class Controls implements IFlxDestroyable
 		{
 			var mapping = mappings.get(variableName);
 
-			var isPressed:Bool = FlxG.keys.anyJustPressed(mapping.keyboard);
+			var isPressed:Bool = false;
+
+			#if FLX_KEYBOARD
+			isPressed = FlxG.keys.anyJustPressed(mapping.keyboard);
+			#end
 
 			if (gamepad != null && gamepad.anyJustPressed(mapping.gamepad))
 				isPressed = true;
@@ -139,7 +143,11 @@ class Controls implements IFlxDestroyable
 				}
 			}
 
-			var isReleased:Bool = FlxG.keys.anyJustReleased(mapping.keyboard);
+			var isReleased:Bool = false;
+
+			#if FLX_KEYBOARD
+			isReleased = FlxG.keys.anyJustReleased(mapping.keyboard);
+			#end
 
 			if (gamepad != null && gamepad.anyJustReleased(mapping.gamepad))
 				isReleased = true;

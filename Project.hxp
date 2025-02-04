@@ -97,8 +97,9 @@ class Project extends HXProject
 			window.orientation = LANDSCAPE;
 			window.fullscreen = false;
 			window.resizable = false;
-			window.width = 0;
-			window.height = 0;
+			window.allowShaders = true;
+			window.requireShaders = true;
+			window.allowHighDPI = true;
 		}
 	}
 
@@ -138,6 +139,7 @@ class Project extends HXProject
 		addHaxelib('thx.core', '0.44.0');
 		addHaxelib('thx.semver', '0.2.2');
 		addHaxelib('hxcpp-debug-server', '1.2.4', debug);
+		addHaxelib('extension-androidtools', 'git', platformType == MOBILE && haxedefs.get('android'));
 		addHaxelib('hxdiscord_rpc', '1.3.0', FUNKIN_DISCORD_RPC.isEnabled(this));
 	}
 
@@ -156,6 +158,12 @@ class Project extends HXProject
 		addHaxeDefine('TND_GIT_HASH', getGitHash(false));
 		addHaxeDefine('TND_GIT_BRANCH', getGitBranch());
 		addHaxeDefine('TND_GIT_MODIFIED', getGitModified());
+
+		if(haxedefs.get('android'))
+		{
+			config.set("android.minimum-sdk-version", 16);
+			config.set("android.target-sdk-version", 29);
+		}
 	}
 
 	public function setupHaxeFlags():Void

@@ -48,8 +48,10 @@ class Main extends Sprite
 
 		Assets.cache.enabled = false;
 
+		#if FLX_MOUSE
 		FlxG.mouse.useSystemCursor = true;
 		FlxG.mouse.visible = false;
+		#end
 
 		FlxG.fixedTimestep = false;
 
