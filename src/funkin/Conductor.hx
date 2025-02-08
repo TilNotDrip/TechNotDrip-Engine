@@ -1,6 +1,6 @@
 package funkin;
 
-import flixel.util.FlxDestroyUtil.IFlxDestroyable;
+import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSignal;
 
 /*
@@ -163,7 +163,7 @@ class Conductor implements IFlxDestroyable
 	 * @param bpm The bpm to use for calculating.
 	 * @return The crochet, in miliseconds.
 	 */
-	inline static function calculateCrochet(bpm:Float):Float
+	static inline function calculateCrochet(bpm:Float):Float
 	{
 		return ((60 / bpm) * 1000);
 	}

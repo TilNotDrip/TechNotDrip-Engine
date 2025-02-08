@@ -82,18 +82,24 @@ class FreeplayDJ extends FunkinSprite
 		{
 			case Intro:
 				if (currentAnim != 'intro')
+				{
 					playAnimation('intro');
+				}
+
 			case Idle:
 				if (currentAnim != 'idle')
 				{
 					playAnimation('idle');
 					animPaused = true;
 				}
+
 			case Confirm:
 				if (currentAnim != 'confirm')
+				{
 					playAnimation('confirm');
+				}
+
 			default:
-				trace('ok');
 		}
 
 		#if debug
