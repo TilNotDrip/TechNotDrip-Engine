@@ -25,7 +25,7 @@ class PixelIcon extends FunkinSprite
 
 		if (!Paths.location.exists(iconPath + '.xml'))
 		{
-			trace('[WARN] $char has no freeplay icon.');
+			trace('[WARNING]: $char has no freeplay icon.');
 			return;
 		}
 

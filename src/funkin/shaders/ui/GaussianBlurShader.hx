@@ -58,7 +58,7 @@ class GaussianBlurShader extends FlxShader
 
 		vec4 blur9(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
 
-      vec4 color = vec4(0.0);
+		vec4 color = vec4(0.0);
 			vec2 off1 = vec2(1.3846153846) * direction;
 			vec2 off2 = vec2(3.2307692308) * direction;
 			color += texture2D(image, uv) * 0.2270270270;
