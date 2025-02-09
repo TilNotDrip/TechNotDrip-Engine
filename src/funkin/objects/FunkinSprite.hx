@@ -107,6 +107,16 @@ class FunkinSprite extends FlxSprite
 		}
 	}
 
+	#if FLX_DEBUG
+	override public function drawDebug():Void
+	{
+		if (doInvisibleDraw)
+			return;
+
+		super.drawDebug();
+	}
+	#end
+
 	override public function update(elapsed:Float):Void
 	{
 		if (atlas != null)
