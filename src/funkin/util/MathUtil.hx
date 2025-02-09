@@ -13,12 +13,12 @@ class MathUtil
 	}
 
 	/**
-	 * Centers B in A.
-	 * @param A The thing that B will center in.
-	 * @param B The thing that will be centered in A.
+	 * Centers `b` in `a`.
+	 * @param a The thing that `b` will center in.
+	 * @param b The thing that will be centered in `a`.
 	 */
-	public static function center(A:Float, B:Float)
+	public static function center(a:Float, b:Float)
 	{
-		return (A - B) / 2;
+		return (a - b) / 2;
 	}
 }
