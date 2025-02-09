@@ -17,6 +17,11 @@ class Week
 	final data:WeekStructure = null;
 
 	/**
+	 * Name of this week.
+	 */
+	public var name(get, null):String;
+
+	/**
 	 * All songs.
 	 */
 	public var songs(get, null):Array<Song>;
@@ -65,6 +70,11 @@ class Week
 	public function getMotto():String
 	{
 		return data?.motto ?? 'Unknown';
+	}
+
+	function get_name():String
+	{
+		return data?.name ?? 'Unknown';
 	}
 
 	function get_songs():Array<Song>

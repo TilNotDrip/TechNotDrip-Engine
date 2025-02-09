@@ -269,6 +269,10 @@ class StoryState extends FunkinState
 		_difficulties = loadedWeeks[curSelected].getDifficulties();
 		changeDifficulty();
 
+		#if FUNKIN_DISCORD_RPC
+		DiscordRPC.state = 'Has ' + loadedWeeks[curSelected].name + ' selected';
+		#end
+
 		for (i => item in grpWeekItems.members)
 		{
 			item.targetY = i - curSelected;
