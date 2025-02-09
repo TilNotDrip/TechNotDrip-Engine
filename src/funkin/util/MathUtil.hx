@@ -11,4 +11,14 @@ class MathUtil
 	{
 		return FlxMath.lerp(a, b, camLerpShit(ratio));
 	}
+
+	/**
+	 * Centers B in A.
+	 * @param A The thing that B will center in.
+	 * @param B The thing that will be centered in A.
+	 */
+	public static function center(A:Float, B:Float)
+	{
+		return (A - B) / 2;
+	}
 }
