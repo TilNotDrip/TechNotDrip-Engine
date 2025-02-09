@@ -196,7 +196,18 @@ class TitleState extends FunkinState
 
 	function handleIntroUpdate():Void
 	{
-		if (controls.ACCEPT)
+		var canSkip:Bool = false;
+
+		#if mobile
+		for (touch in FlxG.touches.list)
+		{
+			canSkip = touch.justPressed;
+		}
+		#else
+		canSkip = controls.ACCEPT;
+		#end
+
+		if (canSkip)
 		{
 			skipIntro();
 		}
@@ -215,7 +226,18 @@ class TitleState extends FunkinState
 				enterTimer.onComplete(null);
 		}*/
 
-		if (controls.ACCEPT && !transitioning)
+		var canSkip:Bool = false;
+
+		#if mobile
+		for (touch in FlxG.touches.list)
+		{
+			canSkip = touch.justPressed;
+		}
+		#else
+		canSkip = controls.ACCEPT;
+		#end
+
+		if (canSkip && !transitioning)
 		{
 			if (enterSpr != null && enterSpr.animation != null)
 			{
