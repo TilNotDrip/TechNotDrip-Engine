@@ -110,6 +110,26 @@ class Week
 	}
 
 	/**
+	 * Gets the difficulties supported for this week.
+	 * It does this by grouping all difficulties together for the `default` song variation.
+	 * @return Difficulties supported for this week.
+	 */
+	public function getDifficulties():Array<String>
+	{
+		var difficulties:Array<String> = [];
+		for (song in songs)
+		{
+			for (difficulty in song.getDifficulties())
+			{
+				if (!difficulties.contains(difficulty))
+					difficulties.push(difficulty);
+			}
+		}
+
+		return difficulties;
+	}
+
+	/**
 	 * @return Returns all weeks that are found within the game.
 	 */
 	public static function fetchAllWeeks():Array<Week>

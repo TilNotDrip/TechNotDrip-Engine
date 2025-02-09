@@ -34,6 +34,11 @@ class Constants
 	 */
 	public static final GIT_MODIFIED:Bool = GitDefines.gitModified();
 
+	/**
+	 * How much space difficulties in Story Mode can have until they are sized down.
+	 */
+	public static final DIFFICULTY_SPACING:Float = 320;
+
 	static function get_TECHNOTDRIP_VERSION():String
 	{
 		return FlxG.stage.application.meta.get('version');

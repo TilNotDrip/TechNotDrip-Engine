@@ -9,7 +9,7 @@ class WeekItem extends FunkinSprite
 	public function new(x:Float, y:Float, weekName:String)
 	{
 		super(x, y);
-		loadGraphic(Paths.content.imageGraphic('ui/story/titles/' + weekName));
+		loadTexture('ui/story/titles/' + weekName);
 	}
 
 	var isFlashing:Bool = false;
