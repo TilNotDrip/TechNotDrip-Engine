@@ -84,6 +84,17 @@ class Song
 		return metadata.icon;
 	}
 
+	/**
+	 * Gets all the difficulties supported by `variation`.
+	 * @param variation The variation you want to search difficulties from. `null` for all variations.
+	 * @return The difficulties.
+	 */
+	public function getDifficulties(variation:Null<String> = 'default'):Array<String>
+	{
+		// TODO: do actual difficulty searching
+		return ['easy', 'normal', 'hard'];
+	}
+
 	static function getSongMetadata(id:String, variation:String):SongMetadata
 	{
 		var path:String = 'gameplay/songs/' + id + '/';

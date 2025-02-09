@@ -17,6 +17,11 @@ class Week
 	final data:WeekStructure = null;
 
 	/**
+	 * Name of this week.
+	 */
+	public var name(get, null):String;
+
+	/**
 	 * All songs.
 	 */
 	public var songs(get, null):Array<Song>;
@@ -67,6 +72,11 @@ class Week
 		return data?.motto ?? 'Unknown';
 	}
 
+	function get_name():String
+	{
+		return data?.name ?? 'Unknown';
+	}
+
 	function get_songs():Array<Song>
 	{
 		var songIds:Array<String> = data?.songs ?? [];
@@ -107,6 +117,26 @@ class Week
 		}
 
 		return sprGrp;
+	}
+
+	/**
+	 * Gets the difficulties supported for this week.
+	 * It does this by grouping all difficulties together for the `default` song variation.
+	 * @return Difficulties supported for this week.
+	 */
+	public function getDifficulties():Array<String>
+	{
+		var difficulties:Array<String> = [];
+		for (song in songs)
+		{
+			for (difficulty in song.getDifficulties())
+			{
+				if (!difficulties.contains(difficulty))
+					difficulties.push(difficulty);
+			}
+		}
+
+		return difficulties;
 	}
 
 	/**
