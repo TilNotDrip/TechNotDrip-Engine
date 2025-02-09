@@ -28,22 +28,22 @@ class TitleState extends FunkinState
 	/**
 	 * The newgrounds logo that shows up mid intro.
 	 */
-	public var ngSpr:FlxSprite = null;
+	public var ngSpr:FunkinSprite = null;
 
 	/**
 	 * The logo that bumps on beat hit after the intro is done.
 	 */
-	public var logoBumpin:FlxSprite = null;
+	public var logoBumpin:FunkinSprite = null;
 
 	/**
 	 * The Girlfriend bopping on beat hit after the intro is done.
 	 */
-	public var gfDance:FlxSprite = null;
+	public var gfDance:FunkinSprite = null;
 
 	/**
 	 * The "Press Enter to Begin" object that shows up after the intro is done.
 	 */
-	public var enterSpr:FlxSprite = null;
+	public var enterSpr:FunkinSprite = null;
 
 	var textGroup:FlxTypedGroup<Alphabet> = null;
 
@@ -126,11 +126,11 @@ class TitleState extends FunkinState
 		textGroup = new FlxTypedGroup<Alphabet>();
 		add(textGroup);
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52);
+		ngSpr = new FunkinSprite(0, FlxG.height * 0.52);
 
 		if (FlxG.random.bool(1))
 		{
-			ngSpr.loadGraphic(Paths.content.imageGraphic('ui/title/newgrounds_logo_classic'));
+			ngSpr.loadTexture('ui/title/newgrounds_logo_classic');
 		}
 		else if (FlxG.random.bool(30))
 		{
@@ -142,7 +142,7 @@ class TitleState extends FunkinState
 		}
 		else
 		{
-			ngSpr.loadGraphic(Paths.content.imageGraphic('ui/title/newgrounds_logo'));
+			ngSpr.loadTexture('ui/title/newgrounds_logo');
 			ngSpr.setGraphicSize(Math.floor(ngSpr.width * 0.8));
 		}
 
@@ -154,7 +154,7 @@ class TitleState extends FunkinState
 
 	function initPostIntroObjects():Void
 	{
-		logoBumpin = new FlxSprite(-150 + 116, -100 + 106);
+		logoBumpin = new FunkinSprite(-150 + 116, -100 + 106);
 		logoBumpin.frames = Paths.content.sparrowAtlas('ui/title/logoBumpin');
 		logoBumpin.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBumpin.animation.play('bump');
@@ -162,16 +162,16 @@ class TitleState extends FunkinState
 		logoBumpin.visible = false;
 		add(logoBumpin);
 
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-		gfDance.frames = Paths.content.sparrowAtlas('ui/title/gfDanceTitle');
-		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], '', 24, false);
-		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], '', 24, false);
+		gfDance = new FunkinSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+		gfDance.loadFrames('ui/title/gfDanceTitle');
+		gfDance.addAnimation('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 24, false);
+		gfDance.addAnimation('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 24, false);
 		gfDance.updateHitbox();
 		gfDance.visible = false;
 		add(gfDance);
 
-		enterSpr = new FlxSprite(0, FlxG.height * 0.8);
-		enterSpr.frames = Paths.content.sparrowAtlas('ui/title/titleEnter');
+		enterSpr = new FunkinSprite(0, FlxG.height * 0.8);
+		enterSpr.loadFrames('ui/title/titleEnter');
 		enterSpr.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 		enterSpr.animation.addByPrefix('press', "ENTER PRESSED", 24);
 		enterSpr.animation.play('idle');

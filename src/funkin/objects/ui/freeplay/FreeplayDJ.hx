@@ -102,7 +102,7 @@ class FreeplayDJ extends FunkinSprite
 			default:
 		}
 
-		#if debug
+		#if (debug && FLX_KEYBOARD)
 		var move:Int = FlxG.keys.pressed.SHIFT ? 10 : 1;
 
 		if (FlxG.keys.justPressed.J)
