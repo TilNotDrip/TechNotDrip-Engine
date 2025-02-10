@@ -1,7 +1,5 @@
 package flixel.addons.ui;
 
-package flixel.addons.ui;
-
 #if FLX_MOUSE
 import flixel.FlxCamera;
 import flixel.FlxG;
