@@ -27,3 +27,4 @@
 	- Absolute path to Java JDK: [JAVA_LOCATION]
 11. You can now compile to Android!
 	- NOTE: Run and Debug from Visual Studio Code doesn't support Android Debugging, so you will need to compile from the command itself.
+	- The command is `lime build android`.
