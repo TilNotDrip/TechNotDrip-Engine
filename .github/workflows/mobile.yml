@@ -80,7 +80,7 @@ jobs:
       - name: dir check (temporary)
         run: |
           cd export/release/ios/build/
-          dir
+          ls
 #      - name: Upload Artifact
 #        uses: actions/upload-artifact@v4
 #        with:
