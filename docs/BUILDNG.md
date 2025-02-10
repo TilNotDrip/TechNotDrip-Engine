@@ -14,7 +14,6 @@
 	- SDK Tools
 		- NOTE: Make sure to select show package details. That way you can download the exact version.
 		- Android SDK Build-Tools
-			- 32.1.0-rc1
 			- 32.0.0
 		- NDK (Side by Side)
 			- 21.4.7075529
