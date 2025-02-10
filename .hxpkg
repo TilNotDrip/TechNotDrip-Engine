@@ -16,7 +16,8 @@
 			},
 			{
 				"name": "flixel-addons",
-				"version": "3.3.2"
+				"link": "https://github.com/HaxeFlixel/flixel-addons/",
+				"branch": "ef0abbc19c64704f76c1d1be6072f3ed04f9ace7"
 			},
 			{
 				"name": "flxanimate",
