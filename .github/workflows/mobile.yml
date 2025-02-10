@@ -80,9 +80,9 @@ jobs:
       - name: Zip up IPA File
         run: |
           cd export/release/ios/build/Release-iphoneos
-          mkdir ipaFolder
-          mv *.app ipaFolder
-          zip -r TechNotDrip.ipa ipaFolder
+          mkdir Payload
+          mv *.app Payload
+          zip -r TechNotDrip.ipa Payload
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
