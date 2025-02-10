@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: TechNotDrip_Engine-ANDROID
-          path: export/release/android/bin/app/build/outputs/*.apk
+          path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
   buildMacOS:
     name: Build iOS Application
     runs-on: macos-latest
