@@ -51,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: TechNotDrip_Engine-ANDROID
-          path: export/release/android/bin/
+          path: export/release/android/bin/app/build/outputs/*.apk
