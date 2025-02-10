@@ -77,12 +77,14 @@ jobs:
           haxelib run hxpkg install --force
       - name: Compile Application
         run: haxelib run lime build ios -nosign
-      - name: dir check (temporary)
+      - name: Zip up IPA File
         run: |
-          cd export/release/ios/build/
-          ls
-#      - name: Upload Artifact
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: TechNotDrip_Engine-IOS
-#          path: export/release/ios/build/
+          cd export/release/ios/build/Release-iphoneos
+          mkdir ipaFolder
+          mv *.app ipaFolder
+          zip -r TechNotDrip.ipa ipaFolder
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-IOS
+          path: export/release/ios/build/Release-iphoneos/*.ipa
