@@ -52,3 +52,37 @@ jobs:
         with:
           name: TechNotDrip_Engine-ANDROID
           path: export/release/android/bin/app/build/outputs/*.apk
+  buildMacOS:
+    name: Build iOS Application
+    runs-on: macos-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/ios/
+            .haxelib
+          key: ios-cache-compile
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+      - name: Compile Application
+        run: haxelib run lime build ios -nosign
+      - name: dir check (temporary)
+        run: |
+          cd export/release/ios/build/
+          dir
+#      - name: Upload Artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: TechNotDrip_Engine-IOS
+#          path: export/release/ios/build/
