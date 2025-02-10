@@ -27,7 +27,7 @@ jobs:
         uses: nttld/setup-ndk@v1
         id: ndk
         with:
-          ndk-version: '21.4.7075529'
+          ndk-version: r21e
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
