@@ -5,43 +5,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  buildLinux:
-    name: Build Linux Application
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
-
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/linux/
-            .haxelib
-          key: ${{ runner.os }}-cache-compile
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: latest
-
-      - name: Install Haxe Libraries using HxPKG
-        run: |
-          sudo apt install libvlccore-dev libvlc-dev -y -q
-          haxelib install hxcpp --quiet
-          haxelib install hxpkg --quiet
-          haxelib run hxpkg install --force
-
-      - name: Compile Application
-        run: haxelib run lime build linux
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TechNotDrip_Engine-LINUX
-          path: export/release/linux/bin/
-
   buildWindows:
     name: Build Windows Application
     runs-on: windows-latest
@@ -75,7 +38,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TechNotDrip_Engine-WINDOWS
+          name: TechNotDrip-Engine_WINDOWS
           path: export/release/windows/bin/
 
   buildMacOS:
@@ -111,8 +74,45 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TechNotDrip_Engine-MACOS
+          name: TechNotDrip-Engine_MACOS
           path: export/release/macos/bin/
+
+  buildLinux:
+    name: Build Linux Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/linux/
+            .haxelib
+          key: ${{ runner.os }}-cache-compile
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          sudo apt install libvlccore-dev libvlc-dev -y -q
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+
+      - name: Compile Application
+        run: haxelib run lime build linux
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip-Engine_LINUX
+          path: export/release/linux/bin/
 
   buildAndroid:
     name: Build Android Application
@@ -167,7 +167,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TechNotDrip_Engine-ANDROID
+          name: TechNotDrip-Engine_ANDROID
           path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
 
   buildiOS:
@@ -210,5 +210,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TechNotDrip_Engine-IOS
+          name: TechNotDrip-Engine_IOS
           path: export/release/ios/build/Release-iphoneos/*.ipa
