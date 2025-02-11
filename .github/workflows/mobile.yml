@@ -1,6 +1,6 @@
 name: Build Mobile
 
-on: 
+on:
   push:
   workflow_dispatch:
 
@@ -52,7 +52,8 @@ jobs:
         with:
           name: TechNotDrip_Engine-ANDROID
           path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
-  buildMacOS:
+
+  buildiOS:
     name: Build iOS Application
     runs-on: macos-latest
 
