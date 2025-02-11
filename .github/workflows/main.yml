@@ -113,3 +113,102 @@ jobs:
         with:
           name: TechNotDrip_Engine-MACOS
           path: export/release/macos/bin/
+
+  buildAndroid:
+    name: Build Android Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/android/
+            .haxelib
+          key: android-cache-compile
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        id: ndk
+        with:
+          ndk-version: r21e
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: '17'
+
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          sudo apt install libvlccore-dev libvlc-dev -y -q
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+
+      - name: Configure Android
+        run: |
+          haxelib run lime config ANDROID_SDK $ANDROID_HOME
+          haxelib run lime config ANDROID_NDK_ROOT ${{ steps.ndk.outputs.ndk-path }}
+          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_SETUP true
+
+      - name: Compile Application
+        run: haxelib run lime build android
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-ANDROID
+          path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
+
+  buildiOS:
+    name: Build iOS Application
+    runs-on: macos-latest
+
+    steps:
+      - name: Download Source Code
+        uses: actions/checkout@v4
+
+      - name: Get Compile Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            export/release/ios/
+            .haxelib
+          key: ios-cache-compile
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Install Haxe Libraries using HxPKG
+        run: |
+          haxelib install hxcpp --quiet
+          haxelib install hxpkg --quiet
+          haxelib run hxpkg install --force
+
+      - name: Compile Application
+        run: haxelib run lime build ios -nosign
+
+      - name: Zip up IPA File
+        run: |
+          cd export/release/ios/build/Release-iphoneos
+          mkdir Payload
+          mv *.app Payload
+          zip -r TechNotDrip.ipa Payload
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip_Engine-IOS
+          path: export/release/ios/build/Release-iphoneos/*.ipa
