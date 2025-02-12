@@ -16,7 +16,8 @@
 			},
 			{
 				"name": "flixel-addons",
-				"version": "3.3.2"
+				"link": "https://github.com/TilNotDrip/flixel-addons",
+				"branch": "technotdrip-engine"
 			},
 			{
 				"name": "flxanimate",
