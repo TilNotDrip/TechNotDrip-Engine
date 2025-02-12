@@ -9,5 +9,8 @@
 			"source.sortImports": "explicit"
 		}
 	},
-	"haxe.enableExtendedIndentation": true
+	"haxe.enableExtendedIndentation": true,
+	"githubPullRequests.ignoredPullRequestBranches": [
+		"alpha"
+	]
 }
