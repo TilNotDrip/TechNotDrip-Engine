@@ -2,10 +2,10 @@ import os
 from xml.dom import minidom
 from PIL import Image
 
-for (dirpath, dirnames, filenames) in os.walk('../..'):
+for (dirpath, dirnames, filenames) in os.walk('../../assets'):
 	for file in filenames:
 		if file.endswith(".xml") and os.path.isfile(dirpath + '/' + file[:-3] + 'png'):
-			print('Converting ' + file[:-4])
+			print('Converting ' + dirpath + '/' + file[:-4])
 
 			xmlParse = minidom.parse(dirpath + '/' + file)
 			
@@ -21,5 +21,5 @@ for (dirpath, dirnames, filenames) in os.walk('../..'):
 					highestHeight = height
 
 			image = Image.open(dirpath + '/' + file[:-3] + 'png')
-			image.crop((0, 0, highestWidth, highestHeight))
+			image = image.crop((0, 0, highestWidth, highestHeight))
 			image.save(dirpath + '/' + file[:-3] + 'png')
