@@ -88,6 +88,16 @@ class PathsLocation
 	}
 
 	/**
+	 * Checks to see if `key` is animated, and can be used in `FunkinSprite.loadFrames`.
+	 * @param key The path to check.
+	 * @return True if `key` is animated.
+	 */
+	public function isAnimated(key:String):Bool
+	{
+		return (exists(key + '.xml') || Paths.location.exists(key + '/Animation.json'));
+	}
+
+	/**
 	 * Scans an entire path and returns all assets found.
 	 * @param key The path to scan.
 	 * @param ext If specified, will only return files that ends with `ext`.

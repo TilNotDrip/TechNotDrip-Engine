@@ -1,6 +1,7 @@
 package funkin.states.ui;
 
 import funkin.data.song.Song;
+import funkin.objects.ui.freeplay.DifficultyGroup;
 import funkin.objects.ui.freeplay.FreeplayCapsule;
 import funkin.objects.ui.freeplay.FreeplayDJ;
 import funkin.objects.ui.freeplay.backingcards.BackingCard;
@@ -17,9 +18,24 @@ class FreeplayState extends FunkinState
 	public var curSelected:Int = 0;
 
 	/**
+	 * Current Difficulty.
+	 */
+	public var curDifficulty:String = '';
+
+	/**
 	 * The songs.
 	 */
 	public var songs:Array<Song>;
+
+	/**
+	 * The songs that are available with the current filter.
+	 */
+	public var filteredSongs:Array<Song>;
+
+	/**
+	 * All difficulties available.
+	 */
+	public var difficultiesAvailable:Array<String> = [];
 
 	/**
 	 * The thing behind the DJ
@@ -47,9 +63,14 @@ class FreeplayState extends FunkinState
 	public var ostName:FlxText;
 
 	/**
-	 * The thing that says Official OST.
+	 * The song capsules. These are the things you actually select.
 	 */
 	public var grpCapsules:FlxTypedGroup<FreeplayCapsule>;
+
+	/**
+	 * Difficulty sprites and arrows are in here.
+	 */
+	public var difficultySelector:DifficultyGroup;
 
 	/**
 	 * Should there be an intro?
@@ -68,11 +89,20 @@ class FreeplayState extends FunkinState
 		#end
 
 		songs = [];
+		filteredSongs = [];
+		difficultiesAvailable = [];
 
 		for (week in Week.fetchAllWeeks())
 		{
 			for (song in week.songs)
+			{
+				for (difficulty in song.getDifficulties(null))
+				{
+					if (!difficultiesAvailable.contains(difficulty))
+						difficultiesAvailable.push(difficulty);
+				}
 				songs.push(song);
+			}
 		}
 
 		angleMaskShader = new AngleMask();
@@ -96,6 +126,17 @@ class FreeplayState extends FunkinState
 		dj = new FreeplayDJ(640, 366, 'bf');
 		add(dj);
 
+		difficultySelector = new DifficultyGroup(20, 70, difficultiesAvailable);
+		difficultySelector.visible = false;
+		add(difficultySelector);
+
+		grpCapsules = new FlxTypedGroup<FreeplayCapsule>();
+		add(grpCapsules);
+
+		var randomCapsule:FreeplayCapsule = new FreeplayCapsule();
+		randomCapsule.init('Random');
+		grpCapsules.add(randomCapsule);
+
 		var overhangStuff:FlxSprite = new FlxSprite(0, -100).makeGraphic(FlxG.width, 164, FlxColor.BLACK);
 		add(overhangStuff);
 
@@ -114,13 +155,8 @@ class FreeplayState extends FunkinState
 		ostName.shader = sillyStroke;
 		add(ostName);
 
-		grpCapsules = new FlxTypedGroup<FreeplayCapsule>();
-		add(grpCapsules);
-
-		var randomCapsule:FreeplayCapsule = new FreeplayCapsule();
-		randomCapsule.init('Random');
-		grpCapsules.add(randomCapsule);
-
+		changeSelection();
+		changeDifficulty();
 		generateCapsules();
 
 		super.create();
@@ -160,6 +196,8 @@ class FreeplayState extends FunkinState
 				for (i in grpCapsules.members)
 					i.visible = true;
 
+				difficultySelector.visible = true;
+
 				new FlxTimer().start(1 / 24, (_) ->
 				{
 					fnfFreeplay.visible = true;
@@ -173,8 +211,6 @@ class FreeplayState extends FunkinState
 				});
 			});
 		}
-
-		changeSelection();
 	}
 
 	override public function beatHit():Void
@@ -195,6 +231,12 @@ class FreeplayState extends FunkinState
 			{
 				backingCard.confirm();
 				dj.confirm();
+
+				new FlxTimer().start(2, (_) ->
+				{
+					// TODO: Replace this with PlayState.
+					FlxG.switchState(MenuState.new);
+				});
 			}
 
 			if (controls.BACK)
@@ -208,6 +250,12 @@ class FreeplayState extends FunkinState
 
 			if (controls.UI_DOWN_P)
 				changeSelection(1);
+
+			if (controls.UI_LEFT_P)
+				changeDifficulty(-1);
+
+			if (controls.UI_RIGHT_P)
+				changeDifficulty(1);
 		}
 	}
 
@@ -217,14 +265,23 @@ class FreeplayState extends FunkinState
 	 */
 	public function generateCapsules():Void
 	{
-		// TODO: regeneration
-
-		for (song in songs)
+		for (i => capsule in grpCapsules.members)
 		{
-			var capsule:FreeplayCapsule = new FreeplayCapsule();
-			capsule.init(song.getDisplayName(), song.getFreeplayIcon());
-			grpCapsules.add(capsule);
+			if (i != 0)
+				capsule.kill();
 		}
+
+		for (song in filteredSongs)
+		{
+			var capsule:FreeplayCapsule = grpCapsules.recycle(() ->
+			{
+				return new FreeplayCapsule();
+			});
+
+			capsule.init(song.getDisplayName(), song.getFreeplayIcon());
+		}
+
+		changeSelection();
 	}
 
 	/**
@@ -252,5 +309,48 @@ class FreeplayState extends FunkinState
 			if (i < curSelected)
 				capsule.lerpPos.y -= 100; // another 100 for good measure
 		}
+	}
+
+	/**
+	 * Changes the current difficulty.
+	 * @param index How much to change it by?
+	 */
+	public function changeDifficulty(?index:Int = 0):Void
+	{
+		var difficulties:Array<String> = filteredSongs[curSelected - 1]?.getDifficulties(null) ?? difficultiesAvailable;
+		var curIndex:Int = difficulties.indexOf(curDifficulty);
+
+		curIndex += index;
+
+		if (curIndex >= difficulties.length)
+			curIndex = 0;
+		else if (curIndex < 0)
+			curIndex = difficulties.length - 1;
+
+		curDifficulty = difficulties[curIndex];
+		difficultySelector.changeDifficulty(curDifficulty, index);
+		filterSongs();
+	}
+
+	/**
+	 * Filters songs by difficulty.
+	 */
+	public function filterSongs():Void
+	{
+		var filterBefore:Array<Song> = filteredSongs.copy();
+		filteredSongs = [];
+
+		var shouldUpdateCapsules:Bool = false;
+		for (i => song in songs)
+		{
+			if (song.getDifficulties(null).contains(curDifficulty))
+				filteredSongs.push(song);
+
+			if (!shouldUpdateCapsules && song != filterBefore[i])
+				shouldUpdateCapsules = true;
+		}
+
+		if (shouldUpdateCapsules)
+			generateCapsules();
 	}
 }
