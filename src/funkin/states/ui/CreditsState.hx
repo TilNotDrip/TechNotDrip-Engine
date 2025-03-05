@@ -190,6 +190,7 @@ class CreditsState extends FunkinState
 
 		// MOUSE
 
+		#if FLX_MOUSE
 		if (FlxG.mouse.justPressed)
 		{
 			if (FlxG.mouse.overlaps(arrowUp))
@@ -216,6 +217,7 @@ class CreditsState extends FunkinState
 			arrowUp.scale.set(1, 1);
 			arrowDown.scale.set(1, 1);
 		}
+		#end
 
 		iconCamera.scroll.y = MathUtil.coolLerp(iconCamera.scroll.y, iconCameraYLerp, 0.23);
 
