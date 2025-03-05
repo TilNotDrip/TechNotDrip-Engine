@@ -214,7 +214,7 @@ class MenuState extends FunkinState
 
 			item.updateHitbox();
 			item.centerOrigin();
-			item.screenCenter();
+			item.screenCenter(X);
 		});
 
 		#if FUNKIN_DISCORD_RPC
