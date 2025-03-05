@@ -27,7 +27,7 @@ class MenuState extends FunkinState
 		{
 			id: 'credits',
 			name: 'Credits',
-			classToSwitch: null
+			classToSwitch: CreditsState.new
 		},
 		{
 			id: 'merch',
@@ -186,7 +186,6 @@ class MenuState extends FunkinState
 			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
 			itemSpr.playAnimation('idle');
 			itemSpr.updateHitbox();
-			itemSpr.x = FlxG.width / 2;
 			menuItemGroup.add(itemSpr);
 		}
 	}
@@ -215,7 +214,7 @@ class MenuState extends FunkinState
 
 			item.updateHitbox();
 			item.centerOrigin();
-			item.offset.copyFrom(item.origin);
+			item.screenCenter();
 		});
 
 		#if FUNKIN_DISCORD_RPC

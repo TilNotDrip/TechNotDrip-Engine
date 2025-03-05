@@ -17,6 +17,11 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 	public var text(default, set):String;
 
 	/**
+	 * The width of this text. 0 to make width free.
+	 */
+	public var fieldWidth:Float = 0; // TODO: Make this WAYY BETTER
+
+	/**
 	 * The type of letters you want to have displayed!
 	 */
 	public var letterType(default, set):LetterType;
@@ -26,13 +31,14 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 
 	var maxHeight:Float = 0.0;
 
-	public function new(x:Float, y:Float, text:String = '', letterType:LetterType = DEFAULT)
+	public function new(x:Float, y:Float, text:String = '', fieldWidth:Float = 0, letterType:LetterType = DEFAULT)
 	{
 		super(x, y);
 
 		data = cast Json.parse(Paths.content.json(letterType.getPath()));
 
 		this.letterType = letterType;
+		this.fieldWidth = fieldWidth;
 		this.text = text;
 	}
 
@@ -102,6 +108,12 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 					{
 						letterSpr = members[i];
 						letterSpr.revive();
+					}
+
+					if (letterX + Math.floor(letterSpr.width) >= fieldWidth)
+					{
+						letterX = 0;
+						letterY += maxHeight;
 					}
 
 					letterSpr.letter = letter;

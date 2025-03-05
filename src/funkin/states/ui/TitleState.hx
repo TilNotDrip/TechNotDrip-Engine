@@ -371,13 +371,19 @@ class TitleState extends FunkinState
 		if (textGroup == null)
 			return;
 
-		var curY:Float = 200 + (textGroup.length * 60);
+		var curY:Float = 200;
+
+		textGroup.forEachAlive((spr:Alphabet) ->
+		{
+			curY += spr.height;
+		});
 
 		for (i in 0...textArray.length)
 		{
-			var text:Alphabet = new Alphabet(0, 0, textArray[i], BOLD);
+			var text:Alphabet = new Alphabet(0, 0, textArray[i], FlxG.width, BOLD);
 			text.screenCenter(X);
-			text.y = curY + (i * 60);
+			text.y = curY;
+			curY += text.height;
 			textGroup.add(text);
 		}
 	}

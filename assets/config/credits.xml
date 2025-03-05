@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<credits>
+    <user name="TechnikTil" icon="techniktil">
+        <description>i coded 50% of TechNotDrip Engine. including these credits, so i deserve to be on the top</description>
+        <socials>
+            <github contributor="true">TechnikTil</github>
+            <twitter>https://twitter.com/TechnikTil</twitter>
+            <youtube>https://youtube.com/user/TechnikTil</youtube>
+            <bluesky>https://bsky.app/profile/techniktil.github.io/</bluesky>
+        </socials>
+    </user>
+    <user name="CrusherNotDrip" icon="crushernotdrip">
+        <description>coded everything thats actually important lol</description>
+        <socials>
+            <github contributor="true">CrusherNotDrip</github>
+            <twitter>https://twitter.com/CrusherNotDrip</twitter>
+            <bluesky>https://bsky.app/profile/crushernotdrip.github.io/</bluesky>
+        </socials>
+    </user>
+    <user name=".json" icon="gameboy1969">
+        <description>drew everything final in this engine</description>
+        <socials>
+            <twitter>https://twitter.com/gameboy1969</twitter>
+        </socials>
+    </user>
+</credits>
