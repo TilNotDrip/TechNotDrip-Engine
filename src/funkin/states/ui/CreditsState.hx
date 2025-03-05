@@ -154,7 +154,9 @@ class CreditsState extends FunkinState
 
 		super.create();
 
+		#if FLX_MOUSE
 		FlxG.mouse.visible = true;
+		#end
 		changeItem();
 	}
 
@@ -162,7 +164,9 @@ class CreditsState extends FunkinState
 	{
 		if (controls.BACK)
 		{
+			#if FLX_MOUSE
 			FlxG.mouse.visible = false;
+			#end
 			FlxG.switchState(MenuState.new);
 		}
 
@@ -422,7 +426,7 @@ private class CreditsBubble extends FlxSpriteGroup
 		for (social in data.socials)
 		{
 			var socialIcon:FunkinSprite = new FunkinSprite(xPos, 0).loadTexture('ui/credits/socials/' + social.name);
-			socialIcon.scale.set(98 / socialIcon.width, 98 / socialIcon.width);
+			socialIcon.setGraphicSize(0, 98);
 			socialIcon.updateHitbox();
 			xPos += socialIcon.width + 4;
 			grpSocials.add(socialIcon);
