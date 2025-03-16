@@ -83,7 +83,12 @@ class Week
 		var songObjs:Array<Song> = [];
 
 		for (id in songIds)
-			songObjs.push(Song.getSongByID(id));
+		{
+			var song:Song = Song.getSongByID(id);
+
+			if (song != null)
+				songObjs.push(song);
+		}
 
 		return songObjs;
 	}

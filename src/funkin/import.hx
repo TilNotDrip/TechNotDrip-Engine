@@ -17,6 +17,7 @@ import funkin.objects.FunkinSprite.FunkinSpriteGroup;
 import funkin.objects.FunkinSprite;
 import funkin.util.FunkinSpriteUtil;
 import funkin.util.MathUtil;
+import funkin.util.NoteDirection;
 import funkin.util.ReflectUtil;
 import funkin.util.SystemUtil;
 import funkin.util.paths.Paths;

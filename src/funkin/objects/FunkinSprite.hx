@@ -322,6 +322,31 @@ class FunkinSprite extends FlxSprite
 
 		return _onAnimFinished;
 	}
+
+	/**
+	 * @param id The animation ID to check.
+	 * @return Whether the animation is dynamic (has multiple frames). `false` for static, one-frame animations.
+	 */
+	public function isAnimationDynamic(id:String):Bool
+	{
+		if (animationIsNull)
+			return false;
+
+		if (atlas != null)
+		{
+			var animData = atlas.anim.symbolDictionary.get(id);
+			if (animData == null)
+				return false;
+			return animData.length > 1;
+		}
+		else
+		{
+			var animData = animation.getByName(id);
+			if (animData == null)
+				return false;
+			return animData.numFrames > 1;
+		}
+	}
 }
 
 typedef FunkinSpriteGroup = FlxTypedSpriteGroup<FunkinSprite>

@@ -2,6 +2,7 @@
 RECOVER_*.fla
 
 .haxelib/
+.haxelsp/
 .vs/
 .vscode/
 

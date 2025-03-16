@@ -8,6 +8,7 @@ import funkin.objects.ui.freeplay.backingcards.BackingCard;
 import funkin.objects.ui.freeplay.backingcards.BoyfriendBackingCard;
 import funkin.shaders.ui.AngleMask;
 import funkin.shaders.ui.StrokeShader;
+import funkin.states.gameplay.PlayState;
 import funkin.util.Week;
 
 class FreeplayState extends FunkinState
@@ -21,6 +22,11 @@ class FreeplayState extends FunkinState
 	 * Current Difficulty.
 	 */
 	public var curDifficulty:String = '';
+
+	/**
+	 * Current Variation.
+	 */
+	public var curVariation:String = '';
 
 	/**
 	 * The songs.
@@ -234,8 +240,11 @@ class FreeplayState extends FunkinState
 
 				new FlxTimer().start(2, (_) ->
 				{
-					// TODO: Replace this with PlayState.
-					FlxG.switchState(MenuState.new);
+					FlxG.switchState(() -> new PlayState({
+						song: filteredSongs[curSelected - 1],
+						variation: curVariation,
+						difficulty: curDifficulty
+					}));
 				});
 			}
 
@@ -278,7 +287,7 @@ class FreeplayState extends FunkinState
 				return new FreeplayCapsule();
 			});
 
-			capsule.init(song.getDisplayName(), song.getFreeplayIcon());
+			capsule.init(song.getDisplayName(), song.metadatas.get('default').icon);
 		}
 
 		changeSelection();
@@ -292,10 +301,10 @@ class FreeplayState extends FunkinState
 	{
 		curSelected += index;
 
-		if (curSelected >= songs.length + 1) // random
+		if (curSelected >= filteredSongs.length + 1) // random
 			curSelected = 0;
 		else if (curSelected < 0)
-			curSelected = songs.length;
+			curSelected = filteredSongs.length;
 
 		for (i => capsule in grpCapsules.members)
 		{
@@ -309,6 +318,8 @@ class FreeplayState extends FunkinState
 			if (i < curSelected)
 				capsule.lerpPos.y -= 100; // another 100 for good measure
 		}
+
+		// changeDifficulty();
 	}
 
 	/**
@@ -326,6 +337,18 @@ class FreeplayState extends FunkinState
 			curIndex = 0;
 		else if (curIndex < 0)
 			curIndex = difficulties.length - 1;
+
+		if (filteredSongs[curSelected - 1] != null)
+		{
+			for (variation in filteredSongs[curSelected - 1].getVariations())
+			{
+				if (filteredSongs[curSelected - 1].getDifficulties(variation).contains(difficulties[curIndex]))
+				{
+					curVariation = variation;
+					break;
+				}
+			}
+		}
 
 		curDifficulty = difficulties[curIndex];
 		difficultySelector.changeDifficulty(curDifficulty, index);
