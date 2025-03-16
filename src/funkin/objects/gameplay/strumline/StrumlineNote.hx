@@ -22,7 +22,7 @@ class StrumlineNote extends FunkinSprite
 	 * Hold cover over this strumline note. 
 	 * This is never used internally, but is used by Strumline to find it.
 	 */
-	public var holdCover:NoteHoldCover;
+	// public var holdCover:NoteHoldCover;
 
 	public function new(?x:Float, ?y:Float, direction:NoteDirection)
 	{

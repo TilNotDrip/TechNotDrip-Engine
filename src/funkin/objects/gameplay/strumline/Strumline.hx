@@ -215,7 +215,7 @@ class Strumline extends FlxSpriteGroup
 			if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time)
 			{
 				strumlineNote.playAnimation('press', true);
-				strumlineNote.holdCover.playAnimation('end', true);
+				// strumlineNote.holdCover.playAnimation('end', true);
 			}
 		}
 		super.update(elapsed);
