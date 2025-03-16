@@ -38,9 +38,14 @@ class PlayState extends FunkinState
 	public var strumlines:FlxTypedGroup<Strumline>;
 
 	/**
-	 * The voices of this song.
+	 * The voice the player is using for this song.
 	 */
-	public var voices:FlxSound;
+	public var voicesPlayer:FlxSound;
+
+	/**
+	 * The voice the player is using for this song.
+	 */
+	public var voicesOpponent:FlxSound;
 
 	public function new(params:PlayStateParams)
 	{
@@ -93,18 +98,44 @@ class PlayState extends FunkinState
 		FlxG.sound.playMusic(Paths.content.audio('gameplay/songs/${song.id}/Inst'), 1, false);
 		FlxG.sound.music.stop();
 
-		// TODO: multiple voices
-		voices = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices'));
-		voices.stop();
+		if (Paths.location.exists('gameplay/songs/${song.id}/Voices-Opponent.ogg')
+			&& Paths.location.exists('gameplay/songs/${song.id}/Voices-Player.ogg'))
+		{
+			voicesOpponent = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices-Opponent'));
+			voicesOpponent.stop();
+
+			voicesPlayer = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices-Player'));
+			voicesPlayer.stop();
+		}
+		else if (Paths.location.exists('gameplay/songs/${song.id}/Voices.ogg'))
+		{
+			voicesPlayer = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices'));
+			voicesPlayer.stop();
+		}
+		else
+		{
+			trace('[NOTICE] The current song does not have vocals.');
+		}
 
 		FlxG.sound.music.play();
-		voices.play();
+		getPlayerSound()?.play();
+		getOpponentSound()?.play();
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		conductor.update();
 		super.update(elapsed);
+	}
+
+	public function getPlayerSound():FlxSound
+	{
+		return voicesPlayer;
+	}
+
+	public function getOpponentSound():FlxSound
+	{
+		return voicesOpponent ?? voicesPlayer;
 	}
 }
 
