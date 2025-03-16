@@ -62,7 +62,7 @@ class Strumline extends FlxSpriteGroup
 	/**
 	 * The splashes that appear when you hold a note.
 	 */
-	public var holdCovers:FlxTypedSpriteGroup<NoteHoldCover>;
+	// public var holdCovers:FlxTypedSpriteGroup<NoteHoldCover>;
 
 	/**
 	 * The Note Data to use for spawning.
@@ -117,12 +117,12 @@ class Strumline extends FlxSpriteGroup
 		noteSplash.kill();
 		noteSplashes.add(noteSplash);
 
-		holdCovers = new FlxTypedSpriteGroup<NoteHoldCover>();
-		add(holdCovers);
+		/*holdCovers = new FlxTypedSpriteGroup<NoteHoldCover>();
+			add(holdCovers);
 
-		var holdCover:NoteHoldCover = new NoteHoldCover();
-		holdCover.kill();
-		holdCovers.add(holdCover);
+			var holdCover:NoteHoldCover = new NoteHoldCover();
+			holdCover.kill();
+			holdCovers.add(holdCover); */
 	}
 
 	/**
@@ -160,11 +160,11 @@ class Strumline extends FlxSpriteGroup
 		var noteSplash:NoteSplash = noteSplashes.recycle(NoteSplash);
 		noteSplash.setupNoteSplash(strumlineNote.x, strumlineNote.y, note.data.direction);
 
-		if ((note.data.length ?? 0) > 0)
-		{
-			var holdCover:NoteHoldCover = holdCovers.recycle(NoteHoldCover);
-			holdCover.setupHoldCover(strumlineNote, note.data.direction);
-		}
+		/*if ((note.data.length ?? 0) > 0)
+			{
+				var holdCover:NoteHoldCover = holdCovers.recycle(NoteHoldCover);
+				holdCover.setupHoldCover(strumlineNote, note.data.direction);
+		}*/
 
 		note.kill();
 	}

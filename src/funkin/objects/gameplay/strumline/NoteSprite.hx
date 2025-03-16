@@ -1,6 +1,6 @@
 package funkin.objects.gameplay.strumline;
 
-import funkin.shaders.gameplay.RGBShader;
+// import funkin.shaders.gameplay.RGBShader;
 import funkin.structures.SongStructure;
 
 class NoteSprite extends FunkinSprite
@@ -13,7 +13,7 @@ class NoteSprite extends FunkinSprite
 	/**
 	 * The current rgb shader.
 	 */
-	public var rgbShader:RGBShader;
+	// public var rgbShader:RGBShader;
 
 	public function new()
 	{
