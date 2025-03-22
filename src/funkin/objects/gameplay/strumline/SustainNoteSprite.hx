@@ -3,6 +3,7 @@ package funkin.objects.gameplay.strumline;
 import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.frames.FlxFramesCollection;
 import flixel.math.FlxRect;
+import flixel.util.FlxDestroyUtil;
 import funkin.structures.SongStructure.NoteData;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
@@ -20,6 +21,11 @@ class SustainNoteSprite extends FunkinSprite
 	public var scrollSpeed:Float;
 
 	/**
+	 * Hold Cover used for this sustain. Used by `Strumline` for organizing sakes.
+	 */
+	public var holdCover:NoteHoldCover;
+
+	/**
 	 * Sets up sustain sprite for use.
 	 * @param data The note data for this sustain note.
 	 * @param scrollSpeed Current scroll speed.
@@ -32,6 +38,38 @@ class SustainNoteSprite extends FunkinSprite
 		loadGraphic(generateSprite(data, scrollSpeed));
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
+		centerOffsets();
+		offset.x += MathUtil.center(width, Strumline.STRUMLINE_SIZE) + 1;
+	}
+
+	/**
+	 * Updates the clipping based on current time.
+	 * @param currentTime The current time.
+	 */
+	public function updateClip(currentTime:Float)
+	{
+		if (clipRect == null)
+			clipRect = new FlxRect(0, 0, width / 0.7, height / 0.7);
+
+		if (data.time <= currentTime)
+		{
+			clipRect.set(0, 0, width / 0.7, height / 0.7);
+
+			clipRect.y = height - sustainHeight((data.time + data.length) - currentTime, scrollSpeed);
+			clipRect.y /= 0.7;
+
+			clipRect = clipRect;
+		}
+	}
+
+	override public function revive():Void
+	{
+		if (clipRect != null)
+		{
+			clipRect = FlxDestroyUtil.put(clipRect);
+		}
+
+		super.revive();
 	}
 
 	// THIS ASSUMES YOU WILL SCALE IT BY 0.7!!
@@ -40,7 +78,7 @@ class SustainNoteSprite extends FunkinSprite
 		var noteFrames:FlxFramesCollection = Paths.content.sparrowAtlas('gameplay/strumline/default/notes');
 		var holdPiece:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold piece')[0];
 		var holdEnd:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold end')[0];
-		var toReturn:BitmapData = new BitmapData(Std.int(Math.max(holdPiece.sourceSize.y, holdEnd.sourceSize.y)),
+		var toReturn:BitmapData = new BitmapData(Std.int(Math.max(holdPiece.sourceSize.x, holdEnd.sourceSize.x)),
 			Std.int(sustainHeight(data.length, scrollSpeed) / 0.7), true, 0);
 
 		var holdPieceLeft:Int = Std.int(toReturn.height - holdEnd.frame.height);

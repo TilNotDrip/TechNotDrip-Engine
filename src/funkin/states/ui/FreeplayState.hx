@@ -319,7 +319,7 @@ class FreeplayState extends FunkinState
 				capsule.lerpPos.y -= 100; // another 100 for good measure
 		}
 
-		// changeDifficulty();
+		lookForCurrrentVariation();
 	}
 
 	/**
@@ -338,20 +338,9 @@ class FreeplayState extends FunkinState
 		else if (curIndex < 0)
 			curIndex = difficulties.length - 1;
 
-		if (filteredSongs[curSelected - 1] != null)
-		{
-			for (variation in filteredSongs[curSelected - 1].getVariations())
-			{
-				if (filteredSongs[curSelected - 1].getDifficulties(variation).contains(difficulties[curIndex]))
-				{
-					curVariation = variation;
-					break;
-				}
-			}
-		}
-
 		curDifficulty = difficulties[curIndex];
 		difficultySelector.changeDifficulty(curDifficulty, index);
+		lookForCurrrentVariation();
 		filterSongs();
 	}
 
@@ -375,5 +364,23 @@ class FreeplayState extends FunkinState
 
 		if (shouldUpdateCapsules)
 			generateCapsules();
+	}
+
+	/**
+	 * Looks for the current variation.
+	 */
+	public function lookForCurrrentVariation():Void
+	{
+		if (filteredSongs[curSelected - 1] != null)
+		{
+			for (variation in filteredSongs[curSelected - 1].getVariations())
+			{
+				if (filteredSongs[curSelected - 1]?.getDifficulties(variation)?.contains(curDifficulty) ?? false)
+				{
+					curVariation = variation;
+					break;
+				}
+			}
+		}
 	}
 }

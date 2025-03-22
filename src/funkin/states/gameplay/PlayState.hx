@@ -28,6 +28,11 @@ class PlayState extends FunkinState
 	public var chart:ChartArrayElement;
 
 	/**
+	 * The current metadata used for `this`.
+	 */
+	public var metadata:MetadataStructure;
+
+	/**
 	 * The current difficulty used for `this`.
 	 */
 	public var difficulty:String;
@@ -57,9 +62,13 @@ class PlayState extends FunkinState
 		song = params.song;
 		difficulty = params.difficulty;
 		chart = song?.getChart(params.variation, difficulty);
+		metadata = song?.metadatas.get(params.variation);
 
 		if (chart == null)
 			throw "Chart was not loaded.";
+
+		if (metadata == null)
+			throw "Metadata was not loaded.";
 
 		super();
 	}
@@ -120,12 +129,17 @@ class PlayState extends FunkinState
 		FlxG.sound.music.play();
 		getPlayerSound()?.play();
 		getOpponentSound()?.play();
+
+		conductor.setupBPMChanges(metadata.bpmChanges);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		conductor.update();
 		super.update(elapsed);
+
+		if (controls.BACK)
+			FlxG.switchState(funkin.states.ui.MenuState.new);
 	}
 
 	public function getPlayerSound():FlxSound

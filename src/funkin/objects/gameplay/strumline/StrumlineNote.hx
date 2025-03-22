@@ -46,7 +46,7 @@ class StrumlineNote extends FunkinSprite
 	{
 		switch (anim)
 		{
-			case 'confirm', 'press':
+			case 'confirm':
 				if (!head.isPlayer)
 					playAnimation('static', true);
 		}
@@ -58,5 +58,7 @@ class StrumlineNote extends FunkinSprite
 		super.playAnimation(name, restart, stunAnimations, reversed);
 		centerOffsets();
 		centerOrigin();
+
+		offset.add(MathUtil.center(width, Strumline.STRUMLINE_SIZE), MathUtil.center(height, Strumline.STRUMLINE_SIZE));
 	}
 }

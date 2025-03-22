@@ -14,3 +14,5 @@ RECOVER_*.fla
 docs/dox/
 dump/
 export/
+
+.FINAL_COMMIT_MESSAGE

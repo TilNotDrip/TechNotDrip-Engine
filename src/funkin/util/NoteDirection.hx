@@ -16,9 +16,14 @@ enum abstract NoteDirection(Int) to Int from Int
 	public var name(get, never):String;
 	public var color(get, never):String;
 
+	// TODO: make these softcoded
 	function get_name():String
 	{
-		return (toStringMap.get(abstract) ?? '').toLowerCase();
+		return switch (abstract)
+		{
+			default:
+				(toStringMap.get(abstract) ?? '').toLowerCase();
+		}
 	}
 
 	function get_color():String

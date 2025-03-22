@@ -11,6 +11,11 @@ class NoteSprite extends FunkinSprite
 	public var data:NoteData;
 
 	/**
+	 * The sustain note, if it exists.
+	 */
+	public var sustainSprite:SustainNoteSprite;
+
+	/**
 	 * The current rgb shader.
 	 */
 	// public var rgbShader:RGBShader;
@@ -34,6 +39,8 @@ class NoteSprite extends FunkinSprite
 		loadFrames('gameplay/strumline/default/notes');
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
+		centerOffsets();
+		offset.add(MathUtil.center(width, Strumline.STRUMLINE_SIZE), MathUtil.center(height, Strumline.STRUMLINE_SIZE));
 
 		for (direction in NoteDirection.allDirections)
 			addAnimation(direction.name, direction.color);

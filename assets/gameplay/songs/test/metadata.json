@@ -15,7 +15,7 @@
 		"opponent": "bf-pixel-opponent",
 		"player": "bf"
 	},
-	"icon": "bf-pixel",
+	"icon": "bf",
 	"preview": {
 		"start": 0,
 		"end": 150000

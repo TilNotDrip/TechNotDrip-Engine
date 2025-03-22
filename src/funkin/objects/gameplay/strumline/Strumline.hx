@@ -17,6 +17,11 @@ class Strumline extends FlxSpriteGroup
 	 */
 	public static final NOTE_SPACING:Int = STRUMLINE_SIZE + 8;
 
+	/**
+	 * Offset fix for newer strumline sprites.
+	 */
+	public static final INITIAL_OFFSET:Float = -0.275 * STRUMLINE_SIZE;
+
 	static var RENDER_DISTANCE_MS(get, never):Float;
 
 	static function get_RENDER_DISTANCE_MS():Float
@@ -62,7 +67,7 @@ class Strumline extends FlxSpriteGroup
 	/**
 	 * The splashes that appear when you hold a note.
 	 */
-	// public var holdCovers:FlxTypedSpriteGroup<NoteHoldCover>;
+	public var holdCovers:FlxTypedSpriteGroup<NoteHoldCover>;
 
 	/**
 	 * The Note Data to use for spawning.
@@ -117,12 +122,12 @@ class Strumline extends FlxSpriteGroup
 		noteSplash.kill();
 		noteSplashes.add(noteSplash);
 
-		/*holdCovers = new FlxTypedSpriteGroup<NoteHoldCover>();
-			add(holdCovers);
+		holdCovers = new FlxTypedSpriteGroup<NoteHoldCover>();
+		add(holdCovers);
 
-			var holdCover:NoteHoldCover = new NoteHoldCover();
-			holdCover.kill();
-			holdCovers.add(holdCover); */
+		var holdCover:NoteHoldCover = new NoteHoldCover();
+		holdCover.kill();
+		holdCovers.add(holdCover);
 	}
 
 	/**
@@ -160,11 +165,12 @@ class Strumline extends FlxSpriteGroup
 		var noteSplash:NoteSplash = noteSplashes.recycle(NoteSplash);
 		noteSplash.setupNoteSplash(strumlineNote.x, strumlineNote.y, note.data.direction);
 
-		/*if ((note.data.length ?? 0) > 0)
-			{
-				var holdCover:NoteHoldCover = holdCovers.recycle(NoteHoldCover);
-				holdCover.setupHoldCover(strumlineNote, note.data.direction);
-		}*/
+		if ((note.data.length ?? 0) > 0)
+		{
+			var holdCover:NoteHoldCover = holdCovers.recycle(NoteHoldCover);
+			holdCover.setupHoldCover(strumlineNote, note.data.direction);
+			note.sustainSprite.holdCover = holdCover;
+		}
 
 		note.kill();
 	}
@@ -182,6 +188,8 @@ class Strumline extends FlxSpriteGroup
 				{
 					var sustainNoteSprite:SustainNoteSprite = sustainNotes.recycle(SustainNoteSprite);
 					sustainNoteSprite.setupSustainSprite(noteDataLeft[0], scrollSpeed);
+
+					noteSprite.sustainSprite = sustainNoteSprite;
 				}
 
 				// FlxG.log.add('Rendered note at ${noteDataLeft[0].time}');
@@ -195,6 +203,10 @@ class Strumline extends FlxSpriteGroup
 		{
 			if (!note.alive)
 				continue;
+
+			var strumlineNote:StrumlineNote = getStrumNoteForDirection(note.data.direction);
+			note.x = strumlineNote.x;
+			note.y = strumlineNote.y + calculateNoteYPos(note.data.time);
 
 			if (!isPlayer)
 			{
@@ -211,60 +223,21 @@ class Strumline extends FlxSpriteGroup
 				continue;
 
 			var strumlineNote:StrumlineNote = getStrumNoteForDirection(sustainNote.data.direction);
+			var strumlineMid:Float = strumlineNote.y + (STRUMLINE_SIZE / 2);
+
+			sustainNote.x = strumlineNote.x;
+			sustainNote.y = strumlineMid + calculateNoteYPos(sustainNote.data.time);
+
+			sustainNote.updateClip(conductorInUse.time);
 
 			if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time)
 			{
-				strumlineNote.playAnimation('press', true);
-				// strumlineNote.holdCover.playAnimation('end', true);
+				strumlineNote.playAnimation('static', true);
+				sustainNote.kill();
+				sustainNote.holdCover.playAnimation('end', true);
 			}
 		}
 		super.update(elapsed);
-	}
-
-	override public function draw():Void
-	{
-		for (note in notes.members)
-		{
-			if (!note.alive)
-				continue;
-
-			var strumlineNote:StrumlineNote = getStrumNoteForDirection(note.data.direction);
-			note.x = strumlineNote.x;
-			note.y = strumlineNote.y + calculateNoteYPos(note.data.time);
-		}
-
-		for (sustainNote in sustainNotes.members)
-		{
-			if (!sustainNote.alive)
-				continue;
-
-			var strumlineNote:StrumlineNote = getStrumNoteForDirection(sustainNote.data.direction);
-			var strumlineMid:Float = strumlineNote.y + (STRUMLINE_SIZE / 2);
-
-			if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time)
-			{
-				sustainNote.clipRect = null;
-				sustainNote.kill();
-				continue;
-			}
-
-			sustainNote.x = strumlineNote.x + MathUtil.center(STRUMLINE_SIZE, sustainNote.width) + 5;
-			sustainNote.y = strumlineMid + calculateNoteYPos(sustainNote.data.time);
-
-			if (sustainNote.data.time <= conductorInUse.time)
-			{
-				var swagRect:FlxRect = new FlxRect(0, 0, sustainNote.width / sustainNote.scale.x, sustainNote.height / sustainNote.scale.y);
-
-				swagRect.y = (strumlineMid - sustainNote.y) / sustainNote.scale.y;
-				// swagRect.height -= swagRect.y;
-
-				FlxG.watch.addQuick('swagRect', swagRect);
-
-				sustainNote.clipRect = swagRect;
-			}
-		}
-
-		super.draw();
 	}
 
 	override function get_width():Float

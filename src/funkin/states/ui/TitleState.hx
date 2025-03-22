@@ -55,7 +55,7 @@ class TitleState extends FunkinState
 
 		if (FlxG.sound.music == null)
 		{
-			conductor.bpm = 102;
+			conductor.changeBPM(102);
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
 		}
 
