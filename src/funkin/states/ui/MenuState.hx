@@ -186,6 +186,7 @@ class MenuState extends FunkinState
 			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
 			itemSpr.playAnimation('idle');
 			itemSpr.updateHitbox();
+			itemSpr.screenCenter(X);
 			menuItemGroup.add(itemSpr);
 		}
 	}
@@ -212,9 +213,7 @@ class MenuState extends FunkinState
 			else
 				item.animation.play('idle', true);
 
-			item.updateHitbox();
-			item.centerOrigin();
-			item.screenCenter(X);
+			item.centerOffsets();
 		});
 
 		#if FUNKIN_DISCORD_RPC
