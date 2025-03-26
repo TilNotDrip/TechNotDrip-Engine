@@ -188,7 +188,7 @@ jobs:
           path: |
             export/release/ios/
             .haxelib
-            !export/release/ios/bin/
+            !export/release/ios/build/
           key: ios-cache-compile
 
       - name: Setup Haxe
