@@ -19,6 +19,7 @@ jobs:
           path: |
             export/release/windows/
             .haxelib
+            !export/release/windows/bin/
           key: ${{ runner.os }}-cache-compile
 
       - name: Setup Haxe
@@ -55,6 +56,7 @@ jobs:
           path: |
             export/release/macos/
             .haxelib
+            !export/release/windows/bin/
           key: ${{ runner.os }}-cache-compile
 
       - name: Setup Haxe
@@ -91,6 +93,7 @@ jobs:
           path: |
             export/release/linux/
             .haxelib
+            !export/release/linux/bin/
           key: ${{ runner.os }}-cache-compile
 
       - name: Setup Haxe
@@ -128,6 +131,7 @@ jobs:
           path: |
             export/release/android/
             .haxelib
+            !export/release/android/bin/
           key: android-cache-compile
 
       - name: Setup Haxe
@@ -184,6 +188,7 @@ jobs:
           path: |
             export/release/ios/
             .haxelib
+            !export/release/ios/bin/
           key: ios-cache-compile
 
       - name: Setup Haxe
