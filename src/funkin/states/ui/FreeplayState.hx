@@ -362,6 +362,9 @@ class FreeplayState extends FunkinState
 				shouldUpdateCapsules = true;
 		}
 
+		if (filterBefore.length != filteredSongs.length)
+			shouldUpdateCapsules = true;
+
 		if (shouldUpdateCapsules)
 			generateCapsules();
 	}

@@ -47,7 +47,7 @@ class StrumlineNote extends FunkinSprite
 		switch (anim)
 		{
 			case 'confirm':
-				if (!head.isPlayer)
+				if (head.data.data.computerControlled)
 					playAnimation('static', true);
 		}
 	}

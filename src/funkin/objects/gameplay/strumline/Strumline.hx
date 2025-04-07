@@ -1,9 +1,13 @@
 package funkin.objects.gameplay.strumline;
 
-import flixel.math.FlxRect;
+import flixel.FlxCamera;
+import flixel.FlxObject;
+import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSort;
+import funkin.data.StrumlineData;
 import funkin.structures.SongStructure;
+import funkin.util.InputUtil;
 
 class Strumline extends FlxSpriteGroup
 {
@@ -22,22 +26,10 @@ class Strumline extends FlxSpriteGroup
 	 */
 	public static final INITIAL_OFFSET:Float = -0.275 * STRUMLINE_SIZE;
 
-	static var RENDER_DISTANCE_MS(get, never):Float;
-
-	static function get_RENDER_DISTANCE_MS():Float
-	{
-		return FlxG.height / Constants.PIXELS_PER_MS;
-	}
-
 	/**
-	 * Very important, as this will impact which notes can be shown in the strumline.
+	 * Strumline Data.
 	 */
-	public var strumlineID:String;
-
-	/**
-	 * Is this strumline controlled by a player or not?
-	 */
-	public var isPlayer:Bool;
+	public var data:StrumlineData;
 
 	/**
 	 * The conductor to use.
@@ -84,12 +76,27 @@ class Strumline extends FlxSpriteGroup
 	 */
 	public var scrollSpeed:Float = 1;
 
-	public function new(strumlineID:String, ?isPlayer:Bool = false)
+	/**
+	 * Used for figuring out if the note should be rendered or not.
+	 */
+	var renderingSquare:FlxObject;
+
+	var currentlyPressed:Array<Bool> = [];
+
+	public function new(data:StrumlineData)
 	{
-		this.strumlineID = strumlineID;
-		this.isPlayer = isPlayer;
+		this.data = data;
 
 		super();
+
+		@:privateAccess
+		{
+			cast(scrollFactor, FlxCallbackPoint)._setXCallback = scrollFactorCallerback;
+			cast(scrollFactor, FlxCallbackPoint)._setYCallback = scrollFactorCallerback;
+			cast(scrollFactor, FlxCallbackPoint)._setXYCallback = scrollFactorCallerback;
+		}
+
+		renderingSquare = new FlxObject(0, 0, width, STRUMLINE_SIZE);
 
 		strumlineNotes = new FlxTypedSpriteGroup<StrumlineNote>();
 		add(strumlineNotes);
@@ -99,6 +106,7 @@ class Strumline extends FlxSpriteGroup
 			var strumNote:StrumlineNote = new StrumlineNote(NOTE_SPACING * i, 0, direction);
 			strumNote.head = this;
 			strumlineNotes.add(strumNote);
+			currentlyPressed[i] = false;
 		}
 
 		sustainNotes = new FlxTypedSpriteGroup<SustainNoteSprite>();
@@ -138,7 +146,7 @@ class Strumline extends FlxSpriteGroup
 	{
 		var filteredNotes:Array<NoteData> = chart.chart.filter((note:NoteData) ->
 		{
-			return note.strum == strumlineID;
+			return note.strum == data.id;
 		});
 
 		noteData = filteredNotes;
@@ -152,8 +160,7 @@ class Strumline extends FlxSpriteGroup
 		noteDataLeft = noteData.copy();
 	}
 
-	// TODO: do note judging and stuff here
-	public function noteHit(note:NoteSprite):Void
+	public function noteHit(note:NoteSprite, showNoteSplash:Bool):Void
 	{
 		var strumlineNote:StrumlineNote = getStrumNoteForDirection(note.data.direction);
 
@@ -162,8 +169,11 @@ class Strumline extends FlxSpriteGroup
 		else
 			strumlineNote.playAnimation('confirm', true);
 
-		var noteSplash:NoteSplash = noteSplashes.recycle(NoteSplash);
-		noteSplash.setupNoteSplash(strumlineNote.x, strumlineNote.y, note.data.direction);
+		if (showNoteSplash)
+		{
+			var noteSplash:NoteSplash = noteSplashes.recycle(NoteSplash);
+			noteSplash.setupNoteSplash(strumlineNote.x, strumlineNote.y, note.data.direction);
+		}
 
 		if ((note.data.length ?? 0) > 0)
 		{
@@ -172,15 +182,45 @@ class Strumline extends FlxSpriteGroup
 			note.sustainSprite.holdCover = holdCover;
 		}
 
+		if (note.sustainSprite != null)
+			note.sustainSprite.currentlyHeld = true;
+
 		note.kill();
+	}
+
+	public function noteMiss(note:NoteSprite):Void
+	{
+		// TODO: when noteTypeData is done, uncomment this
+		if (/*note.noteTypeData.playMissSfx*/ true)
+			FlxG.sound.play(Paths.content.audio('gameplay/missnote' + FlxG.random.int(1, 3)));
+
+		note.kill();
+	}
+
+	public function sustainNoteMiss(sustainNote:SustainNoteSprite):Void
+	{
+		// TODO: when noteTypeData is done, uncomment this
+		if (/*sustainNote.noteTypeData.playMissSfx*/ true)
+			FlxG.sound.play(Paths.content.audio('gameplay/missnote' + FlxG.random.int(1, 3)));
+
+		if (sustainNote.holdCover != null)
+			sustainNote.holdCover.kill();
+
+		sustainNote.kill();
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		while (true)
 		{
-			if (noteDataLeft.length > 0 && noteDataLeft[0].time - conductorInUse.time <= RENDER_DISTANCE_MS)
+			if (noteDataLeft.length > 0)
 			{
+				renderingSquare.x = x;
+				renderingSquare.y = calculateNoteYPos(noteDataLeft[0].time);
+
+				if (!renderingSquare.isOnScreen())
+					break;
+
 				var noteSprite:NoteSprite = notes.recycle(NoteSprite);
 				noteSprite.setupNoteSprite(noteDataLeft[0]);
 
@@ -196,7 +236,11 @@ class Strumline extends FlxSpriteGroup
 				noteDataLeft.shift();
 			}
 			else
+			{
+				// doesnt need to be used anymore!
+				renderingSquare = FlxDestroyUtil.destroy(renderingSquare);
 				break;
+			}
 		}
 
 		for (note in notes.members)
@@ -208,11 +252,19 @@ class Strumline extends FlxSpriteGroup
 			note.x = strumlineNote.x;
 			note.y = strumlineNote.y + calculateNoteYPos(note.data.time);
 
-			if (!isPlayer)
+			if (data.data.computerControlled)
 			{
 				if (note.data.time <= conductorInUse.time)
 				{
-					noteHit(note);
+					noteHit(note, true);
+				}
+			}
+			else
+			{
+				// sustain missing is handled by sustains, duh
+				if (note.data.time + InputUtil.MISS_THRESHOLD <= conductorInUse.time && (note.data.length ?? 0) <= 0)
+				{
+					noteMiss(note);
 				}
 			}
 		}
@@ -228,13 +280,26 @@ class Strumline extends FlxSpriteGroup
 			sustainNote.x = strumlineNote.x;
 			sustainNote.y = strumlineMid + calculateNoteYPos(sustainNote.data.time);
 
-			sustainNote.updateClip(conductorInUse.time);
+			if (data.data.computerControlled || currentlyPressed[sustainNote.data.direction])
+				sustainNote.updateClip(conductorInUse.time);
 
-			if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time)
+			if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time
+				&& (data.data.computerControlled || currentlyPressed[sustainNote.data.direction]))
 			{
 				strumlineNote.playAnimation('static', true);
 				sustainNote.kill();
-				sustainNote.holdCover.playAnimation('end', true);
+				if (sustainNote.holdCover != null)
+					sustainNote.holdCover.playAnimation('end', true);
+				sustainNote.currentlyHeld = false;
+			}
+
+			if (!data.data.computerControlled)
+			{
+				// sustain missing is handled by sustains, duh
+				if (sustainNote.data.time + sustainNote.data.length + InputUtil.MISS_THRESHOLD <= conductorInUse.time)
+				{
+					sustainNoteMiss(sustainNote);
+				}
 			}
 		}
 		super.update(elapsed);
@@ -264,6 +329,31 @@ class Strumline extends FlxSpriteGroup
 	}
 
 	/**
+	 * If there is a sustain currently in this direction.
+	 * @param direction The direction.
+	 * @return If there is or not.
+	 */
+	public function isCurrentSustain(direction:NoteDirection):Bool
+	{
+		for (sustainNote in sustainNotes.members)
+		{
+			if (!sustainNote.alive)
+				continue;
+
+			if (sustainNote.data.time <= conductorInUse.time
+				&& sustainNote.data.time + sustainNote.data.length >= conductorInUse.time
+				&& sustainNote.data.direction == direction
+				&& sustainNote.currentlyHeld)
+			{
+				trace('Is true!!');
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * For a note's strumTime, calculate its Y position relative to the strumline.
 	 * @param strumTime The time to calculate for.
 	 * @param vwoosh If the notes should go offscreen.
@@ -273,5 +363,25 @@ class Strumline extends FlxSpriteGroup
 	{
 		// TODO: change false to downScroll
 		return Constants.PIXELS_PER_MS * (conductorInUse.time - strumTime) * scrollSpeed * (false ? 1 : -1);
+	}
+	override function set_camera(Value:FlxCamera):FlxCamera
+	{
+		if (camera != Value && renderingSquare != null)
+			renderingSquare.camera = Value;
+		return super.set_camera(Value);
+	}
+
+	override function set_cameras(Value:Array<FlxCamera>):Array<FlxCamera>
+	{
+		if (_cameras != Value && renderingSquare != null)
+			renderingSquare.cameras = Value;
+		return super.set_cameras(Value);
+	}
+
+	inline function scrollFactorCallerback(ScrollFactor:FlxPoint)
+	{
+		if (renderingSquare != null)
+			renderingSquare.scrollFactor = ScrollFactor;
+		scrollFactorCallback(ScrollFactor);
 	}
 }

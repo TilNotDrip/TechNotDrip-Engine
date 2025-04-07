@@ -131,18 +131,9 @@ class Controls implements IFlxDestroyable
 					if (ControlsMacro.variablesWithRandP.contains(variableName))
 						Reflect.setField(this, variableName + '_P', true);
 
-					if (!pressJustDispatched)
-					{
-						pressed.dispatch();
-						pressJustDispatched = true;
-					}
-					else
-					{
-						pressJustDispatched = false;
-					}
+					pressed.dispatch();
 				}
 			}
-
 			var isReleased:Bool = false;
 
 			#if FLX_KEYBOARD
@@ -161,15 +152,7 @@ class Controls implements IFlxDestroyable
 					if (ControlsMacro.variablesWithRandP.contains(variableName))
 						Reflect.setField(this, variableName + '_R', true);
 
-					if (!releaseJustDispatched)
-					{
-						released.dispatch();
-						releaseJustDispatched = true;
-					}
-					else
-					{
-						releaseJustDispatched = false;
-					}
+					released.dispatch();
 				}
 			}
 		}

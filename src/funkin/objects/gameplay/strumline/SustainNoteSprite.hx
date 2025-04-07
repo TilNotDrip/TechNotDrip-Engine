@@ -26,6 +26,11 @@ class SustainNoteSprite extends FunkinSprite
 	public var holdCover:NoteHoldCover;
 
 	/**
+	 * If this sustain note is being currently held.
+	 */
+	public var currentlyHeld:Bool = false;
+
+	/**
 	 * Sets up sustain sprite for use.
 	 * @param data The note data for this sustain note.
 	 * @param scrollSpeed Current scroll speed.
@@ -68,6 +73,8 @@ class SustainNoteSprite extends FunkinSprite
 		{
 			clipRect = FlxDestroyUtil.put(clipRect);
 		}
+
+		currentlyHeld = false;
 
 		super.revive();
 	}

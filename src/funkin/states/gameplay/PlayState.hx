@@ -1,5 +1,6 @@
 package funkin.states.gameplay;
 
+import funkin.data.StrumlineData;
 import funkin.data.song.Song;
 import funkin.objects.gameplay.strumline.Strumline;
 import funkin.structures.SongStructure;
@@ -36,6 +37,11 @@ class PlayState extends FunkinState
 	 * The current difficulty used for `this`.
 	 */
 	public var difficulty:String;
+
+	/**
+	 * The strumline data.
+	 */
+	public var strumlineDatas:Array<StrumlineData> = [];
 
 	/**
 	 * Strumlines.
@@ -86,19 +92,35 @@ class PlayState extends FunkinState
 		strumlines = new FlxTypedGroup<Strumline>();
 		add(strumlines);
 
-		// TODO: actual strumline searching
-		var strumlinesToAdd:Array<String> = ['opponent', 'player'];
+		metadata = song?.metadatas.get('default');
 
-		var strumlineXPos:Float = FlxG.width / strumlinesToAdd.length;
-
-		for (i => strumlineID in strumlinesToAdd)
+		for (strumlineID in ['player', 'opponent', 'spectator'])
 		{
-			var strumline:Strumline = new Strumline(strumlineID);
-			strumline.conductorInUse = conductor;
-			strumline.setupNotes(chart);
-			strumline.y = Constants.STRUMLINE_Y_OFFSET;
-			strumline.x = (strumlineXPos * i) + MathUtil.center(strumlineXPos, strumline.width);
-			strumlines.add(strumline);
+			var strumlineData:StrumlineData = new StrumlineData(strumlineID);
+			strumlineData.conductorInUse = conductor;
+			strumlineDatas.push(strumlineData);
+
+			if (strumlineData.data.renderStrumline)
+			{
+				var strumline:Strumline = new Strumline(strumlineData);
+
+				strumline.y = Constants.STRUMLINE_Y_OFFSET;
+
+				strumline.x = switch (strumlineData.data.strumlinePosition)
+				{
+					case 'left':
+						MathUtil.center(FlxG.width / 2, strumline.width);
+					case 'right':
+						FlxG.width / 2 + MathUtil.center(FlxG.width / 2, strumline.width);
+					default:
+						0;
+				}
+
+				strumline.conductorInUse = conductor;
+				strumline.setupNotes(chart);
+				strumlineData.strumline = strumline;
+				strumlines.add(strumline);
+			}
 		}
 	}
 
@@ -136,6 +158,10 @@ class PlayState extends FunkinState
 	override public function update(elapsed:Float):Void
 	{
 		conductor.update();
+
+		for (i in strumlineDatas)
+			i.update();
+
 		super.update(elapsed);
 
 		if (controls.BACK)

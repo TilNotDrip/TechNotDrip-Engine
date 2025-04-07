@@ -1,0 +1,7 @@
+{
+	"computerControlled": false,
+	"renderStrumline": true,
+	"strumlinePosition": "right",
+	"renderRatings": true,
+	"rgbToUse": "player"
+}
