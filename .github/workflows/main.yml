@@ -13,15 +13,6 @@ jobs:
       - name: Download Source Code
         uses: actions/checkout@v4
 
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/windows/
-            .haxelib
-            !export/release/windows/bin/
-          key: ${{ runner.os }}-cache-compile
-
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
@@ -49,15 +40,6 @@ jobs:
     steps:
       - name: Download Source Code
         uses: actions/checkout@v4
-
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/macos/
-            .haxelib
-            !export/release/windows/bin/
-          key: ${{ runner.os }}-cache-compile
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
@@ -87,15 +69,6 @@ jobs:
       - name: Download Source Code
         uses: actions/checkout@v4
 
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/linux/
-            .haxelib
-            !export/release/linux/bin/
-          key: ${{ runner.os }}-cache-compile
-
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
@@ -124,15 +97,6 @@ jobs:
     steps:
       - name: Download Source Code
         uses: actions/checkout@v4
-
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/android/
-            .haxelib
-            !export/release/android/bin/
-          key: android-cache-compile
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
@@ -181,15 +145,6 @@ jobs:
     steps:
       - name: Download Source Code
         uses: actions/checkout@v4
-
-      - name: Get Compile Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            export/release/ios/
-            .haxelib
-            !export/release/ios/build/
-          key: ios-cache-compile
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
