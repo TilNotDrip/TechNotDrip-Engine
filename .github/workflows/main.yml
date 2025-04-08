@@ -20,7 +20,6 @@ jobs:
 
       - name: Install Haxe Libraries using HxPKG
         run: |
-          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
 
@@ -48,7 +47,6 @@ jobs:
 
       - name: Install Haxe Libraries using HxPKG
         run: |
-          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
 
@@ -76,8 +74,7 @@ jobs:
 
       - name: Install Haxe Libraries using HxPKG
         run: |
-          sudo apt install libvlccore-dev libvlc-dev -y -q
-          haxelib install hxcpp --quiet
+          sudo apt -qq install libvlccore-dev libvlc-dev -y
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
 
@@ -118,7 +115,6 @@ jobs:
       - name: Install Haxe Libraries using HxPKG
         run: |
           sudo apt install libvlccore-dev libvlc-dev -y -q
-          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
 
@@ -153,7 +149,6 @@ jobs:
 
       - name: Install Haxe Libraries using HxPKG
         run: |
-          haxelib install hxcpp --quiet
           haxelib install hxpkg --quiet
           haxelib run hxpkg install --force
 
