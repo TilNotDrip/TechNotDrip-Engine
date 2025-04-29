@@ -133,7 +133,7 @@ class Project extends HXProject
 	{
 		addHaxelib('lime', '8.2.2');
 		addHaxelib('openfl', '9.4.1');
-		addHaxelib('flixel', '6.0.0');
+		addHaxelib('flixel', '6.1.0');
 		addHaxelib('flixel-addons', 'git');
 		addHaxelib('flxanimate', 'git');
 		addHaxelib('extension-androidtools', '2.1.1', platformType == MOBILE && haxedefs.get('android'));
