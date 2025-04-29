@@ -37,7 +37,7 @@ class MenuState extends FunkinState
 		{
 			id: 'options',
 			name: 'Options',
-			classToSwitch: null
+			classToSwitch: OptionsState.new
 		}
 	];
 

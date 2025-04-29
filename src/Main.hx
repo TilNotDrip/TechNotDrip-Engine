@@ -4,7 +4,6 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
-import funkin.Constants;
 import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;

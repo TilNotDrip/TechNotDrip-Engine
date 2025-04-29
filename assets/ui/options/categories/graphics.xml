@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="graphics.png">
+	<!-- Created with Adobe Animate version 24.0.6.54 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="graphics hovered0000" x="5" y="5" width="212" height="205"/>
+	<SubTexture name="graphics hovered0001" x="5" y="5" width="212" height="205"/>
+	<SubTexture name="graphics hovered0002" x="222" y="5" width="211" height="205" frameX="-1" frameY="0" frameWidth="212" frameHeight="205"/>
+	<SubTexture name="graphics hovered0003" x="438" y="5" width="211" height="205" frameX="-1" frameY="0" frameWidth="212" frameHeight="205"/>
+	<SubTexture name="graphics hovered0004" x="654" y="5" width="211" height="205" frameX="-1" frameY="0" frameWidth="212" frameHeight="205"/>
+	<SubTexture name="graphics hovered0005" x="654" y="5" width="211" height="205" frameX="-1" frameY="0" frameWidth="212" frameHeight="205"/>
+	<SubTexture name="graphics idle0000" x="870" y="5" width="188" height="188"/>
+	<SubTexture name="graphics idle0001" x="870" y="5" width="188" height="188"/>
+	<SubTexture name="graphics idle0002" x="870" y="5" width="188" height="188"/>
+	<SubTexture name="graphics idle0003" x="1063" y="5" width="187" height="188" frameX="0" frameY="0" frameWidth="188" frameHeight="188"/>
+	<SubTexture name="graphics idle0004" x="1063" y="5" width="187" height="188" frameX="0" frameY="0" frameWidth="188" frameHeight="188"/>
+	<SubTexture name="graphics idle0005" x="1063" y="5" width="187" height="188" frameX="0" frameY="0" frameWidth="188" frameHeight="188"/>
+</TextureAtlas>
