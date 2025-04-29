@@ -128,6 +128,7 @@ class FreeplayDJ extends FunkinSprite
 	public function drawVisualizer():Void
 	{
 		// TODO: work on this when my animate decides to work
+		// bro is your fucking animate ever gonna work lil brah
 	}
 
 	override public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void

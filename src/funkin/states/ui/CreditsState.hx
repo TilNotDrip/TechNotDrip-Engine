@@ -157,6 +157,7 @@ class CreditsState extends FunkinState
 		#if FLX_MOUSE
 		FlxG.mouse.visible = true;
 		#end
+
 		changeItem();
 	}
 
@@ -167,6 +168,7 @@ class CreditsState extends FunkinState
 			#if FLX_MOUSE
 			FlxG.mouse.visible = false;
 			#end
+
 			FlxG.switchState(MenuState.new);
 		}
 
@@ -195,6 +197,12 @@ class CreditsState extends FunkinState
 		// MOUSE
 
 		#if FLX_MOUSE
+		if (FlxG.mouse.wheel != 0)
+		{
+			changeItem(-FlxG.mouse.wheel);
+			// TODO: scale for wheel, it wouldnt work for me even with a good way to check so like idfk.
+		}
+
 		if (FlxG.mouse.justPressed)
 		{
 			if (FlxG.mouse.overlaps(arrowUp))
@@ -349,7 +357,18 @@ class CreditsState extends FunkinState
 		commitsGet.setHeader("User-Agent", "request");
 		commitsGet.request();
 
-		var commitList:Array<Dynamic> = cast Json.parse(commitsGet.responseData);
+		var commitList:Array<Dynamic> = [];
+
+		try
+		{
+			// when my wifi down it be returning nothing and try catching the actual request didnt work so
+			commitList = cast Json.parse(commitsGet.responseData);
+		}
+		catch (e:Exception)
+		{
+			trace('Could not parse the commit list!');
+		}
+
 		for (commit in commitList)
 		{
 			denominator++;
