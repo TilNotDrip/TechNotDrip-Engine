@@ -205,13 +205,13 @@ class CreditsState extends FunkinState
 
 		if (FlxG.mouse.justPressed)
 		{
-			if (FlxG.mouse.overlaps(arrowUp))
+			if (FlxG.mouse.overlaps(arrowUp, iconCamera))
 			{
 				changeItem(-1);
 				arrowUp.scale.set(1.2, 0.5);
 			}
 
-			if (FlxG.mouse.overlaps(arrowDown))
+			if (FlxG.mouse.overlaps(arrowDown, iconCamera))
 			{
 				changeItem(1);
 				arrowDown.scale.set(1.2, 0.5);
