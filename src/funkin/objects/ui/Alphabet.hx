@@ -83,6 +83,8 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 		var letterX:Float = 0;
 		var letterY:Float = 0;
 
+		_lastTextWidth = 0;
+
 		var splitText:Array<String> = text.split('');
 
 		for (i in 0...text.length)
@@ -110,7 +112,7 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 						letterSpr.revive();
 					}
 
-					if (letterX + Math.floor(letterSpr.width) >= fieldWidth)
+					if (letterX + Math.floor(letterSpr.width) >= fieldWidth && fieldWidth > 0)
 					{
 						letterX = 0;
 						letterY += maxHeight;
@@ -132,7 +134,9 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 
 					letterX += Math.floor(letterSpr.width);
 			}
+			_lastTextWidth = Math.max(_lastTextWidth, letterX);
 		}
+		_lastTextHeight = letterY + maxHeight;
 	}
 
 	function makeLetterSpr(letter:String, x:Float = 0, y:Float = 0):AlphabetLetter
@@ -147,6 +151,23 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 		{
 			letter.kill();
 		});
+	}
+	var _lastTextWidth:Float = 0;
+	var _lastTextHeight:Float = 0;
+
+	override function get_width():Float
+	{
+		return _lastTextWidth;
+	}
+
+	override function get_height():Float
+	{
+		return _lastTextHeight;
+	}
+
+	override public function updateHitbox():Void
+	{
+		FlxG.log.notice('[ALPHABET] updateHitbox is not available on Alphabet objects.');
 	}
 }
 

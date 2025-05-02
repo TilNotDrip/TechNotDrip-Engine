@@ -185,10 +185,10 @@ class OptionsState extends FunkinState
 		categoryArrow = new FunkinSprite().loadTexture('ui/options/arrow');
 		add(categoryArrow);
 
-		categoryName = new Alphabet(456, 269, '', BOLD);
+		categoryName = new Alphabet(456, 269, '', FlxG.width, BOLD);
 		add(categoryName);
 
-		categoryDescription = new Alphabet(0, 456, '', DEFAULT);
+		categoryDescription = new Alphabet(0, 456, '', FlxG.width, DEFAULT);
 		categoryDescription.scale.set(0.7, 0.7);
 		categoryDescription.updateHitbox();
 		add(categoryDescription);
@@ -274,7 +274,9 @@ class OptionsState extends FunkinState
 			spr.alpha = 0.6;
 
 		categoryName.text = categories[curSelected].name;
+		categoryName.screenCenter(X);
 		categoryDescription.text = categories[curSelected].description;
+		categoryDescription.screenCenter(X);
 
 		categoryGroup.members[curSelected].alpha = 1;
 		lerpXPosArrow = categoryGroup.members[curSelected].getGraphicMidpoint().x - (categoryArrow.width / 2);
