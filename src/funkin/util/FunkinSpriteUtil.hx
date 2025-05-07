@@ -17,19 +17,19 @@ class FunkinSpriteUtil
 
 		var sprite:FunkinSprite = spriteToUse ?? new FunkinSprite();
 
-		var isAnimated:Bool = !structure.path.startsWith('#')
-			&& (structure?.animation?.anims != null && structure?.animation?.anims?.length > 0);
+		var isAnimated:Bool = !structure.path.startsWith('#') && ((structure?.animation?.anims?.length ?? 0) > 0);
 
 		if (isAnimated)
 		{
-			sprite.loadFrames(structure.path);
+			sprite.loadFrames(structure.path, structure.animation.type);
 		}
 		else
 		{
 			sprite.loadTexture(structure.path, Math.floor(structure?.scale?.x ?? 1), Math.floor(structure?.scale?.y ?? 1));
 		}
 
-		sprite.active = isAnimated;
+		// i dont know if i like this...
+		// sprite.active = isAnimated;
 
 		sprite.x = structure?.position?.x ?? 0;
 		sprite.y = structure?.position?.y ?? 0;

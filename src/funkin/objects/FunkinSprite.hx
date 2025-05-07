@@ -50,15 +50,18 @@ class FunkinSprite extends FlxSprite
 	/**
 	 * Loads frames and applies it to this sprite.
 	 * @param path The path of where frames should load from.
+	 * @param forcedType Which type to force. If null, it will be determined automatically.
 	 * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
 	 */
-	public function loadFrames(path:String):FunkinSprite
+	public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
 	{
 		if (atlas != null)
 		{
 			atlas.destroy();
 			atlas = null;
 		}
+
+		// TODO: make forcedType work, im too lazy
 
 		if (Paths.location.exists(path + '.xml'))
 		{
@@ -321,6 +324,51 @@ class FunkinSprite extends FlxSprite
 		}
 
 		return _onAnimFinished;
+	}
+
+	@:noCompletion
+	override function set_width(value:Float):Float
+	{
+		if (atlas != null)
+		{
+			atlas.width = value;
+			return atlas.width;
+		}
+
+		return super.set_width(value);
+	}
+
+	@:noCompletion
+	override function get_width():Float
+	{
+		if (atlas != null)
+		{
+			return atlas.width;
+		}
+
+		return super.get_width();
+	}
+
+	@:noCompletion
+	override function set_height(value:Float):Float
+	{
+		if (atlas != null)
+		{
+			atlas.height = value;
+			return atlas.height;
+		}
+
+		return super.set_height(value);
+	}
+
+	override function get_height():Float
+	{
+		if (atlas != null)
+		{
+			return atlas.height;
+		}
+
+		return super.get_height();
 	}
 }
 

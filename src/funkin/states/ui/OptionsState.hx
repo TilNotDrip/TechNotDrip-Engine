@@ -1,6 +1,8 @@
 package funkin.states.ui;
 
+import flixel.FlxCamera;
 import funkin.objects.ui.Alphabet;
+import funkin.objects.ui.OptionCheckbox;
 import funkin.structures.OptionMenuStructure;
 
 class OptionsState extends FunkinState
@@ -157,15 +159,26 @@ class OptionsState extends FunkinState
 		}
 	];
 
-	static var curSelected:Int = 0;
+	static var curSelectedCategory:Int = 0;
+
+	var curSelectedOption:Int = 0;
+
+	/**
+	 * The current status for `OptionsState`.
+	 */
+	public var currentStatus:OptionStatus = CATEGORY;
+
+	var categoryCamera:FlxCamera;
 
 	var categoryArrow:FlxSprite = null;
+	var categoryGroup:FunkinSpriteGroup = null;
 
 	var categoryName:Alphabet = null;
-
 	var categoryDescription:Alphabet = null;
 
-	var categoryGroup:FunkinSpriteGroup = null;
+	var optionsCamera:FlxCamera;
+
+	var checkboxGroup:FlxTypedGroup<OptionCheckbox>;
 
 	override public function create():Void
 	{
@@ -177,30 +190,31 @@ class OptionsState extends FunkinState
 		FlxG.mouse.visible = true;
 		#end
 
+		categoryCamera = new FlxCamera(0, 5);
+		categoryCamera.bgColor = 0x0;
+		FlxG.cameras.add(categoryCamera, false);
+
+		optionsCamera = new FlxCamera();
+		optionsCamera.bgColor = 0x0;
+		FlxG.cameras.add(optionsCamera, false);
+
 		var bg:FunkinSprite = new FunkinSprite().loadTexture('ui/menu/menuBGYellow');
 		bg.screenCenter();
 		bg.active = false;
 		add(bg);
 
 		categoryArrow = new FunkinSprite().loadTexture('ui/options/arrow');
+		categoryArrow.cameras = [categoryCamera];
 		add(categoryArrow);
 
-		categoryName = new Alphabet(456, 269, '', FlxG.width, BOLD);
-		add(categoryName);
-
-		categoryDescription = new Alphabet(0, 456, '', FlxG.width, DEFAULT);
-		categoryDescription.scale.set(0.7, 0.7);
-		categoryDescription.updateHitbox();
-		add(categoryDescription);
-
-		categoryGroup = new FunkinSpriteGroup(0, 5);
+		categoryGroup = new FunkinSpriteGroup();
+		categoryGroup.cameras = [categoryCamera];
 		add(categoryGroup);
 
 		var fullWidth:Float = 0;
-		var centerXPos:Float = 0;
 		for (i => category in categories)
 		{
-			var categoryObj:FunkinSprite = new FunkinSprite().loadFrames('ui/options/categories/' + category.id);
+			var categoryObj:FunkinSprite = new FunkinSprite(fullWidth).loadFrames('ui/options/categories/' + category.id);
 			categoryObj.addAnimation('idle', category.id + ' idle');
 			categoryObj.addAnimation('hovered', category.id + ' hovered');
 			categoryObj.playAnimation('idle');
@@ -208,64 +222,117 @@ class OptionsState extends FunkinState
 			categoryGroup.add(categoryObj);
 		}
 
-		centerXPos = (FlxG.width - fullWidth) / 2;
-
+		var nextXPos:Float = MathUtil.center(FlxG.width, fullWidth);
 		for (i => spr in categoryGroup.members)
-			spr.x = centerXPos + ((categoryGroup.members[i - 1]?.x ?? 0) + (categoryGroup.members[i - 1]?.width ?? 0));
+		{
+			spr.x = nextXPos;
+			nextXPos += spr.width;
+		}
 
 		categoryArrow.y = categoryGroup.members[0].y + categoryGroup.members[0].height;
+		categoryCamera.height = Std.int(categoryArrow.y + categoryArrow.height);
+
+		categoryName = new Alphabet(456, 269, '', FlxG.width, BOLD);
+		add(categoryName);
+
+		categoryDescription = new Alphabet(0, 456, '', FlxG.width, DEFAULT);
+		categoryDescription.scale.set(0.7, 0.7);
+		add(categoryDescription);
 
 		super.create();
 
-		changeOptionCategory();
+		changeCategory();
 
 		categoryArrow.x = lerpXPosArrow;
 	}
 
 	var lerpXPosArrow:Float = 0;
 
+	var justExitedTimeout:Int = -1;
+
 	override public function update(elapsed:Float):Void
 	{
-		if (controls.UI_LEFT_P)
-			changeOptionCategory(-1);
-
-		if (controls.UI_RIGHT_P)
-			changeOptionCategory(1);
-
-		#if FLX_MOUSE
-		for (i => category in categoryGroup.members)
+		switch (currentStatus)
 		{
-			if (FlxG.mouse.overlaps(category) && FlxG.mouse.justPressed)
-			{
-				curSelected = i;
-				changeOptionCategory();
-			}
-		}
-		#end
+			case CATEGORY:
+				if (controls.UI_LEFT_P)
+					changeCategory(-1);
 
-		if (controls.BACK)
-		{
-			#if FLX_MOUSE
-			FlxG.mouse.visible = false;
-			#end
+				if (controls.UI_RIGHT_P)
+					changeCategory(1);
 
-			FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
-			FlxG.switchState(MenuState.new);
+				if (controls.ACCEPT)
+					openCategory();
+
+				#if FLX_MOUSE
+				for (i => category in categoryGroup.members)
+				{
+					if (FlxG.mouse.overlaps(category, categoryCamera) && FlxG.mouse.justPressed)
+					{
+						if (curSelectedCategory != i)
+						{
+							curSelectedCategory = i;
+							FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
+							changeCategory();
+						}
+						else
+						{
+							openCategory();
+						}
+					}
+				}
+				#end
+
+				if (controls.BACK && justExitedTimeout == -1)
+				{
+					#if FLX_MOUSE
+					FlxG.mouse.visible = false;
+					#end
+					currentStatus = STUNNED;
+
+					FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
+					FlxG.switchState(MenuState.new);
+				}
+
+				categoryArrow.x = MathUtil.coolLerp(categoryArrow.x, lerpXPosArrow, 0.3);
+			case OPTIONS:
+				if (controls.UI_UP_P)
+					changeOption(-1);
+
+				if (controls.UI_DOWN_P)
+					changeOption(1);
+
+				if (controls.BACK)
+				{
+					FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
+					justExitedTimeout = 2;
+
+					playCategoryTweens(false);
+					currentStatus = CATEGORY;
+				}
+			default:
 		}
 
 		super.update(elapsed);
 
-		categoryArrow.x = MathUtil.coolLerp(categoryArrow.x, lerpXPosArrow, 0.3);
+		// fixes stupid bug that exists for some odd reason (ill fix it as soon as im integrating flxcontrols)
+		if (justExitedTimeout > 0)
+		{
+			justExitedTimeout -= 1;
+
+			if (justExitedTimeout == 0)
+				justExitedTimeout = -1;
+		}
 	}
 
-	function changeOptionCategory(?indexHop:Int = 0):Void
+	function changeCategory(?indexHop:Int = 0):Void
 	{
-		curSelected += indexHop;
+		curSelectedCategory += indexHop;
 
-		if (curSelected > categories.length - 1)
-			curSelected = 0;
-		else if (curSelected < 0)
-			curSelected = categories.length - 1;
+		if (curSelectedCategory > categories.length - 1)
+			curSelectedCategory = 0;
+		else if (curSelectedCategory < 0)
+			curSelectedCategory = categories.length - 1;
 
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
@@ -273,12 +340,78 @@ class OptionsState extends FunkinState
 		for (spr in categoryGroup.members)
 			spr.alpha = 0.6;
 
-		categoryName.text = categories[curSelected].name;
+		categoryName.text = categories[curSelectedCategory].name;
 		categoryName.screenCenter(X);
-		categoryDescription.text = categories[curSelected].description;
+		categoryDescription.text = categories[curSelectedCategory].description;
 		categoryDescription.screenCenter(X);
 
-		categoryGroup.members[curSelected].alpha = 1;
-		lerpXPosArrow = categoryGroup.members[curSelected].getGraphicMidpoint().x - (categoryArrow.width / 2);
+		categoryGroup.members[curSelectedCategory].alpha = 1;
+		lerpXPosArrow = categoryGroup.members[curSelectedCategory].getGraphicMidpoint().x - (categoryArrow.width / 2);
 	}
+
+	function openCategory():Void
+	{
+		currentStatus = OPTIONS;
+		playCategoryTweens(true);
+		generateCategoryOptions();
+	}
+
+	function playCategoryTweens(gone:Bool):Void
+	{
+		var alphaValue:Float = (gone) ? 0 : 1;
+
+		var cameraY:Float = (gone) ? -90 : 5;
+		var cameraZoom:Float = (gone) ? 0.2 : 1;
+
+		FlxTween.cancelTweensOf(categoryName);
+		FlxTween.tween(categoryName, {alpha: alphaValue}, 0.3);
+
+		FlxTween.cancelTweensOf(categoryDescription);
+		FlxTween.tween(categoryDescription, {alpha: alphaValue}, 0.3);
+
+		FlxTween.cancelTweensOf(categoryCamera);
+		FlxTween.tween(categoryCamera, {y: cameraY, zoom: cameraZoom}, 0.4, {ease: FlxEase.expoInOut});
+	}
+
+	function generateCategoryOptions():Void
+	{
+		var curCategoryObj:OptionCategory = categories[curSelectedCategory];
+
+		for (option in curCategoryObj.options)
+		{
+			trace(option);
+		}
+	}
+
+	function changeOption(?indexHop:Int = 0):Void
+	{
+		curSelectedOption += indexHop;
+
+		if (curSelectedOption > categories[curSelectedCategory].options.length - 1)
+			curSelectedOption = 0;
+		else if (curSelectedOption < 0)
+			curSelectedOption = categories[curSelectedCategory].options.length - 1;
+
+		if (indexHop != 0)
+			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
+	}
+}
+
+enum OptionStatus
+{
+	/**
+	 * Selecting categories.
+	 */
+	CATEGORY;
+
+	/**
+	 * Editing options.
+	 */
+	OPTIONS;
+
+	/**
+	 * Currently stunned.
+	 * This will disable all input until status is changed.
+	 */
+	STUNNED;
 }

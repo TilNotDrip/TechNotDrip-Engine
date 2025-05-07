@@ -76,7 +76,9 @@ typedef PositionStructure =
 
 typedef AnimationStructure =
 {
-	var type:String;
+	@:optional
+	var ?type:String;
+
 	var anims:Array<AnimationArrayStructure>;
 }
 

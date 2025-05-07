@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="checkbox.png">
+	<SubTexture name="Press0000" x="0" y="0" width="311" height="311" frameX="-46" frameY="-34" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0001" x="311" y="0" width="311" height="311" frameX="-46" frameY="-34" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0002" x="622" y="0" width="311" height="311" frameX="-46" frameY="-34" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0003" x="933" y="0" width="311" height="311" frameX="-46" frameY="-34" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0004" x="1244" y="0" width="318" height="311" frameX="-46" frameY="-34" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0005" x="1562" y="0" width="367" height="322" frameX="-30" frameY="-23" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0006" x="0" y="322" width="405" height="337" frameX="-11" frameY="-8" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0007" x="405" y="322" width="423" height="344" frameX="-2" frameY="-1" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0008" x="828" y="322" width="425" height="344" frameX="-1" frameY="-1" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0009" x="1253" y="322" width="427" height="345"/>
+	<SubTexture name="Press0010" x="0" y="667" width="426" height="345" frameX="-1" frameY="0" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0011" x="426" y="667" width="425" height="344" frameX="-1" frameY="-1" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0012" x="851" y="667" width="425" height="344" frameX="-1" frameY="-1" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Press0013" x="851" y="667" width="425" height="344" frameX="-1" frameY="-1" frameWidth="427" frameHeight="345"/>
+	<SubTexture name="Unselect0000" x="1276" y="667" width="413" height="338" frameX="0" frameY="0" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0001" x="0" y="1012" width="407" height="312" frameX="-7" frameY="-26" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0002" x="407" y="1012" width="392" height="311" frameX="-18" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0003" x="799" y="1012" width="364" height="311" frameX="-35" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0004" x="1163" y="1012" width="345" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0005" x="1508" y="1012" width="328" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0006" x="0" y="1324" width="315" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0007" x="315" y="1324" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0008" x="627" y="1324" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0009" x="939" y="1324" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0010" x="1251" y="1324" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0011" x="1563" y="1324" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0012" x="0" y="1635" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+	<SubTexture name="Unselect0013" x="312" y="1635" width="312" height="311" frameX="-38" frameY="-27" frameWidth="414" frameHeight="338"/>
+</TextureAtlas>
