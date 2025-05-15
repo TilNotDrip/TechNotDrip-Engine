@@ -27,7 +27,7 @@
 			{
 				"name": "hxcpp",
 				"link": "https://github.com/HaxeFoundation/hxcpp",
-				"branch": "d570ba3e53f13b58c2dee3798ef28c6ff7c90be0"
+				"branch": "86d4b1a07ddadf162a0c48487f1e1b17d7bbcd64"
 			},
 			{
 				"name": "hxcpp-debug-server",
