@@ -1,0 +1,41 @@
+# Give any pr the "PR: Assets" tag if there are changes inside the assets/ or extras/ folder.
+'PR: Assets':
+- changed-files:
+  - any-glob-to-any-file:
+      - assets/**
+      - extras/appicons/**
+
+# Give any pr the "PR: Documentation" tag if any .MD files are changed or if there are changes inside the docs/ folder.
+'PR: Documentation':
+- changed-files:
+  - any-glob-to-any-file:
+      - docs/**
+      - '**/*.md'
+
+# Give any pr the "PR: GitHub" tag if any .yml files are changed or if there are changes inside the .github/ folder.
+'PR: GitHub':
+- changed-files:
+  - any-glob-to-any-file:
+      - .github/**
+      - '.gitignore'
+      - '**/*.yml'
+
+# Give any pr the "PR: Haxe" tag if any haxe related files are changed.
+'PR: Haxe':
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/checkstyle.json'
+    - '**/hxformat.json'
+    - '**/*.hx'
+    - '**/*.hxp'
+    - '**/*.hxpkg'
+
+# Give any pr the "PR: Other" tag if any other files are changed that don't fit the rest of the tags.
+'PR: Misc':
+- changed-files:
+  - any-glob-to-any-file:
+    - '.vscode/**'
+    - 'extras/**'
+    - '!extras/appicons/**'
+    - 'setup/**'
+    - 'LICENSE' # Meant to be off limits for any pr but Crusher or Til may change it.
