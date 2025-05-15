@@ -63,8 +63,8 @@
 			},
 			{
 				"name": "flixel-controls",
-				"link": "https://github.com/Geokureli/FlxControls",
-				"branch": "c749ad460df95512cb40be0bec23474692e3cda3"
+				"link": "https://github.com/TechnikTil/FlxControls",
+				"branch": "32a2f4d9f4bb6813f4e43f72da0a30d6a8859703"
 			}
 		]
 	}
