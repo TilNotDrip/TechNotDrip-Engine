@@ -30,7 +30,7 @@
     - '**/*.hxp'
     - '**/*.hxpkg'
 
-# Give any pr the "PR: Other" tag if any other files are changed that don't fit the rest of the tags.
+# Give any pr the "PR: Misc" tag if any other files are changed that don't fit the rest of the tags.
 'PR: Misc':
 - changed-files:
   - any-glob-to-any-file:
