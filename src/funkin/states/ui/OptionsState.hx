@@ -255,13 +255,13 @@ class OptionsState extends FunkinState
 		switch (currentStatus)
 		{
 			case CATEGORY:
-				if (controls.UI_LEFT_P)
+				if (controls.waitAndRepeat().UI_LEFT)
 					changeCategory(-1);
 
-				if (controls.UI_RIGHT_P)
+				if (controls.waitAndRepeat().UI_RIGHT)
 					changeCategory(1);
 
-				if (controls.ACCEPT)
+				if (controls.justPressed.ACCEPT)
 					openCategory();
 
 				#if FLX_MOUSE
@@ -283,7 +283,7 @@ class OptionsState extends FunkinState
 				}
 				#end
 
-				if (controls.BACK && justExitedTimeout == -1)
+				if (controls.justPressed.BACK && justExitedTimeout == -1)
 				{
 					#if FLX_MOUSE
 					FlxG.mouse.visible = false;
@@ -296,13 +296,13 @@ class OptionsState extends FunkinState
 
 				categoryArrow.x = MathUtil.coolLerp(categoryArrow.x, lerpXPosArrow, 0.3);
 			case OPTIONS:
-				if (controls.UI_UP_P)
+				if (controls.waitAndRepeat().UI_UP)
 					changeOption(-1);
 
-				if (controls.UI_DOWN_P)
+				if (controls.waitAndRepeat().UI_DOWN)
 					changeOption(1);
 
-				if (controls.BACK)
+				if (controls.justPressed.BACK)
 				{
 					FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
 					justExitedTimeout = 2;

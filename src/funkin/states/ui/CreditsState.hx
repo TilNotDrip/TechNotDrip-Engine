@@ -163,7 +163,7 @@ class CreditsState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
-		if (controls.BACK)
+		if (controls.justPressed.BACK)
 		{
 			#if FLX_MOUSE
 			FlxG.mouse.visible = false;
@@ -172,24 +172,24 @@ class CreditsState extends FunkinState
 			FlxG.switchState(MenuState.new);
 		}
 
-		if (controls.UI_UP_P)
+		if (controls.waitAndRepeat().UI_UP)
 		{
 			changeItem(-1);
 			arrowUp.scale.set(1.2, 0.5);
 		}
 
-		if (controls.UI_DOWN_P)
+		if (controls.waitAndRepeat().UI_DOWN)
 		{
 			changeItem(1);
 			arrowDown.scale.set(1.2, 0.5);
 		}
 
-		if (controls.UI_UP_R)
+		if (controls.justReleased.UI_UP)
 		{
 			arrowUp.scale.set(1, 1);
 		}
 
-		if (controls.UI_DOWN_R)
+		if (controls.justReleased.UI_DOWN)
 		{
 			arrowDown.scale.set(1, 1);
 		}
@@ -200,7 +200,8 @@ class CreditsState extends FunkinState
 		if (FlxG.mouse.wheel != 0)
 		{
 			changeItem(-FlxG.mouse.wheel);
-			// TODO: scale for wheel, it wouldnt work for me even with a good way to check so like idfk.
+			// TODO: scale for wheel, it wouldnt work for me even with a good way to check so like idfk. - Crusher
+			// we could always remove it, idk if i like it tbh - Til
 		}
 
 		if (FlxG.mouse.justPressed)

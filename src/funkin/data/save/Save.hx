@@ -2,7 +2,7 @@ package funkin.data.save;
 
 import flixel.util.FlxSave;
 import funkin.structures.SaveStructure;
-import funkin.util.Controls;
+import funkin.util.FunkinControls;
 
 class Save
 {
@@ -174,7 +174,7 @@ class Save
 				devMode: false
 			},
 
-			controls: Controls.getDefaultMappings()
+			controls: FunkinControls.getDefaultControlMappings()
 		};
 	}
 

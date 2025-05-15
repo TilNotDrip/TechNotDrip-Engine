@@ -78,7 +78,7 @@ class TitleState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
-		if (controls.BACK && !transitioning)
+		if (controls.justPressed.BACK && !transitioning)
 		{
 			SystemUtil.close();
 		}
@@ -204,7 +204,7 @@ class TitleState extends FunkinState
 			canSkip = touch.justPressed;
 		}
 		#else
-		canSkip = controls.ACCEPT;
+		canSkip = controls.justPressed.ACCEPT;
 		#end
 
 		if (canSkip)
@@ -220,7 +220,7 @@ class TitleState extends FunkinState
 	{
 		// Maybe make a FlxSkipableTimer?
 		// TODO: Make this work
-		/*if (enterTimer != null && !enterTimer.finished && controls.ACCEPT)
+		/*if (enterTimer != null && !enterTimer.finished && controls.justPressed.ACCEPT)
 			{
 				enterTimer.cancel();
 				enterTimer.onComplete(null);
@@ -234,7 +234,7 @@ class TitleState extends FunkinState
 			canSkip = touch.justPressed;
 		}
 		#else
-		canSkip = controls.ACCEPT;
+		canSkip = controls.justPressed.ACCEPT;
 		#end
 
 		if (canSkip && !transitioning)

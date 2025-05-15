@@ -106,19 +106,19 @@ class MenuState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
-		if (controls.UI_UP_P && !selected)
+		if (controls.waitAndRepeat().UI_UP && !selected)
 			changeItem(-1);
 
-		if (controls.UI_DOWN_P && !selected)
+		if (controls.waitAndRepeat().UI_DOWN && !selected)
 			changeItem(1);
 
-		if (controls.BACK)
+		if (controls.justPressed.BACK)
 		{
 			FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
 			FlxG.switchState(TitleState.new);
 		}
 
-		if (controls.ACCEPT && !selected)
+		if (controls.justPressed.ACCEPT && !selected)
 		{
 			selected = true;
 			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'));

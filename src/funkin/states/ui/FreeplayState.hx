@@ -227,7 +227,7 @@ class FreeplayState extends FunkinState
 
 		if (!blockInputs)
 		{
-			if (controls.ACCEPT #if (debug && FLX_KEYBOARD) && !FlxG.keys.justPressed.SPACE #end)
+			if (controls.justPressed.ACCEPT #if (debug && FLX_KEYBOARD) && !FlxG.keys.justPressed.SPACE #end)
 			{
 				backingCard.confirm();
 				dj.confirm();
@@ -239,22 +239,22 @@ class FreeplayState extends FunkinState
 				});
 			}
 
-			if (controls.BACK)
+			if (controls.justPressed.BACK)
 			{
 				FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
 				FlxG.switchState(MenuState.new);
 			}
 
-			if (controls.UI_UP_P)
+			if (controls.waitAndRepeat().UI_UP)
 				changeSelection(-1);
 
-			if (controls.UI_DOWN_P)
+			if (controls.waitAndRepeat().UI_DOWN)
 				changeSelection(1);
 
-			if (controls.UI_LEFT_P)
+			if (controls.waitAndRepeat().UI_LEFT)
 				changeDifficulty(-1);
 
-			if (controls.UI_RIGHT_P)
+			if (controls.waitAndRepeat().UI_RIGHT)
 				changeDifficulty(1);
 		}
 	}

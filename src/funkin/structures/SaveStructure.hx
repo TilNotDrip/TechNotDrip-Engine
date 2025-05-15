@@ -1,6 +1,6 @@
 package funkin.structures;
 
-import funkin.util.Controls.ControlMappings;
+import funkin.util.FunkinControls.ControlMappings;
 
 typedef SaveStructure =
 {

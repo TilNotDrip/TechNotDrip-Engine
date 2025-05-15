@@ -128,13 +128,13 @@ class StoryState extends FunkinState
 		if (selectedWeek)
 			return;
 
-		if (controls.UI_UP_P)
+		if (controls.waitAndRepeat().UI_UP)
 			changeItem(-1);
 
-		if (controls.UI_DOWN_P)
+		if (controls.waitAndRepeat().UI_DOWN)
 			changeItem(1);
 
-		if (controls.ACCEPT)
+		if (controls.justPressed.ACCEPT)
 		{
 			selectedWeek = true;
 
@@ -155,32 +155,32 @@ class StoryState extends FunkinState
 			});
 		}
 
-		if (controls.BACK)
+		if (controls.justPressed.BACK)
 		{
 			FlxG.switchState(MenuState.new);
 		}
 
-		if (controls.UI_LEFT_P)
+		if (controls.waitAndRepeat().UI_LEFT)
 		{
 			changeDifficulty(-1);
 			leftArrow.playAnimation('push');
 			leftArrow.updateHitbox();
 		}
 
-		if (controls.UI_LEFT_R)
+		if (controls.justReleased.UI_LEFT)
 		{
 			leftArrow.playAnimation('idle');
 			leftArrow.updateHitbox();
 		}
 
-		if (controls.UI_RIGHT_P)
+		if (controls.justReleased.UI_RIGHT)
 		{
 			changeDifficulty(1);
 			rightArrow.playAnimation('push');
 			rightArrow.updateHitbox();
 		}
 
-		if (controls.UI_RIGHT_R)
+		if (controls.justReleased.UI_RIGHT)
 		{
 			rightArrow.playAnimation('idle');
 			rightArrow.updateHitbox();

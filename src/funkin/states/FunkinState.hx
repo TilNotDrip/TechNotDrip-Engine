@@ -4,7 +4,7 @@ import flixel.FlxBasic;
 import flixel.FlxState;
 import flixel.util.FlxSort;
 import funkin.substates.FunkinTransition;
-import funkin.util.Controls;
+import funkin.util.FunkinControls;
 import haxe.Timer;
 
 /**
@@ -12,10 +12,10 @@ import haxe.Timer;
  */
 class FunkinState extends FlxState
 {
-	var controls(get, never):Controls;
+	var controls(get, never):FunkinControls;
 
-	inline function get_controls():Controls
-		return Controls.instance;
+	inline function get_controls():FunkinControls
+		return FunkinControls.instance;
 
 	/**
 	 * The conductor that controls everything music-wise inside this state.

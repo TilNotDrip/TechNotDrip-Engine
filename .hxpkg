@@ -60,6 +60,11 @@
 			{
 				"name": "thx.semver",
 				"version": "0.2.2"
+			},
+			{
+				"name": "flixel-controls",
+				"link": "https://github.com/Geokureli/FlxControls",
+				"branch": "c749ad460df95512cb40be0bec23474692e3cda3"
 			}
 		]
 	}
