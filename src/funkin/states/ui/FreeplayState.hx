@@ -82,6 +82,16 @@ class FreeplayState extends FunkinState
 	 */
 	public var blockInputs:Bool = false;
 
+	/**
+	 * Is the random song playing?
+	 */
+	public var isRandomPlaying:Bool = false;
+
+	/**
+	 * The Song Position of the last song. To be used when switching between random and normal songs.
+	 */
+	public var lastSongPos:Float = 0;
+
 	override public function create():Void
 	{
 		#if FUNKIN_DISCORD_RPC
@@ -297,6 +307,27 @@ class FreeplayState extends FunkinState
 		else if (curSelected < 0)
 			curSelected = songs.length;
 
+		if (curSelected == 0)
+		{
+			conductor.bpm = 145;
+			var songPosToSetTo:Float = lastSongPos;
+			lastSongPos = FlxG.sound.music.time;
+			FlxG.sound.playMusic(Paths.content.audio('ui/freeplay/freeplayRandom'));
+			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music?.fadeIn(2, 0, 1);
+			isRandomPlaying = true;
+		}
+		else if (isRandomPlaying)
+		{
+			conductor.bpm = 102;
+			var songPosToSetTo:Float = lastSongPos;
+			lastSongPos = FlxG.sound.music?.time;
+			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music?.fadeIn(2, 0, 1);
+			isRandomPlaying = false;
+		}
+
 		for (i => capsule in grpCapsules.members)
 		{
 			i += 1;
@@ -352,5 +383,19 @@ class FreeplayState extends FunkinState
 
 		if (shouldUpdateCapsules)
 			generateCapsules();
+	}
+
+	override public function destroy():Void
+	{
+		if (isRandomPlaying)
+		{
+			conductor.bpm = 102;
+			var songPosToSetTo:Float = lastSongPos;
+			lastSongPos = FlxG.sound.music?.time;
+			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
+			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music?.fadeIn(2, 0, 1);
+			isRandomPlaying = false;
+		}
 	}
 }

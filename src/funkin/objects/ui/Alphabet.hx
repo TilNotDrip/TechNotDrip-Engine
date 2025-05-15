@@ -26,6 +26,7 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 	 */
 	public var letterType(default, set):LetterType;
 
+	// TODO: make this work with animate atlases
 	@:allow(funkin.objects.ui.AlphabetLetter)
 	var textFrames:FlxFramesCollection;
 
@@ -152,6 +153,7 @@ class Alphabet extends FlxTypedSpriteGroup<AlphabetLetter>
 			letter.kill();
 		});
 	}
+
 	var _lastTextWidth:Float = 0;
 	var _lastTextHeight:Float = 0;
 

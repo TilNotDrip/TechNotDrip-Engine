@@ -26,6 +26,7 @@ class FreeplayDJ extends FunkinSprite
 	{
 		super(x, y);
 
+		// todo: softcode this
 		switch (id)
 		{
 			case 'bf':
@@ -50,6 +51,7 @@ class FreeplayDJ extends FunkinSprite
 			case Intro:
 				currentState = Idle;
 				introDone.dispatch();
+				cast(atlas, FreeplayDJAtlas)?.initVisualizer(FlxG.sound.music);
 			default:
 		}
 	}
@@ -119,22 +121,33 @@ class FreeplayDJ extends FunkinSprite
 		#end
 	}
 
-	override public function draw():Void
+	override public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
 	{
-		drawVisualizer();
-		super.draw();
-	}
+		if (atlas != null)
+		{
+			atlas.destroy();
+			atlas = null;
+		}
 
-	public function drawVisualizer():Void
-	{
-		// TODO: work on this when my animate decides to work
-		// bro is your fucking animate ever gonna work lil brah
+		if (Paths.location.exists(path + '/Animation.json'))
+		{
+			atlas = new FreeplayDJAtlas(0, 0, Paths.location.get(path), {
+				ShowPivot: false
+			});
+
+			return this;
+		}
+		else
+		{
+			return super.loadFrames(path, forcedType);
+		}
 	}
 
 	override public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
 	{
 		super.playAnimation(name, restart, stunAnimations, reversed);
 
+		// TODO: softcode this
 		switch (name)
 		{
 			case 'idle', 'confirm':
@@ -145,7 +158,7 @@ class FreeplayDJ extends FunkinSprite
 				offset.set();
 		}
 	}
-} // its an abstract now cuz of animation names.
+}
 
 enum FreeplayDJState
 {

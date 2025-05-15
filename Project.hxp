@@ -142,6 +142,8 @@ class Project extends HXProject
 		addHaxelib('hxdiscord_rpc', '1.3.0', FUNKIN_DISCORD_RPC.isEnabled(this));
 		addHaxelib('thx.core', '0.44.0');
 		addHaxelib('thx.semver', '0.2.2');
+		addHaxelib('funkin.vis', 'git');
+		addHaxelib('grig.audio');
 	}
 
 	public function setupHaxeDefines():Void
