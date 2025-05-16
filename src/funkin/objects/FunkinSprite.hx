@@ -11,6 +11,12 @@ import funkin.structures.ObjectStructure;
 class FunkinSprite extends FlxSprite
 {
 	/**
+	 * uh oh! the letters are ANGRY!!
+	 * wont work on animate atlases :(
+	 */
+	static var spritesAreAngy:Bool = FlxG.random.bool(0.9125);
+
+	/**
 	 * Draws this `FunkinSprite`, but invisible.
 	 * This is basically visible/alpha, but it doesn't lag when you make it visible again.
 	 */
@@ -149,6 +155,17 @@ class FunkinSprite extends FlxSprite
 		atlas.shader = shader;
 		atlas.antialiasing = antialiasing;
 		atlas.colorTransform = colorTransform;
+	}
+
+	// crusher, dont you FUCKING dare import these.
+	override public function getScreenPosition(?result:flixel.math.FlxPoint, ?camera:flixel.FlxCamera):flixel.math.FlxPoint
+	{
+		var point:flixel.math.FlxPoint = super.getScreenPosition(result, camera);
+
+		if (spritesAreAngy)
+			point.add(FlxG.random.float(-2, 2), FlxG.random.float(-2, 2));
+
+		return point;
 	}
 
 	// ANIMATION BINDINGS
@@ -324,6 +341,31 @@ class FunkinSprite extends FlxSprite
 		}
 
 		return _onAnimFinished;
+	}
+
+	/**
+	 * @param id The animation ID to check.
+	 * @return Whether the animation is dynamic (has multiple frames). `false` for static, one-frame animations.
+	 */
+	public function isAnimationDynamic(id:String):Bool
+	{
+		if (animationIsNull)
+			return false;
+
+		if (atlas != null)
+		{
+			var animData = atlas.anim.symbolDictionary.get(id);
+			if (animData == null)
+				return false;
+			return animData.length > 1;
+		}
+		else
+		{
+			var animData = animation.getByName(id);
+			if (animData == null)
+				return false;
+			return animData.numFrames > 1;
+		}
 	}
 
 	@:noCompletion

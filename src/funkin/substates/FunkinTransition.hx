@@ -65,6 +65,18 @@ class FunkinTransition extends FunkinSubState
 
 		add(transGradient);
 		add(black);
+
+		if (skipNextTransitionIn)
+		{
+			skipNextTransitionIn = false;
+			complete();
+		}
+
+		if (skipNextTransitionOut)
+		{
+			skipNextTransitionOut = false;
+			complete();
+		}
 	}
 
 	/**
@@ -126,6 +138,11 @@ class FunkinTransition extends FunkinSubState
 	override public function destroy():Void
 	{
 		if (canDestroy)
+		{
+			if (FlxG.cameras.list.contains(transitionCamera))
+				FlxG.cameras.remove(transitionCamera);
+
 			return super.destroy();
+		}
 	}
 }

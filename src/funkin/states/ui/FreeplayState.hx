@@ -8,6 +8,7 @@ import funkin.objects.ui.freeplay.backingcards.BackingCard;
 import funkin.objects.ui.freeplay.backingcards.BoyfriendBackingCard;
 import funkin.shaders.ui.AngleMask;
 import funkin.shaders.ui.StrokeShader;
+import funkin.states.gameplay.PlayState;
 import funkin.util.Week;
 
 class FreeplayState extends FunkinState
@@ -21,6 +22,11 @@ class FreeplayState extends FunkinState
 	 * Current Difficulty.
 	 */
 	public var curDifficulty:String = '';
+
+	/**
+	 * Current Variation.
+	 */
+	public var curVariation:String = '';
 
 	/**
 	 * The songs.
@@ -244,8 +250,11 @@ class FreeplayState extends FunkinState
 
 				new FlxTimer().start(2, (_) ->
 				{
-					// TODO: Replace this with PlayState.
-					FlxG.switchState(MenuState.new);
+					FlxG.switchState(() -> new PlayState({
+						song: filteredSongs[curSelected - 1],
+						variation: curVariation,
+						difficulty: curDifficulty
+					}));
 				});
 			}
 
@@ -288,7 +297,7 @@ class FreeplayState extends FunkinState
 				return new FreeplayCapsule();
 			});
 
-			capsule.init(song.getDisplayName(), song.getFreeplayIcon());
+			capsule.init(song.getDisplayName(), song.metadatas.get('default').icon);
 		}
 
 		changeSelection();
@@ -302,10 +311,10 @@ class FreeplayState extends FunkinState
 	{
 		curSelected += index;
 
-		if (curSelected >= songs.length + 1) // random
+		if (curSelected >= filteredSongs.length + 1) // random
 			curSelected = 0;
 		else if (curSelected < 0)
-			curSelected = songs.length;
+			curSelected = filteredSongs.length;
 
 		if (curSelected == 0)
 		{
@@ -340,6 +349,8 @@ class FreeplayState extends FunkinState
 			if (i < curSelected)
 				capsule.lerpPos.y -= 100; // another 100 for good measure
 		}
+
+		lookForCurrrentVariation();
 	}
 
 	/**
@@ -360,6 +371,7 @@ class FreeplayState extends FunkinState
 
 		curDifficulty = difficulties[curIndex];
 		difficultySelector.changeDifficulty(curDifficulty, index);
+		lookForCurrrentVariation();
 		filterSongs();
 	}
 
@@ -381,8 +393,29 @@ class FreeplayState extends FunkinState
 				shouldUpdateCapsules = true;
 		}
 
+		if (filterBefore.length != filteredSongs.length)
+			shouldUpdateCapsules = true;
+
 		if (shouldUpdateCapsules)
 			generateCapsules();
+	}
+
+	/**
+	 * Looks for the current variation.
+	 */
+	public function lookForCurrrentVariation():Void
+	{
+		if (filteredSongs[curSelected - 1] != null)
+		{
+			for (variation in filteredSongs[curSelected - 1].getVariations())
+			{
+				if (filteredSongs[curSelected - 1]?.getDifficulties(variation)?.contains(curDifficulty) ?? false)
+				{
+					curVariation = variation;
+					break;
+				}
+			}
+		}
 	}
 
 	override public function destroy():Void

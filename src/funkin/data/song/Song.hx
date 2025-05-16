@@ -1,6 +1,7 @@
 package funkin.data.song;
 
 import flixel.sound.FlxSoundGroup;
+import flixel.util.FlxSort;
 import funkin.structures.SongStructure;
 
 class Song
@@ -24,6 +25,10 @@ class Song
 			var song:Song = new Song(songName);
 			cachedSongs.set(songName, song);
 		}
+
+		#if FLX_DEBUG
+		FlxG.console.registerFunction('cacheSongs', cacheSongs);
+		#end
 	}
 
 	/**
@@ -46,19 +51,39 @@ class Song
 
 	/**
 	 * All the metadatas.
-	 * id => structure
+	 * variation id => structure
 	 */
-	public final metadatas:Map<String, SongMetadata>;
+	public final metadatas:Map<String, MetadataStructure>;
+
+	/**
+	 * All the charts.
+	 * variation id => charts
+	 */
+	public final charts:Map<String, Array<ChartArrayElement>>;
+
+	/**
+	 * All the events.
+	 * variation id => events
+	 */
+	public final events:Map<String, Array<EventData>>;
 
 	public function new(id:String)
 	{
 		this.id = id;
 
-		metadatas = new Map<String, SongMetadata>();
+		metadatas = new Map<String, MetadataStructure>();
+		charts = new Map<String, Array<ChartArrayElement>>();
+		events = new Map<String, Array<EventData>>();
 
 		for (variation in getVariations())
 		{
 			metadatas.set(variation, getSongMetadata(id, variation));
+
+			var chartJson:ChartStructure = getSongChart(id, variation);
+			charts.set(variation, chartJson.charts);
+
+			var eventsJson:EventsStructure = getSongEvents(id, variation);
+			events.set(variation, eventsJson.events);
 		}
 	}
 
@@ -69,19 +94,8 @@ class Song
 	 */
 	public function getDisplayName(variation:String = 'default'):String
 	{
-		var metadata:SongMetadata = metadatas.get(variation);
+		var metadata:MetadataStructure = metadatas.get(variation);
 		return metadata.name;
-	}
-
-	/**
-	 * Get the Freeplay Icon for this song.
-	 * @param variation The variation to get the icon from.
-	 * @return The name.
-	 */
-	public function getFreeplayIcon(variation:String = 'default'):String
-	{
-		var metadata:SongMetadata = metadatas.get(variation);
-		return metadata.icon;
 	}
 
 	/**
@@ -91,11 +105,58 @@ class Song
 	 */
 	public function getDifficulties(variation:Null<String> = 'default'):Array<String>
 	{
-		// TODO: do actual difficulty searching
-		return ['easy', 'normal', 'hard'];
+		var difficulties:Array<String> = [];
+		var variationsToSearch:Array<String> = [];
+
+		if (variation == null)
+			variationsToSearch = getVariations().copy();
+		else
+			variationsToSearch = [variation];
+
+		for (variation in variationsToSearch)
+		{
+			for (chartData in charts.get(variation))
+			{
+				if (!difficulties.contains(chartData.difficulty))
+					difficulties.push(chartData.difficulty);
+			}
+		}
+
+		difficulties.sort(function(a:String, b:String)
+		{
+			var indexA:Int = Constants.DEFAULT_DIFFICULTIES.indexOf(a);
+			var indexB:Int = Constants.DEFAULT_DIFFICULTIES.indexOf(b);
+
+			if (indexA == -1)
+				indexA = Constants.DEFAULT_DIFFICULTIES.length;
+
+			if (indexB == -1)
+				indexB = Constants.DEFAULT_DIFFICULTIES.length;
+
+			return FlxSort.byValues(FlxSort.ASCENDING, indexA, indexB);
+		});
+
+		return difficulties;
 	}
 
-	static function getSongMetadata(id:String, variation:String):SongMetadata
+	/**
+	 * Gets the chart for `difficulty` in `variation`.
+	 * @param variation The variation to check for.
+	 * @param difficulty The difficulty to check for.
+	 * @return The chart.
+	 */
+	public function getChart(?variation:String = 'default', difficulty:String):ChartArrayElement
+	{
+		for (chart in charts.get(variation) ?? [])
+		{
+			if (chart.difficulty == difficulty)
+				return chart;
+		}
+
+		return null;
+	}
+
+	static function getSongMetadata(id:String, variation:String):MetadataStructure
 	{
 		var path:String = 'gameplay/songs/' + id + '/';
 
@@ -104,7 +165,37 @@ class Song
 
 		path += 'metadata';
 
-		return cast haxe.Json.parse(Paths.content.json(path));
+		var json:MetadataStructure = cast haxe.Json.parse(Paths.content.json(path));
+		// TODO: version checking
+		return json;
+	}
+
+	static function getSongChart(id:String, variation:String):ChartStructure
+	{
+		var path:String = 'gameplay/songs/' + id + '/';
+
+		if (variation != 'default')
+			path += variation + '-';
+
+		path += 'chart';
+
+		var json:ChartStructure = cast haxe.Json.parse(Paths.content.json(path));
+		// TODO: version checking
+		return json;
+	}
+
+	static function getSongEvents(id:String, variation:String):EventsStructure
+	{
+		var path:String = 'gameplay/songs/' + id + '/';
+
+		if (variation != 'default')
+			path += variation + '-';
+
+		path += 'events';
+
+		var json:EventsStructure = cast haxe.Json.parse(Paths.content.json(path));
+		// TODO: version checking
+		return json;
 	}
 
 	var _variations:Array<String>;

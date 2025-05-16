@@ -2,6 +2,8 @@ package funkin;
 
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSignal;
+import flixel.util.FlxSort;
+import funkin.structures.SongStructure.BPMChangeData;
 
 /*
 	CONDUCTOR TODO:
@@ -45,6 +47,21 @@ class Conductor implements IFlxDestroyable
 	public var curSection:Int;
 
 	/**
+	 * The current step, but in decimal form.
+	 */
+	public var curStepDecimal:Float;
+
+	/**
+	 * The current beat, but in decimal form.
+	 */
+	public var curBeatDecimal:Float;
+
+	/**
+	 * The current section, but in decimal form.
+	 */
+	public var curSectionDecimal:Float;
+
+	/**
 	 * Timestamp of the music that the conductor will follow.
 	 * Should be in miliseconds.
 	 */
@@ -52,21 +69,9 @@ class Conductor implements IFlxDestroyable
 
 	/**
 	 * The bpm of the music that the conductor will follow.
-	 * TODO: tie this to a time change instead.
+	 * Use changeBPM to set it!
 	 */
-	public var bpm:Float;
-
-	/**
-	 * How many steps in a beat there are.
-	 * TODO: tie this to a time change.
-	 */
-	public var beatSteps:Int = 4;
-
-	/**
-	 * How many beats in a section there are.
-	 * TODO: tie this to a time change.
-	 */
-	public var sectionBeats:Int = 4;
+	public var bpm(get, null):Float;
 
 	/**
 	 * The length between a beat, in miliseconds.
@@ -83,14 +88,67 @@ class Conductor implements IFlxDestroyable
 	 */
 	public var sectionCrochet(get, null):Float;
 
+	var bpmChanges:Array<BPMChangeData>;
+	var bpmChangesLeft:Array<BPMChangeData>;
+
 	public function new()
 	{
 		stepHit = new FlxSignal();
 		beatHit = new FlxSignal();
 		sectionHit = new FlxSignal();
 
-		bpm = 100;
+		setupBPMChanges([
+			{
+				time: 0,
+				bpm: 100,
+				timeSignature: {
+					numerator: 4,
+					denominator: 4
+				}
+			}
+		]);
+
+		// doing it here because time isnt initialized yet
+		bpmChangesLeft = bpmChanges.copy();
+
 		time = 0;
+	}
+
+	/**
+	 * Changes the bpm, along with a few other changes.
+	 * @param bpm The bpm to change it to.
+	 * @param timeSignature Optional time signature to change it to.
+	 * @param recalculate If disabled, it will act as a normal bpm change.
+	 */
+	public function changeBPM(bpm:Float, ?timeSignature:{numerator:Float, denominator:Float} = null, ?recalculate:Bool = true):Void
+	{
+		if (timeSignature == null)
+			timeSignature = {numerator: 4, denominator: 4};
+
+		var bpmChangeToAdd:BPMChangeData = {
+			time: time,
+			bpm: bpm,
+			timeSignature: timeSignature,
+			beatTime: 0
+		};
+
+		if (recalculate)
+			bpmChangeToAdd.beatTime = time / calculateCrochet(bpm);
+
+		if (bpmChangesLeft[0].time == time)
+		{
+			var oldBPMChange:BPMChangeData = bpmChangesLeft.shift();
+			bpmChanges.remove(oldBPMChange);
+		}
+
+		bpmChanges.push(bpmChangeToAdd);
+
+		bpmChanges.sort((a:BPMChangeData, b:BPMChangeData) ->
+		{
+			return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
+		});
+
+		recalculateBPMChangeCache();
 	}
 
 	/**
@@ -110,6 +168,26 @@ class Conductor implements IFlxDestroyable
 	}
 
 	/**
+	 * Sets up the bpm changes for use.
+	 * @param bpmChangeArray The BPM Changes to set up.
+	 */
+	public function setupBPMChanges(bpmChangeArray:Array<BPMChangeData>)
+	{
+		bpmChanges = bpmChangeArray;
+
+		bpmChanges.sort((a:BPMChangeData, b:BPMChangeData) ->
+		{
+			return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
+		});
+
+		// haxe 4.3 syntax my goat
+		for (bpmChange in bpmChanges)
+			bpmChange.beatTime ??= 0;
+
+		recalculateBPMChangeCache();
+	}
+
+	/**
 	 * Cleans up this Conductor to the best of our abilities.
 	 */
 	public function destroy():Void
@@ -121,15 +199,41 @@ class Conductor implements IFlxDestroyable
 
 	function set_time(value:Float):Float
 	{
-		time = value;
-
+		var oldTime:Float = time;
 		var oldStep:Int = curStep;
 		var oldBeat:Int = curBeat;
 		var oldSection:Int = curSection;
 
-		curStep = Math.floor(time / stepCrochet);
-		curBeat = Math.floor(time / crochet);
-		curSection = Math.floor(time / sectionCrochet);
+		time = value;
+
+		// in case we went back for some reason
+		if (oldTime > time)
+			recalculateBPMChangeCache();
+
+		if (bpmChangesLeft[1] != null && time >= bpmChangesLeft[1].time)
+		{
+			bpmChangesLeft.shift();
+
+			FlxG.log.notice('New BPM Change!');
+
+			if (bpmChangesLeft[0].beatTime == 0)
+				bpmChangesLeft[0].beatTime = curBeatDecimal;
+		}
+
+		curBeatDecimal = bpmChangesLeft[0].beatTime + ((time - bpmChangesLeft[0].time) / crochet);
+		curStepDecimal = curBeatDecimal * bpmChangesLeft[0].timeSignature.denominator;
+		curSectionDecimal = curBeatDecimal / bpmChangesLeft[0].timeSignature.numerator;
+
+		curStep = Math.floor(curStepDecimal);
+		curBeat = Math.floor(curBeatDecimal);
+		curSection = Math.floor(curSectionDecimal);
+
+		#if FLX_DEBUG
+		FlxG.watch.addQuick('curStep', curStep);
+		FlxG.watch.addQuick('curBeat', curBeat);
+		FlxG.watch.addQuick('curSection', curSection);
+		FlxG.watch.addQuick('BPM', bpmChangesLeft[0].bpm);
+		#end
 
 		if (oldStep != curStep)
 			stepHit.dispatch();
@@ -150,12 +254,33 @@ class Conductor implements IFlxDestroyable
 
 	function get_stepCrochet():Float
 	{
-		return crochet / beatSteps;
+		return bpmChangesLeft[0].timeSignature.denominator;
 	}
 
 	function get_sectionCrochet():Float
 	{
-		return crochet * sectionBeats;
+		return crochet * bpmChangesLeft[0].timeSignature.numerator;
+	}
+
+	function get_bpm():Float
+	{
+		return bpmChangesLeft[0].bpm;
+	}
+
+	/**
+	 * Resets the BPM Change cache.
+	 */
+	public function recalculateBPMChangeCache():Void
+	{
+		bpmChangesLeft = bpmChanges.copy();
+
+		while (true)
+		{
+			if (bpmChangesLeft[1] != null && time >= bpmChangesLeft[1].time)
+				bpmChangesLeft.shift();
+			else
+				break;
+		}
 	}
 
 	/**

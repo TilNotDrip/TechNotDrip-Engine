@@ -39,6 +39,21 @@ class Constants
 	 */
 	public static final DIFFICULTY_SPACING:Float = 320;
 
+	/**
+	 * The vertical offset of the strumline from the top edge of the screen.
+	 */
+	public static final STRUMLINE_Y_OFFSET:Float = 50;
+
+	/**
+	 * A magic number used when calculating scroll speed and note distances.
+	 */
+	public static final PIXELS_PER_MS:Float = 0.45;
+
+	/**
+	 * Default Difficulties
+	 */
+	public static final DEFAULT_DIFFICULTIES:Array<String> = ['easy', 'normal', 'hard', 'erect', 'nightmare'];
+
 	static function get_TECHNOTDRIP_VERSION():String
 	{
 		return FlxG.stage.application.meta.get('version');
