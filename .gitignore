@@ -4,6 +4,7 @@ RECOVER_*.fla
 .haxelib/
 .vs/
 .vscode/
+fuck.you
 
 !.vscode/extensions.json
 !.vscode/launch.json
