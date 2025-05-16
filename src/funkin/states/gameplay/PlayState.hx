@@ -164,7 +164,7 @@ class PlayState extends FunkinState
 
 		super.update(elapsed);
 
-		if (controls.BACK)
+		if (controls.justPressed.BACK)
 			FlxG.switchState(funkin.states.ui.MenuState.new);
 	}
 

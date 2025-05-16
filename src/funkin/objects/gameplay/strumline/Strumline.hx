@@ -183,7 +183,10 @@ class Strumline extends FlxSpriteGroup
 		}
 
 		if (note.sustainSprite != null)
+		{
+			note.sustainSprite.parentWasHit = true;
 			note.sustainSprite.currentlyHeld = true;
+		}
 
 		note.kill();
 	}
@@ -343,7 +346,8 @@ class Strumline extends FlxSpriteGroup
 			if (sustainNote.data.time <= conductorInUse.time
 				&& sustainNote.data.time + sustainNote.data.length >= conductorInUse.time
 				&& sustainNote.data.direction == direction
-				&& sustainNote.currentlyHeld)
+				&& sustainNote.currentlyHeld
+				&& sustainNote.parentWasHit)
 			{
 				trace('Is true!!');
 				return true;
@@ -364,6 +368,7 @@ class Strumline extends FlxSpriteGroup
 		// TODO: change false to downScroll
 		return Constants.PIXELS_PER_MS * (conductorInUse.time - strumTime) * scrollSpeed * (false ? 1 : -1);
 	}
+
 	override function set_camera(Value:FlxCamera):FlxCamera
 	{
 		if (camera != Value && renderingSquare != null)

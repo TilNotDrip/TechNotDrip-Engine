@@ -318,21 +318,21 @@ class FreeplayState extends FunkinState
 
 		if (curSelected == 0)
 		{
-			conductor.bpm = 145;
+			conductor.changeBPM(145, false);
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/freeplay/freeplayRandom'));
-			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music.time = songPosToSetTo;
 			FlxG.sound.music?.fadeIn(2, 0, 1);
 			isRandomPlaying = true;
 		}
 		else if (isRandomPlaying)
 		{
-			conductor.bpm = 102;
+			conductor.changeBPM(102, false);
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music?.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
-			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music.time = songPosToSetTo;
 			FlxG.sound.music?.fadeIn(2, 0, 1);
 			isRandomPlaying = false;
 		}
@@ -422,11 +422,11 @@ class FreeplayState extends FunkinState
 	{
 		if (isRandomPlaying)
 		{
-			conductor.bpm = 102;
+			conductor.changeBPM(102, false);
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music?.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
-			FlxG.sound.music?.time = songPosToSetTo;
+			FlxG.sound.music.time = songPosToSetTo;
 			FlxG.sound.music?.fadeIn(2, 0, 1);
 			isRandomPlaying = false;
 		}

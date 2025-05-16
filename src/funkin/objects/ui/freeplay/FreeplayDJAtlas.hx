@@ -46,7 +46,6 @@ class FreeplayDJAtlas extends FlxAnimate
 		if (instance?.symbol?.name?.startsWith('tt lights') && analyzerHelper.ready)
 		{
 			var nameSuffix:String = instance.symbol.name.substring('tt lights'.length);
-			trace(nameSuffix);
 
 			var index:Null<Int> = Std.parseInt(nameSuffix);
 			if (index == null)

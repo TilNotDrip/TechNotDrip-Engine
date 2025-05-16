@@ -31,6 +31,11 @@ class SustainNoteSprite extends FunkinSprite
 	public var currentlyHeld:Bool = false;
 
 	/**
+	 * If the parent note was hit already.
+	 */
+	public var parentWasHit:Bool = false;
+
+	/**
 	 * Sets up sustain sprite for use.
 	 * @param data The note data for this sustain note.
 	 * @param scrollSpeed Current scroll speed.

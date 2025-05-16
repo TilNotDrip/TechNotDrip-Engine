@@ -3,7 +3,7 @@ package funkin.data;
 import flixel.util.FlxSort;
 import funkin.objects.gameplay.strumline.NoteSprite;
 import funkin.objects.gameplay.strumline.Strumline;
-import funkin.util.Controls;
+import funkin.util.FunkinControls;
 import funkin.util.InputUtil;
 import haxe.Json;
 
@@ -44,39 +44,23 @@ class StrumlineData
 		data = cast Json.parse(dataContent);
 	}
 
-	var lastCPUControlled:Null<Bool> = null;
-
 	public function update():Void
 	{
-		if (lastCPUControlled != data.computerControlled)
-		{
-			if (Controls.instance.pressed.has(controlPressed) && data.computerControlled)
-				Controls.instance.pressed.remove(controlPressed);
+		if (data.computerControlled)
+			return;
 
-			if (!Controls.instance.pressed.has(controlPressed) && !data.computerControlled)
-				Controls.instance.pressed.add(controlPressed);
-
-			if (Controls.instance.released.has(controlReleased) && data.computerControlled)
-				Controls.instance.released.remove(controlReleased);
-
-			if (!Controls.instance.released.has(controlReleased) && !data.computerControlled)
-				Controls.instance.released.add(controlReleased);
-
-			lastCPUControlled = data.computerControlled;
-		}
-
+		controlPressed();
+		controlReleased();
 		handleNoteInput();
 	}
-
-	var lastInputPressed:InputHit = {direction: -1, time: -1};
 
 	private function controlPressed():Void
 	{
 		var controlArray:Array<Bool> = [
-			Controls.instance.NOTE_LEFT_P,
-			Controls.instance.NOTE_DOWN_P,
-			Controls.instance.NOTE_UP_P,
-			Controls.instance.NOTE_RIGHT_P
+			FunkinControls.instance.justPressed.NOTE_LEFT,
+			FunkinControls.instance.justPressed.NOTE_DOWN,
+			FunkinControls.instance.justPressed.NOTE_UP,
+			FunkinControls.instance.justPressed.NOTE_RIGHT
 		];
 
 		for (i in 0...controlArray.length)
@@ -85,26 +69,22 @@ class StrumlineData
 			{
 				var direction:NoteDirection = cast(i, NoteDirection);
 				@:privateAccess
-				if (strumline != null && !(lastInputPressed.direction == direction && lastInputPressed.time == conductorInUse.time))
+				if (strumline != null)
 				{
 					strumline.currentlyPressed[direction] = true;
 					notesPressed.push({direction: direction, time: conductorInUse.time});
-					lastInputPressed.direction = direction;
-					lastInputPressed.time = conductorInUse.time;
 				}
 			}
 		}
 	}
 
-	var lastInputReleased:InputHit = {direction: -1, time: -1};
-
 	private function controlReleased():Void
 	{
 		var controlArray:Array<Bool> = [
-			Controls.instance.NOTE_LEFT_R,
-			Controls.instance.NOTE_DOWN_R,
-			Controls.instance.NOTE_UP_R,
-			Controls.instance.NOTE_RIGHT_R
+			FunkinControls.instance.justReleased.NOTE_LEFT,
+			FunkinControls.instance.justReleased.NOTE_DOWN,
+			FunkinControls.instance.justReleased.NOTE_UP,
+			FunkinControls.instance.justReleased.NOTE_RIGHT
 		];
 
 		for (i in 0...controlArray.length)
@@ -114,12 +94,10 @@ class StrumlineData
 			{
 				var direction:NoteDirection = cast(i, NoteDirection);
 				@:privateAccess
-				if (strumline != null && !(lastInputReleased.direction == direction && lastInputReleased.time == conductorInUse.time))
+				if (strumline != null)
 				{
 					strumline.currentlyPressed[direction] = false;
 					notesReleased.push({direction: direction, time: conductorInUse.time});
-					lastInputReleased.direction = direction;
-					lastInputReleased.time = conductorInUse.time;
 				}
 			}
 		}
