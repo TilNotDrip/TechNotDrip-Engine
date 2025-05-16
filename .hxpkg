@@ -42,9 +42,25 @@
 				"version": "2.1.1"
 			},
 			{
+				"name": "flixel-controls",
+				"link": "https://github.com/TechnikTil/FlxControls",
+				"branch": "aca3217338ed7b30c9582f4295d886379273f072"
+			},
+			{
 				"name": "format",
 				"version": "3.5.0"
 			},
+			{
+				"name": "funkin.vis",
+				"link": "https://github.com/FunkinCrew/funkVis",
+				"branch": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6"
+			},
+			{
+				"name": "grig.audio",
+				"link": "https://gitlab.com/haxe-grig/grig.audio.git",
+				"branch": "cbf91e2180fd2e374924fe74844086aab7891666",
+				"dir": "src"
+			}
 			{
 				"name": "hscript",
 				"version": "2.6.0"
@@ -60,22 +76,6 @@
 			{
 				"name": "thx.semver",
 				"version": "0.2.2"
-			},
-			{
-				"name": "flixel-controls",
-				"link": "https://github.com/TechnikTil/FlxControls",
-				"branch": "aca3217338ed7b30c9582f4295d886379273f072"
-			},
-			{
-				"name": "funkin.vis",
-				"link": "https://github.com/FunkinCrew/funkVis",
-				"branch": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6"
-			},
-			{
-				"name": "grig.audio",
-				"link": "https://gitlab.com/haxe-grig/grig.audio.git",
-				"branch": "cbf91e2180fd2e374924fe74844086aab7891666",
-				"dir": "src"
 			}
 		]
 	}
