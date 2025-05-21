@@ -173,7 +173,7 @@ class StoryState extends FunkinState
 			leftArrow.updateHitbox();
 		}
 
-		if (controls.justReleased.UI_RIGHT)
+		if (controls.waitAndRepeat().UI_RIGHT)
 		{
 			changeDifficulty(1);
 			rightArrow.playAnimation('push');
