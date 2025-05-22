@@ -1,13 +1,14 @@
 package funkin.objects.ui;
 
 import flixel.util.FlxStringUtil;
+import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
 /**
  * The performance stats TextField keeps track of FPS and Memory in-game.
  */
-class PerformanceStats extends TextField
+class PerformanceStats extends Sprite
 {
 	/**
 	 * How many frames have passed since the last second.
@@ -19,23 +20,67 @@ class PerformanceStats extends TextField
 	 */
 	public var randomAccessMemory(get, null):Null<Float>;
 
+	/**
+	 * The main text that shows FPS and RAM Usage.
+	 */
+	public var mainText:TextField;
+
+	/**
+	 * The outline text group.
+	 */
+	public var outlineTextGrp:Sprite;
+
 	var cacheCount:Int;
 	var currentTime:Float;
 	var times:Array<Float>;
 
-	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
+	public function new(x:Float = 10, y:Float = 10)
 	{
 		super();
+		visible = true;
 
-		this.x = x;
-		this.y = y;
+		outlineTextGrp = new Sprite();
+		addChild(outlineTextGrp);
+
+		mainText = new TextField();
+		mainText.x = x;
+		mainText.y = y;
+		addChild(mainText);
+
+		var outlinePosArray:Array<Array<Int>> = [];
+
+		// stolen from FlxText
+		outlinePosArray.push([-1, -1]); // upper-left
+		outlinePosArray.push([1, 0]); // upper-middle
+		outlinePosArray.push([1, 0]); // upper-right
+		outlinePosArray.push([0, 1]); // middle-right
+		outlinePosArray.push([0, 1]); // lower-right
+		outlinePosArray.push([-1, 0]); // lower-middle
+		outlinePosArray.push([-1, 0]); // lower-left
+		outlinePosArray.push([0, -1]); // lower-left
+
+		for (pos in outlinePosArray)
+		{
+			var outlineText:TextField = new TextField();
+			outlineText.x = x + pos[0];
+			outlineText.y = y + pos[1];
+			outlineTextGrp.addChild(outlineText);
+		}
 
 		framesPerSecond = 0;
 
-		selectable = false;
+		mainText.selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat(Paths.location.get('ui/fonts/vcr.ttf'), 12, color);
-		text = '';
+		mainText.defaultTextFormat = new TextFormat(Paths.location.get('ui/fonts/vcr.ttf'), 12, 0xFFFFFF);
+		mainText.text = '';
+
+		for (i in 0...outlineTextGrp.numChildren)
+		{
+			var outlineText:TextField = cast outlineTextGrp.getChildAt(i);
+			outlineText.selectable = false;
+			outlineText.defaultTextFormat = new TextFormat(Paths.location.get('ui/fonts/vcr.ttf'), 12, 0x000000);
+			outlineText.text = '';
+		}
 
 		cacheCount = 0;
 		currentTime = 0;
@@ -57,10 +102,18 @@ class PerformanceStats extends TextField
 
 		if (currentCount != cacheCount)
 		{
-			text = getFramesPerSecond() + getRandomAccessMemory();
+			mainText.text = getFramesPerSecond() + getRandomAccessMemory();
+
+			for (i in 0...outlineTextGrp.numChildren)
+			{
+				var outlineText:TextField = cast outlineTextGrp.getChildAt(i);
+				outlineText.text = getFramesPerSecond() + getRandomAccessMemory();
+			}
 		}
 
 		cacheCount = currentCount;
+
+		super.__enterFrame(cast deltaTime);
 	}
 
 	function getFramesPerSecond():String

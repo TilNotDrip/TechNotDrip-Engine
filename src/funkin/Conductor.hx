@@ -152,6 +152,22 @@ class Conductor implements IFlxDestroyable
 	}
 
 	/**
+	 * Fully resets BPM Changes.
+	 */
+	public function resetBPMChanges():Void
+	{
+		var currentBPM:Float = bpmChangesLeft[0].bpm;
+		var currentTimeSignature:{numerator:Float, denominator:Float} = bpmChangesLeft[0].timeSignature;
+		setupBPMChanges([
+			{
+				bpm: currentBPM,
+				time: 0,
+				timeSignature: currentTimeSignature
+			}
+		]);
+	}
+
+	/**
 	 * Updates the current conductor time.
 	 * @param songTime The time to set it to. If not specified the FlxG.sound.music time will be used instead.
 	 */

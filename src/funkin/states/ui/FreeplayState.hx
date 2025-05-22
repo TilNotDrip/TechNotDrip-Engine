@@ -318,7 +318,8 @@ class FreeplayState extends FunkinState
 
 		if (curSelected == 0)
 		{
-			conductor.changeBPM(145, false);
+			conductor.changeBPM(145);
+			conductor.resetBPMChanges();
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/freeplay/freeplayRandom'));
@@ -328,7 +329,8 @@ class FreeplayState extends FunkinState
 		}
 		else if (isRandomPlaying)
 		{
-			conductor.changeBPM(102, false);
+			conductor.changeBPM(102);
+			conductor.resetBPMChanges();
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music?.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
@@ -422,7 +424,8 @@ class FreeplayState extends FunkinState
 	{
 		if (isRandomPlaying)
 		{
-			conductor.changeBPM(102, false);
+			conductor.changeBPM(102);
+			conductor.resetBPMChanges();
 			var songPosToSetTo:Float = lastSongPos;
 			lastSongPos = FlxG.sound.music?.time;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));

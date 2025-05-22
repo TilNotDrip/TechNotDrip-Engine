@@ -42,7 +42,7 @@ class Main extends Sprite
 			!flxGameData.showSplash, flxGameData.startFullscreen);
 		addChild(flxGame);
 
-		performanceStats = new PerformanceStats(5, 5, 0xFFFFFF);
+		performanceStats = new PerformanceStats(5, 5);
 		addChild(performanceStats);
 
 		Assets.cache.enabled = false;

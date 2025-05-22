@@ -18,6 +18,7 @@ class PathsCache
 {
 	/**
 	 * The content that doesn't get wiped from a cache clean.
+	 * These can also be Flixel cache IDs!
 	 *
 	 * You should only put something here if you use it on a daily basis.
 	 */
@@ -207,7 +208,22 @@ class PathsCache
 			removeImage(image, bypassExcludeKeys);
 		}
 
-		FlxG.bitmap.reset(); // Flixel likes to cache all texts and transitions, nothing wrong with it but this is a graphic clear.
+		// Flixel likes to cache all texts and transitions, nothing wrong with it but this is a graphic clear.
+		@:privateAccess
+		if (FlxG.bitmap._cache != null)
+		{
+			for (key in FlxG.bitmap._cache.keys())
+			{
+				if (removeExcludeKeys.contains(key) && !bypassExcludeKeys)
+					continue;
+
+				var obj:FlxGraphic = FlxG.bitmap.get(key);
+				FlxG.bitmap.removeKey(key);
+
+				if (obj != null)
+					obj.destroy();
+			}
+		}
 
 		if (runGarbageCollector)
 			System.gc();
