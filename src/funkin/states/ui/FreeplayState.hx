@@ -351,7 +351,7 @@ class FreeplayState extends FunkinState
 	 */
 	public function changeDifficulty(?index:Int = 0):Void
 	{
-		var difficulties:Array<String> = filteredSongs[curSelected - 1]?.getDifficulties(null) ?? difficultiesAvailable;
+		var difficulties:Array<String> = filteredSongs[curSelected]?.getDifficulties(null) ?? difficultiesAvailable;
 		var curIndex:Int = difficulties.indexOf(curDifficulty);
 
 		curIndex = FlxMath.wrap(curIndex + index, 0, difficulties.length - 1);

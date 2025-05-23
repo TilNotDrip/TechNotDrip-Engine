@@ -35,26 +35,24 @@ class ZProperty
 	{
 		var fields:Array<Field> = Context.getBuildFields();
 
-		var todo:Function = {
-			args: []
-		};
-
-		todo.expr = macro
-			{
-				this.sort((i:Int, basic1:flixel.FlxBasic, basic2:flixel.FlxBasic) ->
-				{
-					return flixel.util.FlxSort.byValues(i, basic1.z, basic2.z);
-				}, flixel.util.FlxSort.ASCENDING);
-			};
-		todo.ret = macro :Void;
-
 		fields.push({
-			name: "rearrange",
-			pos: Context.currentPos(),
-			kind: FFun(todo),
-			access: [Access.APublic],
+			name: 'rearrange',
 			doc: 'Rearranges all FlxBasic objects by their Z value.',
-			meta: [],
+			access: [APublic],
+			meta: null,
+			pos: Context.currentPos(),
+			kind: FFun({
+				args: [],
+				params: null,
+				ret: macro :Void,
+				expr: macro
+				{
+					this.sort((i:Int, basic1:flixel.FlxBasic, basic2:flixel.FlxBasic) ->
+					{
+						return flixel.util.FlxSort.byValues(i, basic1.z, basic2.z);
+					}, flixel.util.FlxSort.ASCENDING);
+				},
+			})
 		});
 
 		return fields;
