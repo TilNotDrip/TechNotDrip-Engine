@@ -41,7 +41,6 @@ class StoryState extends FunkinState
 		#end
 
 		grpWeekItems = new FlxTypedGroup<WeekItem>();
-		grpWeekItems.z = 10;
 		add(grpWeekItems);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, 500, 0, "", 32);
@@ -50,26 +49,21 @@ class StoryState extends FunkinState
 		add(txtTracklist);
 
 		var topBlackBar:FunkinSprite = new FunkinSprite().loadTexture('#000000', FlxG.width, 56);
-		topBlackBar.z = 20;
 		add(topBlackBar);
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 0", 36);
 		scoreText.setFormat("VCR OSD Mono", 32);
-		scoreText.z = 30;
 		add(scoreText);
 
 		weekMotto = new FlxText(FlxG.width, 10, 0, "", 32);
 		weekMotto.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		weekMotto.alpha = 0.7;
-		weekMotto.z = 40;
 		add(weekMotto);
 
 		colorBG = new FunkinSprite(0, 56).loadTexture('#FFFFFF', FlxG.width, 400);
-		colorBG.z = 50;
 		add(colorBG);
 
 		grpOfWeekSprGrps = new FlxTypedSpriteGroup<FunkinSpriteGroup>(0, 56);
-		grpOfWeekSprGrps.z = 100;
 		add(grpOfWeekSprGrps);
 
 		for (i => week in loadedWeeks)
@@ -82,6 +76,7 @@ class StoryState extends FunkinState
 			weekSpr.screenCenter(X);
 
 			var weekSprGrp:FunkinSpriteGroup = week.buildSprites();
+			weekSprGrp.group.rearrange();
 			grpOfWeekSprGrps.add(weekSprGrp);
 
 			// TODO: ADD LOCK SPRITE
@@ -111,7 +106,6 @@ class StoryState extends FunkinState
 
 		super.create();
 
-		rearrange();
 		changeItem();
 	}
 

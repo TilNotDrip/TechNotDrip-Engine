@@ -64,15 +64,4 @@ class FunkinSubState extends FlxSubState
 	 * This function is called after the conductor section changes.
 	 */
 	public function sectionHit():Void {}
-
-	/**
-	 * Rearranges all FlxBasic objects by their Z value.
-	 */
-	public function rearrange():Void
-	{
-		sort((i:Int, basic1:FlxBasic, basic2:FlxBasic) ->
-		{
-			return FlxSort.byValues(i, basic1.z, basic2.z);
-		}, FlxSort.ASCENDING);
-	}
 }

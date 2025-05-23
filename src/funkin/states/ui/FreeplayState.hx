@@ -247,6 +247,7 @@ class FreeplayState extends FunkinState
 			{
 				backingCard.confirm();
 				dj.confirm();
+				blockInputs = true;
 
 				new FlxTimer().start(2, (_) ->
 				{

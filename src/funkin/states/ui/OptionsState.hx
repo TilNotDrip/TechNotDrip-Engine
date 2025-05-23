@@ -248,8 +248,6 @@ class OptionsState extends FunkinState
 
 	var lerpXPosArrow:Float = 0;
 
-	var justExitedTimeout:Int = -1;
-
 	override public function update(elapsed:Float):Void
 	{
 		switch (currentStatus)
@@ -283,7 +281,7 @@ class OptionsState extends FunkinState
 				}
 				#end
 
-				if (controls.justPressed.BACK && justExitedTimeout == -1)
+				if (controls.justPressed.BACK)
 				{
 					#if FLX_MOUSE
 					FlxG.mouse.visible = false;
@@ -305,7 +303,6 @@ class OptionsState extends FunkinState
 				if (controls.justPressed.BACK)
 				{
 					FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
-					justExitedTimeout = 2;
 
 					playCategoryTweens(false);
 					currentStatus = CATEGORY;
@@ -314,15 +311,6 @@ class OptionsState extends FunkinState
 		}
 
 		super.update(elapsed);
-
-		// fixes stupid bug that exists for some odd reason (ill fix it as soon as im integrating flxcontrols)
-		if (justExitedTimeout > 0)
-		{
-			justExitedTimeout -= 1;
-
-			if (justExitedTimeout == 0)
-				justExitedTimeout = -1;
-		}
 	}
 
 	function changeCategory(?indexHop:Int = 0):Void
@@ -371,6 +359,8 @@ class OptionsState extends FunkinState
 
 		FlxTween.cancelTweensOf(categoryCamera);
 		FlxTween.tween(categoryCamera, {y: cameraY, zoom: cameraZoom}, 0.4, {ease: FlxEase.expoInOut});
+
+		categoryArrow.x = lerpXPosArrow; // just in case
 	}
 
 	function generateCategoryOptions():Void
