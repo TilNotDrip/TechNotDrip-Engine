@@ -193,12 +193,7 @@ class MenuState extends FunkinState
 
 	function changeItem(?indexHop:Int = 0):Void
 	{
-		curSelected += indexHop;
-
-		if (curSelected > menuItems.length - 1)
-			curSelected = 0;
-		else if (curSelected < 0)
-			curSelected = menuItems.length - 1;
+		curSelected = FlxMath.wrap(curSelected + indexHop, 0, menuItems.length - 1);
 
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));

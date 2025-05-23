@@ -315,12 +315,7 @@ class CreditsState extends FunkinState
 
 	function changeItem(?indexHop:Int = 0):Void
 	{
-		curSelected += indexHop;
-
-		if (curSelected >= bubbleData.length)
-			curSelected = 0;
-		else if (curSelected < 0)
-			curSelected = bubbleData.length - 1;
+		curSelected = FlxMath.wrap(curSelected + indexHop, 0, bubbleData.length - 1);
 
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));

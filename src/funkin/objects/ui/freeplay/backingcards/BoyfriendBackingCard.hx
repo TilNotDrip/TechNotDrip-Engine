@@ -7,6 +7,7 @@ import funkin.states.ui.FreeplayState;
 class BoyfriendBackingCard extends BackingCard
 {
 	var cardGlow:FunkinSprite;
+	var backingTextYeah:FunkinSprite;
 	var confirmGlow:FunkinSprite;
 	var confirmGlowTwo:FunkinSprite;
 	var confirmTextGlow:FunkinSprite;
@@ -78,6 +79,10 @@ class BoyfriendBackingCard extends BackingCard
 		glow = new FunkinSprite(-300, 330).loadTexture('ui/freeplay/backingCard/beatglow');
 		glow.blend = ADD;
 		add(glow);
+
+		backingTextYeah = new FunkinSprite(640, 370).loadFrames('ui/freeplay/backingCard/backing-text-yeah');
+		backingTextYeah.addAnimation("anim", "BF back card confirm raw", 24, false);
+		add(backingTextYeah);
 	}
 
 	override public function startIntroTween():Void
@@ -174,6 +179,8 @@ class BoyfriendBackingCard extends BackingCard
 				});
 			}
 		});
+
+		backingTextYeah.playAnimation('anim', true);
 	}
 
 	override public function exit():Void

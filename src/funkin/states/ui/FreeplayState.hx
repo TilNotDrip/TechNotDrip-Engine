@@ -245,18 +245,10 @@ class FreeplayState extends FunkinState
 		{
 			if (controls.justPressed.ACCEPT)
 			{
-				backingCard.confirm();
-				dj.confirm();
-				blockInputs = true;
-
-				new FlxTimer().start(2, (_) ->
-				{
-					FlxG.switchState(() -> new PlayState({
-						song: filteredSongs[curSelected - 1],
-						variation: curVariation,
-						difficulty: curDifficulty
-					}));
-				});
+				if (curSelected == 0)
+					doRandom();
+				else
+					enterSong();
 			}
 
 			if (controls.justPressed.BACK)
@@ -310,14 +302,9 @@ class FreeplayState extends FunkinState
 	 */
 	public function changeSelection(?index:Int = 0):Void
 	{
-		curSelected += index;
+		curSelected = FlxMath.wrap(curSelected + index, -1, filteredSongs.length - 1);
 
-		if (curSelected >= filteredSongs.length + 1) // random
-			curSelected = 0;
-		else if (curSelected < 0)
-			curSelected = filteredSongs.length;
-
-		if (curSelected == 0)
+		if (curSelected == -1)
 		{
 			conductor.changeBPM(145);
 			conductor.resetBPMChanges();
@@ -344,12 +331,14 @@ class FreeplayState extends FunkinState
 		{
 			i += 1;
 
-			capsule.selected = i == curSelected + 1;
+			var curSelectedWithRandom:Int = curSelected + 1;
 
-			capsule.lerpPos.y = capsule.intendedY(i - curSelected);
-			capsule.lerpPos.x = 270 + (60 * (Math.sin(i - curSelected)));
+			capsule.selected = i == curSelectedWithRandom + 1;
 
-			if (i < curSelected)
+			capsule.lerpPos.y = capsule.intendedY(i - curSelectedWithRandom);
+			capsule.lerpPos.x = 270 + (60 * (Math.sin(i - curSelectedWithRandom)));
+
+			if (i < curSelectedWithRandom)
 				capsule.lerpPos.y -= 100; // another 100 for good measure
 		}
 
@@ -365,12 +354,7 @@ class FreeplayState extends FunkinState
 		var difficulties:Array<String> = filteredSongs[curSelected - 1]?.getDifficulties(null) ?? difficultiesAvailable;
 		var curIndex:Int = difficulties.indexOf(curDifficulty);
 
-		curIndex += index;
-
-		if (curIndex >= difficulties.length)
-			curIndex = 0;
-		else if (curIndex < 0)
-			curIndex = difficulties.length - 1;
+		curIndex = FlxMath.wrap(curIndex + index, 0, difficulties.length - 1);
 
 		curDifficulty = difficulties[curIndex];
 		difficultySelector.changeDifficulty(curDifficulty, index);
@@ -408,17 +392,54 @@ class FreeplayState extends FunkinState
 	 */
 	public function lookForCurrrentVariation():Void
 	{
-		if (filteredSongs[curSelected - 1] != null)
+		if (filteredSongs[curSelected] != null)
 		{
-			for (variation in filteredSongs[curSelected - 1].getVariations())
+			for (variation in filteredSongs[curSelected].getVariations())
 			{
-				if (filteredSongs[curSelected - 1]?.getDifficulties(variation)?.contains(curDifficulty) ?? false)
+				if (filteredSongs[curSelected]?.getDifficulties(variation)?.contains(curDifficulty) ?? false)
 				{
 					curVariation = variation;
 					break;
 				}
 			}
 		}
+	}
+
+	/**
+	 * Enters a random song, if possible.
+	 */
+	public function doRandom():Void
+	{
+		if (filteredSongs.length == 0)
+		{
+			FlxG.sound.play(Paths.content.audio('ui/menu/cancelMenu'));
+			trace('No songs currently available!');
+			return;
+		}
+
+		curSelected = FlxG.random.int(0, filteredSongs.length - 1);
+		changeSelection();
+		enterSong();
+	}
+
+	/**
+	 * Enters selected song.
+	 */
+	public function enterSong():Void
+	{
+		FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'));
+		backingCard.confirm();
+		dj.confirm();
+		blockInputs = true;
+
+		new FlxTimer().start(2, (_) ->
+		{
+			FlxG.switchState(() -> new PlayState({
+				song: filteredSongs[curSelected],
+				variation: curVariation,
+				difficulty: curDifficulty
+			}));
+		});
 	}
 
 	override public function destroy():Void

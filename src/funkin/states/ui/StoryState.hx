@@ -238,12 +238,7 @@ class StoryState extends FunkinState
 
 	function changeItem(change:Int = 0):Void
 	{
-		curSelected += change;
-
-		if (curSelected >= loadedWeeks.length)
-			curSelected = 0;
-		if (curSelected < 0)
-			curSelected = loadedWeeks.length - 1;
+		curSelected = FlxMath.wrap(curSelected + change, 0, loadedWeeks.length - 1);
 
 		if (change != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
@@ -287,12 +282,7 @@ class StoryState extends FunkinState
 
 	function changeDifficulty(change:Int = 0):Void
 	{
-		curDifficulty += change;
-
-		if (curDifficulty >= _difficulties.length)
-			curDifficulty = 0;
-		if (curDifficulty < 0)
-			curDifficulty = _difficulties.length - 1;
+		curDifficulty = FlxMath.wrap(curDifficulty + change, 0, _difficulties.length - 1);
 
 		if (change != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));

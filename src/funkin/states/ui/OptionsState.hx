@@ -315,12 +315,7 @@ class OptionsState extends FunkinState
 
 	function changeCategory(?indexHop:Int = 0):Void
 	{
-		curSelectedCategory += indexHop;
-
-		if (curSelectedCategory > categories.length - 1)
-			curSelectedCategory = 0;
-		else if (curSelectedCategory < 0)
-			curSelectedCategory = categories.length - 1;
+		curSelectedCategory = FlxMath.wrap(curSelectedCategory + indexHop, 0, categories.length - 1);
 
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
@@ -375,12 +370,7 @@ class OptionsState extends FunkinState
 
 	function changeOption(?indexHop:Int = 0):Void
 	{
-		curSelectedOption += indexHop;
-
-		if (curSelectedOption > categories[curSelectedCategory].options.length - 1)
-			curSelectedOption = 0;
-		else if (curSelectedOption < 0)
-			curSelectedOption = categories[curSelectedCategory].options.length - 1;
+		curSelectedOption = FlxMath.wrap(curSelectedOption + indexHop, 0, categories[curSelectedCategory].options.length - 1);
 
 		if (indexHop != 0)
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
