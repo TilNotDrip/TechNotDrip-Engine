@@ -17,11 +17,6 @@ class FreeplayDJ extends FunkinSprite
 	 */
 	public var introDone:FlxSignal = new FlxSignal();
 
-	#if debug
-	var allStates:Array<FreeplayDJState> = [Intro, Idle, Confirm];
-	var curSelection:Int = -1;
-	#end
-
 	public function new(x:Float, y:Float, id:String)
 	{
 		super(x, y);

@@ -243,7 +243,7 @@ class FreeplayState extends FunkinState
 
 		if (!blockInputs)
 		{
-			if (controls.justPressed.ACCEPT #if (debug && FLX_KEYBOARD) && !FlxG.keys.justPressed.SPACE #end)
+			if (controls.justPressed.ACCEPT)
 			{
 				backingCard.confirm();
 				dj.confirm();
