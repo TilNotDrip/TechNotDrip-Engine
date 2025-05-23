@@ -10,7 +10,7 @@ class ZProperty
 {
 	/**
 	 * Builds the field for the `z` property.
-	 * @return New z field.
+	 * @return New `z` field.
 	 */
 	public static macro function buildZProperty():Array<Field>
 	{
@@ -29,7 +29,7 @@ class ZProperty
 
 	/**
 	 * Builds the field for the `rearrange` function.
-	 * @return New z field.
+	 * @return New `rearrange` field.
 	 */
 	public static macro function buildRearrangeFunction():Array<Field>
 	{
