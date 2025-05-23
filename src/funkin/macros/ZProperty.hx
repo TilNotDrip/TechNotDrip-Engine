@@ -35,9 +35,10 @@ class ZProperty
 	{
 		var fields:Array<Field> = Context.getBuildFields();
 
-		var todo:haxe.macro.Function = {
+		var todo:Function = {
 			args: []
 		};
+
 		todo.expr = macro
 			{
 				this.sort((i:Int, basic1:flixel.FlxBasic, basic2:flixel.FlxBasic) ->
