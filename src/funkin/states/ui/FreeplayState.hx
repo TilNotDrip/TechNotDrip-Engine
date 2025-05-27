@@ -16,7 +16,7 @@ class FreeplayState extends FunkinState
 	/**
 	 * Current Selection.
 	 */
-	public var curSelected:Int = 0;
+	public var curSelected:Int = -1;
 
 	/**
 	 * Current Difficulty.
@@ -171,9 +171,9 @@ class FreeplayState extends FunkinState
 		ostName.shader = sillyStroke;
 		add(ostName);
 
+		generateCapsules();
 		changeSelection();
 		changeDifficulty();
-		generateCapsules();
 
 		super.create();
 
@@ -245,7 +245,7 @@ class FreeplayState extends FunkinState
 		{
 			if (controls.justPressed.ACCEPT)
 			{
-				if (curSelected == 0)
+				if (curSelected == -1)
 					doRandom();
 				else
 					enterSong();

@@ -165,7 +165,11 @@ class PlayState extends FunkinState
 		super.update(elapsed);
 
 		if (controls.justPressed.BACK)
+		{
+			conductor.changeBPM(102);
+			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
 			FlxG.switchState(funkin.states.ui.MenuState.new);
+		}
 	}
 
 	public function getPlayerSound():FlxSound
