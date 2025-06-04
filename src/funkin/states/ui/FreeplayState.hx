@@ -428,8 +428,9 @@ class FreeplayState extends FunkinState
 	public function enterSong():Void
 	{
 		FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'));
-		backingCard.confirm();
 		dj.confirm();
+		grpCapsules.members[curSelected + 1]?.confirm();
+		backingCard.confirm();
 		blockInputs = true;
 
 		new FlxTimer().start(2, (_) ->

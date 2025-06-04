@@ -94,6 +94,20 @@ class FreeplayCapsule extends FlxSpriteGroup
 	}
 
 	/**
+	 * Play any animations associated with selecting this song.
+	 */
+	public function confirm():Void
+	{
+		if (capsuleText != null)
+			capsuleText.flickerText();
+
+		if (icon != null && icon.visible && icon.animated)
+		{
+			icon.playAnimation('confirm');
+		}
+	}
+
+	/**
 	 * Get the y position to show in Freeplay.
 	 * @param index The freeplay position.
 	 * @return The y position.
