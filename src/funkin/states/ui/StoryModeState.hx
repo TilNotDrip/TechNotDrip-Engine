@@ -80,7 +80,7 @@ class StoryModeState extends FunkinState
 			weekSpr.screenCenter(X);
 
 			var weekSprGrp:FunkinSpriteGroup = week.buildSprites();
-			weekSprGrp.group.rearrange();
+			// weekSprGrp.group.rearrange();
 			grpOfWeekSprGrps.add(weekSprGrp);
 
 			// TODO: ADD LOCK SPRITE
