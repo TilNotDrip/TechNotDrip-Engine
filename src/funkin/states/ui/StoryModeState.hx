@@ -1,6 +1,8 @@
 package funkin.states.ui;
 
 import funkin.objects.ui.WeekItem;
+import funkin.states.gameplay.PlayState;
+import funkin.util.StoryModeHandler;
 import funkin.util.Week;
 
 class StoryModeState extends FunkinState
@@ -39,6 +41,8 @@ class StoryModeState extends FunkinState
 		#if FUNKIN_DISCORD_RPC
 		DiscordRPC.details = 'Story Mode Menu';
 		#end
+
+		PlayState.storyMode = null;
 
 		grpWeekItems = new FlxTypedGroup<WeekItem>();
 		add(grpWeekItems);
@@ -142,10 +146,11 @@ class StoryModeState extends FunkinState
 
 			grpWeekItems.members[curSelected].startFlashing();
 
+			PlayState.storyMode = new StoryModeHandler(loadedWeeks[curSelected], _difficulties[curDifficulty]);
+
 			new FlxTimer().start(1, (tmr:FlxTimer) ->
 			{
-				// TODO: Change this to PlayState
-				FlxG.switchState(MenuState.new);
+				FlxG.switchState(PlayState.storyMode.nextState);
 			});
 		}
 

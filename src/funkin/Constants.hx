@@ -54,6 +54,11 @@ class Constants
 	 */
 	public static final DEFAULT_DIFFICULTIES:Array<String> = ['easy', 'normal', 'hard', 'erect', 'nightmare'];
 
+	/**
+	 * Default Difficulty
+	 */
+	public static final DEFAULT_DIFFICULTY:String = 'normal';
+
 	static function get_TECHNOTDRIP_VERSION():String
 	{
 		return FlxG.stage.application.meta.get('version');

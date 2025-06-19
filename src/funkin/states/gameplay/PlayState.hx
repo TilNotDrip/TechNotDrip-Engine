@@ -1,9 +1,11 @@
 package funkin.states.gameplay;
 
+import flixel.util.FlxSort;
 import funkin.data.StrumlineData;
 import funkin.data.song.Song;
 import funkin.objects.gameplay.strumline.Strumline;
 import funkin.structures.SongStructure;
+import funkin.util.StoryModeHandler;
 
 class PlayState extends FunkinState
 {
@@ -12,6 +14,11 @@ class PlayState extends FunkinState
 	 * This lets you access variables for the current session.
 	 */
 	public static var instance:PlayState;
+
+	/**
+	 * Story Mode Handler.
+	 */
+	public static var storyMode:StoryModeHandler;
 
 	/**
 	 * The parameters used when initializing this state.
@@ -152,6 +159,13 @@ class PlayState extends FunkinState
 		getPlayerSound()?.play();
 		getOpponentSound()?.play();
 
+		var soundsAvailable:Array<FlxSound> = [FlxG.sound.music, getPlayerSound(), getOpponentSound()];
+		soundsAvailable.sort((a:FlxSound, b:FlxSound) ->
+		{
+			return FlxSort.byValues(FlxSort.DESCENDING, a?.length ?? 0, b?.length ?? 0);
+		});
+		soundsAvailable[0].onComplete = finishSong;
+
 		conductor.setupBPMChanges(metadata.bpmChanges);
 	}
 
@@ -166,9 +180,26 @@ class PlayState extends FunkinState
 
 		if (controls.justPressed.BACK)
 		{
+			finishSong();
+		}
+	}
+
+	/**
+	 * Finish the song.
+	 */
+	public function finishSong():Void
+	{
+		if (storyMode != null)
+		{
+			FlxG.switchState(storyMode.nextState);
+		}
+		else
+		{
 			conductor.changeBPM(102);
+			FlxG.sound.music.onComplete = null;
 			FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
-			FlxG.switchState(funkin.states.ui.MenuState.new);
+
+			FlxG.switchState(funkin.states.ui.FreeplayState.new);
 		}
 	}
 
