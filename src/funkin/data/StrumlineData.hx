@@ -122,11 +122,11 @@ class StrumlineData
 		{
 			var input:InputHit = notesPressed.shift();
 
-			if (strumline.isCurrentSustain(input.direction))
-			{
-				strumline.getStrumNoteForDirection(input.direction).playAnimation('confirm-hold');
-				continue;
-			}
+			/*if (strumline.isCurrentSustain(input.direction))
+				{
+					strumline.getStrumNoteForDirection(input.direction).playAnimation('confirm-hold');
+					continue;
+			}*/
 
 			var possibleNotes:Array<NoteSprite> = strumline.notes.members.filter(function(note:NoteSprite)
 			{

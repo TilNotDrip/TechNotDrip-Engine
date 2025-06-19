@@ -3,7 +3,7 @@ package funkin.states.ui;
 import funkin.objects.ui.WeekItem;
 import funkin.util.Week;
 
-class StoryState extends FunkinState
+class StoryModeState extends FunkinState
 {
 	/**
 	 * The weeks that the game has successfully loaded.

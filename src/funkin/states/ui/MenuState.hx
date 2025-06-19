@@ -17,7 +17,7 @@ class MenuState extends FunkinState
 		{
 			id: 'storymode',
 			name: 'Story Mode',
-			classToSwitch: StoryState.new
+			classToSwitch: StoryModeState.new
 		},
 		{
 			id: 'freeplay',
