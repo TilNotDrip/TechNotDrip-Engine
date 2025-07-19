@@ -16,7 +16,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Retrieve Haxelib Cache
         id: windows-haxelib-cache
@@ -52,7 +52,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Retrieve Haxelib Cache
         id: macos-haxelib-cache
@@ -88,7 +88,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Retrieve Haxelib Cache
         id: linux-haxelib-cache
@@ -125,7 +125,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Setup Android NDK
         uses: nttld/setup-ndk@v1
@@ -181,7 +181,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Retrieve Haxelib Cache
         id: ios-haxelib-cache
