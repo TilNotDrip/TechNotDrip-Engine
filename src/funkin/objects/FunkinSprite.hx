@@ -1,6 +1,8 @@
 package funkin.objects;
 
+import flixel.FlxCamera;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.math.FlxPoint;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import flxanimate.FlxAnimate;
 import funkin.structures.ObjectStructure;
@@ -157,10 +159,10 @@ class FunkinSprite extends FlxSprite
 		atlas.colorTransform = colorTransform;
 	}
 
-	// crusher, dont you FUCKING dare import these.
-	override public function getScreenPosition(?result:flixel.math.FlxPoint, ?camera:flixel.FlxCamera):flixel.math.FlxPoint
+	// crusher, do you FUCKING dare import these.
+	override public function getScreenPosition(?result:FlxPoint, ?camera:FlxCamera):FlxPoint
 	{
-		var point:flixel.math.FlxPoint = super.getScreenPosition(result, camera);
+		var point:FlxPoint = super.getScreenPosition(result, camera);
 
 		if (spritesAreAngy)
 			point.add(FlxG.random.float(-2, 2), FlxG.random.float(-2, 2));
