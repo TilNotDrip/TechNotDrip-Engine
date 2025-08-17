@@ -24,7 +24,7 @@ class Main extends Sprite
 		width: 1280,
 		height: 720,
 		initState: TitleState.new,
-		framerate: 144,
+		framerate: 60,
 		showSplash: false,
 		startFullscreen: false
 	};
