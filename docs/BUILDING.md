@@ -1,7 +1,21 @@
 # Building TechNotDrip Engine
+
+## Windows:
+1. Install [Haxe](https://haxe.org/download/)
+2. Create a folder with ***no spaces*** somewhere in your computer, dedicated for haxe libraries
+3. Run `haxelib setup` and set the path to the folder you just made
+4. Run the following:
+```
+haxelib install hxpkg --quiet
+haxelib run hxpkg install --quiet --update
+```
+5. Compile the game with `haxelib run lime build windows`
+5. Test the game with `haxelib run lime test windows`
+6. Compiled game will be found in `TechNotDrip-Engine\export\release\windows\bin`
+
 ## Android:
-1. Install Android Studio from [developer.android.com](https://developer.android.com/studio)
-2. Install Java 17 from [oracle.com](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+1. Install [Android Studio](https://developer.android.com/studio)
+2. Install [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 	- NOTE: Write down the install location, we will need it later.
 3. Open Android Studio.
 4. Click on Projects.

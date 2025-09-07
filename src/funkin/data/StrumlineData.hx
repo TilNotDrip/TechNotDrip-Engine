@@ -3,6 +3,7 @@ package funkin.data;
 import flixel.util.FlxSort;
 import funkin.objects.gameplay.strumline.NoteSprite;
 import funkin.objects.gameplay.strumline.Strumline;
+import funkin.states.gameplay.PlayState;
 import funkin.util.FunkinControls;
 import funkin.util.InputUtil;
 import haxe.Json;
@@ -149,9 +150,20 @@ class StrumlineData
 				var rating:String = InputUtil.judgeNote(noteDiff);
 				var score:Int = InputUtil.scoreNote(noteDiff);
 
+				PlayState.totalScore += score;
+				PlayState.totalHittableNotes++;
+
 				strumline.noteHit(noteHit, rating == 'sick');
 				trace(rating);
 				trace(score);
+
+				if (PlayState.scoreTxt.scale.x < 1.2)
+				{
+					var quotient = score / InputUtil.MAX_SCORE;
+					var scaleIncrement = 0.025 * quotient;
+					PlayState.scoreTxt.scale.x += scaleIncrement;
+					PlayState.scoreTxt.scale.y += scaleIncrement;
+				}
 			}
 			else
 				strumline.getStrumNoteForDirection(input.direction).playAnimation('press', true);
