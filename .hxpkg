@@ -52,8 +52,8 @@
 			},
 			{
 				"name": "funkin.vis",
-				"link": "https://github.com/TechnikTil/funkVis",
-				"branch": "8429461bfd269bc1f991e3af330db5d60c96c71c"
+				"link": "https://github.com/FunkinCrew/funkVis",
+				"branch": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6"
 			},
 			{
 				"name": "grig.audio",
