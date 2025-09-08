@@ -214,36 +214,27 @@ class Strumline extends FlxSpriteGroup
 
 	override public function update(elapsed:Float):Void
 	{
-		while (true)
+		while (noteDataLeft.length > 0)
 		{
-			if (noteDataLeft.length > 0)
-			{
-				renderingSquare.x = x;
-				renderingSquare.y = calculateNoteYPos(noteDataLeft[0].time);
+			renderingSquare.x = this.x;
+			renderingSquare.y = calculateNoteYPos(noteDataLeft[0].time);
 
-				if (!renderingSquare.isOnScreen())
-					break;
-
-				var noteSprite:NoteSprite = notes.recycle(NoteSprite);
-				noteSprite.setupNoteSprite(noteDataLeft[0]);
-
-				if ((noteDataLeft[0].length ?? 0) > 0)
-				{
-					var sustainNoteSprite:SustainNoteSprite = sustainNotes.recycle(SustainNoteSprite);
-					sustainNoteSprite.setupSustainSprite(noteDataLeft[0], scrollSpeed);
-
-					noteSprite.sustainSprite = sustainNoteSprite;
-				}
-
-				// FlxG.log.add('Rendered note at ${noteDataLeft[0].time}');
-				noteDataLeft.shift();
-			}
-			else
-			{
-				// doesnt need to be used anymore!
-				renderingSquare = FlxDestroyUtil.destroy(renderingSquare);
+			if (!renderingSquare.isOnScreen() && (noteDataLeft[0].time - conductorInUse.time) > 0)
 				break;
+
+			var noteSprite:NoteSprite = notes.recycle(NoteSprite);
+			noteSprite.setupNoteSprite(noteDataLeft[0]);
+
+			if ((noteDataLeft[0].length ?? 0) > 0)
+			{
+				var sustainNoteSprite:SustainNoteSprite = sustainNotes.recycle(SustainNoteSprite);
+				sustainNoteSprite.setupSustainSprite(noteDataLeft[0], scrollSpeed);
+
+				noteSprite.sustainSprite = sustainNoteSprite;
 			}
+
+			// FlxG.log.add('Rendered note at ${noteDataLeft[0].time}');
+			noteDataLeft.shift();
 		}
 
 		for (note in notes.members)
