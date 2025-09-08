@@ -19,7 +19,7 @@ class PlayState extends FunkinState
 	 * This lets you access variables for the current session.
 	 */
 	public static var instance:PlayState;
-	
+
 	/**
 	 * Story Mode Handler
 	 */

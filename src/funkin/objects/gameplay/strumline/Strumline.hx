@@ -195,7 +195,8 @@ class Strumline extends FlxSpriteGroup
 	public function noteMiss(note:NoteSprite):Void
 	{
 		// TODO: when noteTypeData is done, uncomment this
-		if (/*note.noteTypeData.playMissSfx*/ true) {
+		if (/*note.noteTypeData.playMissSfx*/ true)
+		{
 			FlxG.sound.play(Paths.content.audio('gameplay/missnote' + FlxG.random.int(1, 3)));
 			PlayState.totalMisses++;
 			PlayState.totalHittableNotes++;
