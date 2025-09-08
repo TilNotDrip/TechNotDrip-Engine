@@ -40,11 +40,11 @@ class Project extends HXProject
 	public final FUNKIN_GIT_DETAILS:FeatureFlag = 'FUNKIN_GIT_DETAILS';
 
 	/**
-	 * `-DFUNKIN_DOX_GENERATION`
+	 * `-DFUNKIN_ASSETS_FORWARDING`
 	 * Whether the game should forward its asset fetching to the root of the repository.
 	 * Developers can set this by checking the flag above.
 	 */
-	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_DOX_GENERATION';
+	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_ASSETS_FORWARDING';
 
 	public var GIT_HASH:String = null;
 
