@@ -15,6 +15,12 @@ import funkin.util.StoryModeHandler;
 class PlayState extends FunkinState
 {
 	/**
+	 * The current instance of PlayState.
+	 * This lets you access variables for the current session.
+	 */
+	public static var instance:PlayState;
+	
+	/**
 	 * Story Mode Handler
 	 */
 	public static var storyMode:StoryModeHandler;

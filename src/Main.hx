@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
+import flixel.util.typeLimit.NextState;
 import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
@@ -23,13 +24,23 @@ class Main extends Sprite
 	{
 		super();
 
-		var flxGame:FlxGame = new FlxGame(1280, // height
-			720, // width
-			TitleState.new, // initial state
-			60, // framerate
-			60, // draw framerate
-			true, // skip splash?
-			false // start full-screen?
+		final gameData:GameData = {
+			screenWidth: 1280,
+			screenHeight: 720,
+			initState: TitleState.new,
+			framerate: 60,
+			isSkipSplash: true,
+			isStartFullscreen: false
+		};
+
+		var flxGame:FlxGame = new FlxGame(
+			gameData.screenWidth,
+			gameData.screenHeight,
+			gameData.initState,
+			gameData.framerate,
+			gameData.framerate,
+			gameData.isSkipSplash,
+			gameData.isStartFullscreen
 		);
 		addChild(flxGame);
 
@@ -55,4 +66,14 @@ class Main extends Sprite
 		DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
 		#end
 	}
+}
+
+typedef GameData =
+{
+	var screenWidth:Int;
+	var screenHeight:Int;
+	var initState:InitialState;
+	var framerate:Int;
+	var isSkipSplash:Bool;
+	var isStartFullscreen:Bool;
 }

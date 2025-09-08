@@ -3,8 +3,8 @@
 		"export/**/*.*": true
 	},
 	"[haxe]": {
-		"editor.formatOnSave": true,
-		"editor.formatOnPaste": true,
+		"editor.formatOnSave": false,
+		"editor.formatOnPaste": false,
 		"editor.codeActionsOnSave": {
 			"source.sortImports": "explicit"
 		}

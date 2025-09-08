@@ -6,8 +6,8 @@
 3. Run `haxelib setup` and set the path to the folder you just made
 4. Run the following:
 ```
-haxelib install hxpkg --quiet
-haxelib run hxpkg install --quiet --update
+haxelib install hxpkg
+haxelib run hxpkg install --update
 ```
 5. Compile the game with `haxelib run lime build windows`
 5. Test the game with `haxelib run lime test windows`

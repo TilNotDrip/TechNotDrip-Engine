@@ -14,12 +14,12 @@ class PerformanceStats extends Sprite
 	/**
 	 * How many frames have passed since the last second.
 	 */
-	var framesPerSecond(default, null):Int;
+	public var framesPerSecond(default, null):Int;
 
 	/**
 	 * The amount of RAM the application is currently using.
 	 */
-	var randomAccessMemory(get, null):Null<Float>;
+	public var randomAccessMemory(get, null):Null<Float>;
 
 	/**
 	 * The main text that shows FPS and RAM Usage.
