@@ -39,6 +39,13 @@ class Project extends HXProject
 	 */
 	public final FUNKIN_GIT_DETAILS:FeatureFlag = 'FUNKIN_GIT_DETAILS';
 
+	/**
+	 * `-DFUNKIN_ASSETS_FORWARDING`
+	 * Whether the game should forward its asset fetching to the root of the repository.
+	 * Developers can set this by checking the flag above.
+	 */
+	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_ASSETS_FORWARDING';
+
 	public var GIT_HASH:String = null;
 
 	public var GIT_BRANCH:String = null;
@@ -127,6 +134,7 @@ class Project extends HXProject
 		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP && haxedefs.get('cpp')); // Will be enabled if its on desktop (windows, linux, mac)!
 		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
 		FUNKIN_GIT_DETAILS.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
+		FUNKIN_ASSETS_FORWARDING.apply(this, platformType == DESKTOP && debug);
 	}
 
 	public function setupHaxelibs():Void
@@ -149,7 +157,7 @@ class Project extends HXProject
 	public function setupHaxeDefines():Void
 	{
 		addHaxeDefine('doc-gen', FUNKIN_DOX_GENERATION.isEnabled(this));
-		addHaxeDefine('FLX_CUSTOM_ASSETS_DIRECTORY', 'assets', platformType == DESKTOP && debug);
+		addHaxeDefine('FLX_CUSTOM_ASSETS_DIRECTORY', 'assets', FUNKIN_ASSETS_FORWARDING.isEnabled(this));
 		addHaxeDefine('FLX_NO_DEBUG', !debug);
 		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
 		addHaxeDefine('FLX_NO_HEALTH');
