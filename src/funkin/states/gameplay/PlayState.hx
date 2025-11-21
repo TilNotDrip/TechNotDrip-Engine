@@ -82,7 +82,7 @@ class PlayState extends FunkinState
 		// Maybe we can repurpose for a minimal mode?
 
 		var greyBG:FunkinSprite = new FunkinSprite();
-		greyBG.loadTexture('#323232', FlxG.width * 1.5, FlxG.height * 1.5);
+		greyBG.loadTexture('#323232', Std.int(FlxG.width * 1.5), Std.int(FlxG.height * 1.5));
 		greyBG.screenCenter();
 		add(greyBG);
 
