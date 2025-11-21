@@ -8,7 +8,7 @@ for (dirpath, dirnames, filenames) in os.walk('../../assets'):
 			print('Converting ' + dirpath + '/' + file[:-4])
 
 			xmlParse = minidom.parse(dirpath + '/' + file)
-			
+
 			highestWidth = 0
 			highestHeight = 0
 			for elem in xmlParse.getElementsByTagName('SubTexture'):

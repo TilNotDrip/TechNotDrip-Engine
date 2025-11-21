@@ -43,8 +43,10 @@ class FunkinSprite extends FlxSprite
 	 */
 	public function loadTexture(path:String = '#000000', rectWidth:Int = 1, rectHeight:Int = 1):FunkinSprite
 	{
+		// Regex Check for colors?
 		if (path.startsWith('#'))
 		{
+			// TODO: `makeGraphic` can take a LOT up in memory. move it to something more close to `makeSolid` from Base Game.
 			makeGraphic(rectWidth, rectHeight, FlxColor.fromString(path));
 		}
 		else

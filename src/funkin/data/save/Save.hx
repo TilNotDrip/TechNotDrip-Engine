@@ -41,9 +41,13 @@ class Save
 	public function new(?data:SaveStructure)
 	{
 		if (data == null)
+		{
 			this.data = getDefault();
+		}
 		else
+		{
 			this.data = data;
+		}
 
 		#if FLX_DEBUG
 		registerConsoleFunctions();

@@ -69,7 +69,7 @@ class OptionsState extends FunkinState
 			description: 'Adjusting your in-game experience to your liking.',
 			options: [
 				{
-					id: 'downscroll',
+					id: 'downScroll',
 					name: 'Downscroll',
 					description: "Whether notes should go up to down, or down to up.",
 					type: CHECKBOX

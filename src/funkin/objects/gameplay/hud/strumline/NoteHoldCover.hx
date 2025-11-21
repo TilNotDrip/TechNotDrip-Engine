@@ -1,4 +1,4 @@
-package funkin.objects.gameplay.strumline;
+package funkin.objects.gameplay.hud.strumline;
 
 import flixel.math.FlxPoint;
 
@@ -50,7 +50,7 @@ class NoteHoldCover extends FunkinSprite
 	public function loadNoteHoldCover():Void
 	{
 		// TODO: make this softcoded
-		loadFrames('gameplay/strumline/default/sustainCover');
+		loadFrames('gameplay/hud/funkin/strumline/sustainCover');
 
 		addAnimation('start', 'sustain cover pre', null, 24, false);
 		addAnimation('loop', 'sustain cover', null, 24, true);

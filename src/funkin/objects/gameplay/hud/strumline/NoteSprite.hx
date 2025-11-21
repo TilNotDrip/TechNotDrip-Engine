@@ -1,4 +1,4 @@
-package funkin.objects.gameplay.strumline;
+package funkin.objects.gameplay.hud.strumline;
 
 // import funkin.shaders.gameplay.RGBShader;
 import funkin.structures.SongStructure;
@@ -36,7 +36,7 @@ class NoteSprite extends FunkinSprite
 	public function loadNoteFrames():Void
 	{
 		// TODO: make this softcoded
-		loadFrames('gameplay/strumline/default/notes');
+		loadFrames('gameplay/hud/funkin/strumline/notes');
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
 		centerOffsets();

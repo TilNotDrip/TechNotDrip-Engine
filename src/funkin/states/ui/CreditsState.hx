@@ -351,18 +351,28 @@ class CreditsState extends FunkinState
 
 		var commitsGet:Http = new Http('https://api.github.com/repos/TilNotDrip/TechNotDrip-Engine/commits?sha=' + Constants.GIT_BRANCH);
 		commitsGet.setHeader("User-Agent", "request");
+
+		var statusCode:Int = 400;
+		commitsGet.onStatus = (code:Int) ->
+		{
+			statusCode = code;
+		};
+
 		commitsGet.request();
 
 		var commitList:Array<Dynamic> = [];
 
 		try
 		{
+			if (statusCode < 200 || statusCode >= 400)
+				throw "HTTP ERROR";
+
 			// when my wifi down it be returning nothing and try catching the actual request didnt work so
 			commitList = cast Json.parse(commitsGet.responseData);
 		}
 		catch (e:Exception)
 		{
-			trace('Could not parse the commit list!');
+			trace('[ERROR] Could not parse the commit list! Message: ${e.message}');
 		}
 
 		for (commit in commitList)

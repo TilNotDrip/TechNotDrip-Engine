@@ -431,6 +431,7 @@ class FreeplayState extends FunkinState
 		dj.confirm();
 		grpCapsules.members[curSelected + 1]?.confirm();
 		backingCard.confirm();
+		FlxG.sound.music.stop();
 		blockInputs = true;
 
 		new FlxTimer().start(2, (_) ->

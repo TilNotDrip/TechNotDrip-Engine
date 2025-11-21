@@ -41,7 +41,9 @@ class FunkinState extends FlxState
 		super.create();
 
 		if (FunkinTransition.instance == null)
+		{
 			new FunkinTransition();
+		}
 
 		openSubState(FunkinTransition.instance);
 		FunkinTransition.instance.onCompletion = null;

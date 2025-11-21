@@ -2,6 +2,7 @@ package funkin.objects.ui;
 
 import flixel.util.FlxStringUtil;
 import openfl.display.Sprite;
+import openfl.filters.DropShadowFilter;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 
@@ -23,117 +24,58 @@ class PerformanceStats extends Sprite
 	/**
 	 * The main text that shows FPS and RAM Usage.
 	 */
-	public var mainText:TextField;
+	var mainText:TextField;
 
-	/**
-	 * The outline text group.
-	 */
-	public var outlineTextGrp:Sprite;
+	var fpsCount:Int = 0;
+	var elapsed:Float = 0;
 
-	var cacheCount:Int;
-	var currentTime:Float;
-	var times:Array<Float>;
-
-	public function new(x:Float = 10, y:Float = 10)
+	public function new(x:Float = 5, y:Float = 5)
 	{
 		super();
 		visible = true;
 
-		outlineTextGrp = new Sprite();
-		addChild(outlineTextGrp);
-
 		mainText = new TextField();
 		mainText.x = x;
 		mainText.y = y;
-		addChild(mainText);
-
-		var outlinePosArray:Array<Array<Int>> = [];
-
-		// stolen from FlxText
-		outlinePosArray.push([-1, -1]); // upper-left
-		outlinePosArray.push([1, 0]); // upper-middle
-		outlinePosArray.push([1, 0]); // upper-right
-		outlinePosArray.push([0, 1]); // middle-right
-		outlinePosArray.push([0, 1]); // lower-right
-		outlinePosArray.push([-1, 0]); // lower-middle
-		outlinePosArray.push([-1, 0]); // lower-left
-		outlinePosArray.push([0, -1]); // lower-left
-
-		for (pos in outlinePosArray)
-		{
-			var outlineText:TextField = new TextField();
-			outlineText.x = x + pos[0];
-			outlineText.y = y + pos[1];
-			outlineTextGrp.addChild(outlineText);
-		}
-
-		framesPerSecond = 0;
-
 		mainText.selectable = false;
-		mouseEnabled = false;
-		mainText.defaultTextFormat = new TextFormat(Paths.location.get('ui/fonts/vcr.ttf'), 12, 0xFFFFFF);
-		mainText.text = '';
+		mainText.mouseEnabled = false;
+		mainText.defaultTextFormat = new TextFormat(Paths.location.get("ui/fonts/vcr.ttf"), 12, 0xFFFFFF);
 
-		for (i in 0...outlineTextGrp.numChildren)
-		{
-			var outlineText:TextField = cast outlineTextGrp.getChildAt(i);
-			outlineText.selectable = false;
-			outlineText.defaultTextFormat = new TextFormat(Paths.location.get('ui/fonts/vcr.ttf'), 12, 0x000000);
-			outlineText.text = '';
-		}
+		// Outline
+		var borderSize:Float = 1;
+		mainText.filters = [
+			new DropShadowFilter(borderSize, 0, 0, 1, 0, 0),
+			new DropShadowFilter(borderSize, 90, 0, 1, 0, 0),
+			new DropShadowFilter(borderSize, 180, 0, 1, 0, 0),
+			new DropShadowFilter(borderSize, 270, 0, 1, 0, 0)
+		];
 
-		cacheCount = 0;
-		currentTime = 0;
-		times = [];
+		addChild(mainText);
 	}
 
 	override function __enterFrame(deltaTime:Float):Void
 	{
-		currentTime += deltaTime;
-		times.push(currentTime);
+		fpsCount++;
+		elapsed += deltaTime;
 
-		while (times[0] < currentTime - 1000)
+		if (elapsed >= 1000)
 		{
-			times.shift();
+			framesPerSecond = fpsCount;
+			fpsCount = 0;
+			elapsed = 0;
+			mainText.text = "FPS: " + framesPerSecond + "\n" + getMemory();
 		}
-
-		var currentCount:Int = times.length;
-		framesPerSecond = Math.round(((currentCount + cacheCount) / 2) * (60 / 64));
-
-		if (currentCount != cacheCount)
-		{
-			mainText.text = getFramesPerSecond() + getRandomAccessMemory();
-
-			for (i in 0...outlineTextGrp.numChildren)
-			{
-				var outlineText:TextField = cast outlineTextGrp.getChildAt(i);
-				outlineText.text = getFramesPerSecond() + getRandomAccessMemory();
-			}
-		}
-
-		cacheCount = currentCount;
-
-		super.__enterFrame(cast deltaTime);
 	}
 
-	function getFramesPerSecond():String
-	{
-		return 'FPS: ' + (framesPerSecond ?? 0) + '\n';
-	}
-
-	function getRandomAccessMemory():String
+	function getMemory():String
 	{
 		if (randomAccessMemory != null)
 		{
-			var formattedBytes:String = FlxStringUtil.formatBytes(randomAccessMemory);
-
-			if (formattedBytes == '0MB') // mustve broke on our end!
-				return '';
-
-			return 'MEM: ' + formattedBytes;
+			var formatted:String = FlxStringUtil.formatBytes(randomAccessMemory);
+			return (formatted == "0MB") ? "" : "MEM: " + formatted;
 		}
 
-		return '';
+		return "";
 	}
 
 	function get_randomAccessMemory():Null<Float>
@@ -143,6 +85,8 @@ class PerformanceStats extends Sprite
 		#elseif hl
 		return hl.Gc.stats().currentMemory;
 		#elseif (js && html5)
+		// `window.performance.memory` is getting deprecated, and the only other memory checker is asynchronous.
+		// Remove this soon?
 		if (untyped __js__("(window.performance && window.performance.memory)"))
 			return untyped __js__("window.performance.memory.usedJSHeapSize");
 		#end

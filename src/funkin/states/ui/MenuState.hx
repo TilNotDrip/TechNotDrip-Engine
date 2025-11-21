@@ -5,7 +5,6 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.text.FlxText;
 import flixel.util.typeLimit.NextState;
-import funkin.macros.GitDefines;
 import funkin.substates.FunkinTransition;
 
 class MenuState extends FunkinState
@@ -106,11 +105,29 @@ class MenuState extends FunkinState
 
 	override public function update(elapsed:Float):Void
 	{
-		if (controls.waitAndRepeat().UI_UP && !selected)
+		if (selected)
+		{
+			super.update(elapsed);
+			return;
+		}
+
+		if (controls.waitAndRepeat().UI_UP)
 			changeItem(-1);
 
-		if (controls.waitAndRepeat().UI_DOWN && !selected)
+		if (controls.waitAndRepeat().UI_DOWN)
 			changeItem(1);
+
+		#if FLX_POINTER_INPUT
+		for (swipe in FlxG.swipes)
+		{
+			var yDistance:Float = swipe.endPosition.y - swipe.startPosition.y;
+			if (Math.abs(yDistance) > 125)
+			{
+				changeItem(yDistance > 0 ? -1 : 1);
+				trace(yDistance);
+			}
+		}
+		#end
 
 		if (controls.justPressed.BACK)
 		{
@@ -118,7 +135,73 @@ class MenuState extends FunkinState
 			FlxG.switchState(TitleState.new);
 		}
 
-		if (controls.justPressed.ACCEPT && !selected)
+		if (controls.justPressed.ACCEPT)
+		{
+			select();
+		}
+
+		for (i => menuItem in menuItemGroup.members)
+		{
+			var pressed:Bool = false;
+
+			#if FLX_MOUSE
+			if (FlxG.mouse.overlaps(menuItem) && FlxG.mouse.justPressed)
+				pressed = true;
+			#end
+
+			#if FLX_TOUCH
+			for (touch in FlxG.touches.list)
+			{
+				if (touch.overlaps(menuItem) && touch.justPressed)
+					pressed = true;
+			}
+			#end
+
+			if (pressed)
+			{
+				curSelected = i;
+				FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
+				changeItem();
+				select();
+			}
+		}
+
+		super.update(elapsed);
+	}
+
+	/**
+	 * Generates the Menu Items.
+	 */
+	public function generateMenuItems():Void
+	{
+		if (menuItemGroup != null)
+		{
+			menuItemGroup.forEach((spr:FunkinSprite) ->
+			{
+				spr.destroy();
+				menuItemGroup.remove(spr, true);
+			});
+		}
+
+		var spacing:Float = 160;
+		var top:Float = (FlxG.height - (spacing * (menuItems.length - 1))) / 2;
+
+		for (i => item in menuItems)
+		{
+			var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
+			itemSpr.loadFrames('ui/menu/items/' + item.id);
+			itemSpr.addAnimation('idle', item.id + ' idle', [], 30, true);
+			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
+			itemSpr.playAnimation('idle');
+			itemSpr.updateHitbox();
+			itemSpr.screenCenter(X);
+			menuItemGroup.add(itemSpr);
+		}
+	}
+
+	function select():Void
+	{
+		if (!selected)
 		{
 			selected = true;
 			FlxG.sound.play(Paths.content.audio('ui/menu/confirmMenu'));
@@ -156,38 +239,6 @@ class MenuState extends FunkinState
 					FlxG.resetState();
 				}
 			});
-		}
-
-		super.update(elapsed);
-	}
-
-	/**
-	 * Generates the Menu Items.
-	 */
-	public function generateMenuItems():Void
-	{
-		if (menuItemGroup != null)
-		{
-			menuItemGroup.forEach((spr:FunkinSprite) ->
-			{
-				spr.destroy();
-				menuItemGroup.remove(spr, true);
-			});
-		}
-
-		var spacing:Float = 160;
-		var top:Float = (FlxG.height - (spacing * (menuItems.length - 1))) / 2;
-
-		for (i => item in menuItems)
-		{
-			var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
-			itemSpr.loadFrames('ui/menu/items/' + item.id);
-			itemSpr.addAnimation('idle', item.id + ' idle', [], 30, true);
-			itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
-			itemSpr.playAnimation('idle');
-			itemSpr.updateHitbox();
-			itemSpr.screenCenter(X);
-			menuItemGroup.add(itemSpr);
 		}
 	}
 

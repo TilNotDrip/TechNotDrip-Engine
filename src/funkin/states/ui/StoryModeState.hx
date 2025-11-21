@@ -141,7 +141,9 @@ class StoryModeState extends FunkinState
 			for (spr in grpOfWeekSprGrps.members[curSelected].members)
 			{
 				if (spr.animationExists('confirm'))
+				{
 					spr.playAnimation('confirm', true);
+				}
 			}
 
 			grpWeekItems.members[curSelected].startFlashing();
@@ -246,7 +248,9 @@ class StoryModeState extends FunkinState
 		curSelected = FlxMath.wrap(curSelected + change, 0, loadedWeeks.length - 1);
 
 		if (change != 0)
+		{
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
+		}
 
 		colorBG.color = loadedWeeks[curSelected].getBGColor();
 
@@ -290,7 +294,9 @@ class StoryModeState extends FunkinState
 		curDifficulty = FlxMath.wrap(curDifficulty + change, 0, _difficulties.length - 1);
 
 		if (change != 0)
+		{
 			FlxG.sound.play(Paths.content.audio('ui/menu/scrollMenu'));
+		}
 
 		for (i => difficultySpr in difficultySprs.members)
 		{

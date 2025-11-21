@@ -35,21 +35,6 @@ class Constants
 	public static final GIT_MODIFIED:Bool = GitDefines.gitModified();
 
 	/**
-	 * How much space difficulties in Story Mode can have until they are sized down.
-	 */
-	public static final DIFFICULTY_SPACING:Float = 320;
-
-	/**
-	 * The vertical offset of the strumline from the top edge of the screen.
-	 */
-	public static final STRUMLINE_Y_OFFSET:Float = 50;
-
-	/**
-	 * A magic number used when calculating scroll speed and note distances.
-	 */
-	public static final PIXELS_PER_MS:Float = 0.45;
-
-	/**
 	 * Default Difficulties
 	 */
 	public static final DEFAULT_DIFFICULTIES:Array<String> = ['easy', 'normal', 'hard', 'erect', 'nightmare'];
@@ -58,6 +43,36 @@ class Constants
 	 * Default Difficulty
 	 */
 	public static final DEFAULT_DIFFICULTY:String = 'normal';
+
+	/**
+	 * How much space difficulties in Story Mode can have until they are sized down.
+	 */
+	public static final DIFFICULTY_SPACING:Float = 320;
+
+	/**
+	 * The value that the players health can be maxed out to in PlayState.
+	 */
+	public static final HEALTH_MAXIMUM:Float = 2.0;
+
+	/**
+	 * The value that the players health starts out at in PlayState.
+	 */
+	public static final HEALTH_DEFAULT:Float = 1.0;
+
+	/**
+	 * The value that the player can go down to before they die in PlayState.
+	 */
+	public static final HEALTH_MINIMUM:Float = 0.0;
+
+	/**
+	 * A magic number used when calculating scroll speed and note distances.
+	 */
+	public static final PIXELS_PER_MS:Float = 0.45;
+
+	/**
+	 * The vertical offset of the strumline from the top edge of the screen.
+	 */
+	public static final STRUMLINE_Y_OFFSET:Float = 50;
 
 	static function get_TECHNOTDRIP_VERSION():String
 	{

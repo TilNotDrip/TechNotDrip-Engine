@@ -25,8 +25,6 @@ class Paths
 	/**
 	 * The extension used for scripting files.
 	 *
-	 * We don't have scripting support yet nor an idea on what haxelib we use for it.
-	 *
 	 * @default hx
 	 */
 	public static inline final SCRIPT_EXT:String = 'hx';

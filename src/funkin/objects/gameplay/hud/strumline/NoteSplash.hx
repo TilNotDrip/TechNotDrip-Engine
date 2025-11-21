@@ -1,4 +1,4 @@
-package funkin.objects.gameplay.strumline;
+package funkin.objects.gameplay.hud.strumline;
 
 class NoteSplash extends FunkinSprite
 {
@@ -23,7 +23,7 @@ class NoteSplash extends FunkinSprite
 	public function loadNoteSplashes():Void
 	{
 		// TODO: make this softcoded
-		loadFrames('gameplay/strumline/default/noteSplashes');
+		loadFrames('gameplay/hud/funkin/strumline/noteSplashes');
 
 		for (direction in NoteDirection.allDirections)
 		{

@@ -19,6 +19,7 @@ import funkin.util.FunkinSpriteUtil;
 import funkin.util.MathUtil;
 import funkin.util.NoteDirection;
 import funkin.util.ReflectUtil;
+import funkin.util.StringUtil;
 import funkin.util.SystemUtil;
 import funkin.util.paths.Paths;
 import haxe.Exception;

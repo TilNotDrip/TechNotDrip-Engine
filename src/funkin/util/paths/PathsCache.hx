@@ -4,7 +4,6 @@ import flixel.graphics.FlxGraphic;
 import haxe.Http;
 import haxe.io.Bytes;
 import lime.media.AudioBuffer;
-import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
 import openfl.system.System;
@@ -61,7 +60,7 @@ class PathsCache
 
 			try
 			{
-				if (key.startsWith('https://'))
+				if (StringUtil.isURL(key))
 				{
 					var audioRequest:Http = new Http(key);
 					audioRequest.request();
@@ -102,7 +101,7 @@ class PathsCache
 
 			try
 			{
-				if (key.startsWith('https://'))
+				if (StringUtil.isURL(key))
 				{
 					var imageRequest:Http = new Http(key);
 					imageRequest.request();

@@ -1,2 +1,3 @@
+py cropSparrow.py
 cd ../../assets
 oxipng -o 6 --strip safe --alpha -r ./

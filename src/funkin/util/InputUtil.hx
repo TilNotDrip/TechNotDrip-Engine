@@ -2,6 +2,39 @@ package funkin.util;
 
 class InputUtil
 {
+	// TODO: Move all the Health Bonus Variables into a Rating class.
+
+	/**
+	 * The amount of health the player gains when hitting a note with the SICK rating.
+	 */
+	public static final HEALTH_SICK_BONUS:Float = 1.5 / 100.0 * 2; // +1.0%
+
+	/**
+	 * The amount of health the player gains when hitting a note with the GOOD rating.
+	 */
+	public static final HEALTH_GOOD_BONUS:Float = 0.75 / 100.0 * 2; // +0.75%
+
+	/**
+	 * The amount of health the player gains when hitting a note with the BAD rating.
+	 */
+	public static final HEALTH_BAD_BONUS:Float = 0.0 / 100.0 * 2; // +0.0%
+
+	/**
+	 * The amount of health the player gains when hitting a note with the SHIT rating.
+	 * If negative, the player will actually lose health.
+	 */
+	public static final HEALTH_SHIT_BONUS:Float = -1.0 / 100.0 * 2; // -1.0%
+
+	/**
+	 * The amount of health the player gains, while holding a hold note, per second.
+	 */
+	public static final HEALTH_HOLD_BONUS_PER_SECOND:Float = 6.0 / 100.0 * 2; // +6.0% / second
+
+	/**
+	 * The amount of health the player loses upon missing a note.
+	 */
+	public static final HEALTH_MISS_PENALTY:Float = -4.0 / 100.0 * 2; // 4.0%
+
 	/**
 	 * The maximum score a note can receive.
 	 */

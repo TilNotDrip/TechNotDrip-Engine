@@ -1,8 +1,11 @@
-package funkin.data;
+package funkin.data.strumline;
 
+import flixel.util.FlxSignal;
 import flixel.util.FlxSort;
-import funkin.objects.gameplay.strumline.NoteSprite;
-import funkin.objects.gameplay.strumline.Strumline;
+import funkin.objects.gameplay.hud.HealthIcon;
+import funkin.objects.gameplay.hud.strumline.NoteSprite;
+import funkin.objects.gameplay.hud.strumline.Strumline;
+import funkin.objects.gameplay.hud.strumline.SustainNoteSprite;
 import funkin.util.FunkinControls;
 import funkin.util.InputUtil;
 import haxe.Json;
@@ -27,6 +30,12 @@ class StrumlineData
 	public var character:String;
 
 	/**
+	 * The health icon corresponding to the strumline.
+	 * Will be `null` if health icons are disabled through `data`.
+	 */
+	public var healthIcon:HealthIcon;
+
+	/**
 	 * The strumline sprite.
 	 */
 	public var strumline:Strumline;
@@ -36,12 +45,69 @@ class StrumlineData
 	 */
 	public var conductorInUse:Conductor;
 
-	public function new(id:String)
+	/**
+	 * Called when a Note gets hit.
+	 */
+	public var onNoteHit:FlxTypedSignal<(note:NoteSprite, rating:String) -> Void> = new FlxTypedSignal<(note:NoteSprite, rating:String) -> Void>();
+
+	/**
+	 * Called when a Note gets missed.
+	 */
+	public var onNoteMiss:FlxTypedSignal<NoteSprite->Void> = new FlxTypedSignal<NoteSprite->Void>();
+
+	/**
+	 * Called when a Sustain Note gets missed.
+	 */
+	public var onSustainNoteMiss:FlxTypedSignal<SustainNoteSprite->Void> = new FlxTypedSignal<SustainNoteSprite->Void>();
+
+	/**
+	 * Called when the health is supposed to update. The `Float` is what the health is supposed to change by.
+	 */
+	public var onUpdateHealth:FlxTypedSignal<Float->Void> = new FlxTypedSignal<Float->Void>();
+
+	public function new(id:String, conductorInUse:Conductor)
 	{
 		this.id = id;
+		this.conductorInUse = conductorInUse;
 
-		var dataContent:String = Paths.content.json('gameplay/strumlineData/$id');
+		var dataContent:String = Paths.content.json('gameplay/hud/funkin/strumline/$id');
 		data = cast Json.parse(dataContent);
+
+		if (data.renderStrumline)
+		{
+			strumline = new Strumline(this);
+
+			strumline.y = Constants.STRUMLINE_Y_OFFSET;
+
+			strumline.x = switch (data.strumlinePosition)
+			{
+				case 'left':
+					MathUtil.center(FlxG.width / 2, strumline.width);
+				case 'right':
+					FlxG.width / 2 + MathUtil.center(FlxG.width / 2, strumline.width);
+				default:
+					0;
+			}
+
+			strumline.conductorInUse = conductorInUse;
+			// strumline.setupNotes(parent.chart);
+
+			if (!data.computerControlled)
+			{
+				onNoteHit.add(playerNoteHit);
+				onNoteMiss.add(playerNoteMiss);
+				onSustainNoteMiss.add(playerSustainMiss);
+			}
+		}
+
+		if (data.renderIcon)
+		{
+			// TODO: change these variables once we got functional support for stages and characters.
+			var iconID:String = id == 'opponent' ? 'dad' : 'bf';
+			var iconDirection:IconDirection = id == 'opponent' ? LEFT : RIGHT;
+
+			healthIcon = new HealthIcon(iconID, iconDirection);
+		}
 	}
 
 	public function update():Void
@@ -89,7 +155,6 @@ class StrumlineData
 
 		for (i in 0...controlArray.length)
 		{
-			// trace(controlArray[i]);
 			if (controlArray[i])
 			{
 				var direction:NoteDirection = cast(i, NoteDirection);
@@ -149,9 +214,8 @@ class StrumlineData
 				var rating:String = InputUtil.judgeNote(noteDiff);
 				var score:Int = InputUtil.scoreNote(noteDiff);
 
+				onNoteHit.dispatch(noteHit, rating);
 				strumline.noteHit(noteHit, rating == 'sick');
-				trace(rating);
-				trace(score);
 			}
 			else
 				strumline.getStrumNoteForDirection(input.direction).playAnimation('press', true);
@@ -163,6 +227,46 @@ class StrumlineData
 
 			strumline.getStrumNoteForDirection(input.direction).playAnimation('static', true);
 		}
+	}
+
+	function playerNoteHit(note:NoteSprite, rating:String):Void
+	{
+		var healthChange:Float = switch (rating)
+		{
+			case 'sick':
+				InputUtil.HEALTH_SICK_BONUS;
+			case 'good':
+				InputUtil.HEALTH_GOOD_BONUS;
+			case 'bad':
+				InputUtil.HEALTH_BAD_BONUS;
+			case 'shit':
+				InputUtil.HEALTH_SHIT_BONUS;
+			default:
+				0;
+		}
+
+		onUpdateHealth.dispatch(healthChange);
+	}
+
+	function playerNoteMiss(note:NoteSprite):Void
+	{
+		onUpdateHealth.dispatch(InputUtil.HEALTH_MISS_PENALTY);
+	}
+
+	function playerSustainMiss(sustainNote:SustainNoteSprite):Void
+	{
+		var penalty:Float = InputUtil.HEALTH_MISS_PENALTY;
+
+		if (sustainNote.lengthLeft > 500) // Extra damage if theres more than 500 miliseconds left, i felt a lil evil >:)
+		{
+			// 0.15% extra penalty for each 100 miliseconds.
+			var extraPenalty:Float = (InputUtil.HEALTH_MISS_PENALTY * 0.15) * Math.floor(sustainNote.lengthLeft / 100);
+			extraPenalty = Math.max(extraPenalty,
+				InputUtil.HEALTH_MISS_PENALTY * 3); // Maximizes at 3 times the original penalty, totaling to 4 times the original damage.
+			penalty += extraPenalty;
+		}
+
+		onUpdateHealth.dispatch(penalty);
 	}
 }
 
@@ -192,6 +296,12 @@ typedef StrumlineDataStructure =
 	 * This is usually enabled by a Player. (Boyfriend, Pico, etc.)
 	 */
 	var renderRatings:Bool;
+
+	/**
+	 * Whether the healthbar icon is rendered or not.
+	 * This is usually enabled by a Player. (Boyfriend, Pico, etc.)
+	 */
+	var renderIcon:Bool;
 
 	/**
 	 * The RGB data to use.

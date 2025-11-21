@@ -1,6 +1,7 @@
 package funkin.util.paths;
 
-import openfl.Assets;
+import haxe.io.Path;
+import lime.utils.Assets;
 
 /**
  * A Paths class that helps returning strings of paths.
@@ -24,7 +25,7 @@ class PathsLocation
 	 */
 	public function audio(key:String):String
 	{
-		if (key.startsWith('https://'))
+		if (StringUtil.isURL(key))
 			return get(key);
 
 		return get(key + '.' + Paths.AUDIO_EXT);
@@ -37,7 +38,7 @@ class PathsLocation
 	 */
 	public function image(key:String):String
 	{
-		if (key.startsWith('https://'))
+		if (StringUtil.isURL(key))
 			return get(key);
 
 		return get(key + '.' + Paths.IMAGE_EXT);
@@ -71,7 +72,7 @@ class PathsLocation
 	public function get(key:String):String
 	{
 		// TODO: Better Link Detection system, this will do for the short run though.
-		if (key.startsWith('https://'))
+		if (StringUtil.isURL(key))
 			return key;
 
 		return 'assets/' + key;
@@ -131,18 +132,15 @@ class PathsLocation
 					asset;
 
 				case PATH_FILE:
-					asset.split('assets/')[1];
+					asset.substring('assets/'.length);
 
 				case FILE:
-					var assetSplit:Array<String> = asset.split('/');
-					assetSplit[assetSplit.length - 1];
+					Path.withoutDirectory(asset);
 			}
 
 			if (!returnExt)
 			{
-				var assetSplit:Array<String> = assetToPush.split('.');
-				assetSplit.pop();
-				assetToPush = assetSplit.join('.');
+				assetToPush = Path.withoutExtension(assetToPush);
 			}
 
 			// Avoid duplicates especially if your removing all extentions.

@@ -198,14 +198,21 @@ class TitleState extends FunkinState
 	{
 		var canSkip:Bool = false;
 
-		#if mobile
+		#if FLX_MOUSE
+		if (FlxG.mouse.justPressed)
+			canSkip = true;
+		#end
+
+		#if FLX_TOUCH
 		for (touch in FlxG.touches.list)
 		{
-			canSkip = touch.justPressed;
+			if (touch.justPressed)
+				canSkip = true;
 		}
-		#else
-		canSkip = controls.justPressed.ACCEPT;
 		#end
+
+		if (controls.justPressed.ACCEPT)
+			canSkip = true;
 
 		if (canSkip)
 		{
@@ -228,14 +235,21 @@ class TitleState extends FunkinState
 
 		var canSkip:Bool = false;
 
-		#if mobile
+		#if FLX_MOUSE
+		if (FlxG.mouse.justPressed)
+			canSkip = true;
+		#end
+
+		#if FLX_TOUCH
 		for (touch in FlxG.touches.list)
 		{
-			canSkip = touch.justPressed;
+			if (touch.justPressed)
+				canSkip = true;
 		}
-		#else
-		canSkip = controls.justPressed.ACCEPT;
 		#end
+
+		if (controls.justPressed.ACCEPT)
+			canSkip = true;
 
 		if (canSkip && !transitioning)
 		{

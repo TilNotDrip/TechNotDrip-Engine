@@ -5,13 +5,6 @@
             "props": {},
             "type": "AvoidStarImport"
         },
-		{
-            "props": {
-                "thresholdSimilar": 100,
-                "thresholdIdentical": 60
-            },
-            "type": "CodeSimilarity"
-        },
         {
             "props": {},
             "type": "CommentedOutCode"

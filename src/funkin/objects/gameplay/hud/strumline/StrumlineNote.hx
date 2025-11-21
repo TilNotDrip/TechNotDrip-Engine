@@ -1,4 +1,4 @@
-package funkin.objects.gameplay.strumline;
+package funkin.objects.gameplay.hud.strumline;
 
 class StrumlineNote extends FunkinSprite
 {
@@ -30,7 +30,7 @@ class StrumlineNote extends FunkinSprite
 		super(x, y);
 
 		// TODO: make this softcoded
-		loadFrames('gameplay/strumline/default/noteStrumline');
+		loadFrames('gameplay/hud/funkin/strumline/noteStrumline');
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
 

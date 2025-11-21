@@ -1,9 +1,9 @@
 package funkin.states.gameplay;
 
 import flixel.util.FlxSort;
-import funkin.data.StrumlineData;
 import funkin.data.song.Song;
-import funkin.objects.gameplay.strumline.Strumline;
+import funkin.objects.gameplay.VoicesGroup;
+import funkin.objects.gameplay.hud.Hud;
 import funkin.structures.SongStructure;
 import funkin.util.StoryModeHandler;
 
@@ -46,24 +46,14 @@ class PlayState extends FunkinState
 	public var difficulty:String;
 
 	/**
-	 * The strumline data.
+	 * Collection of all HUD elements.
 	 */
-	public var strumlineDatas:Array<StrumlineData> = [];
+	public var hud:Hud;
 
 	/**
-	 * Strumlines.
+	 * The current vocals used for `this`.
 	 */
-	public var strumlines:FlxTypedGroup<Strumline>;
-
-	/**
-	 * The voice the player is using for this song.
-	 */
-	public var voicesPlayer:FlxSound;
-
-	/**
-	 * The voice the player is using for this song.
-	 */
-	public var voicesOpponent:FlxSound;
+	public var voices:VoicesGroup;
 
 	public function new(params:PlayStateParams)
 	{
@@ -78,93 +68,49 @@ class PlayState extends FunkinState
 		metadata = song?.metadatas.get(params.variation);
 
 		if (chart == null)
-			throw "Chart was not loaded.";
+			throw new Exception("Chart was not loaded.");
 
 		if (metadata == null)
-			throw "Metadata was not loaded.";
+			throw new Exception("Metadata was not loaded.");
 
 		super();
 	}
 
 	override public function create():Void
 	{
-		generateStrumlines();
+		// TODO: Remove this once we got the stage in.
+		// Maybe we can repurpose for a minimal mode?
+
+		var greyBG:FunkinSprite = new FunkinSprite();
+		greyBG.loadTexture('#323232', FlxG.width * 1.5, FlxG.height * 1.5);
+		greyBG.screenCenter();
+		add(greyBG);
+
+		hud = new Hud({
+			ui: 'funkin',
+			downScroll: false // TODO: THE DRILL YOU KNOW IT
+		});
+		hud.generateStrumlines();
+		add(hud);
+
 		generateSong();
 
 		super.create();
 	}
 
-	public function generateStrumlines():Void
-	{
-		strumlines = new FlxTypedGroup<Strumline>();
-		add(strumlines);
-
-		metadata = song?.metadatas.get('default');
-
-		for (strumlineID in ['player', 'opponent', 'spectator'])
-		{
-			var strumlineData:StrumlineData = new StrumlineData(strumlineID);
-			strumlineData.conductorInUse = conductor;
-			strumlineDatas.push(strumlineData);
-
-			if (strumlineData.data.renderStrumline)
-			{
-				var strumline:Strumline = new Strumline(strumlineData);
-
-				strumline.y = Constants.STRUMLINE_Y_OFFSET;
-
-				strumline.x = switch (strumlineData.data.strumlinePosition)
-				{
-					case 'left':
-						MathUtil.center(FlxG.width / 2, strumline.width);
-					case 'right':
-						FlxG.width / 2 + MathUtil.center(FlxG.width / 2, strumline.width);
-					default:
-						0;
-				}
-
-				strumline.conductorInUse = conductor;
-				strumline.setupNotes(chart);
-				strumlineData.strumline = strumline;
-				strumlines.add(strumline);
-			}
-		}
-	}
-
+	/**
+	 * Generate everything song-related.
+	 */
 	public function generateSong():Void
 	{
 		FlxG.sound.playMusic(Paths.content.audio('gameplay/songs/${song.id}/Inst'), 1, false);
 		FlxG.sound.music.stop();
 
-		if (Paths.location.exists('gameplay/songs/${song.id}/Voices-Opponent.ogg')
-			&& Paths.location.exists('gameplay/songs/${song.id}/Voices-Player.ogg'))
-		{
-			voicesOpponent = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices-Opponent'));
-			voicesOpponent.stop();
-
-			voicesPlayer = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices-Player'));
-			voicesPlayer.stop();
-		}
-		else if (Paths.location.exists('gameplay/songs/${song.id}/Voices.ogg'))
-		{
-			voicesPlayer = FlxG.sound.load(Paths.content.audio('gameplay/songs/${song.id}/Voices'));
-			voicesPlayer.stop();
-		}
-		else
-		{
-			trace('[NOTICE] The current song does not have vocals.');
-		}
+		voices = new VoicesGroup(song.id);
+		voices.traceInfo();
 
 		FlxG.sound.music.play();
-		getPlayerSound()?.play();
-		getOpponentSound()?.play();
-
-		var soundsAvailable:Array<FlxSound> = [FlxG.sound.music, getPlayerSound(), getOpponentSound()];
-		soundsAvailable.sort((a:FlxSound, b:FlxSound) ->
-		{
-			return FlxSort.byValues(FlxSort.DESCENDING, a?.length ?? 0, b?.length ?? 0);
-		});
-		soundsAvailable[0].onComplete = finishSong;
+		voices.play();
 
 		conductor.setupBPMChanges(metadata.bpmChanges);
 	}
@@ -173,15 +119,31 @@ class PlayState extends FunkinState
 	{
 		conductor.update();
 
-		for (i in strumlineDatas)
-			i.update();
-
 		super.update(elapsed);
 
-		if (controls.justPressed.BACK)
+		// TODO: make a real debugging keybind for ending the song early.
+		if (controls.justPressed.BACK || isSongFinished())
 		{
 			finishSong();
 		}
+	}
+
+	/**
+	 * Check to see if the song is finished.
+	 * @return If the song is finished or not.
+	 */
+	public function isSongFinished():Bool
+	{
+		for (sound in voices.sounds.concat([FlxG.sound.music]))
+		{
+			// Since `active` gets flipped when the sound is inactive, we can assume thats when it's finished.
+			// Theoretically you can also trick the game by stopping all the sounds, which might be useful for modders.
+
+			if (sound.active)
+				return false;
+		}
+
+		return true;
 	}
 
 	/**
@@ -201,16 +163,6 @@ class PlayState extends FunkinState
 
 			FlxG.switchState(funkin.states.ui.FreeplayState.new);
 		}
-	}
-
-	public function getPlayerSound():FlxSound
-	{
-		return voicesPlayer;
-	}
-
-	public function getOpponentSound():FlxSound
-	{
-		return voicesOpponent ?? voicesPlayer;
 	}
 }
 

@@ -1,4 +1,4 @@
-package funkin.objects.gameplay.strumline;
+package funkin.objects.gameplay.hud.strumline;
 
 import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.frames.FlxFramesCollection;
@@ -31,6 +31,11 @@ class SustainNoteSprite extends FunkinSprite
 	public var currentlyHeld:Bool = false;
 
 	/**
+	 * The length left on the sustain note. Used for missing.
+	 */
+	public var lengthLeft:Float = 0;
+
+	/**
 	 * If the parent note was hit already.
 	 */
 	public var parentWasHit:Bool = false;
@@ -44,6 +49,7 @@ class SustainNoteSprite extends FunkinSprite
 	{
 		this.data = data;
 		this.scrollSpeed = scrollSpeed;
+		lengthLeft = data.length;
 
 		loadGraphic(generateSprite(data, scrollSpeed));
 		setGraphicSize(Std.int(width * 0.7));
@@ -69,6 +75,8 @@ class SustainNoteSprite extends FunkinSprite
 			clipRect.y /= 0.7;
 
 			clipRect = clipRect;
+
+			lengthLeft = (data.time + data.length) - currentTime;
 		}
 	}
 
@@ -87,7 +95,7 @@ class SustainNoteSprite extends FunkinSprite
 	// THIS ASSUMES YOU WILL SCALE IT BY 0.7!!
 	static function generateSprite(data:NoteData, scrollSpeed:Float):BitmapData
 	{
-		var noteFrames:FlxFramesCollection = Paths.content.sparrowAtlas('gameplay/strumline/default/notes');
+		var noteFrames:FlxFramesCollection = Paths.content.sparrowAtlas('gameplay/hud/funkin/strumline/notes');
 		var holdPiece:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold piece')[0];
 		var holdEnd:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold end')[0];
 		var toReturn:BitmapData = new BitmapData(Std.int(Math.max(holdPiece.sourceSize.x, holdEnd.sourceSize.x)),

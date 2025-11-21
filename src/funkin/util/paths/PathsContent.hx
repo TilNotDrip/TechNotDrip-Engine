@@ -3,7 +3,6 @@ package funkin.util.paths;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFramesCollection;
-import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
 
@@ -89,7 +88,17 @@ class PathsContent
 	public function text(key:String):String
 	{
 		var assetKey:String = Paths.location.get(key);
-		return FlxG.assets.getText(assetKey, false);
+		return rawText(assetKey);
+	}
+
+	/**
+	 * Returns text from a file.
+	 * @param path The path to use for returning the text inside.
+	 * @return A string with text from a file.
+	 */
+	public function rawText(path:String):String
+	{
+		return FlxG.assets.getText(path, false);
 	}
 
 	/**

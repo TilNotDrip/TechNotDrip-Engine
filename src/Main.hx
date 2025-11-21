@@ -7,8 +7,9 @@ import flixel.util.typeLimit.NextState;
 import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
-import openfl.Assets;
+import lime.utils.Assets as LimeAssets;
 import openfl.display.Sprite;
+import openfl.utils.Assets as OpenFlAssets;
 #if FUNKIN_DISCORD_RPC
 import funkin.api.DiscordRPC;
 #end
@@ -42,10 +43,11 @@ class Main extends Sprite
 			!flxGameData.showSplash, flxGameData.startFullscreen);
 		addChild(flxGame);
 
-		performanceStats = new PerformanceStats(5, 5);
+		performanceStats = new PerformanceStats();
 		addChild(performanceStats);
 
-		Assets.cache.enabled = false;
+		OpenFlAssets.cache.enabled = false;
+		LimeAssets.cache.enabled = false;
 
 		#if FLX_MOUSE
 		FlxG.mouse.useSystemCursor = true;
@@ -63,6 +65,17 @@ class Main extends Sprite
 		DiscordRPC.initialize();
 		DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
 		#end
+
+		stage.window.onClose.add(closeWindow);
+	}
+
+	/**
+	 * Called when the game gets closed.
+	 */
+	public function closeWindow():Void
+	{
+		trace('Bye Bye!');
+		Save.instance.flush();
 	}
 }
 
