@@ -25,8 +25,8 @@
 			},
 			{
 				"name": "flixel-controls",
-				"link": "https://github.com/Geokureli/FlxControls",
-				"branch": "5fa97eab4ac29499a8f2a4abcd46f6f6cd1192b9"
+				"link": "https://github.com/TechnikTil/FlxControls",
+				"branch": "058538d1a80de56a0c84521b81ba87f5649f6b5a"
 			},
 			{
 				"name": "flxanimate",
