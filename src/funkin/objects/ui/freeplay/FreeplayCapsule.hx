@@ -55,9 +55,9 @@ class FreeplayCapsule extends FlxSpriteGroup
 	{
 		capsuleText.text = name;
 
-		icon.visible = (icon != null);
+		icon.visible = (iconID != null);
 
-		if (icon != null)
+		if (iconID != null)
 			icon.setCharacter(iconID);
 	}
 
