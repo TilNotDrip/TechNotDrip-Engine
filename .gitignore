@@ -14,3 +14,4 @@ RECOVER_*.fla
 docs/dox/
 dump/
 export/
+.macrocache
