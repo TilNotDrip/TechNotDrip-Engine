@@ -47,7 +47,7 @@ class Week
 		}
 		catch (e:Exception)
 		{
-			trace('[WARNING]: Week Data could not be loaded! ($id) More details: ${e.message}');
+			trace('[WARNING] Week Data could not be loaded! ($id) More details: ${e.message}');
 			return null;
 		}
 

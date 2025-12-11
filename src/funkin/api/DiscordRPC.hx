@@ -294,17 +294,17 @@ class DiscordRPC
 
 		updatePresence();
 
-		trace('[INFO]: Discord RPC Successfully connected! Connected to ${request[0].globalName} (${request[0].username}$displayDiscrim)');
+		trace('[INFO] Discord RPC Successfully connected! Connected to ${request[0].globalName} (${request[0].username}$displayDiscrim)');
 	}
 
 	static function onDisconnected(errorCode:Int, message:cpp.ConstCharStar):Void
 	{
-		trace('[INFO]: Discord RPC Disconnected! $message ($errorCode)');
+		trace('[INFO] Discord RPC Disconnected! $message ($errorCode)');
 	}
 
 	static function onError(errorCode:Int, message:cpp.ConstCharStar):Void
 	{
-		trace('[ERROR]: Discord RPC Error! $message ($errorCode)');
+		trace('[ERROR] Discord RPC Error! $message ($errorCode)');
 	}
 
 	// Setting Discord RPC Variables

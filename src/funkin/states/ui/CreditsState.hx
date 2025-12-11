@@ -9,7 +9,11 @@ import flixel.util.FlxSpriteUtil;
 import funkin.objects.ui.Alphabet;
 import haxe.Http;
 import haxe.Json;
+import haxe.ds.StringMap;
 import haxe.xml.Access;
+#if FUNKIN_GIT_DETAILS
+import funkin.macros.GitContributorMacro;
+#end
 
 class CreditsState extends FunkinState
 {
@@ -63,6 +67,13 @@ class CreditsState extends FunkinState
 	 */
 	public static final ICON_DISTANCE:Float = 15;
 
+	#if FUNKIN_GIT_DETAILS
+	/**
+	 * Percentage of commits done per contributor.
+	 */
+	public static final CONTRIBUTOR_PERCENTAGES:Map<String, Float> = GitContributorMacro.percentages();
+	#end
+
 	/**
 	 * The current item selected.
 	 */
@@ -107,13 +118,6 @@ class CreditsState extends FunkinState
 	 * The XML Data for the credits.
 	 */
 	public var creditsXML:Access;
-
-	#if FUNKIN_GIT_DETAILS
-	/**
-	 * The XML Data for the credits.
-	 */
-	public var githubContributors:Map<String, Float> = getGithubContributors();
-	#end
 
 	override public function create():Void
 	{
@@ -246,7 +250,7 @@ class CreditsState extends FunkinState
 		}
 		catch (e:Exception)
 		{
-			trace('[WARNING]: Credits data is invalid! (${e.toString()})');
+			trace('[WARNING] Credits data is invalid! (${e.toString()})');
 			FlxG.switchState(MenuState.new);
 			return;
 		}
@@ -291,7 +295,7 @@ class CreditsState extends FunkinState
 				#if FUNKIN_GIT_DETAILS
 				if (socials.hasNode.github && socials.node.github.has.contributor && socials.node.github.att.contributor == 'true')
 				{
-					var percentage:Null<Float> = githubContributors.get(socials.node.github.innerData);
+					var percentage:Null<Float> = CONTRIBUTOR_PERCENTAGES.get(socials.node.github.innerData);
 					data.githubContribPercent = percentage;
 				}
 				#end

@@ -201,7 +201,7 @@ class AlphabetLetter extends FunkinSprite
 		if (animationExists('letter'))
 			playAnimation('letter');
 		else
-			trace("[WARNING]: " + (cast(head.letterType, String)) + " doesn't have " + letter + '! (Animation Name: ' + animName + ')');
+			trace("[WARNING] " + (cast(head.letterType, String)) + " doesn't have " + letter + '! (Animation Name: ' + animName + ')');
 
 		updateHitbox();
 

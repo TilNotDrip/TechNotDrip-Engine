@@ -15,7 +15,7 @@ class SaveMigrator
 		}
 		catch (e:Exception)
 		{
-			trace('[ERROR]: Migrating save data has an invalid version.');
+			trace('[ERROR] Migrating save data has an invalid version.');
 			version = null;
 		}
 
@@ -31,7 +31,7 @@ class SaveMigrator
 
 		if (version != Save.SAVE_VERSION && version.satisfies(Save.SAVE_VERSION_RULE))
 		{
-			trace('[INFO]: Old/New version ($version) compatible with new/old (${Save.SAVE_VERSION})');
+			trace('[INFO] Old/New version ($version) compatible with new/old (${Save.SAVE_VERSION})');
 			var defaultData:Dynamic = Save.getDefault();
 
 			saveData = ReflectUtil.deepMerge(defaultData, saveData, false);

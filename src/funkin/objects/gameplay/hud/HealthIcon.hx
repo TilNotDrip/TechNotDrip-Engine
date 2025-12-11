@@ -84,14 +84,14 @@ class HealthIcon extends FunkinSprite
 
 		if (metadataText == null)
 		{
-			trace('[ERROR]: Unable to load the Icon Metadata of $id! Maybe it doesnt exist? Falling Back to Default...');
+			trace('[ERROR] Unable to load the Icon Metadata of $id! Maybe it doesnt exist? Falling Back to Default...');
 
 			id = 'face';
 			metadataText = Paths.content.json('gameplay/icons/' + id + '/data');
 
 			if (metadataText == null)
 			{
-				trace('[FATAL ERROR]: Tried loading metadata for default icon, but it failed! [$id] Loading HaxeFlixel image...');
+				trace('[FATAL ERROR] Tried loading metadata for default icon, but it failed! [$id] Loading HaxeFlixel image...');
 				loadGraphic("flixel/images/logo/default.png");
 				setGraphicSize(150, 150);
 				antialiasing = false;

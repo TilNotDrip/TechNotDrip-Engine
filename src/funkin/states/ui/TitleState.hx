@@ -118,7 +118,7 @@ class TitleState extends FunkinState
 		}
 		catch (e:Exception)
 		{
-			trace('[WARNING]: introText data is invalid! (${e.toString()})');
+			trace('[WARNING] introText data is invalid! (${e.toString()})');
 		}
 
 		getRandomIntroText();

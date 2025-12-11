@@ -1,5 +1,6 @@
 package;
 
+import haxe.Exception;
 import hxp.*;
 import lime.tools.*;
 import sys.io.Process;
@@ -18,7 +19,7 @@ class Project extends HXProject
 	 */
 	public final TECHNOTDRIP_VERSION:String = '0.1.0';
 
-		/**
+	/**
 	 * `-DFUNKIN_DISCORD_RPC`
 	 * Whether the game should have Discord RPC.
 	 * Developers can set this by checking the flag above.
@@ -45,12 +46,6 @@ class Project extends HXProject
 	 * Developers can set this by checking the flag above.
 	 */
 	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_ASSETS_FORWARDING';
-
-	public var GIT_HASH:String = null;
-
-	public var GIT_BRANCH:String = null;
-
-	public var GIT_MODIFIED:Null<Bool> = null;
 
 	public function new()
 	{
@@ -133,7 +128,7 @@ class Project extends HXProject
 		// The second parameter is the default value unless overridden!
 		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP && haxedefs.get('cpp')); // Will be enabled if its on desktop (windows, linux, mac)!
 		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
-		FUNKIN_GIT_DETAILS.apply(this, !['stable', 'main', 'master', null].contains(getGitBranch().toLowerCase())); // Will show if it isn't the main branch!
+		FUNKIN_GIT_DETAILS.apply(this, isGitInitialized()); // Only show details when this is a git repository.
 		FUNKIN_ASSETS_FORWARDING.apply(this, platformType == DESKTOP && debug);
 	}
 
@@ -166,11 +161,15 @@ class Project extends HXProject
 		addHaxeDefine('FLX_NO_TOUCH', platformType != MOBILE);
 		addHaxeDefine('message.reporting', 'pretty');
 		addHaxeDefine('NAPE_RELEASE_BUILD', !debug);
-		addHaxeDefine('TND_GIT_HASH', getGitHash(false));
-		addHaxeDefine('TND_GIT_BRANCH', getGitBranch());
-		addHaxeDefine('TND_GIT_MODIFIED', getGitModified());
 
-		if(haxedefs.get('android'))
+		if (FUNKIN_GIT_DETAILS.isEnabled(this))
+		{
+			addHaxeDefine('TND_GIT_HASH', getGitHash());
+			addHaxeDefine('TND_GIT_BRANCH', getGitBranch());
+			addHaxeDefine('TND_GIT_MODIFIED', getGitModified());
+		}
+
+		if (haxedefs.get('android'))
 		{
 			config.set("android.gradle-version", '7.4.2');
 			config.set("android.gradle-plugin", "7.3.1");
@@ -219,77 +218,65 @@ class Project extends HXProject
 		icons.push(new Icon(path, size));
 	}
 
-	function getGitHash(splice:Bool = false):String
+	function isGitInitialized():Bool
 	{
-		if (GIT_HASH == null)
+		var gitProcess:Process = new Process('git', ['status']);
+
+		var exitCode:Int = gitProcess.exitCode();
+		gitProcess.close();
+
+		return exitCode == 0;
+	}
+
+	function getGitHash():String
+	{
+		var gitProcess:Process = new Process('git', ['rev-parse', 'HEAD']);
+
+		var gitHash:String = gitProcess.stdout.readLine().trim();
+		var exitCode:Int = gitProcess.exitCode();
+		gitProcess.close();
+
+		if (exitCode != 0)
 		{
-			var gitProcess:Process = new Process('git', ['rev-parse', 'HEAD']);
-
-			if (gitProcess.exitCode() != 0)
-			{
-				trace('[WARNING]: Unable to get current git repository hash.');
-				return null;
-			}
-			else
-			{
-				GIT_HASH = gitProcess.stdout.readLine().trim();
-			}
-
-			gitProcess.close();
+			trace('[WARNING] Unable to get current git repository hash.');
+			return null;
 		}
 
-		return GIT_HASH;
+		return gitHash;
 	}
 
 	function getGitBranch():String
 	{
-		if (GIT_BRANCH == null)
+		var gitProcess:Process = new Process('git', ['rev-parse', '--abbrev-ref', 'HEAD']);
+
+		var gitBranch:String = gitProcess.stdout.readLine().trim();
+		var exitCode:Int = gitProcess.exitCode();
+		gitProcess.close();
+
+		if (exitCode != 0)
 		{
-			var gitProcess:Process = new Process('git', ['rev-parse', '--abbrev-ref', 'HEAD']);
-
-			if (gitProcess.exitCode() != 0)
-			{
-				trace('[WARNING]: Unable to get current git repository branch.');
-				return null;
-			}
-			else
-			{
-				GIT_BRANCH = gitProcess.stdout.readLine().trim();
-			}
-
-			gitProcess.close();
+			trace('[WARNING] Unable to get current git repository branch.');
+			return null;
 		}
 
-		return GIT_BRANCH;
+		return gitBranch;
 	}
 
 	function getGitModified():Bool
 	{
-		if (GIT_MODIFIED == null)
+		var gitProcess:Process = new Process('git', ['status', '--porcelain']);
+
+		var gitModifiedFiles:String = gitProcess.stdout.readLine().trim();
+		var exitCode:Int = gitProcess.exitCode();
+		gitProcess.close();
+
+		if (exitCode != 0)
 		{
-			var gitProcess:Process = new Process('git', ['status', '--porcelain']);
-
-			if (gitProcess.exitCode() != 0)
-			{
-				trace('[WARNING]: Unable to get current git repository branch.');
-				return null;
-			}
-			else
-			{
-				try
-				{
-					GIT_MODIFIED = gitProcess.stdout.readLine().trim().length > 0;
-				}
-				catch(e)
-				{
-					return false; // idk it breaks sometimes
-				}
-			}
-
-			gitProcess.close();
+			trace('[WARNING] Unable to get current git repository status.');
+			return false;
 		}
 
-		return GIT_MODIFIED;
+		return gitModifiedFiles.length > 0;
 	}
 }
 
@@ -297,15 +284,18 @@ class Project extends HXProject
  * An object representing a feature flag, which can be enabled or disabled.
  * Includes features such as automatic generation of compile defines and inversion.
  */
-abstract FeatureFlag(String) {
+abstract FeatureFlag(String)
+{
 	static final INVERSE_PREFIX:String = "NO_";
 
-	public function new(input:String) {
+	public function new(input:String)
+	{
 		this = input;
 	}
 
 	@:from
-	public static function fromString(input:String):FeatureFlag {
+	public static function fromString(input:String):FeatureFlag
+	{
 		return new FeatureFlag(input);
 	}
 
@@ -314,20 +304,29 @@ abstract FeatureFlag(String) {
 	 * Doesn't override a feature flag that was set explicitly.
 	 * @param enableByDefault Whether to enable this feature flag if it is unset.
 	 */
-	public function apply(project:Project, enableByDefault:Bool = false):Void {
+	public function apply(project:Project, enableByDefault:Bool = false):Void
+	{
 		// TODO: Name this function better?
 
-		if (isEnabled(project)) {
+		if (isEnabled(project))
+		{
 			// If this flag was already enabled, disable the inverse.
 			getInverse().disable(project, false);
-		} else if (getInverse().isEnabled(project)) {
+		}
+		else if (getInverse().isEnabled(project))
+		{
 			// If the inverse flag was already enabled, disable this flag.
 			disable(project, false);
-		} else {
-			if (enableByDefault) {
+		}
+		else
+		{
+			if (enableByDefault)
+			{
 				// Enable this flag if it was unset, and disable the inverse.
 				enable(project, true);
-			} else {
+			}
+			else
+			{
 				// Disable this flag if it was unset, and enable the inverse.
 				disable(project, true);
 			}
@@ -340,9 +339,11 @@ abstract FeatureFlag(String) {
 	 * @param project The project to modify.
 	 * @param andInverse Also disable the feature flag's inverse.
 	 */
-	public function enable(project:Project, andInverse:Bool = true) {
+	public function enable(project:Project, andInverse:Bool = true)
+	{
 		project.haxedefs.set(this, "");
-		if (andInverse) {
+		if (andInverse)
+		{
 			getInverse().disable(project, false);
 		}
 	}
@@ -353,9 +354,11 @@ abstract FeatureFlag(String) {
 	 * @param project The project to modify.
 	 * @param andInverse Also enable the feature flag's inverse.
 	 */
-	public function disable(project:Project, andInverse:Bool = true) {
+	public function disable(project:Project, andInverse:Bool = true)
+	{
 		project.haxedefs.remove(this);
-		if (andInverse) {
+		if (andInverse)
+		{
 			getInverse().enable(project, false);
 		}
 	}
@@ -364,7 +367,8 @@ abstract FeatureFlag(String) {
 	 * Query if this feature flag is enabled.
 	 * @param project The project to query.
 	 */
-	public function isEnabled(project:Project):Bool {
+	public function isEnabled(project:Project):Bool
+	{
 		// Check both Haxedefs and Defines for this flag.
 		return project.haxedefs.exists(this) || project.defines.exists(this);
 	}
@@ -372,7 +376,8 @@ abstract FeatureFlag(String) {
 	/**
 	 * Query if this feature flag's inverse is enabled.
 	 */
-	public function isDisabled(project:Project):Bool {
+	public function isDisabled(project:Project):Bool
+	{
 		return getInverse().isEnabled(project);
 	}
 
@@ -380,8 +385,10 @@ abstract FeatureFlag(String) {
 	 * Return the inverse of this feature flag.
 	 * @return A new feature flag that is the inverse of this one.
 	 */
-	public function getInverse():FeatureFlag {
-		if (this.startsWith(INVERSE_PREFIX)) {
+	public function getInverse():FeatureFlag
+	{
+		if (this.startsWith(INVERSE_PREFIX))
+		{
 			return this.substring(INVERSE_PREFIX.length);
 		}
 		return INVERSE_PREFIX + this;

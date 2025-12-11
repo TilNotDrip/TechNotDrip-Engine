@@ -73,7 +73,7 @@ class PathsCache
 			}
 			catch (e:Exception)
 			{
-				trace('[WARNING]: Audio could not be loaded! ($key) More details: ${e.message}');
+				trace('[WARNING] Audio could not be loaded! ($key) More details: ${e.message}');
 				return null;
 			}
 
@@ -114,7 +114,7 @@ class PathsCache
 			}
 			catch (e:Exception)
 			{
-				trace('[WARNING]: Image could not be loaded! ($key) More details: ${e.message}');
+				trace('[WARNING] Image could not be loaded! ($key) More details: ${e.message}');
 				return null;
 			}
 
