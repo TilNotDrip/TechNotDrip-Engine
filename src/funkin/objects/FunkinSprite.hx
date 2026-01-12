@@ -1,8 +1,6 @@
 package funkin.objects;
 
-import flixel.FlxCamera;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-import flixel.math.FlxPoint;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import flxanimate.FlxAnimate;
 import funkin.structures.ObjectStructure;
@@ -12,12 +10,6 @@ import funkin.structures.ObjectStructure;
  */
 class FunkinSprite extends FlxSprite
 {
-	/**
-	 * uh oh! the letters are ANGRY!!
-	 * wont work on animate atlases :(
-	 */
-	static var spritesAreAngy:Bool = FlxG.random.bool(0.9125);
-
 	/**
 	 * Draws this `FunkinSprite`, but invisible.
 	 * This is basically visible/alpha, but it doesn't lag when you make it visible again.
@@ -159,17 +151,6 @@ class FunkinSprite extends FlxSprite
 		atlas.shader = shader;
 		atlas.antialiasing = antialiasing;
 		atlas.colorTransform = colorTransform;
-	}
-
-	// crusher, do you FUCKING dare import these.
-	override public function getScreenPosition(?result:FlxPoint, ?camera:FlxCamera):FlxPoint
-	{
-		var point:FlxPoint = super.getScreenPosition(result, camera);
-
-		if (spritesAreAngy)
-			point.add(FlxG.random.float(-2, 2), FlxG.random.float(-2, 2));
-
-		return point;
 	}
 
 	// ANIMATION BINDINGS

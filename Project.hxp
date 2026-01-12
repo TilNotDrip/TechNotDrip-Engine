@@ -220,63 +220,87 @@ class Project extends HXProject
 
 	function isGitInitialized():Bool
 	{
-		var gitProcess:Process = new Process('git', ['status']);
+		try
+		{
+			var gitProcess:Process = new Process('git', ['status']);
 
-		var exitCode:Int = gitProcess.exitCode();
-		gitProcess.close();
+			var exitCode:Int = gitProcess.exitCode();
+			gitProcess.close();
 
-		return exitCode == 0;
+			return exitCode == 0;
+		}
+		catch(e:Exception)
+		{
+			return false;
+		}
+
 	}
 
 	function getGitHash():String
 	{
-		var gitProcess:Process = new Process('git', ['rev-parse', 'HEAD']);
+		try
+		{
+			var gitProcess:Process = new Process('git', ['rev-parse', 'HEAD']);
 
-		var gitHash:String = gitProcess.stdout.readLine().trim();
-		var exitCode:Int = gitProcess.exitCode();
-		gitProcess.close();
+			var gitHash:String = gitProcess.stdout.readLine().trim();
+			var exitCode:Int = gitProcess.exitCode();
+			gitProcess.close();
 
-		if (exitCode != 0)
+			if (exitCode != 0)
+				throw new Exception("Non-Zero Exit Code");
+
+			return gitHash;
+		}
+		catch(e:Exception)
 		{
 			trace('[WARNING] Unable to get current git repository hash.');
 			return null;
 		}
-
-		return gitHash;
 	}
 
 	function getGitBranch():String
 	{
-		var gitProcess:Process = new Process('git', ['rev-parse', '--abbrev-ref', 'HEAD']);
+		try
+		{
+			var gitProcess:Process = new Process('git', ['rev-parse', '--abbrev-ref', 'HEAD']);
 
-		var gitBranch:String = gitProcess.stdout.readLine().trim();
-		var exitCode:Int = gitProcess.exitCode();
-		gitProcess.close();
+			var gitBranch:String = gitProcess.stdout.readLine().trim();
+			var exitCode:Int = gitProcess.exitCode();
+			gitProcess.close();
 
-		if (exitCode != 0)
+			if (exitCode != 0)
+				throw new Exception("Non-Zero Exit Code");
+
+			return gitBranch;
+		}
+		catch(e:Exception)
 		{
 			trace('[WARNING] Unable to get current git repository branch.');
 			return null;
 		}
-
-		return gitBranch;
 	}
 
 	function getGitModified():Bool
 	{
-		var gitProcess:Process = new Process('git', ['status', '--porcelain']);
+		try
+		{
+			var gitProcess:Process = new Process('git', ['status', '--porcelain']);
 
-		var gitModifiedFiles:String = gitProcess.stdout.readLine().trim();
-		var exitCode:Int = gitProcess.exitCode();
-		gitProcess.close();
+			var gitModifiedFiles:String = gitProcess.stdout.readLine().trim();
+			var exitCode:Int = gitProcess.exitCode();
+			gitProcess.close();
 
-		if (exitCode != 0)
+			if (exitCode != 0)
+				throw new Exception("Non-Zero Exit Code");
+
+			return gitModifiedFiles.length > 0;
+		}
+		catch(e:Exception)
 		{
 			trace('[WARNING] Unable to get current git repository status.');
 			return false;
 		}
 
-		return gitModifiedFiles.length > 0;
 	}
 }
 
