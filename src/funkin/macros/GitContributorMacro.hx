@@ -56,22 +56,11 @@ class GitContributorMacro
 			denominator++;
 		}
 
-		var info:String = '';
-
-		for (username in amountPerUser.keys())
+		for (i => username in usernames)
 		{
-			var percentage:Float = (amountPerUser.get(username) ?? 0) / denominator;
+			var percentage:Float = (numerators[i] ?? 0) / denominator;
 			percentages.set(username, percentage);
-
-			if (info.length > 0)
-				info += '\n';
-
-			info += '${username}: ${Math.round(percentage * 100)}%';
 		}
-
-		#if debug
-		Context.info(info, Context.currentPos());
-		#end
 
 		return macro $v{percentages};
 	}
