@@ -32,6 +32,12 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install
 
+      - name: Compile HXCPP Build Tools
+        run: |
+          cd .haxelib/hxcpp/git/tools/hxcpp
+          haxe compile.hxml
+          cd ../../../../..
+
       - name: Compile Application
         run: haxelib run lime build windows
 
@@ -105,6 +111,12 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install
 
+      - name: Compile HXCPP Build Tools
+        run: |
+          cd .haxelib/hxcpp/git/tools/hxcpp
+          haxe compile.hxml
+          cd ../../../../..
+
       - name: Compile Application
         run: haxelib run lime build linux
 
@@ -154,6 +166,12 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install
 
+      - name: Compile HXCPP Build Tools
+        run: |
+          cd .haxelib/hxcpp/git/tools/hxcpp
+          haxe compile.hxml
+          cd ../../../../..
+
       - name: Configure Android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
@@ -196,6 +214,12 @@ jobs:
         run: |
           haxelib install hmm --quiet
           haxelib run hmm install
+
+      - name: Compile HXCPP Build Tools
+        run: |
+          cd .haxelib/hxcpp/git/tools/hxcpp
+          haxe compile.hxml
+          cd ../../../../..
 
       - name: Compile Application
         run: haxelib run lime build ios -nosign
