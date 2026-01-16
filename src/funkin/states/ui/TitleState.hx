@@ -45,7 +45,7 @@ class TitleState extends FunkinState
 	 */
 	public var enterSpr:FunkinSprite = null;
 
-	var textGroup:FlxTypedGroup<Alphabet> = null;
+	var startText:Alphabet;
 
 	var curRandomText:Array<String> = [];
 
@@ -123,8 +123,9 @@ class TitleState extends FunkinState
 
 		getRandomIntroText();
 
-		textGroup = new FlxTypedGroup<Alphabet>();
-		add(textGroup);
+		startText = new Alphabet(0, 200, "", FlxG.width, "bold");
+		startText.alignment = CENTER;
+		add(startText);
 
 		ngSpr = new FunkinSprite(0, FlxG.height * 0.52);
 
@@ -291,9 +292,9 @@ class TitleState extends FunkinState
 			}
 		}
 
-		if (textGroup != null)
+		if (startText != null)
 		{
-			textGroup.destroy();
+			startText.destroy();
 		}
 
 		if (ngSpr != null && ngSpr.visible)
@@ -382,35 +383,18 @@ class TitleState extends FunkinState
 
 	function addTextToGroup(textArray:Array<String>):Void
 	{
-		if (textGroup == null)
+		if (startText == null)
 			return;
 
-		var curY:Float = 200;
-
-		textGroup.forEachAlive((spr:Alphabet) ->
-		{
-			curY += spr.height;
-		});
-
-		for (i in 0...textArray.length)
-		{
-			var text:Alphabet = new Alphabet(0, 0, textArray[i], FlxG.width, BOLD);
-			text.screenCenter(X);
-			text.y = curY;
-			curY += text.height;
-			textGroup.add(text);
-		}
+		startText.text += textArray.join('\n') + '\n';
 	}
 
 	function deleteAllText():Void
 	{
-		if (textGroup == null)
+		if (startText == null)
 			return;
 
-		while (textGroup.members.length > 0)
-		{
-			textGroup.remove(textGroup.members[0], true);
-		}
+		startText.text = '';
 	}
 
 	var gfHasDancedLeft:Bool = false;

@@ -428,10 +428,10 @@ private class CreditsBubble extends FlxSpriteGroup
 		bubble.alpha = 0.6;
 		add(bubble);
 
-		var name:Alphabet = new Alphabet(51, 45, data.name, CreditsState.BUBBLE_WIDTH - 51, BOLD);
+		var name:Alphabet = new Alphabet(51, 45, data.name, CreditsState.BUBBLE_WIDTH - 51, "bold");
 		add(name);
 
-		var description:Alphabet = new Alphabet(64, 176, data.description, CreditsState.BUBBLE_WIDTH - 64, DEFAULT);
+		var description:Alphabet = new Alphabet(64, 176, data.description, CreditsState.BUBBLE_WIDTH - 64, "default");
 		add(description);
 
 		if (data.githubContribPercent != null)

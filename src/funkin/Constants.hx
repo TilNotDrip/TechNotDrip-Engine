@@ -74,6 +74,11 @@ class Constants
 	 */
 	public static final STRUMLINE_Y_OFFSET:Float = 50;
 
+	/**
+	 * The atlas font that should be used when no font is supplied.
+	 */
+	public static final DEFAULT_ATLAS_FONT:String = 'default';
+
 	static function get_TECHNOTDRIP_VERSION():String
 	{
 		return FlxG.stage.application.meta.get('version');

@@ -232,11 +232,13 @@ class OptionsState extends FunkinState
 		categoryArrow.y = categoryGroup.members[0].y + categoryGroup.members[0].height;
 		categoryCamera.height = Std.int(categoryArrow.y + categoryArrow.height);
 
-		categoryName = new Alphabet(456, 269, '', FlxG.width, BOLD);
+		categoryName = new Alphabet(0, 269, '', FlxG.width, "bold");
+		categoryName.alignment = CENTER;
 		add(categoryName);
 
-		categoryDescription = new Alphabet(0, 456, '', FlxG.width, DEFAULT);
+		categoryDescription = new Alphabet(0, 456, '', FlxG.width, "default");
 		categoryDescription.scale.set(0.7, 0.7);
+		categoryDescription.alignment = CENTER;
 		add(categoryDescription);
 
 		super.create();
@@ -324,9 +326,7 @@ class OptionsState extends FunkinState
 			spr.alpha = 0.6;
 
 		categoryName.text = categories[curSelectedCategory].name;
-		categoryName.screenCenter(X);
 		categoryDescription.text = categories[curSelectedCategory].description;
-		categoryDescription.screenCenter(X);
 
 		categoryGroup.members[curSelectedCategory].alpha = 1;
 		lerpXPosArrow = categoryGroup.members[curSelectedCategory].getGraphicMidpoint().x - (categoryArrow.width / 2);
