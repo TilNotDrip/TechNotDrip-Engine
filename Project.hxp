@@ -153,6 +153,7 @@ class Project extends HXProject
 	{
 		addHaxeDefine('doc-gen', FUNKIN_DOX_GENERATION.isEnabled(this));
 		addHaxeDefine('FLX_CUSTOM_ASSETS_DIRECTORY', 'assets', FUNKIN_ASSETS_FORWARDING.isEnabled(this));
+		addHaxeDefine("lime_disable_assets_version");
 		addHaxeDefine('FLX_NO_DEBUG', !debug);
 		addHaxeDefine('FLX_NO_FOCUS_LOST_SCREEN');
 		addHaxeDefine('FLX_NO_HEALTH');
