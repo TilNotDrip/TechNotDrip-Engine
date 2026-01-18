@@ -13,21 +13,18 @@
     {
       "name": "flixel-addons",
       "type": "git",
-      "dir": null,
       "ref": "technotdrip-engine",
       "url": "https://github.com/TilNotDrip/flixel-addons"
     },
     {
       "name": "flixel-controls",
       "type": "git",
-      "dir": null,
       "ref": "aa6aa1e8bf50c071907f3282696685ce60418725",
       "url": "https://github.com/Geokureli/FlxControls"
     },
     {
       "name": "flxanimate",
       "type": "git",
-      "dir": null,
       "ref": "ef85c132044d897a04c5008da29674d88f83c4d6",
       "url": "https://github.com/Dot-Stuff/flxanimate"
     },
@@ -39,14 +36,12 @@
     {
       "name": "funkin.vis",
       "type": "git",
-      "dir": null,
       "ref": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6",
       "url": "https://github.com/FunkinCrew/funkVis"
     },
     {
       "name": "grig.audio",
       "type": "git",
-      "dir": null,
       "ref": "57f5d47f2533fd0c3dcd025a86cb86c0dfa0b6d2",
       "url": "https://gitlab.com/haxe-grig/grig.audio.git"
     },
@@ -58,7 +53,6 @@
     {
       "name": "hxcpp",
       "type": "git",
-      "dir": null,
       "ref": "86d4b1a07ddadf162a0c48487f1e1b17d7bbcd64",
       "url": "https://github.com/HaxeFoundation/hxcpp"
     },
@@ -98,6 +92,11 @@
       "name": "thx.semver",
       "type": "haxelib",
       "version": "0.2.2"
+    },
+    {
+      "name": "tink_core",
+      "type": "haxelib",
+      "version": "1.26.0"
     }
   ]
 }
