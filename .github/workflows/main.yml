@@ -5,234 +5,141 @@ on:
   workflow_dispatch:
 
 jobs:
-  buildWindows:
-    name: Build Windows Application
-    runs-on: windows-latest
+  build:
+    strategy:
+      matrix:
+        include:
+          - target: windows
+            name: Build for Windows
+            runs-on: windows-latest
 
+          - target: macos
+            name: Build for MacOS
+            runs-on: macos-latest
+
+          - target: linux
+            name: Build for Linux
+            runs-on: ubuntu-latest
+
+          - target: ios
+            name: Build for iOS
+            runs-on: macos-26
+
+          - target: android
+            name: Build for Android
+            runs-on: ubuntu-latest
+    runs-on:
+      - ${{matrix.runs-on}}
     steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: funkincrew/ci-checkout@main
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: funkincrew/ci-haxe@master
         with:
           haxe-version: 4.3.7
 
-      - name: Retrieve Haxelib Cache
-        id: windows-haxelib-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            C:/haxelib/**
-            .haxelib/**
-          key: ${{ runner.os }}-haxelib-cache
-
-      - name: Install Haxe Libraries using HMM
+      - name: Install HMM with Funkin' Patches
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install
+          haxelib --never --global git haxelib https://github.com/FunkinCrew/haxelib.git funkin-patches --skip-dependencies
+          haxelib --never --global git hmm https://github.com/FunkinCrew/hmm funkin-patches
+          haxelib --never newrepo
+
+      - name: Restore HMM Cache
+        id: hmm-cache
+        uses: actions/cache@main
+        with:
+          path: .haxelib
+          key: ${{matrix.target}}-hmm
+
+      - name: Install Dependencies using HMM
+        run: haxelib --global run hmm install -q
+
+      - name: Restore HXCPP Cache
+        uses: actions/cache@main
+        with:
+          path: ${{runner.temp}}/hxcpp_cache
+          key: ${{matrix.target}}-hxcpp
+
+      - name: Configure HXCPP Cache
+        shell: bash
+        run: |
+          echo "HXCPP_COMPILE_CACHE=${{runner.temp}}/hxcpp_cache" >> "$GITHUB_ENV"
+          echo 'HXCPP_CACHE_MB="4096"' >> "$GITHUB_ENV"
 
       - name: Compile HXCPP Build Tools
         run: |
           cd .haxelib/hxcpp/git/tools/hxcpp
           haxe compile.hxml
           cd ../../../../..
+          haxelib run hxcpp cache list
 
-      - name: Compile Application
-        run: haxelib run lime build windows
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TechNotDrip-Engine_WINDOWS
-          path: export/release/windows/bin/
-
-  buildMacOS:
-    name: Build MacOS Application
-    runs-on: macos-latest
-
-    steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.3.7
-
-      - name: Retrieve Haxelib Cache
-        id: macos-haxelib-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/haxelib/**
-            .haxelib/**
-          key: ${{ runner.os }}-haxelib-cache
-
-      - name: Install Haxe Libraries using HMM
+      - name: Install Linux Dependencies
+        if: ${{runner.os == 'Linux'}}
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install
-
-      - name: Compile Application
-        run: haxelib run lime build macos
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TechNotDrip-Engine_MACOS
-          path: export/release/macos/bin/
-
-  buildLinux:
-    name: Build Linux Application
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.3.7
-
-      - name: Retrieve Haxelib Cache
-        id: linux-haxelib-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/haxelib/**
-            .haxelib/**
-          key: ${{ runner.os }}-haxelib-cache
-
-      - name: Install Haxe Libraries using HMM
-        run: |
-          sudo apt install -qq libvlccore-dev libvlc-dev -y
-          haxelib install hmm --quiet
-          haxelib run hmm install
-
-      - name: Compile HXCPP Build Tools
-        run: |
-          cd .haxelib/hxcpp/git/tools/hxcpp
-          haxe compile.hxml
-          cd ../../../../..
-
-      - name: Compile Application
-        run: haxelib run lime build linux
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TechNotDrip-Engine_LINUX
-          path: export/release/linux/bin/
-
-  buildAndroid:
-    name: Build Android Application
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.3.7
+          sudo apt-get -y install libvlc-dev libvlccore-dev
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@v1
+        uses: nttld/setup-ndk@main
+        if: ${{matrix.target == 'android'}}
         id: ndk
         with:
           ndk-version: r21e
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@main
+        if: ${{matrix.target == 'android'}}
         with:
-          distribution: 'oracle'
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Retrieve Haxelib Cache
-        id: android-haxelib-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/haxelib/**
-            .haxelib/**
-          key: android-haxelib-cache
-
-      - name: Install Haxe Libraries using HMM
-        run: |
-          sudo apt install libvlccore-dev libvlc-dev -y -q
-          haxelib install hmm --quiet
-          haxelib run hmm install
-
-      - name: Compile HXCPP Build Tools
-        run: |
-          cd .haxelib/hxcpp/git/tools/hxcpp
-          haxe compile.hxml
-          cd ../../../../..
-
       - name: Configure Android
+        if: ${{matrix.target == 'android'}}
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT ${{ steps.ndk.outputs.ndk-path }}
+          haxelib run lime config ANDROID_NDK_ROOT ${{steps.ndk.outputs.ndk-path}}
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
 
-      - name: Compile Application
-        run: haxelib run lime build android
+      - name: Compile the Application
+        if: ${{matrix.target != 'ios'}}
+        run: haxelib run lime build ${{matrix.target}}
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TechNotDrip-Engine_ANDROID
-          path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
-
-  buildiOS:
-    name: Build iOS Application
-    runs-on: macos-latest
-
-    steps:
-      - name: Download Source Code
-        uses: actions/checkout@v4
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.3.7
-
-      - name: Retrieve Haxelib Cache
-        id: ios-haxelib-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/haxelib/**
-            .haxelib/**
-          key: ios-haxelib-cache
-
-      - name: Install Haxe Libraries using HMM
-        run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install
-
-      - name: Compile HXCPP Build Tools
-        run: |
-          cd .haxelib/hxcpp/git/tools/hxcpp
-          haxe compile.hxml
-          cd ../../../../..
-
-      - name: Compile Application
+      - name: Compile the Application (No Signing)
+        if: ${{matrix.target == 'ios'}}
         run: haxelib run lime build ios -nosign
 
+      - name: Format Artifact String
+        uses: ASzc/change-string-case-action@v6
+        id: artifact-string
+        with:
+          string: ${{matrix.target}}
+
       - name: Zip up IPA File
+        if: ${{matrix.target == 'ios'}}
         run: |
           cd export/release/ios/build/Release-iphoneos
           mkdir Payload
           mv *.app Payload
-          zip -r TechNotDrip.ipa Payload
+          zip -r TechNotDripEngine.ipa Payload
 
       - name: Upload Artifact
+        if: ${{ matrix.target != 'ios' && matrix.target != 'android' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip-Engine_${{steps.artifact-string.outputs.uppercase}}
+          path: export/release/${{matrix.target}}/bin/
+
+      - name: Upload Artifact (on iOS)
+        if: ${{ matrix.target == 'ios' }}
         uses: actions/upload-artifact@v4
         with:
           name: TechNotDrip-Engine_IOS
           path: export/release/ios/build/Release-iphoneos/*.ipa
+
+      - name: Upload Artifact (on Android)
+        if: ${{ matrix.target == 'android' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: TechNotDrip-Engine_ANDROID
+          path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
