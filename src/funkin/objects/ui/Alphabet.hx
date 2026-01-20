@@ -42,6 +42,7 @@ class Alphabet extends FunkinSprite
 
 	var _textRects:Array<AlphabetRect> = [];
 	var _wordMaxHeight:Float = 0;
+	var _fontMaxHeight:Float = 0;
 
 	public function new(x:Float, y:Float, ?text:String = '', ?fieldWidth:Float = 0, ?font:String)
 	{
@@ -203,7 +204,7 @@ class Alphabet extends FunkinSprite
 
 		for (line in realLines)
 		{
-			// Skip the line if it's fully empty.
+			// Skip it if the line is fully empty
 			if (line.length == 0 && realLines.indexOf(line) == realLines.length - 1)
 				continue;
 
@@ -214,19 +215,15 @@ class Alphabet extends FunkinSprite
 				currentLineHeight = Math.max(currentLineHeight, letter.rect.height);
 			}
 
-			// If the line is empty, use the default height so that newline actually takes vertical space.
+			// if the line is empty its gonna use the default height so newline actually takes vertical space
 			if (currentLineHeight == 0)
 			{
-				@:nullSafety(Off)
-				var animA:Null<FlxAnimation> = this.animation.getByName('A');
-				if (animA != null && frames.frames.length > 0)
-					currentLineHeight = frames.frames[animA.frames[0]].sourceSize.y;
-				else
-					currentLineHeight = 60;
+				currentLineHeight = _fontMaxHeight;
 			}
 
 			var fullWidth:Float = (fieldWidth <= 0) ? FlxG.width : fieldWidth;
-			var lineWidth:Float = line[line.length - 1]?.rect.right ?? 0;
+			// If line is empty, width is 0
+			var lineWidth:Float = (line.length > 0) ? line[line.length - 1].rect.right : 0;
 
 			var xOffset:Float = switch (alignment)
 			{
@@ -240,7 +237,9 @@ class Alphabet extends FunkinSprite
 
 			for (letter in line)
 			{
-letter.rect.offset(xOffset, curY + (currentLineHeight - letter.rect.height));
+				letter.rect.offset(xOffset, 0);
+
+				letter.rect.y += curY + (currentLineHeight - letter.rect.height);
 
 				letter.rect.x *= this.scale.x;
 				letter.rect.y *= this.scale.y;
@@ -380,6 +379,16 @@ letter.rect.offset(xOffset, curY + (currentLineHeight - letter.rect.height));
 
 		loadFrames(path);
 		atlasFontData = cast Json.parse(jsonContent);
+
+		_fontMaxHeight = 0;
+		for (frame in frames.frames)
+		{
+			if (frame.sourceSize.y > _fontMaxHeight)
+				_fontMaxHeight = frame.sourceSize.y;
+		}
+
+		if (_fontMaxHeight == 0)
+			_fontMaxHeight = 60;
 
 		this.text = text;
 
