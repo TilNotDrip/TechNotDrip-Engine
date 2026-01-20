@@ -252,7 +252,9 @@ class Alphabet extends FunkinSprite
 
 				_textRects.push(letter);
 			}
-			curY += currentLineHeight;
+
+			// TODO : MAKE PADDING A VARIABLE
+			curY += currentLineHeight + 5;
 		}
 	}
 

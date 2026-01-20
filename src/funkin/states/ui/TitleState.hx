@@ -148,7 +148,7 @@ class TitleState extends FunkinState
 
 		getRandomIntroText();
 
-		startText = new Alphabet(0, 200, "", FlxG.width, "bold");
+		startText = new Alphabet(0, 150, "", FlxG.width, "bold");
 		startText.alignment = CENTER;
 		add(startText);
 	}
