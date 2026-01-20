@@ -241,9 +241,7 @@ class Alphabet extends FunkinSprite
 
 			for (letter in line)
 			{
-				letter.rect.offset(xOffset, 0);
-
-				letter.rect.y += curY + (currentLineHeight - letter.rect.height);
+letter.rect.offset(xOffset, curY + (currentLineHeight - letter.rect.height));
 
 				letter.rect.x *= this.scale.x;
 				letter.rect.y *= this.scale.y;
