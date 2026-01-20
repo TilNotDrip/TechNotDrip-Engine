@@ -214,7 +214,7 @@ class Alphabet extends FunkinSprite
 				currentLineHeight = Math.max(currentLineHeight, letter.rect.height);
 			}
 
-			// if the line is empty its gonna use the default height so newline actually takes vertical space
+			// If the line is empty, use the default height so that newline actually takes vertical space.
 			if (currentLineHeight == 0)
 			{
 				@:nullSafety(Off)
