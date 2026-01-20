@@ -226,8 +226,7 @@ class Alphabet extends FunkinSprite
 			}
 
 			var fullWidth:Float = (fieldWidth <= 0) ? FlxG.width : fieldWidth;
-			// If line is empty, width is 0
-			var lineWidth:Float = (line.length > 0) ? line[line.length - 1].rect.right : 0;
+			var lineWidth:Float = line[line.length - 1]?.rect.right ?? 0;
 
 			var xOffset:Float = switch (alignment)
 			{
