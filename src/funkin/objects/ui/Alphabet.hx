@@ -203,7 +203,7 @@ class Alphabet extends FunkinSprite
 
 		for (line in realLines)
 		{
-			// Skip it if the line is fully empty
+			// Skip the line if it's fully empty.
 			if (line.length == 0 && realLines.indexOf(line) == realLines.length - 1)
 				continue;
 
