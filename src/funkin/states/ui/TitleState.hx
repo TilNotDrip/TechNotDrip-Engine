@@ -119,13 +119,7 @@ class TitleState extends FunkinState
 		catch (e:Exception)
 		{
 			trace('[WARNING] introText data is invalid! (${e.toString()})');
-		}
-
-		getRandomIntroText();
-
-		startText = new Alphabet(0, 200, "", FlxG.width, "bold");
-		startText.alignment = CENTER;
-		add(startText);
+		};
 
 		ngSpr = new FunkinSprite(0, FlxG.height * 0.52);
 
@@ -151,6 +145,12 @@ class TitleState extends FunkinState
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		add(ngSpr);
+
+		getRandomIntroText();
+
+		startText = new Alphabet(0, 150, "", FlxG.width, "bold");
+		startText.alignment = CENTER;
+		add(startText);
 	}
 
 	function initPostIntroObjects():Void

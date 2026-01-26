@@ -42,6 +42,7 @@ class Alphabet extends FunkinSprite
 
 	var _textRects:Array<AlphabetRect> = [];
 	var _wordMaxHeight:Float = 0;
+	var _fontMaxHeight:Float = 0;
 
 	public function new(x:Float, y:Float, ?text:String = '', ?fieldWidth:Float = 0, ?font:String)
 	{
@@ -117,15 +118,10 @@ class Alphabet extends FunkinSprite
 
 		_textRects.resize(0);
 
-		_wordMaxHeight = 0;
-		for (frame in frames.frames)
-			_wordMaxHeight = Math.max(_wordMaxHeight, frame.sourceSize.y);
-
 		if (text.length < 1)
 			return;
 
 		var words:Array<Array<Array<AlphabetRect>>> = [[[]]];
-
 		var lastX:Float = 0;
 		for (letter in text.split(''))
 		{
@@ -195,14 +191,7 @@ class Alphabet extends FunkinSprite
 
 				for (letter in word)
 				{
-					letter.rect.offset(lineWidth, curY + _wordMaxHeight - letter.rect.height);
-
-					letter.rect.x *= this.scale.x;
-					letter.rect.y *= this.scale.y;
-					letter.rect.width *= this.scale.x;
-					letter.rect.height *= this.scale.y;
-
-					_textRects.push(letter);
+					letter.rect.offset(lineWidth, 0);
 					realLines[realLines.length - 1].push(letter);
 				}
 
@@ -210,28 +199,58 @@ class Alphabet extends FunkinSprite
 				lineWidth += 40;
 				lineWidth += width;
 			}
-
-			curY += _wordMaxHeight;
 			realLines.push([]);
 		}
 
 		for (line in realLines)
 		{
+			// Skip it if the line is fully empty
+			if (line.length == 0 && realLines.indexOf(line) == realLines.length - 1)
+				continue;
+
+			// Var for line height
+			var currentLineHeight:Float = 0;
+			for (letter in line)
+			{
+				currentLineHeight = Math.max(currentLineHeight, letter.rect.height);
+			}
+
+			// if the line is empty its gonna use the default height so newline actually takes vertical space
+			if (currentLineHeight == 0)
+			{
+				currentLineHeight = _fontMaxHeight;
+			}
+
 			var fullWidth:Float = (fieldWidth <= 0) ? FlxG.width : fieldWidth;
-			var width:Float = line[line.length - 1]?.rect.right ?? 0;
+			// If line is empty, width is 0
+			var lineWidth:Float = (line.length > 0) ? line[line.length - 1].rect.right : 0;
 
 			var xOffset:Float = switch (alignment)
 			{
 				case LEFT:
 					0;
 				case CENTER:
-					(fullWidth - width) / 2;
+					(fullWidth / this.scale.x - lineWidth) / 2;
 				case RIGHT:
-					fullWidth - width;
+					(fullWidth / this.scale.x - lineWidth);
 			};
 
 			for (letter in line)
+			{
 				letter.rect.offset(xOffset, 0);
+
+				letter.rect.y += curY + (currentLineHeight - letter.rect.height);
+
+				letter.rect.x *= this.scale.x;
+				letter.rect.y *= this.scale.y;
+				letter.rect.width *= this.scale.x;
+				letter.rect.height *= this.scale.y;
+
+				_textRects.push(letter);
+			}
+
+			// TODO : MAKE PADDING A VARIABLE
+			curY += currentLineHeight + 5;
 		}
 	}
 
@@ -360,6 +379,16 @@ class Alphabet extends FunkinSprite
 
 		loadFrames(path);
 		atlasFontData = cast Json.parse(jsonContent);
+
+		_fontMaxHeight = 0;
+		for (frame in frames.frames)
+		{
+			if (frame.sourceSize.y > _fontMaxHeight)
+				_fontMaxHeight = frame.sourceSize.y;
+		}
+
+		if (_fontMaxHeight == 0)
+			_fontMaxHeight = 60;
 
 		this.text = text;
 

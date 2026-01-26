@@ -7,7 +7,7 @@
             <github contributor="true">TechnikTil</github>
             <twitter>https://twitter.com/TechnikTil</twitter>
             <youtube>https://youtube.com/user/TechnikTil</youtube>
-            <bluesky>https://bsky.app/profile/techniktil.github.io/</bluesky>
+            <bluesky>https://bsky.app/profile/techniktil.tilnotdrip.org/</bluesky>
         </socials>
     </user>
     <user name="CrusherNotDrip" icon="crushernotdrip">
@@ -24,6 +24,16 @@
         <socials>
             <twitter>https://twitter.com/gameboy1969</twitter>
             <weirdCat>https://www.dominos.com</weirdCat>
+        </socials>
+    </user>
+    <user name="BaranMuzu" icon="baran">
+        <description>Playtester, lots of good ideas for this engine</description>
+        <socials>
+            <website>https://baranmuzu.netlify.app</website>
+            <github contributor="true">BaranMuzu</github>
+            <twitter>https://twitter.com/BaranMuzu</twitter>
+            <youtube>https://youtube.com/@BaranMuzu</youtube>
+            <bluesky>https://bsky.app/profile/baranmuzu.bsky.social</bluesky>
         </socials>
     </user>
 </credits>
