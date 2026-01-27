@@ -121,8 +121,10 @@ class Save
 			FlxG.updateFramerate = options.fps;
 		}
 
-		if (Main.performanceStats != null)
-			Main.performanceStats.visible = options.showFps;
+		if (FunkinGame.instance?.performanceStats != null)
+		{
+			FunkinGame.instance.performanceStats.visible = options.showFps;
+		}
 
 		FlxG.fullscreen = options.fullscreen;
 

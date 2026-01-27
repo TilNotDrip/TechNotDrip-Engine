@@ -1,25 +1,27 @@
-package;
+package funkin;
 
-import flixel.FlxG;
+import flixel.FlxBasic;
 import flixel.FlxGame;
-import flixel.FlxSprite;
 import flixel.util.typeLimit.NextState;
-import funkin.data.save.Save;
 import funkin.objects.ui.PerformanceStats;
 import funkin.states.ui.TitleState;
 import lime.utils.Assets as LimeAssets;
-import openfl.display.Sprite;
 import openfl.utils.Assets as OpenFlAssets;
 #if FUNKIN_DISCORD_RPC
 import funkin.api.DiscordRPC;
 #end
 
-class Main extends Sprite
+class FunkinGame extends FlxGame
 {
+	/**
+	 * The current instance of `FunkinGame`.
+	 */
+	public static var instance:FunkinGame;
+
 	/**
 	 * The FPS and Memory overlay at the top left of the screen.
 	 */
-	public static var performanceStats:PerformanceStats;
+	public var performanceStats:PerformanceStats;
 
 	final flxGameData:FlxGameInit = {
 		width: 1280,
@@ -32,16 +34,15 @@ class Main extends Sprite
 
 	public function new()
 	{
-		super();
+		super(flxGameData.width, flxGameData.height, flxGameData.initState, flxGameData.framerate, flxGameData.framerate, !flxGameData.showSplash,
+			flxGameData.startFullscreen);
 
-		initGame();
+		instance = this;
 	}
 
-	function initGame():Void
+	override function create(_):Void
 	{
-		var flxGame:FlxGame = new FlxGame(flxGameData.width, flxGameData.height, flxGameData.initState, flxGameData.framerate, flxGameData.framerate,
-			!flxGameData.showSplash, flxGameData.startFullscreen);
-		addChild(flxGame);
+		super.create(_);
 
 		performanceStats = new PerformanceStats();
 		addChild(performanceStats);
@@ -67,6 +68,58 @@ class Main extends Sprite
 		#end
 
 		stage.window.onClose.add(closeWindow);
+	}
+
+	override function onEnterFrame(_):Void
+	{
+		ticks = getTicks();
+		_elapsedMS = ticks - _total;
+		_total = ticks;
+
+		if (soundTray != null && soundTray.active)
+			soundTray.update(_elapsedMS);
+
+		if (performanceStats != null)
+			performanceStats.update(_elapsedMS / 1000);
+
+		if (_lostFocus && FlxG.autoPause)
+			return;
+
+		if (FlxG.vcr.paused)
+		{
+			if (FlxG.vcr.stepRequested)
+			{
+				FlxG.vcr.stepRequested = false;
+			}
+			else if (_nextState == null)
+			{
+				#if FLX_DEBUG
+				debugger.update();
+				// If the interactive debug is active, the screen must
+				// be rendered because the user might be doing changes
+				// to game objects (e.g. moving things around).
+				if (debugger.interaction.isActive())
+				{
+					draw();
+				}
+				#end
+
+				return;
+			}
+		}
+
+		step();
+
+		#if FLX_DEBUG
+		FlxBasic.visibleCount = 0;
+		#end
+
+		draw();
+
+		#if FLX_DEBUG
+		debugger.stats.visibleObjects(FlxBasic.visibleCount);
+		debugger.update();
+		#end
 	}
 
 	/**

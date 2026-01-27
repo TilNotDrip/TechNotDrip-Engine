@@ -12,9 +12,14 @@ import openfl.text.TextFormat;
 class PerformanceStats extends Sprite
 {
 	/**
+	 * How long we should wait until we update the text.
+	 */
+	public static final TEXT_UPDATE_INTERVAL:Float = 0.1;
+
+	/**
 	 * How many frames have passed since the last second.
 	 */
-	public var framesPerSecond(default, null):Int;
+	public var framesPerSecond(default, null):Float;
 
 	/**
 	 * The amount of RAM the application is currently using.
@@ -26,8 +31,7 @@ class PerformanceStats extends Sprite
 	 */
 	var mainText:TextField;
 
-	var fpsCount:Int = 0;
-	var elapsed:Float = 0;
+	var textUpdateTimer:Float;
 
 	public function new(x:Float = 5, y:Float = 5)
 	{
@@ -51,31 +55,43 @@ class PerformanceStats extends Sprite
 		];
 
 		addChild(mainText);
+
+		textUpdateTimer = TEXT_UPDATE_INTERVAL;
 	}
 
-	override function __enterFrame(deltaTime:Float):Void
+	/**
+	 * Update the counter.
+	 * @param elapsed The seconds elapsed since last call.
+	 */
+	public function update(elapsed:Float):Void
 	{
-		fpsCount++;
-		elapsed += deltaTime;
+		if (elapsed <= 0)
+			return;
 
-		if (elapsed >= 1000)
+		textUpdateTimer -= elapsed;
+
+		var currentFPS:Float = 1 / elapsed;
+		var smoothMult:Float = FlxMath.bound(elapsed / 0.5, 0.05, 1);
+
+		framesPerSecond = framesPerSecond * (1 - smoothMult) + currentFPS * smoothMult;
+		framesPerSecond = Math.min(framesPerSecond, FlxG.game.stage.frameRate);
+
+		if (textUpdateTimer <= 0)
 		{
-			framesPerSecond = fpsCount;
-			fpsCount = 0;
-			elapsed = 0;
-			mainText.text = "FPS: " + framesPerSecond + "\n" + getMemory();
+			mainText.text = "FPS: " + FlxMath.roundDecimal(framesPerSecond, 2) + "\n" + getMemory();
+			textUpdateTimer = TEXT_UPDATE_INTERVAL;
 		}
 	}
 
 	function getMemory():String
 	{
-		if (randomAccessMemory != null)
-		{
-			var formatted:String = FlxStringUtil.formatBytes(randomAccessMemory);
-			return (formatted == "0MB") ? "" : "MEM: " + formatted;
-		}
+		var ram:Float = randomAccessMemory ?? 0;
+		var formatted:String = FlxStringUtil.formatBytes(ram);
 
-		return "";
+		if (ram > 0)
+			formatted = 'MEM: ${formatted}';
+
+		return formatted;
 	}
 
 	function get_randomAccessMemory():Null<Float>

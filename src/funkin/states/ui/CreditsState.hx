@@ -342,68 +342,6 @@ class CreditsState extends FunkinState
 			}
 		}
 	}
-
-	#if FUNKIN_GIT_DETAILS
-	/**
-	 * Gets contributor percentage for the current branch.
-	 * @return Author => Percentage
-	 */
-	public static function getGithubContributors():Map<String, Float>
-	{
-		var numerators:Map<String, Int> = new Map<String, Int>();
-		var denominator:Int = 0;
-
-		var commitsGet:Http = new Http('https://api.github.com/repos/TilNotDrip/TechNotDrip-Engine/commits?sha=' + Constants.GIT_BRANCH);
-		commitsGet.setHeader("User-Agent", "request");
-
-		var statusCode:Int = 400;
-		commitsGet.onStatus = (code:Int) ->
-		{
-			statusCode = code;
-		};
-
-		commitsGet.request();
-
-		var commitList:Array<Dynamic> = [];
-
-		try
-		{
-			if (statusCode < 200 || statusCode >= 400)
-				throw "HTTP ERROR";
-
-			// when my wifi down it be returning nothing and try catching the actual request didnt work so
-			commitList = cast Json.parse(commitsGet.responseData);
-		}
-		catch (e:Exception)
-		{
-			trace('[ERROR] Could not parse the commit list! Message: ${e.message}');
-		}
-
-		for (commit in commitList)
-		{
-			denominator++;
-
-			var authorName:String = commit?.author?.login;
-			var numerator:Null<Int> = numerators.get(authorName);
-
-			if (numerator != null)
-				numerator++;
-			else
-				numerator = 1;
-
-			numerators.set(authorName, numerator);
-		}
-
-		var toReturn:Map<String, Float> = new Map<String, Float>();
-		for (author in numerators.keys())
-		{
-			var percentage:Float = ((numerators.get(author) ?? 0) / denominator);
-			toReturn.set(author, percentage);
-		}
-
-		return toReturn;
-	}
-	#end
 }
 
 private class CreditsBubble extends FlxSpriteGroup

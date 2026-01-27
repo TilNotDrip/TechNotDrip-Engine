@@ -70,7 +70,7 @@ class Project extends HXProject
 		meta.company = 'TilNotDrip';
 
 		app.file = 'TechNotDrip';
-		app.main = 'Main';
+		app.main = 'funkin.FunkinGame';
 		app.preloader = 'flixel.system.FlxPreloader';
 	}
 
