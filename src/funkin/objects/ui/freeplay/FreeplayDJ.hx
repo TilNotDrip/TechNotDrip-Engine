@@ -17,19 +17,25 @@ class FreeplayDJ extends FunkinSprite
 	 */
 	public var introDone:FlxSignal = new FlxSignal();
 
-	public function new(x:Float, y:Float, id:String)
+	public function new(id:String)
 	{
-		super(x, y);
+		super(0, 0);
+
+		atlasSettings = {
+			swfMode: true,
+			filterQuality: HIGH
+		};
 
 		// todo: softcode this
 		switch (id)
 		{
 			case 'bf':
 				loadFrames('ui/freeplay/freeplay-boyfriend');
+				applyStageMatrix = true;
 
-				addAnimation('idle', 'Boyfriend DJ', 24, false);
-				addAnimation('confirm', 'Boyfriend DJ confirm', 24, false);
-				addAnimation('intro', 'boyfriend dj intro', 24, false);
+				addAnimation('idle', 'Idle', 24, false);
+				addAnimation('confirm', 'Confirm', 24, false);
+				addAnimation('intro', 'Intro', 24, false);
 		}
 
 		onAnimFinished.add(onFinishAnim);
@@ -46,7 +52,7 @@ class FreeplayDJ extends FunkinSprite
 			case Intro:
 				currentState = Idle;
 				introDone.dispatch();
-				cast(atlas, FreeplayDJAtlas)?.initVisualizer(FlxG.sound.music);
+
 			default:
 		}
 	}
@@ -114,44 +120,6 @@ class FreeplayDJ extends FunkinSprite
 		if (FlxG.keys.justPressed.L)
 			offset.x -= move;
 		#end
-	}
-
-	override public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
-	{
-		if (atlas != null)
-		{
-			atlas.destroy();
-			atlas = null;
-		}
-
-		if (Paths.location.exists(path + '/Animation.json'))
-		{
-			atlas = new FreeplayDJAtlas(0, 0, Paths.location.get(path), {
-				ShowPivot: false
-			});
-
-			return this;
-		}
-		else
-		{
-			return super.loadFrames(path, forcedType);
-		}
-	}
-
-	override public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
-	{
-		super.playAnimation(name, restart, stunAnimations, reversed);
-
-		// TODO: softcode this
-		switch (name)
-		{
-			case 'idle', 'confirm':
-				offset.set(-15, 0);
-			case 'intro':
-				offset.set(-8, 2);
-			default:
-				offset.set();
-		}
 	}
 }
 
