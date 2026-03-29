@@ -13,8 +13,8 @@
     {
       "name": "flixel-addons",
       "type": "git",
-      "ref": "technotdrip-engine",
-      "url": "https://github.com/TilNotDrip/flixel-addons"
+      "ref": "75a25a3adfe6c50690444e3af54cc0ed341b3274",
+      "url": "https://github.com/HaxeFlixel/flixel-addons"
     },
     {
       "name": "flixel-controls",
@@ -23,10 +23,10 @@
       "url": "https://github.com/Geokureli/FlxControls"
     },
     {
-      "name": "flxanimate",
+      "name": "flixel-animate",
       "type": "git",
-      "ref": "ef85c132044d897a04c5008da29674d88f83c4d6",
-      "url": "https://github.com/Dot-Stuff/flxanimate"
+      "ref": "97735e315e2923632ea92e930ddc4c7922a48be4",
+      "url": "https://github.com/MaybeMaru/flixel-animate"
     },
     {
       "name": "format",

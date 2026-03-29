@@ -139,7 +139,7 @@ class FreeplayState extends FunkinState
 		add(blackOverlay);
 		add(bgDad);
 
-		dj = new FreeplayDJ(640, 366, 'bf');
+		dj = new FreeplayDJ('bf');
 		add(dj);
 
 		difficultySelector = new DifficultyGroup(20, 70, difficultiesAvailable);

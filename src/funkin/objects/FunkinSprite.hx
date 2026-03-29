@@ -1,15 +1,18 @@
 package funkin.objects;
 
-import flixel.graphics.FlxGraphic;
+import animate.FlxAnimate;
+import animate.FlxAnimateFrames;
+import flixel.animation.FlxAnimation;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxSignal.FlxTypedSignal;
-import flxanimate.FlxAnimate;
 import funkin.structures.ObjectStructure;
+
+using funkin.util.FlxAnimateUtil;
 
 /**
  * This is a sprite class that adds on to the already existing FlxSprite.
  */
-class FunkinSprite extends FlxSprite
+class FunkinSprite extends FlxAnimate
 {
 	/**
 	 * Draws this `FunkinSprite`, but invisible.
@@ -18,13 +21,18 @@ class FunkinSprite extends FlxSprite
 	public var doInvisibleDraw:Bool = false;
 
 	/**
-	 * The Animate Atlas Object if the animation is one.
+	 * Settings to use when initializing texture atlases.
 	 */
-	public var atlas:FlxAnimate;
+	public var atlasSettings:FlxAnimateSettings = {};
 
 	public function new(x:Float = 0, y:Float = 0)
 	{
 		super(x, y);
+	}
+
+	override function initVars():Void
+	{
+		super.initVars();
 	}
 
 	/**
@@ -59,34 +67,16 @@ class FunkinSprite extends FlxSprite
 	 */
 	public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
 	{
-		if (atlas != null)
-		{
-			atlas.destroy();
-			atlas = null;
-		}
-
-		// TODO: make forcedType work, im too lazy
-
 		if (Paths.location.exists(path + '.xml'))
 		{
 			frames = Paths.content.sparrowAtlas(path);
 		}
 		else if (Paths.location.exists(path + '/Animation.json'))
 		{
-			atlas = new FlxAnimate(0, 0, Paths.location.get(path), {
-				ShowPivot: false
-			});
+			frames = Paths.content.animateAtlas(path, atlasSettings);
 		}
 
 		return this;
-	}
-
-	override public function destroy():Void
-	{
-		if (atlas != null)
-			atlas.destroy();
-
-		super.destroy();
 	}
 
 	override public function draw():Void
@@ -95,22 +85,11 @@ class FunkinSprite extends FlxSprite
 		if (doInvisibleDraw)
 			alpha = 0.0001;
 
-		if (atlas != null)
-		{
-			updateAtlasDummy();
-			atlas.draw();
-		}
-		else
-		{
-			super.draw();
-		}
+		super.draw();
 
 		if (doInvisibleDraw)
 		{
 			alpha = oldAlpha;
-
-			if (atlas != null)
-				atlas.alpha = alpha;
 		}
 	}
 
@@ -123,37 +102,6 @@ class FunkinSprite extends FlxSprite
 		super.drawDebug();
 	}
 	#end
-
-	override public function update(elapsed:Float):Void
-	{
-		if (atlas != null)
-			atlas.update(elapsed);
-
-		super.update(elapsed);
-	}
-
-	/**
-	 * Updates the Atlas dummy's values, so it looks like it belongs to this sprite.
-	 * @see The Original Code: https://github.com/CodenameCrew/CodenameEngine/blob/f6deda2c84984202effdfc5f6b577c2d956aa7b5/source/funkin/backend/FunkinSprite.hx#L209C2-L232C3
-	 */
-	@:privateAccess
-	public function updateAtlasDummy():Void
-	{
-		atlas.cameras = cameras;
-		atlas.scrollFactor = scrollFactor;
-		atlas.scale = scale;
-		atlas.offset = offset;
-		atlas.x = x;
-		atlas.y = y;
-		atlas.angle = angle;
-		atlas.alpha = alpha;
-		atlas.visible = visible;
-		atlas.flipX = flipX;
-		atlas.flipY = flipY;
-		atlas.shader = shader;
-		atlas.antialiasing = antialiasing;
-		atlas.colorTransform = colorTransform;
-	}
 
 	// ANIMATION BINDINGS
 
@@ -176,11 +124,7 @@ class FunkinSprite extends FlxSprite
 		if (animationStunned)
 			return;
 
-		if (atlas != null)
-			atlas.anim.play(name, restart, reversed);
-		else
-			animation.play(name, restart, reversed);
-
+		animation.play(name, restart, reversed);
 		animationStunned = stunAnimations;
 		currentAnim = name;
 	}
@@ -195,20 +139,18 @@ class FunkinSprite extends FlxSprite
 	 */
 	public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
 	{
-		if (atlas != null)
+		var atlasAnimList:Array<String> = super.getAnimateAnimations();
+
+		if (atlasAnimList.contains(anim))
 		{
-			if (indices != null && indices.length > 0)
-				atlas.anim.addBySymbolIndices(name, anim + '\\', indices, frameRate, looped);
-			else
-				atlas.anim.addBySymbol(name, anim + '\\', frameRate, looped);
+			super.addAnimateAtlasAnimation(name, anim, indices, frameRate, looped);
+			return;
 		}
+
+		if (indices != null && indices.length > 0)
+			animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
 		else
-		{
-			if (indices != null && indices.length > 0)
-				animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
-			else
-				animation.addByPrefix(name, anim + '0', frameRate, looped);
-		}
+			animation.addByPrefix(name, anim + '0', frameRate, looped);
 	}
 
 	/**
@@ -218,7 +160,7 @@ class FunkinSprite extends FlxSprite
 
 	function get_animationIsNull():Bool
 	{
-		return (atlas != null) ? atlas.anim.curSymbol == null : animation.curAnim == null;
+		return animation.curAnim == null;
 	}
 
 	/**
@@ -228,10 +170,7 @@ class FunkinSprite extends FlxSprite
 
 	function get_animFinished():Bool
 	{
-		if (animationIsNull)
-			return false;
-
-		return ((atlas != null) ? atlas.anim.finished : animation.curAnim.finished) ?? false;
+		return animation?.curAnim?.finished ?? false;
 	}
 
 	/**
@@ -242,10 +181,7 @@ class FunkinSprite extends FlxSprite
 		if (animationIsNull)
 			return;
 
-		if (atlas != null)
-			atlas.anim.curFrame = atlas.anim.length - 1;
-		else
-			animation.curAnim.finish();
+		animation.curAnim.finish();
 	}
 
 	/**
@@ -258,7 +194,7 @@ class FunkinSprite extends FlxSprite
 		if (animationIsNull)
 			return false;
 
-		return ((atlas != null) ? atlas.anim.isPlaying : animation.curAnim.paused) ?? false;
+		return animation?.curAnim?.paused ?? false;
 	}
 
 	function set_animPaused(value:Bool):Bool
@@ -266,20 +202,10 @@ class FunkinSprite extends FlxSprite
 		if (animationIsNull)
 			return value;
 
-		if (atlas != null)
-		{
-			if (value)
-				atlas.anim.pause();
-			else
-				atlas.anim.resume();
-		}
+		if (value)
+			animation.curAnim.pause();
 		else
-		{
-			if (value)
-				animation.curAnim.pause();
-			else
-				animation.curAnim.resume();
-		}
+			animation.curAnim.resume();
 
 		return value;
 	}
@@ -289,13 +215,13 @@ class FunkinSprite extends FlxSprite
 	 * @param name The animation name to check for.
 	 * @return If the animation exists.
 	 */
-	@:privateAccess
 	public function animationExists(name:String):Bool
 	{
-		if (atlas != null)
-			return atlas.anim.symbolDictionary.get(name) != null;
-		else
-			return animation?.exists(name) ?? false;
+		var atlasAnimList:Array<String> = super.getAnimateAnimations();
+		if (atlasAnimList.contains(name))
+			return true;
+
+		return animation?.exists(name) ?? false;
 	}
 
 	/**
@@ -310,21 +236,7 @@ class FunkinSprite extends FlxSprite
 		if (_onAnimFinished == null)
 		{
 			_onAnimFinished = new FlxTypedSignal<String->Void>();
-
-			if (atlas != null)
-			{
-				atlas.anim.onComplete.add(() ->
-				{
-					_onAnimFinished.dispatch(currentAnim);
-				});
-			}
-			else
-			{
-				animation.onFinish.add((_) ->
-				{
-					_onAnimFinished.dispatch(currentAnim);
-				});
-			}
+			animation.onFinish.add((_) -> _onAnimFinished.dispatch(currentAnim));
 		}
 
 		return _onAnimFinished;
@@ -339,65 +251,11 @@ class FunkinSprite extends FlxSprite
 		if (animationIsNull)
 			return false;
 
-		if (atlas != null)
-		{
-			var animData = atlas.anim.symbolDictionary.get(id);
-			if (animData == null)
-				return false;
-			return animData.length > 1;
-		}
-		else
-		{
-			var animData = animation.getByName(id);
-			if (animData == null)
-				return false;
-			return animData.numFrames > 1;
-		}
-	}
+		var animData:Null<FlxAnimation> = animation.getByName(id);
+		if (animData == null)
+			return false;
 
-	@:noCompletion
-	override function set_width(value:Float):Float
-	{
-		if (atlas != null)
-		{
-			atlas.width = value;
-			return atlas.width;
-		}
-
-		return super.set_width(value);
-	}
-
-	@:noCompletion
-	override function get_width():Float
-	{
-		if (atlas != null)
-		{
-			return atlas.width;
-		}
-
-		return super.get_width();
-	}
-
-	@:noCompletion
-	override function set_height(value:Float):Float
-	{
-		if (atlas != null)
-		{
-			atlas.height = value;
-			return atlas.height;
-		}
-
-		return super.set_height(value);
-	}
-
-	override function get_height():Float
-	{
-		if (atlas != null)
-		{
-			return atlas.height;
-		}
-
-		return super.get_height();
+		return animData.numFrames > 1;
 	}
 }
 

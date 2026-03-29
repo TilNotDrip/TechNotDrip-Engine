@@ -1,14 +1,17 @@
 package funkin.util.paths;
 
+import animate.FlxAnimateFrames;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFramesCollection;
+import haxe.io.Path;
 import openfl.display.BitmapData;
 import openfl.media.Sound;
 
 /**
  * A Paths class that helps returning objects or content based on stuff inside files.
  */
+@:access(animate.FlxAnimateFrames)
 class PathsContent
 {
 	/**
@@ -81,6 +84,58 @@ class PathsContent
 	}
 
 	/**
+	 * Returns animate atlas information.
+	 * @param key The folder key to use for the information.
+	 * @return Animate Frames with information about the atlas.
+	 */
+	public function animateAtlas(key:String, settings:FlxAnimateSettings):Null<FlxAnimateFrames>
+	{
+		var path:String = Path.removeTrailingSlashes(key);
+
+		var hasAnimation:Bool = Paths.location.exists('${path}/Animation.json');
+		if (!hasAnimation)
+		{
+			trace('[ERROR] No Animation.json file found for ${key}!');
+			return null;
+		}
+
+		var animation:String = text('${path}/Animation.json');
+		var spritemaps:Array<SpritemapInput> = [];
+
+		var isInlined:Bool = !Paths.location.exists('${path}/metadata.json');
+		var metadata:Null<String> = null;
+
+		var libraryList:Null<Array<String>> = null;
+
+		if (!isInlined)
+		{
+			metadata = text('${path}/metadata.json');
+			libraryList = Paths.location.scan('${path}/LIBRARY', '.json', true, FILE, false);
+		}
+
+		for (spritemap in Paths.location.scan(path, '.json', true, FILE, false))
+		{
+			if (!spritemap.startsWith('spritemap'))
+				continue;
+
+			spritemaps.push({
+				source: imageGraphic('${path}/${spritemap}'),
+				json: text('${path}/${spritemap}.json')
+			});
+		}
+
+		if (spritemaps.length < 1)
+		{
+			trace('[ERROR] No spritemaps found for ${key}!');
+			return null;
+		}
+
+		var frames:FlxAnimateFrames = FlxAnimateFrames._fromAnimateInput(animation, spritemaps, metadata, path, isInlined, libraryList, settings);
+		FlxAnimateFrames._cachedAtlases.remove(path);
+		return frames;
+	}
+
+	/**
 	 * Returns text from a file.
 	 * @param key The text key to use for returning the text inside.
 	 * @return A string with text from a file.
@@ -98,7 +153,9 @@ class PathsContent
 	 */
 	public function rawText(path:String):String
 	{
-		return FlxG.assets.getText(path, false);
+		var text:String = FlxG.assets.getText(path, false);
+		text = text.replace(String.fromCharCode(0xFEFF), "");
+		return text;
 	}
 
 	/**
