@@ -1,19 +1,17 @@
 {
-	"path": "ui/options/checkbox",
-	"antialiasing": true,
-	"animation":
-	{
-		"type": "sparrow",
-		"anims":
-		[
-			{
-				"name": "checked",
-				"prefix": "Press"
-			},
-			{
-				"name": "unchecked",
-				"prefix": "Unselect"
-			}
-		]
-	}
+  "path": "ui/options/checkbox",
+  "antialiasing": true,
+  "animation": {
+    "type": "sparrow",
+    "anims": [
+      {
+        "name": "checked",
+        "prefix": "Press"
+      },
+      {
+        "name": "unchecked",
+        "prefix": "Unselect"
+      }
+    ]
+  }
 }

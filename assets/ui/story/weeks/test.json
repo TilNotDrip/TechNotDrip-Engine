@@ -1,41 +1,36 @@
 {
-    "name": "TEST",
-    "songs": [
-        "test"
-    ],
-    "startLocked": false,
-    "songToUnlock": "",
-    "weekToUnlock": "",
-    "visibleWhenLocked": true,
-    "sprites": [
-        {
-            "id": "bf",
-            "path": "ui/story/props/bf",
-            "position":
-            {
-                "x": 476,
-                "y": 24
-            },
-            "animation":
-            {
-                "type": "sparrow",
-                "anims":
-                [
-                    {
-                        "name": "idle",
-                        "prefix": "idle0",
-                        "framerate": 24
-                    },
-                    {
-                        "name": "confirm",
-                        "prefix": "confirm0",
-                        "framerate": 24
-                    }
-                ]
-            }
-        }
-    ],
-    "background": "#FFFFFF",
-    "motto": "TEST",
-    "storyPosition": 2147483647
+  "name": "TEST",
+  "songs": ["test"],
+  "startLocked": false,
+  "songToUnlock": "",
+  "weekToUnlock": "",
+  "visibleWhenLocked": true,
+  "sprites": [
+    {
+      "id": "bf",
+      "path": "ui/story/props/bf",
+      "position": {
+        "x": 476,
+        "y": 24
+      },
+      "animation": {
+        "type": "sparrow",
+        "anims": [
+          {
+            "name": "idle",
+            "prefix": "idle0",
+            "framerate": 24
+          },
+          {
+            "name": "confirm",
+            "prefix": "confirm0",
+            "framerate": 24
+          }
+        ]
+      }
+    }
+  ],
+  "background": "#FFFFFF",
+  "motto": "TEST",
+  "storyPosition": 2147483647
 }
