@@ -1,5 +1,6 @@
 package funkin.objects;
 
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import flxanimate.FlxAnimate;
@@ -38,8 +39,9 @@ class FunkinSprite extends FlxSprite
 		// Regex Check for colors?
 		if (path.startsWith('#'))
 		{
-			// TODO: `makeGraphic` can take a LOT up in memory. move it to something more close to `makeSolid` from Base Game.
-			makeGraphic(rectWidth, rectHeight, FlxColor.fromString(path));
+			loadGraphic(FlxG.bitmap.create(1, 1, FlxColor.fromString(path), false));
+			scale.set(rectWidth, rectHeight);
+			updateHitbox();
 		}
 		else
 		{
