@@ -1,16 +1,43 @@
 {
-	"search.exclude": {
-		"export/**/*.*": true
-	},
-	"[haxe]": {
-		"editor.formatOnSave": true,
-		"editor.formatOnPaste": true,
-		"editor.codeActionsOnSave": {
-			"source.sortImports": "explicit"
-		}
-	},
-	"haxe.enableExtendedIndentation": true,
-	"githubPullRequests.ignoredPullRequestBranches": [
-		"alpha"
-	]
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.hxp": "haxe",
+    "*.hscript": "haxe",
+    "*.haxe": "haxe",
+    "*.hxs": "haxe",
+    "*.hxc": "haxe"
+  },
+  "search.exclude": {
+    "export/**/*.*": true
+  },
+
+  "githubPullRequests.ignoredPullRequestBranches": ["alpha"],
+
+  "[haxe]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "nadako.vshaxe",
+    "editor.codeActionsOnSave": {
+      "source.sortImports": "explicit"
+    },
+    "editor.tabSize": 2
+  },
+  "haxe.enableExtendedIndentation": true,
+
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
