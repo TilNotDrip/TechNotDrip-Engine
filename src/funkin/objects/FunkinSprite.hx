@@ -3,6 +3,7 @@ package funkin.objects;
 import animate.FlxAnimate;
 import animate.FlxAnimateFrames;
 import flixel.animation.FlxAnimation;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxSignal.FlxTypedSignal;
 import funkin.structures.ObjectStructure;
@@ -30,31 +31,28 @@ class FunkinSprite extends FlxAnimate
     super(x, y);
   }
 
-  override function initVars():Void
-  {
-    super.initVars();
-  }
-
   /**
    * Loads or creates a texture and applies it to this sprite.
-   * @param path The asset path. (If `path` starts with a **#** then a color will be made instead and rectWidth + rectHeight will determine its size.)
-   * @param rectWidth If the path is a color then how big should it's width be?
-   * @param rectHeight If the path is a color then how big should it's height be?
+   * @param path The asset path of the texture.
+   * @param width What should the width of the sprite be?
+   * @param height What should the height of the sprite be?
    * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
    */
-  public function loadTexture(path:String = '#000000', rectWidth:Int = 1, rectHeight:Int = 1):FunkinSprite
+  public function loadTexture(path:String = '#000000', width:Int = 0, height:Int = 0):FunkinSprite
   {
-    // Regex Check for colors?
-    if (path.startsWith('#'))
-    {
-      loadGraphic(FlxG.bitmap.create(1, 1, FlxColor.fromString(path), false));
-      scale.set(rectWidth, rectHeight);
-      updateHitbox();
-    }
-    else
-    {
-      loadGraphic(Paths.content.imageGraphic(path));
-    }
+    var rectColor:Null<FlxColor> = FlxColor.fromString(path);
+
+    var graphic:FlxGraphic =
+      {
+        if (rectColor != null)
+          FlxG.bitmap.create(1, 1, rectColor, false);
+        else
+          Paths.content.imageGraphic(path);
+      }
+
+    loadGraphic(graphic);
+    setGraphicSize(width, height);
+    updateHitbox();
 
     return this;
   }
