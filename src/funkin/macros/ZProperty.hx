@@ -1,6 +1,5 @@
 package funkin.macros;
 
-#if !display
 #if macro
 import haxe.macro.Context;
 import haxe.macro.Expr;
@@ -58,5 +57,4 @@ class ZProperty
     return fields;
   }
 }
-#end
 #end

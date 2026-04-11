@@ -128,7 +128,7 @@ class Project extends HXProject
 		// The second parameter is the default value unless overridden!
 		FUNKIN_DISCORD_RPC.apply(this, platformType == DESKTOP && haxedefs.get('cpp')); // Will be enabled if its on desktop (windows, linux, mac)!
 		FUNKIN_DOX_GENERATION.apply(this, false); // Will always be false unless you wanna make a documentation website.
-		FUNKIN_GIT_DETAILS.apply(this, isGitInitialized()); // Only show details when this is a git repository.
+		FUNKIN_GIT_DETAILS.apply(this, command != 'display' && isGitInitialized()); // Only show details when this is a git repository.
 		FUNKIN_ASSETS_FORWARDING.apply(this, platformType == DESKTOP && debug);
 	}
 
