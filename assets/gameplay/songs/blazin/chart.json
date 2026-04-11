@@ -1,22 +1,22 @@
 {
-	"charts": [
-		{
-			"chart": [],
-			"difficulty": "normal",
-			"speed": 2.4,
-			"rating": 4
-		},
-		{
-			"chart": [],
-			"difficulty": "hard",
-			"speed": 3.2,
-			"rating": 5
-		},
-		{
-			"chart": [],
-			"difficulty": "easy",
-			"speed": 2,
-			"rating": 3
-		}
-	]
+  "charts": [
+    {
+      "chart": [],
+      "difficulty": "normal",
+      "speed": 2.4,
+      "rating": 4
+    },
+    {
+      "chart": [],
+      "difficulty": "hard",
+      "speed": 3.2,
+      "rating": 5
+    },
+    {
+      "chart": [],
+      "difficulty": "easy",
+      "speed": 2,
+      "rating": 3
+    }
+  ]
 }

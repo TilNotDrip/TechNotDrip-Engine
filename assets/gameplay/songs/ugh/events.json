@@ -1,180 +1,180 @@
 {
-	"events": [
-		{
-			"name": "camera",
-			"time": 0,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 6000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 12000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 18000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 24000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 27000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 30000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 33000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 36000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 42000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 48000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 54000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 60000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 66000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 72000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 78000,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		}
-	]
+  "events": [
+    {
+      "name": "camera",
+      "time": 0,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 6000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 12000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 18000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 24000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 27000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 30000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 33000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 36000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 42000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 48000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 54000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 60000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 66000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 72000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 78000,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    }
+  ]
 }

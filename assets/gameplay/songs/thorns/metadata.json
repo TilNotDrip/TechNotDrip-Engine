@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": -1,
-			"bpm": 190
-		}
-	],
-	"name": "Thorns",
-	"characters": {
-		"spectator": "gf-pixel",
-		"opponent": "spirit",
-		"player": "bf-pixel"
-	},
-	"icon": "spirit",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "schoolEvil",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "ninjamuffin99 + MtH"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": -1,
+      "bpm": 190
+    }
+  ],
+  "name": "Thorns",
+  "characters": {
+    "spectator": "gf-pixel",
+    "opponent": "spirit",
+    "player": "bf-pixel"
+  },
+  "icon": "spirit",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "schoolEvil",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH"
+  }
 }

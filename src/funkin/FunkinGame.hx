@@ -13,131 +13,131 @@ import funkin.api.DiscordRPC;
 
 class FunkinGame extends FlxGame
 {
-	/**
-	 * The current instance of `FunkinGame`.
-	 */
-	public static var instance:FunkinGame;
+  /**
+   * The current instance of `FunkinGame`.
+   */
+  public static var instance:FunkinGame;
 
-	/**
-	 * The FPS and Memory overlay at the top left of the screen.
-	 */
-	public var performanceStats:PerformanceStats;
+  /**
+   * The FPS and Memory overlay at the top left of the screen.
+   */
+  public var performanceStats:PerformanceStats;
 
-	final flxGameData:FlxGameInit = {
-		width: 1280,
-		height: 720,
-		initState: TitleState.new,
-		framerate: 60,
-		showSplash: false,
-		startFullscreen: false
-	};
+  final flxGameData:FlxGameInit = {
+    width: 1280,
+    height: 720,
+    initState: TitleState.new,
+    framerate: 60,
+    showSplash: false,
+    startFullscreen: false
+  };
 
-	public function new()
-	{
-		super(flxGameData.width, flxGameData.height, flxGameData.initState, flxGameData.framerate, flxGameData.framerate, !flxGameData.showSplash,
-			flxGameData.startFullscreen);
+  public function new()
+  {
+    super(flxGameData.width, flxGameData.height, flxGameData.initState, flxGameData.framerate, flxGameData.framerate, !flxGameData.showSplash,
+      flxGameData.startFullscreen);
 
-		instance = this;
-	}
+    instance = this;
+  }
 
-	override function create(_):Void
-	{
-		super.create(_);
+  override function create(_):Void
+  {
+    super.create(_);
 
-		performanceStats = new PerformanceStats();
-		addChild(performanceStats);
+    performanceStats = new PerformanceStats();
+    addChild(performanceStats);
 
-		OpenFlAssets.cache.enabled = false;
-		LimeAssets.cache.enabled = false;
+    OpenFlAssets.cache.enabled = false;
+    LimeAssets.cache.enabled = false;
 
-		#if FLX_MOUSE
-		FlxG.mouse.useSystemCursor = true;
-		FlxG.mouse.visible = false;
-		#end
+    #if FLX_MOUSE
+    FlxG.mouse.useSystemCursor = true;
+    FlxG.mouse.visible = false;
+    #end
 
-		FlxG.fixedTimestep = false;
+    FlxG.fixedTimestep = false;
 
-		FlxSprite.defaultAntialiasing = true;
+    FlxSprite.defaultAntialiasing = true;
 
-		Save.instance.setOptionValues();
+    Save.instance.setOptionValues();
 
-		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.loadDiscordConfig();
-		DiscordRPC.initialize();
-		DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
-		#end
+    #if FUNKIN_DISCORD_RPC
+    DiscordRPC.loadDiscordConfig();
+    DiscordRPC.initialize();
+    DiscordRPC.largeImageText = 'Version: ' + Constants.TECHNOTDRIP_VERSION;
+    #end
 
-		stage.window.onClose.add(closeWindow);
-	}
+    stage.window.onClose.add(closeWindow);
+  }
 
-	override function onEnterFrame(_):Void
-	{
-		ticks = getTicks();
-		_elapsedMS = ticks - _total;
-		_total = ticks;
+  override function onEnterFrame(_):Void
+  {
+    ticks = getTicks();
+    _elapsedMS = ticks - _total;
+    _total = ticks;
 
-		if (soundTray != null && soundTray.active)
-			soundTray.update(_elapsedMS);
+    if (soundTray != null && soundTray.active)
+      soundTray.update(_elapsedMS);
 
-		if (performanceStats != null)
-			performanceStats.update(_elapsedMS / 1000);
+    if (performanceStats != null)
+      performanceStats.update(_elapsedMS / 1000);
 
-		if (_lostFocus && FlxG.autoPause)
-			return;
+    if (_lostFocus && FlxG.autoPause)
+      return;
 
-		if (FlxG.vcr.paused)
-		{
-			if (FlxG.vcr.stepRequested)
-			{
-				FlxG.vcr.stepRequested = false;
-			}
-			else if (_nextState == null)
-			{
-				#if FLX_DEBUG
-				debugger.update();
-				// If the interactive debug is active, the screen must
-				// be rendered because the user might be doing changes
-				// to game objects (e.g. moving things around).
-				if (debugger.interaction.isActive())
-				{
-					draw();
-				}
-				#end
+    if (FlxG.vcr.paused)
+    {
+      if (FlxG.vcr.stepRequested)
+      {
+        FlxG.vcr.stepRequested = false;
+      }
+      else if (_nextState == null)
+      {
+        #if FLX_DEBUG
+        debugger.update();
+        // If the interactive debug is active, the screen must
+        // be rendered because the user might be doing changes
+        // to game objects (e.g. moving things around).
+        if (debugger.interaction.isActive())
+        {
+          draw();
+        }
+        #end
 
-				return;
-			}
-		}
+        return;
+      }
+    }
 
-		step();
+    step();
 
-		#if FLX_DEBUG
-		FlxBasic.visibleCount = 0;
-		#end
+    #if FLX_DEBUG
+    FlxBasic.visibleCount = 0;
+    #end
 
-		draw();
+    draw();
 
-		#if FLX_DEBUG
-		debugger.stats.visibleObjects(FlxBasic.visibleCount);
-		debugger.update();
-		#end
-	}
+    #if FLX_DEBUG
+    debugger.stats.visibleObjects(FlxBasic.visibleCount);
+    debugger.update();
+    #end
+  }
 
-	/**
-	 * Called when the game gets closed.
-	 */
-	public function closeWindow():Void
-	{
-		trace('Bye Bye!');
-		Save.instance.flush();
-	}
+  /**
+   * Called when the game gets closed.
+   */
+  public function closeWindow():Void
+  {
+    trace('Bye Bye!');
+    Save.instance.flush();
+  }
 }
 
 typedef FlxGameInit =
 {
-	var width:Int;
-	var height:Int;
-	var initState:InitialState;
-	var framerate:Int;
-	var showSplash:Bool;
-	var startFullscreen:Bool;
+  var width:Int;
+  var height:Int;
+  var initState:InitialState;
+  var framerate:Int;
+  var showSplash:Bool;
+  var startFullscreen:Bool;
 }

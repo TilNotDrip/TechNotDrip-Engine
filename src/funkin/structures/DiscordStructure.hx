@@ -6,9 +6,9 @@ package funkin.structures;
  */
 typedef DiscordStructure =
 {
-	var id:String;
+  var id:String;
 
-	@:optional
-	var iconKey:String;
+  @:optional
+  var iconKey:String;
 }
 #end

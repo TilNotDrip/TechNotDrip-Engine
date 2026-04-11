@@ -1,4576 +1,4576 @@
 {
-	"charts": [
-		{
-			"chart": [
-				{
-					"direction": 2,
-					"time": 3799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 3999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 4200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 4600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 5000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 5400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 5600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 5800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 6200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 6999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 7199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 7399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 7799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 8200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 8600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 8800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 9000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 9400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 10200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 10400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 10600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 11800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 12000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 12200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 12600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 13399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 13599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 13799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 14999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 15199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 15399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 15799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 16199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 16800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 17000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 17200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 17800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 18400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 18600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 18800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 19400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 20000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 20200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 20400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 21000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 21600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 21800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 22000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 22600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 23200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 23400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 23600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 24200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 24800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 25000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 25200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 25799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 26399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 26599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 26799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 27399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 27999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 28199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 28399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 28999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 29199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 29599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 29999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 30399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 30699,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 31199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 31599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 32399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 33000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 33400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 33600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 33800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 34000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 34200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 34400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 34800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 35400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 35600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 36400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 37100,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 37600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 38000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 38600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 38800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 39200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 39400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 39800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 40000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 40200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 40400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 40600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 40800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 41200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 41800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 42600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42700,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 42800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 43400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 44000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 44200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 44300,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 44400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 45000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 45600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 45800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 45900,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 46000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 46600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 47200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 47400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 47500,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 47600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 48200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 48800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 49000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 49100,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 49200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 49800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 50600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50700,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 50800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 51399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 51999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 52199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 52299,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 52399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 52999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 53799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53899,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 53999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 54399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 54599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 54999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 55199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 55199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 55399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 55499,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 55599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 55599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 55999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 56199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 56399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 56599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 56799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 56799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 56999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 57099,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 57199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 57599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 57799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 58399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 58399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 58599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58699,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 58799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 59399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 59399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 59799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 59999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 59999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 60199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 60199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 60299,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 60399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 60399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 60599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 60999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 61799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61899,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 61999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 62599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 63199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 63399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 63499,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 63599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 64199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 64799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 64999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 65099,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 65199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 65800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 66600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66700,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 66800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 67400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 67600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 68400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 69100,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 69600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 70000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 70600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 70800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 71200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 71400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 71800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 72000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 72200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 72400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 72600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 72800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 73200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 73800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 74000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 74400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 74800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 75200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 75500,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 76000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 76400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 77200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 77800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 78200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 78400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 78600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 78800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 79000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 79200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 79600,
-					"type": "",
-					"strum": "player"
-				}
-			],
-			"difficulty": "normal",
-			"speed": 1.4,
-			"rating": 2
-		},
-		{
-			"chart": [
-				{
-					"direction": 2,
-					"time": 3799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 3999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 4200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 4600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 5000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 5400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 5600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 5800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 6200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 6999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 7199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 7399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 7799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 8200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 8600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 8800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 9000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 9400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 10200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 10400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 10600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 11800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 12000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 12200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 12600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 13399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 13599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 13799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 14999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 15199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 15399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 15799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 16199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 16400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 16600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 16800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 17000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 17200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 17800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 18000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 18200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 18400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 18600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 18800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 19400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 19600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 19800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 20000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 20200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 20400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 21000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 21200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 21400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 21600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 21800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 22000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 22600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 22800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 23000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 23200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 23400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 23600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 24200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 24400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 24600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 24800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 25000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 25200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 25799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 25999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 26199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 26399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 26599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 26799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 27399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 27599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 27799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 27999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 28199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 28399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 28999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 29199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 29399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 29599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 29799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 29999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 30399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 30699,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 30999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 31199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 31599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 32399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 32599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 33000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 33200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 33400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 33600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 33800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 34000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 34200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 34400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 34800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 35400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 35600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 35800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 36200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 36400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 36600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 37100,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 37400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 37600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 38000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 38400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 38600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 38800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 39000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 39200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 39400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 39600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 39800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 40000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 40200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 40400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 40600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 40800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 41200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 41800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 42200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 42600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42700,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 42800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 43400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 43600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 43800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 44000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 44200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 44300,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 44400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 45000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 45200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 45400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 45600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 45800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 45900,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 46000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 46600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 46800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 47000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 47200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 47400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 47500,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 47600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 48200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 48400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 48600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 48800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 49000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 49100,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 49200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 49800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 50000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 50600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50700,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 50800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 51399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 51599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 51799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 51999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 52199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 52299,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 52399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 52999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 53399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 53799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53899,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 53999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 54399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 54599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 54799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 54999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 54999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 55199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 55199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 55399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 55499,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 55599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 55599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 55999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 56199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 56199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 56399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 56399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 56599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 56599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 56799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 56799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 56999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 57099,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 57199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 57599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 57799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 57999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 58199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 58399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 58399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 58599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58699,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 58799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 59399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 59399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 59599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 59799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 59799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 59999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 59999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 60199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 60199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 60299,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 60399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 60399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 60599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 60999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 61399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 61799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61899,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 61999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 62599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 62799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 62999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 63199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 63399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 63499,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 63599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 64199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 64399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 64599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 64799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 64999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 65099,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 65199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 65800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 66200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 66600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66700,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 66800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 67400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 67600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 67800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 68200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 68400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 68600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 69100,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 69400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 69600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 70000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 70600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 70800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 71000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 71200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 71400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 71600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 71800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 72000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 72200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 72400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 72600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 72800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 73200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 73800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 74000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 74200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 74400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 74600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 74800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 75200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 75500,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 75800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 76000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 76400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 76800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 77200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 77400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 77800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 78000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 78200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 78400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 78600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 78800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 79000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 79200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 79600,
-					"type": "",
-					"strum": "player"
-				}
-			],
-			"difficulty": "hard",
-			"speed": 1.6,
-			"rating": 2
-		},
-		{
-			"chart": [
-				{
-					"direction": 2,
-					"time": 3799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 4600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 5000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 5400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 6200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 6999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 7799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 8200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 8600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 9400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 10200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 11400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 11800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 12600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 13399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 14599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 14999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 15799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 16199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 16800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 17200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 17800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 18400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 18800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 19400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 20000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 20400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 21000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 21600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 22000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 22600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 23200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 23600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 24200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 24800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 25200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 25799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 26399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 26799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 27399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 27999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 28399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 28999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 29599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 29999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 30399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 30799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 31199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 31599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 32800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 33200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 33600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 34000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 34400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 34800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 35400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 36400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 36600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 36800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 37200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 37600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 38000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 38600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 39200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 39600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 40000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 40400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 40800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 41200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 41800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 42400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 42800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 43400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 44000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 44400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 45000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 45600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 46000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 46600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 47200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 47600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 48200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 48800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 49200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 49800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 50400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 50800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 51399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 51999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 52399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 52999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 53599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 53999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 54399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 54599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 54999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 55199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 55199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 55599,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 55599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 55999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 56199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 56499,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 56799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 56799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 57199,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 200,
-					"time": 57599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 57799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 58399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 58399,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 58799,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 58799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 59399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 59699,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 59999,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 60099,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 60399,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 60499,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 60999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 61599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 61999,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 62599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 63199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 63599,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 64199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 64799,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 65199,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 65800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 66400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 66800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 67400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"time": 68400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 68600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 68800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 69200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 69600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 70000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 70600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 71200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"time": 71600,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 72000,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 3,
-					"time": 72400,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 72800,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 73200,
-					"type": "",
-					"strum": "opponent"
-				},
-				{
-					"direction": 0,
-					"time": 73800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 74400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"time": 74800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 75200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 75600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"length": 300,
-					"time": 76000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 200,
-					"time": 76400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 77600,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"time": 78000,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 0,
-					"time": 78400,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 3,
-					"time": 78800,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 2,
-					"length": 300,
-					"time": 79200,
-					"type": "",
-					"strum": "player"
-				},
-				{
-					"direction": 1,
-					"length": 300,
-					"time": 79600,
-					"type": "",
-					"strum": "player"
-				}
-			],
-			"difficulty": "easy",
-			"speed": 1.2,
-			"rating": 1
-		}
-	]
+  "charts": [
+    {
+      "chart": [
+        {
+          "direction": 2,
+          "time": 3799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 3999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 4200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 4600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 5000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 5400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 5600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 5800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 6200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 6999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 7199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 7399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 7799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 8200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 8600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 8800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 9000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 9400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 10200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 10400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 10600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 11800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 12000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 12200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 12600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 13399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 13599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 13799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 14999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 15199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 15399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 15799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 16199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 16800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 17000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 17200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 17800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 18400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 18600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 18800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 19400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 20000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 20200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 20400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 21000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 21600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 21800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 22000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 22600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 23200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 23400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 23600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 24200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 24800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 25000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 25200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 25799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 26399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 26599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 26799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 27399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 27999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 28199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 28399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 28999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 29199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 29599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 29999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 30399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 30699,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 31199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 31599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 32399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 33000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 33400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 33600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 33800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 34000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 34200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 34400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 34800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 35400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 35600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 36400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 37100,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 37600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 38000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 38600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 38800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 39200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 39400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 39800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 40000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 40200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 40400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 40600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 40800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 41200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 41800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 42600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42700,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 42800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 43400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 44000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 44200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 44300,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 44400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 45000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 45600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 45800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 45900,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 46000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 46600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 47200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 47400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 47500,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 47600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 48200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 48800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 49000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 49100,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 49200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 49800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 50600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50700,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 50800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 51399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 51999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 52199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 52299,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 52399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 52999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 53799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53899,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 53999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 54399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 54599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 54999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 55199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 55199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 55399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 55499,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 55599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 55599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 55999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 56199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 56399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 56599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 56799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 56799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 56999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 57099,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 57199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 57599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 57799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 58399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 58399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 58599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58699,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 58799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 59399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 59399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 59799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 59999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 59999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 60199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 60199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 60299,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 60399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 60399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 60599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 60999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 61799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61899,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 61999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 62599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 63199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 63399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 63499,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 63599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 64199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 64799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 64999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 65099,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 65199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 65800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 66600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66700,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 66800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 67400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 67600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 68400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 69100,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 69600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 70000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 70600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 70800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 71200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 71400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 71800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 72000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 72200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 72400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 72600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 72800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 73200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 73800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 74000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 74400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 74800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 75200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 75500,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 76000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 76400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 77200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 77800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 78200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 78400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 78600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 78800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 79000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 79200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 79600,
+          "type": "",
+          "strum": "player"
+        }
+      ],
+      "difficulty": "normal",
+      "speed": 1.4,
+      "rating": 2
+    },
+    {
+      "chart": [
+        {
+          "direction": 2,
+          "time": 3799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 3999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 4200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 4600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 5000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 5400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 5600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 5800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 6200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 6999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 7199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 7399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 7799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 8200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 8600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 8800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 9000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 9400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 10200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 10400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 10600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 11800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 12000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 12200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 12600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 13399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 13599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 13799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 14999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 15199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 15399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 15799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 16199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 16400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 16600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 16800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 17000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 17200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 17800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 18000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 18200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 18400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 18600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 18800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 19400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 19600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 19800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 20000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 20200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 20400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 21000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 21200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 21400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 21600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 21800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 22000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 22600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 22800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 23000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 23200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 23400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 23600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 24200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 24400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 24600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 24800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 25000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 25200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 25799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 25999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 26199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 26399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 26599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 26799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 27399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 27599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 27799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 27999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 28199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 28399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 28999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 29199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 29399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 29599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 29799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 29999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 30399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 30699,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 30999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 31199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 31599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 32399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 32599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 33000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 33200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 33400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 33600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 33800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 34000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 34200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 34400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 34800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 35400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 35600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 35800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 36200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 36400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 36600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 37100,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 37400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 37600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 38000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 38400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 38600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 38800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 39000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 39200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 39400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 39600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 39800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 40000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 40200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 40400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 40600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 40800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 41200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 41800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 42200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 42600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42700,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 42800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 43400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 43600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 43800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 44000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 44200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 44300,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 44400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 45000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 45200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 45400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 45600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 45800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 45900,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 46000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 46600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 46800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 47000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 47200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 47400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 47500,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 47600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 48200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 48400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 48600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 48800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 49000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 49100,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 49200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 49800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 50000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 50600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50700,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 50800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 51399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 51599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 51799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 51999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 52199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 52299,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 52399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 52999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 53399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 53799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53899,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 53999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 54399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 54599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 54799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 54999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 54999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 55199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 55199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 55399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 55499,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 55599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 55599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 55999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 56199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 56199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 56399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 56399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 56599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 56599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 56799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 56799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 56999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 57099,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 57199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 57599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 57799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 57999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 58199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 58399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 58399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 58599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58699,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 58799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 59399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 59399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 59599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 59799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 59799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 59999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 59999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 60199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 60199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 60299,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 60399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 60399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 60599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 60999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 61399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 61799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61899,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 61999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 62599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 62799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 62999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 63199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 63399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 63499,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 63599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 64199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 64399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 64599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 64799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 64999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 65099,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 65199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 65800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 66200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 66600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66700,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 66800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 67400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 67600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 67800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 68200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 68400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 68600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 69100,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 69400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 69600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 70000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 70600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 70800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 71000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 71200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 71400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 71600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 71800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 72000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 72200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 72400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 72600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 72800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 73200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 73800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 74000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 74200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 74400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 74600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 74800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 75200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 75500,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 75800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 76000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 76400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 76800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 77200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 77400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 77800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 78000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 78200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 78400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 78600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 78800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 79000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 79200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 79600,
+          "type": "",
+          "strum": "player"
+        }
+      ],
+      "difficulty": "hard",
+      "speed": 1.6,
+      "rating": 2
+    },
+    {
+      "chart": [
+        {
+          "direction": 2,
+          "time": 3799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 4600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 5000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 5400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 6200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 6999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 7799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 8200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 8600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 9400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 10200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 11400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 11800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 12600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 13399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 14599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 14999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 15799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 16199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 16800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 17200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 17800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 18400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 18800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 19400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 20000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 20400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 21000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 21600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 22000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 22600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 23200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 23600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 24200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 24800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 25200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 25799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 26399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 26799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 27399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 27999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 28399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 28999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 29599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 29999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 30399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 30799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 31199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 31599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 32800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 33200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 33600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 34000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 34400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 34800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 35400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 36400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 36600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 36800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 37200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 37600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 38000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 38600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 39200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 39600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 40000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 40400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 40800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 41200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 41800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 42400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 42800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 43400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 44000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 44400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 45000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 45600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 46000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 46600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 47200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 47600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 48200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 48800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 49200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 49800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 50400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 50800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 51399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 51999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 52399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 52999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 53599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 53999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 54399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 54599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 54999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 55199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 55199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 55599,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 55599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 55999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 56199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 56499,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 56799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 56799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 57199,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 200,
+          "time": 57599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 57799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 58399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 58399,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 58799,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 58799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 59399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 59699,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 59999,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 60099,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 60399,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 60499,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 60999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 61599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 61999,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 62599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 63199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 63599,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 64199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 64799,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 65199,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 65800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 66400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 66800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 67400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "time": 68400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 68600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 68800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 69200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 69600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 70000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 70600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 71200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "time": 71600,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 72000,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 3,
+          "time": 72400,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 72800,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 73200,
+          "type": "",
+          "strum": "opponent"
+        },
+        {
+          "direction": 0,
+          "time": 73800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 74400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "time": 74800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 75200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 75600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "length": 300,
+          "time": 76000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 200,
+          "time": 76400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 77600,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "time": 78000,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 0,
+          "time": 78400,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 3,
+          "time": 78800,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 2,
+          "length": 300,
+          "time": 79200,
+          "type": "",
+          "strum": "player"
+        },
+        {
+          "direction": 1,
+          "length": 300,
+          "time": 79600,
+          "type": "",
+          "strum": "player"
+        }
+      ],
+      "difficulty": "easy",
+      "speed": 1.2,
+      "rating": 1
+    }
+  ]
 }

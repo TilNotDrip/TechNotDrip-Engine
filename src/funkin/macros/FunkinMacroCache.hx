@@ -15,54 +15,54 @@ import sys.io.File;
  */
 class FunkinMacroCache
 {
-	/**
-	 * The macro cache.
-	 * You can save things here for later compiles.
-	 */
-	public static var cache(get, set):StringMap<Dynamic>;
+  /**
+   * The macro cache.
+   * You can save things here for later compiles.
+   */
+  public static var cache(get, set):StringMap<Dynamic>;
 
-	static var _cache:Null<StringMap<Dynamic>>;
+  static var _cache:Null<StringMap<Dynamic>>;
 
-	static function get_cache():StringMap<Dynamic>
-	{
-		if (_cache == null)
-			load();
+  static function get_cache():StringMap<Dynamic>
+  {
+    if (_cache == null)
+      load();
 
-		return _cache;
-	}
+    return _cache;
+  }
 
-	static function set_cache(value:StringMap<Dynamic>):StringMap<Dynamic>
-	{
-		_cache = value;
-		return _cache;
-	}
+  static function set_cache(value:StringMap<Dynamic>):StringMap<Dynamic>
+  {
+    _cache = value;
+    return _cache;
+  }
 
-	/**
-	 * Loads the cache from the repository.
-	 */
-	public static function load():Void
-	{
-		if (!FileSystem.exists('.macrocache'))
-		{
-			_cache = new StringMap<Dynamic>();
-			return;
-		}
+  /**
+   * Loads the cache from the repository.
+   */
+  public static function load():Void
+  {
+    if (!FileSystem.exists('.macrocache'))
+    {
+      _cache = new StringMap<Dynamic>();
+      return;
+    }
 
-		var unserializer:Unserializer = new Unserializer(File.getContent('.macrocache'));
-		_cache = unserializer.unserialize();
+    var unserializer:Unserializer = new Unserializer(File.getContent('.macrocache'));
+    _cache = unserializer.unserialize();
 
-		Context.onAfterGenerate(flush);
-	}
+    Context.onAfterGenerate(flush);
+  }
 
-	/**
-	 * Flushes the cache into the repository.
-	 */
-	public static function flush():Void
-	{
-		var serializer:Serializer = new Serializer();
-		serializer.serialize(_cache);
+  /**
+   * Flushes the cache into the repository.
+   */
+  public static function flush():Void
+  {
+    var serializer:Serializer = new Serializer();
+    serializer.serialize(_cache);
 
-		File.saveContent('.macrocache', serializer.toString());
-	}
+    File.saveContent('.macrocache', serializer.toString());
+  }
 }
 #end

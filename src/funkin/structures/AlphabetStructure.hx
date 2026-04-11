@@ -2,11 +2,11 @@ package funkin.structures;
 
 typedef AlphabetStructure =
 {
-	var offsets:Array<AlphabetOffsetStructure>;
+  var offsets:Array<AlphabetOffsetStructure>;
 }
 
 typedef AlphabetOffsetStructure =
 {
-	> ObjectStructure.PointStructure,
-	var character:String;
+  > ObjectStructure.PointStructure,
+  var character:String;
 }

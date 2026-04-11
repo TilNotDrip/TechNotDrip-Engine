@@ -5,47 +5,47 @@ import haxe.Json;
 
 class OptionCheckbox extends FunkinSprite
 {
-	/**
-	 * Where is the checkbox config json located?
-	 * Can be overriden by scripts.
-	 */
-	public static var CHECKBOX_PATH:String = 'ui/options/checkbox';
+  /**
+   * Where is the checkbox config json located?
+   * Can be overriden by scripts.
+   */
+  public static var CHECKBOX_PATH:String = 'ui/options/checkbox';
 
-	/**
-	 * The current checkbox value.
-	 * If changed, an animation for said change will occur.
-	 */
-	public var checkboxValue(default, set):Bool = false;
+  /**
+   * The current checkbox value.
+   * If changed, an animation for said change will occur.
+   */
+  public var checkboxValue(default, set):Bool = false;
 
-	/**
-	 * Gets called when the checkbox value changes.
-	 * Should be used for saving the value into data.
-	 */
-	public var valueChanged:Null<Void->Void> = null;
+  /**
+   * Gets called when the checkbox value changes.
+   * Should be used for saving the value into data.
+   */
+  public var valueChanged:Null<Void->Void> = null;
 
-	public function new(checkboxValue:Bool)
-	{
-		super();
+  public function new(checkboxValue:Bool)
+  {
+    super();
 
-		var structureContent:String = Paths.content.json(CHECKBOX_PATH);
-		var structure:ObjectStructure = Json.parse(structureContent);
-		FunkinSpriteUtil.createFromStructure(this, structure);
+    var structureContent:String = Paths.content.json(CHECKBOX_PATH);
+    var structure:ObjectStructure = Json.parse(structureContent);
+    FunkinSpriteUtil.createFromStructure(this, structure);
 
-		this.checkboxValue = checkboxValue;
-		finishAnimation();
-	}
+    this.checkboxValue = checkboxValue;
+    finishAnimation();
+  }
 
-	function set_checkboxValue(value:Bool):Bool
-	{
-		checkboxValue = value;
+  function set_checkboxValue(value:Bool):Bool
+  {
+    checkboxValue = value;
 
-		playAnimation((checkboxValue ? 'checked' : 'unchecked'), true);
+    playAnimation((checkboxValue ? 'checked' : 'unchecked'), true);
 
-		if (valueChanged != null)
-		{
-			valueChanged();
-		}
+    if (valueChanged != null)
+    {
+      valueChanged();
+    }
 
-		return value;
-	}
+    return value;
+  }
 }

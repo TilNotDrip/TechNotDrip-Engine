@@ -14,249 +14,249 @@ using funkin.util.FlxAnimateUtil;
  */
 class FunkinSprite extends FlxAnimate
 {
-	/**
-	 * Draws this `FunkinSprite`, but invisible.
-	 * This is basically visible/alpha, but it doesn't lag when you make it visible again.
-	 */
-	public var doInvisibleDraw:Bool = false;
+  /**
+   * Draws this `FunkinSprite`, but invisible.
+   * This is basically visible/alpha, but it doesn't lag when you make it visible again.
+   */
+  public var doInvisibleDraw:Bool = false;
 
-	/**
-	 * Settings to use when initializing texture atlases.
-	 */
-	public var atlasSettings:FlxAnimateSettings = {};
+  /**
+   * Settings to use when initializing texture atlases.
+   */
+  public var atlasSettings:FlxAnimateSettings = {};
 
-	public function new(x:Float = 0, y:Float = 0)
-	{
-		super(x, y);
-	}
+  public function new(x:Float = 0, y:Float = 0)
+  {
+    super(x, y);
+  }
 
-	override function initVars():Void
-	{
-		super.initVars();
-	}
+  override function initVars():Void
+  {
+    super.initVars();
+  }
 
-	/**
-	 * Loads or creates a texture and applies it to this sprite.
-	 * @param path The asset path. (If `path` starts with a **#** then a color will be made instead and rectWidth + rectHeight will determine its size.)
-	 * @param rectWidth If the path is a color then how big should it's width be?
-	 * @param rectHeight If the path is a color then how big should it's height be?
-	 * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
-	 */
-	public function loadTexture(path:String = '#000000', rectWidth:Int = 1, rectHeight:Int = 1):FunkinSprite
-	{
-		// Regex Check for colors?
-		if (path.startsWith('#'))
-		{
-			loadGraphic(FlxG.bitmap.create(1, 1, FlxColor.fromString(path), false));
-			scale.set(rectWidth, rectHeight);
-			updateHitbox();
-		}
-		else
-		{
-			loadGraphic(Paths.content.imageGraphic(path));
-		}
+  /**
+   * Loads or creates a texture and applies it to this sprite.
+   * @param path The asset path. (If `path` starts with a **#** then a color will be made instead and rectWidth + rectHeight will determine its size.)
+   * @param rectWidth If the path is a color then how big should it's width be?
+   * @param rectHeight If the path is a color then how big should it's height be?
+   * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
+   */
+  public function loadTexture(path:String = '#000000', rectWidth:Int = 1, rectHeight:Int = 1):FunkinSprite
+  {
+    // Regex Check for colors?
+    if (path.startsWith('#'))
+    {
+      loadGraphic(FlxG.bitmap.create(1, 1, FlxColor.fromString(path), false));
+      scale.set(rectWidth, rectHeight);
+      updateHitbox();
+    }
+    else
+    {
+      loadGraphic(Paths.content.imageGraphic(path));
+    }
 
-		return this;
-	}
+    return this;
+  }
 
-	/**
-	 * Loads frames and applies it to this sprite.
-	 * @param path The path of where frames should load from.
-	 * @param forcedType Which type to force. If null, it will be determined automatically.
-	 * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
-	 */
-	public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
-	{
-		if (Paths.location.exists(path + '.xml'))
-		{
-			frames = Paths.content.sparrowAtlas(path);
-		}
-		else if (Paths.location.exists(path + '/Animation.json'))
-		{
-			frames = Paths.content.animateAtlas(path, atlasSettings);
-		}
+  /**
+   * Loads frames and applies it to this sprite.
+   * @param path The path of where frames should load from.
+   * @param forcedType Which type to force. If null, it will be determined automatically.
+   * @return This `FunkinSprite` instance (nice for chaining stuff together, if you're into that).
+   */
+  public function loadFrames(path:String, ?forcedType:Null<String>):FunkinSprite
+  {
+    if (Paths.location.exists(path + '.xml'))
+    {
+      frames = Paths.content.sparrowAtlas(path);
+    }
+    else if (Paths.location.exists(path + '/Animation.json'))
+    {
+      frames = Paths.content.animateAtlas(path, atlasSettings);
+    }
 
-		return this;
-	}
+    return this;
+  }
 
-	override public function draw():Void
-	{
-		var oldAlpha:Float = alpha;
-		if (doInvisibleDraw)
-			alpha = 0.0001;
+  override public function draw():Void
+  {
+    var oldAlpha:Float = alpha;
+    if (doInvisibleDraw)
+      alpha = 0.0001;
 
-		super.draw();
+    super.draw();
 
-		if (doInvisibleDraw)
-		{
-			alpha = oldAlpha;
-		}
-	}
+    if (doInvisibleDraw)
+    {
+      alpha = oldAlpha;
+    }
+  }
 
-	#if FLX_DEBUG
-	override public function drawDebug():Void
-	{
-		if (doInvisibleDraw)
-			return;
+  #if FLX_DEBUG
+  override public function drawDebug():Void
+  {
+    if (doInvisibleDraw)
+      return;
 
-		super.drawDebug();
-	}
-	#end
+    super.drawDebug();
+  }
+  #end
 
-	// ANIMATION BINDINGS
+  // ANIMATION BINDINGS
 
-	/**
-	 * The current playing animation.
-	 */
-	public var currentAnim(default, null):String = '';
+  /**
+   * The current playing animation.
+   */
+  public var currentAnim(default, null):String = '';
 
-	var animationStunned:Bool = false;
+  var animationStunned:Bool = false;
 
-	/**
-	 * Plays an animation.
-	 * @param name The name of the animation to play.
-	 * @param restart Should the animation restart if it's already playing?
-	 * @param stunAnimations Should the animations be "stunned" until this one is finished?
-	 * @param reversed Should the animation be reversed?
-	 */
-	public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
-	{
-		if (animationStunned)
-			return;
+  /**
+   * Plays an animation.
+   * @param name The name of the animation to play.
+   * @param restart Should the animation restart if it's already playing?
+   * @param stunAnimations Should the animations be "stunned" until this one is finished?
+   * @param reversed Should the animation be reversed?
+   */
+  public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
+  {
+    if (animationStunned)
+      return;
 
-		animation.play(name, restart, reversed);
-		animationStunned = stunAnimations;
-		currentAnim = name;
-	}
+    animation.play(name, restart, reversed);
+    animationStunned = stunAnimations;
+    currentAnim = name;
+  }
 
-	/**
-	 * Adds an Animation to the sprite.
-	 * @param name The name of the animation to add.
-	 * @param anim The actual animation name.
-	 * @param indices The frame indices to use. (Optional)
-	 * @param frameRate The Frame Rate of the animation. (Optional)
-	 * @param looped Should the animation loop? (Optional)
-	 */
-	public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
-	{
-		var atlasAnimList:Array<String> = super.getAnimateAnimations();
+  /**
+   * Adds an Animation to the sprite.
+   * @param name The name of the animation to add.
+   * @param anim The actual animation name.
+   * @param indices The frame indices to use. (Optional)
+   * @param frameRate The Frame Rate of the animation. (Optional)
+   * @param looped Should the animation loop? (Optional)
+   */
+  public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
+  {
+    var atlasAnimList:Array<String> = super.getAnimateAnimations();
 
-		if (atlasAnimList.contains(anim))
-		{
-			super.addAnimateAtlasAnimation(name, anim, indices, frameRate, looped);
-			return;
-		}
+    if (atlasAnimList.contains(anim))
+    {
+      super.addAnimateAtlasAnimation(name, anim, indices, frameRate, looped);
+      return;
+    }
 
-		if (indices != null && indices.length > 0)
-			animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
-		else
-			animation.addByPrefix(name, anim + '0', frameRate, looped);
-	}
+    if (indices != null && indices.length > 0)
+      animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
+    else
+      animation.addByPrefix(name, anim + '0', frameRate, looped);
+  }
 
-	/**
-	 * Is the current animation null?
-	 */
-	public var animationIsNull(get, never):Bool;
+  /**
+   * Is the current animation null?
+   */
+  public var animationIsNull(get, never):Bool;
 
-	function get_animationIsNull():Bool
-	{
-		return animation.curAnim == null;
-	}
+  function get_animationIsNull():Bool
+  {
+    return animation.curAnim == null;
+  }
 
-	/**
-	 * Is the current animation finished?
-	 */
-	public var animFinished(get, never):Bool;
+  /**
+   * Is the current animation finished?
+   */
+  public var animFinished(get, never):Bool;
 
-	function get_animFinished():Bool
-	{
-		return animation?.curAnim?.finished ?? false;
-	}
+  function get_animFinished():Bool
+  {
+    return animation?.curAnim?.finished ?? false;
+  }
 
-	/**
-	 * Finishes the current animation playing.
-	 */
-	public function finishAnimation():Void
-	{
-		if (animationIsNull)
-			return;
+  /**
+   * Finishes the current animation playing.
+   */
+  public function finishAnimation():Void
+  {
+    if (animationIsNull)
+      return;
 
-		animation.curAnim.finish();
-	}
+    animation.curAnim.finish();
+  }
 
-	/**
-	 * Is the current animation paused?
-	 */
-	public var animPaused(get, set):Bool;
+  /**
+   * Is the current animation paused?
+   */
+  public var animPaused(get, set):Bool;
 
-	function get_animPaused():Bool
-	{
-		if (animationIsNull)
-			return false;
+  function get_animPaused():Bool
+  {
+    if (animationIsNull)
+      return false;
 
-		return animation?.curAnim?.paused ?? false;
-	}
+    return animation?.curAnim?.paused ?? false;
+  }
 
-	function set_animPaused(value:Bool):Bool
-	{
-		if (animationIsNull)
-			return value;
+  function set_animPaused(value:Bool):Bool
+  {
+    if (animationIsNull)
+      return value;
 
-		if (value)
-			animation.curAnim.pause();
-		else
-			animation.curAnim.resume();
+    if (value)
+      animation.curAnim.pause();
+    else
+      animation.curAnim.resume();
 
-		return value;
-	}
+    return value;
+  }
 
-	/**
-	 * Checks if the animation specified exists.
-	 * @param name The animation name to check for.
-	 * @return If the animation exists.
-	 */
-	public function animationExists(name:String):Bool
-	{
-		var atlasAnimList:Array<String> = super.getAnimateAnimations();
-		if (atlasAnimList.contains(name))
-			return true;
+  /**
+   * Checks if the animation specified exists.
+   * @param name The animation name to check for.
+   * @return If the animation exists.
+   */
+  public function animationExists(name:String):Bool
+  {
+    var atlasAnimList:Array<String> = super.getAnimateAnimations();
+    if (atlasAnimList.contains(name))
+      return true;
 
-		return animation?.exists(name) ?? false;
-	}
+    return animation?.exists(name) ?? false;
+  }
 
-	/**
-	 * Called when an animation is finished.
-	 */
-	public var onAnimFinished(get, never):FlxTypedSignal<String->Void>;
+  /**
+   * Called when an animation is finished.
+   */
+  public var onAnimFinished(get, never):FlxTypedSignal<String->Void>;
 
-	var _onAnimFinished:FlxTypedSignal<String->Void>;
+  var _onAnimFinished:FlxTypedSignal<String->Void>;
 
-	function get_onAnimFinished():FlxTypedSignal<String->Void>
-	{
-		if (_onAnimFinished == null)
-		{
-			_onAnimFinished = new FlxTypedSignal<String->Void>();
-			animation.onFinish.add((_) -> _onAnimFinished.dispatch(currentAnim));
-		}
+  function get_onAnimFinished():FlxTypedSignal<String->Void>
+  {
+    if (_onAnimFinished == null)
+    {
+      _onAnimFinished = new FlxTypedSignal<String->Void>();
+      animation.onFinish.add((_) -> _onAnimFinished.dispatch(currentAnim));
+    }
 
-		return _onAnimFinished;
-	}
+    return _onAnimFinished;
+  }
 
-	/**
-	 * @param id The animation ID to check.
-	 * @return Whether the animation is dynamic (has multiple frames). `false` for static, one-frame animations.
-	 */
-	public function isAnimationDynamic(id:String):Bool
-	{
-		if (animationIsNull)
-			return false;
+  /**
+   * @param id The animation ID to check.
+   * @return Whether the animation is dynamic (has multiple frames). `false` for static, one-frame animations.
+   */
+  public function isAnimationDynamic(id:String):Bool
+  {
+    if (animationIsNull)
+      return false;
 
-		var animData:Null<FlxAnimation> = animation.getByName(id);
-		if (animData == null)
-			return false;
+    var animData:Null<FlxAnimation> = animation.getByName(id);
+    if (animData == null)
+      return false;
 
-		return animData.numFrames > 1;
-	}
+    return animData.numFrames > 1;
+  }
 }
 
 typedef FunkinSpriteGroup = FlxTypedSpriteGroup<FunkinSprite>

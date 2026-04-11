@@ -2,36 +2,36 @@ package funkin.objects.ui;
 
 class WeekItem extends FunkinSprite
 {
-	public var targetY:Float = 0;
+  public var targetY:Float = 0;
 
-	private var flashingInt:Int = 0;
+  private var flashingInt:Int = 0;
 
-	public function new(x:Float, y:Float, weekName:String)
-	{
-		super(x, y);
-		loadTexture('ui/story/titles/' + weekName);
-	}
+  public function new(x:Float, y:Float, weekName:String)
+  {
+    super(x, y);
+    loadTexture('ui/story/titles/' + weekName);
+  }
 
-	var isFlashing:Bool = false;
+  var isFlashing:Bool = false;
 
-	public function startFlashing():Void
-	{
-		isFlashing = true;
-	}
+  public function startFlashing():Void
+  {
+    isFlashing = true;
+  }
 
-	var fakeFramerate:Int = Math.round((1 / FlxG.elapsed) / 10);
+  var fakeFramerate:Int = Math.round((1 / FlxG.elapsed) / 10);
 
-	override public function update(elapsed:Float)
-	{
-		super.update(elapsed);
-		y = MathUtil.coolLerp(y, (targetY * 120) + 480, 0.17);
+  override public function update(elapsed:Float)
+  {
+    super.update(elapsed);
+    y = MathUtil.coolLerp(y, (targetY * 120) + 480, 0.17);
 
-		if (isFlashing)
-			flashingInt += 1;
+    if (isFlashing)
+      flashingInt += 1;
 
-		if (flashingInt % fakeFramerate >= Math.floor(fakeFramerate / 2))
-			color = 0xFF33FFFF;
-		else
-			color = FlxColor.WHITE;
-	}
+    if (flashingInt % fakeFramerate >= Math.floor(fakeFramerate / 2))
+      color = 0xFF33FFFF;
+    else
+      color = FlxColor.WHITE;
+  }
 }

@@ -1,26 +1,26 @@
 {
-    "resolution": [150, 150],
-    "color": "#AF66CE",
-    "antialiasing": true,
-    "shouldBop": true,
+  "resolution": [150, 150],
+  "color": "#AF66CE",
+  "antialiasing": true,
+  "shouldBop": true,
 
-    "animations": [
-        {
-            "name": "normal",
-            "prefix": "",
-            "framerate": 24,
-            "indices": [0],
-            "looped": false,
-            "flipX": false,
-            "flipY": false
-        }
-    ],
+  "animations": [
+    {
+      "name": "normal",
+      "prefix": "",
+      "framerate": 24,
+      "indices": [0],
+      "looped": false,
+      "flipX": false,
+      "flipY": false
+    }
+  ],
 
-    "healthAnimations": [
-        {
-            "maximumHealth": 100,
-            "minimumHealth": 0,
-            "anim": "normal"
-        }
-    ]
+  "healthAnimations": [
+    {
+      "maximumHealth": 100,
+      "minimumHealth": 0,
+      "anim": "normal"
+    }
+  ]
 }

@@ -11,5 +11,9 @@
     "doWhile": "next",
     "tryBody": "next",
     "tryCatch": "next"
+  },
+  "indentation": {
+    "character": "  ",
+    "tabWidth": 2
   }
 }

@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 180
-		}
-	],
-	"name": "M.I.L.F",
-	"characters": {
-		"spectator": "gf-car",
-		"opponent": "mom-car",
-		"player": "bf-car"
-	},
-	"icon": "mom",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "limoRide",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "ninjamuffin99 + MtH + Spazkid"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 180
+    }
+  ],
+  "name": "M.I.L.F",
+  "characters": {
+    "spectator": "gf-car",
+    "opponent": "mom-car",
+    "player": "bf-car"
+  },
+  "icon": "mom",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "limoRide",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH + Spazkid"
+  }
 }

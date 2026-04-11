@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 150
-		}
-	],
-	"name": "Test",
-	"characters": {
-		"spectator": "gf",
-		"opponent": "bf-pixel-opponent",
-		"player": "bf"
-	},
-	"icon": "bf",
-	"preview": {
-		"start": 0,
-		"end": 150000
-	},
-	"stage": null,
-	"credits": {
-		"composer": "Unknown",
-		"charter": "Unknown"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 150
+    }
+  ],
+  "name": "Test",
+  "characters": {
+    "spectator": "gf",
+    "opponent": "bf-pixel-opponent",
+    "player": "bf"
+  },
+  "icon": "bf",
+  "preview": {
+    "start": 0,
+    "end": 150000
+  },
+  "stage": null,
+  "credits": {
+    "composer": "Unknown",
+    "charter": "Unknown"
+  }
 }

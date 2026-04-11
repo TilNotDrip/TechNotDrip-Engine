@@ -1,132 +1,132 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 95
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 41770,
-			"bpm": 95
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 44180,
-			"bpm": 105
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 80710,
-			"bpm": 105
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 81860,
-			"bpm": 110
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 81861,
-			"bpm": 95
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 117230,
-			"bpm": 132
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 131770,
-			"bpm": 132
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 133310,
-			"bpm": 107
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 133311,
-			"bpm": 132
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 133770,
-			"bpm": 120
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 42975,
-			"bpm": 100
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 81285,
-			"bpm": 107.5
-		},
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 132540,
-			"bpm": 119.5
-		}
-	],
-	"name": "Monster",
-	"characters": {
-		"spectator": "gf",
-		"opponent": "monster",
-		"player": "bf"
-	},
-	"icon": "monster",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "spookyMansion",
-	"credits": {
-		"composer": "BassetFilms",
-		"charter": "ChaoticGamerCG + Spazkid"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 95
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 41770,
+      "bpm": 95
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 44180,
+      "bpm": 105
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 80710,
+      "bpm": 105
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 81860,
+      "bpm": 110
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 81861,
+      "bpm": 95
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 117230,
+      "bpm": 132
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 131770,
+      "bpm": 132
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 133310,
+      "bpm": 107
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 133311,
+      "bpm": 132
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 133770,
+      "bpm": 120
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 42975,
+      "bpm": 100
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 81285,
+      "bpm": 107.5
+    },
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 132540,
+      "bpm": 119.5
+    }
+  ],
+  "name": "Monster",
+  "characters": {
+    "spectator": "gf",
+    "opponent": "monster",
+    "player": "bf"
+  },
+  "icon": "monster",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "spookyMansion",
+  "credits": {
+    "composer": "BassetFilms",
+    "charter": "ChaoticGamerCG + Spazkid"
+  }
 }

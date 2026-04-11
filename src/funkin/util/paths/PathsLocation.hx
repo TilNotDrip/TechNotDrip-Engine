@@ -8,153 +8,153 @@ import lime.utils.Assets;
  */
 class PathsLocation
 {
-	/**
-	 * This just ensures that the paths existence is here.
-	 *
-	 * There is no variables that need to be initialized however u will need to call this to be able to call functions from this class otherwise its null.
-	 */
-	public function new()
-	{
-		//
-	}
+  /**
+   * This just ensures that the paths existence is here.
+   *
+   * There is no variables that need to be initialized however u will need to call this to be able to call functions from this class otherwise its null.
+   */
+  public function new()
+  {
+    //
+  }
 
-	/**
-	 * Returns a path with the audio extenstion at the end.
-	 * @param key The path to get.
-	 * @return assets/`key`.`Paths.AUDIO_EXT`
-	 */
-	public function audio(key:String):String
-	{
-		if (StringUtil.isURL(key))
-			return get(key);
+  /**
+   * Returns a path with the audio extenstion at the end.
+   * @param key The path to get.
+   * @return assets/`key`.`Paths.AUDIO_EXT`
+   */
+  public function audio(key:String):String
+  {
+    if (StringUtil.isURL(key))
+      return get(key);
 
-		return get(key + '.' + Paths.AUDIO_EXT);
-	}
+    return get(key + '.' + Paths.AUDIO_EXT);
+  }
 
-	/**
-	 * Returns a path with the image extenstion at the end.
-	 * @param key The path to get.
-	 * @return assets/`key`.`Paths.IMAGE_EXT`
-	 */
-	public function image(key:String):String
-	{
-		if (StringUtil.isURL(key))
-			return get(key);
+  /**
+   * Returns a path with the image extenstion at the end.
+   * @param key The path to get.
+   * @return assets/`key`.`Paths.IMAGE_EXT`
+   */
+  public function image(key:String):String
+  {
+    if (StringUtil.isURL(key))
+      return get(key);
 
-		return get(key + '.' + Paths.IMAGE_EXT);
-	}
+    return get(key + '.' + Paths.IMAGE_EXT);
+  }
 
-	/**
-	 * Returns a path with the script extenstion at the end.
-	 * @param key The path to get.
-	 * @return assets/`key`.`Paths.SCRIPT_EXT`
-	 */
-	public function script(key:String):String
-	{
-		return get(key + '.' + Paths.SCRIPT_EXT);
-	}
+  /**
+   * Returns a path with the script extenstion at the end.
+   * @param key The path to get.
+   * @return assets/`key`.`Paths.SCRIPT_EXT`
+   */
+  public function script(key:String):String
+  {
+    return get(key + '.' + Paths.SCRIPT_EXT);
+  }
 
-	/**
-	 * Returns a path that adds `.xml` to the end.
-	 * @param key The path to get
-	 * @return assets/`key`.xml
-	 */
-	public function xml(key:String):String
-	{
-		return get(key + '.xml');
-	}
+  /**
+   * Returns a path that adds `.xml` to the end.
+   * @param key The path to get
+   * @return assets/`key`.xml
+   */
+  public function xml(key:String):String
+  {
+    return get(key + '.xml');
+  }
 
-	/**
-	 * Returns a path. Only returns assets/ + key since theres no mod support (yet.)
-	 * @param key The path to get.
-	 * @return assets/`key`
-	 */
-	public function get(key:String):String
-	{
-		// TODO: Better Link Detection system, this will do for the short run though.
-		if (StringUtil.isURL(key))
-			return key;
+  /**
+   * Returns a path. Only returns assets/ + key since theres no mod support (yet.)
+   * @param key The path to get.
+   * @return assets/`key`
+   */
+  public function get(key:String):String
+  {
+    // TODO: Better Link Detection system, this will do for the short run though.
+    if (StringUtil.isURL(key))
+      return key;
 
-		return 'assets/' + key;
-	}
+    return 'assets/' + key;
+  }
 
-	/**
-	 * Checks to see if a file exists inside the game.
-	 * @param key The path to check the existence on.
-	 * @return True if the file exists inside the game.
-	 */
-	public function exists(key:String):Bool
-	{
-		return FlxG.assets.exists(get(key));
-	}
+  /**
+   * Checks to see if a file exists inside the game.
+   * @param key The path to check the existence on.
+   * @return True if the file exists inside the game.
+   */
+  public function exists(key:String):Bool
+  {
+    return FlxG.assets.exists(get(key));
+  }
 
-	/**
-	 * Checks to see if `key` is animated, and can be used in `FunkinSprite.loadFrames`.
-	 * @param key The path to check.
-	 * @return True if `key` is animated.
-	 */
-	public function isAnimated(key:String):Bool
-	{
-		return (exists(key + '.xml') || Paths.location.exists(key + '/Animation.json'));
-	}
+  /**
+   * Checks to see if `key` is animated, and can be used in `FunkinSprite.loadFrames`.
+   * @param key The path to check.
+   * @return True if `key` is animated.
+   */
+  public function isAnimated(key:String):Bool
+  {
+    return (exists(key + '.xml') || Paths.location.exists(key + '/Animation.json'));
+  }
 
-	/**
-	 * Scans an entire path and returns all assets found.
-	 * @param key The path to scan.
-	 * @param ext If specified, will only return files that ends with `ext`.
-	 * @param recursive Recursively search through the game?
-	 * @param returnType Which type of paths do u want returned? (with assets/key/file, key/file, or just file).
-	 * @param returnExt Whether the extenstion of the file should be returned with it.
-	 * @return Array full of assets found inside of `key`.
-	 */
-	public function scan(key:String, ?ext:String = '', ?recursive:Bool = true, ?returnType:ScanReturnType = ASSETS_PATH_FILE,
-			?returnExt:Bool = true):Array<String>
-	{
-		var foundAssets:Array<String> = [];
-		var openflList:Array<String> = FlxG.assets.list();
+  /**
+   * Scans an entire path and returns all assets found.
+   * @param key The path to scan.
+   * @param ext If specified, will only return files that ends with `ext`.
+   * @param recursive Recursively search through the game?
+   * @param returnType Which type of paths do u want returned? (with assets/key/file, key/file, or just file).
+   * @param returnExt Whether the extenstion of the file should be returned with it.
+   * @return Array full of assets found inside of `key`.
+   */
+  public function scan(key:String, ?ext:String = '', ?recursive:Bool = true, ?returnType:ScanReturnType = ASSETS_PATH_FILE,
+      ?returnExt:Bool = true):Array<String>
+  {
+    var foundAssets:Array<String> = [];
+    var openflList:Array<String> = FlxG.assets.list();
 
-		if (!key.endsWith('/'))
-			key += '/';
+    if (!key.endsWith('/'))
+      key += '/';
 
-		if (ext != '' && !ext.startsWith('.'))
-			ext = '.' + ext;
+    if (ext != '' && !ext.startsWith('.'))
+      ext = '.' + ext;
 
-		for (asset in openflList)
-		{
-			var assetKey:String = 'assets/' + key;
+    for (asset in openflList)
+    {
+      var assetKey:String = 'assets/' + key;
 
-			if ((!asset.startsWith(assetKey) || !asset.endsWith(ext)) || (!recursive && asset.split(assetKey)[1].contains('/')))
-				continue;
+      if ((!asset.startsWith(assetKey) || !asset.endsWith(ext)) || (!recursive && asset.split(assetKey)[1].contains('/')))
+        continue;
 
-			var assetToPush:String = switch (returnType)
-			{
-				case ASSETS_PATH_FILE:
-					asset;
+      var assetToPush:String = switch (returnType)
+      {
+        case ASSETS_PATH_FILE:
+          asset;
 
-				case PATH_FILE:
-					asset.substring('assets/'.length);
+        case PATH_FILE:
+          asset.substring('assets/'.length);
 
-				case FILE:
-					Path.withoutDirectory(asset);
-			}
+        case FILE:
+          Path.withoutDirectory(asset);
+      }
 
-			if (!returnExt)
-			{
-				assetToPush = Path.withoutExtension(assetToPush);
-			}
+      if (!returnExt)
+      {
+        assetToPush = Path.withoutExtension(assetToPush);
+      }
 
-			// Avoid duplicates especially if your removing all extentions.
-			if (!foundAssets.contains(assetToPush))
-				foundAssets.push(assetToPush);
-		}
+      // Avoid duplicates especially if your removing all extentions.
+      if (!foundAssets.contains(assetToPush))
+        foundAssets.push(assetToPush);
+    }
 
-		return foundAssets;
-	}
+    return foundAssets;
+  }
 }
 
 enum ScanReturnType
 {
-	ASSETS_PATH_FILE;
-	PATH_FILE;
-	FILE;
+  ASSETS_PATH_FILE;
+  PATH_FILE;
+  FILE;
 }

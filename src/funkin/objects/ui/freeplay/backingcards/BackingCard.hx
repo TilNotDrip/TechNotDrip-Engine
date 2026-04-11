@@ -4,62 +4,62 @@ import funkin.states.ui.FreeplayState;
 
 class BackingCard extends FlxSpriteGroup
 {
-	public var pinkBack:FunkinSprite;
+  public var pinkBack:FunkinSprite;
 
-	public var instance:FreeplayState;
+  public var instance:FreeplayState;
 
-	public function new(instance:FreeplayState)
-	{
-		this.instance = instance;
+  public function new(instance:FreeplayState)
+  {
+    this.instance = instance;
 
-		super();
+    super();
 
-		pinkBack = new FunkinSprite().loadTexture('ui/freeplay/backingCard/pinkBack');
-		pinkBack.color = 0xFFFFD863;
-		add(pinkBack);
+    pinkBack = new FunkinSprite().loadTexture('ui/freeplay/backingCard/pinkBack');
+    pinkBack.color = 0xFFFFD863;
+    add(pinkBack);
 
-		instance.conductor.beatHit.add(beatHit);
-	}
+    instance.conductor.beatHit.add(beatHit);
+  }
 
-	/**
-	 * Called when entering from MenuState
-	 */
-	public function startIntroTween():Void
-	{
-		pinkBack.color = 0xFFFFD4E9; // sets it to pink!
-		pinkBack.x -= pinkBack.width;
+  /**
+   * Called when entering from MenuState
+   */
+  public function startIntroTween():Void
+  {
+    pinkBack.color = 0xFFFFD4E9; // sets it to pink!
+    pinkBack.x -= pinkBack.width;
 
-		FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
-	}
+    FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
+  }
 
-	/**
-	 * Called after DJ finishes their start animation.
-	 */
-	public function introDone():Void
-	{
-		pinkBack.color = 0xFFFFD863;
-	}
+  /**
+   * Called after DJ finishes their start animation.
+   */
+  public function introDone():Void
+  {
+    pinkBack.color = 0xFFFFD863;
+  }
 
-	/**
-	 * Called when selecting a song.
-	 */
-	public function confirm():Void
-	{
-		FlxTween.color(pinkBack, 0.33, 0xFFFFD0D5, 0xFF171831, {ease: FlxEase.quadOut});
-	}
+  /**
+   * Called when selecting a song.
+   */
+  public function confirm():Void
+  {
+    FlxTween.color(pinkBack, 0.33, 0xFFFFD0D5, 0xFF171831, {ease: FlxEase.quadOut});
+  }
 
-	/**
-	 * Called when entering character select.
-	 */
-	public function enterCharSel():Void {}
+  /**
+   * Called when entering character select.
+   */
+  public function enterCharSel():Void {}
 
-	/**
-	 * Called on each beat.
-	 */
-	public function beatHit():Void {}
+  /**
+   * Called on each beat.
+   */
+  public function beatHit():Void {}
 
-	/**
-	 * Called when exiting Freeplay.
-	 */
-	public function exit():Void {}
+  /**
+   * Called when exiting Freeplay.
+   */
+  public function exit():Void {}
 }

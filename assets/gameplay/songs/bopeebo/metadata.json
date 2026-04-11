@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 100
-		}
-	],
-	"name": "Bopeebo",
-	"characters": {
-		"spectator": "gf",
-		"opponent": "dad",
-		"player": "bf"
-	},
-	"icon": "dad",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "mainStage",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "ninjamuffin99 + MtH"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 100
+    }
+  ],
+  "name": "Bopeebo",
+  "characters": {
+    "spectator": "gf",
+    "opponent": "dad",
+    "player": "bf"
+  },
+  "icon": "dad",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "mainStage",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH"
+  }
 }

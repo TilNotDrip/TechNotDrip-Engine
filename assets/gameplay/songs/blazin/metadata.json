@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 180
-		}
-	],
-	"name": "Blazin'",
-	"characters": {
-		"spectator": "nene",
-		"opponent": "darnell-blazin",
-		"player": "pico-blazin"
-	},
-	"icon": "darnell",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "phillyBlazin",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "fabs + PhantomArcade"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 180
+    }
+  ],
+  "name": "Blazin'",
+  "characters": {
+    "spectator": "nene",
+    "opponent": "darnell-blazin",
+    "player": "pico-blazin"
+  },
+  "icon": "darnell",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "phillyBlazin",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "fabs + PhantomArcade"
+  }
 }

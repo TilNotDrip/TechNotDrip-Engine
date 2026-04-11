@@ -1,632 +1,632 @@
 {
-	"events": [
-		{
-			"name": "camera",
-			"time": 0,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 3956.04395604396,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 8901.0989010989,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 8901.0989010989,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 10549.4505494506,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		},
-		{
-			"name": "camera",
-			"time": 10549.4505494506,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 15824.1758241758,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 21098.9010989011,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 26373.6263736264,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 31648.3516483517,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 36923.0769230769,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 40549.0989010989,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 40549.0989010989,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 42197.4505494506,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		},
-		{
-			"name": "camera",
-			"time": 42197.8021978022,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 43516.4835164835,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 44835.1648351648,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 46153.8461538462,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 51098.0989010989,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 51098.0989010989,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 52746.4505494506,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		},
-		{
-			"name": "camera",
-			"time": 52746.4505494506,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 55384.6153846154,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 60659.3406593407,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 63296.7032967033,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 65934.0659340659,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 67252.7472527473,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 68571.4285714286,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 69890.1098901099,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 71208.7912087912,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 72527.4725274725,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 73846.1538461538,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 75164.8351648352,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 80109.8901098901,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 80109.8901098901,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 81758.2417582417,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		},
-		{
-			"name": "camera",
-			"time": 81758.2417582418,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 84395.6043956044,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 85384.0989010989,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 85384.0989010989,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 87032.4505494505,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		},
-		{
-			"name": "camera",
-			"time": 87032.4505494506,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 88351.6483516484,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 89670.3296703297,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 90989.010989011,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 92307.6923076923,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 93626.3736263736,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 94945.054945055,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 96263.7362637363,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 97582.4175824176,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 101538.461538462,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 113406.593406593,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "opponent"
-			}
-		},
-		{
-			"name": "camera",
-			"time": 114725.274725275,
-			"args": {
-				"pos": {
-					"x": 0,
-					"y": 0
-				},
-				"strum": "player"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 117032.098901099,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "elasticInOut",
-					"duration": 4
-				},
-				"zoom": 0.65
-			}
-		},
-		{
-			"name": "camera",
-			"time": 117032.098901099,
-			"args": {
-				"pos": {
-					"x": 100,
-					"y": 105
-				},
-				"strum": "spectator"
-			}
-		},
-		{
-			"name": "zoom",
-			"time": 118680.450549451,
-			"args": {
-				"direct": true,
-				"tweenInfo": {
-					"ease": "INSTANT",
-					"duration": 4
-				},
-				"zoom": 0.77
-			}
-		}
-	]
+  "events": [
+    {
+      "name": "camera",
+      "time": 0,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 3956.04395604396,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 8901.0989010989,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 8901.0989010989,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 10549.4505494506,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    },
+    {
+      "name": "camera",
+      "time": 10549.4505494506,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 15824.1758241758,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 21098.9010989011,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 26373.6263736264,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 31648.3516483517,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 36923.0769230769,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 40549.0989010989,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 40549.0989010989,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 42197.4505494506,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    },
+    {
+      "name": "camera",
+      "time": 42197.8021978022,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 43516.4835164835,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 44835.1648351648,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 46153.8461538462,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 51098.0989010989,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 51098.0989010989,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 52746.4505494506,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    },
+    {
+      "name": "camera",
+      "time": 52746.4505494506,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 55384.6153846154,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 60659.3406593407,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 63296.7032967033,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 65934.0659340659,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 67252.7472527473,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 68571.4285714286,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 69890.1098901099,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 71208.7912087912,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 72527.4725274725,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 73846.1538461538,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 75164.8351648352,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 80109.8901098901,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 80109.8901098901,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 81758.2417582417,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    },
+    {
+      "name": "camera",
+      "time": 81758.2417582418,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 84395.6043956044,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 85384.0989010989,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 85384.0989010989,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 87032.4505494505,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    },
+    {
+      "name": "camera",
+      "time": 87032.4505494506,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 88351.6483516484,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 89670.3296703297,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 90989.010989011,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 92307.6923076923,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 93626.3736263736,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 94945.054945055,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 96263.7362637363,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 97582.4175824176,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 101538.461538462,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 113406.593406593,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "opponent"
+      }
+    },
+    {
+      "name": "camera",
+      "time": 114725.274725275,
+      "args": {
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "strum": "player"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 117032.098901099,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "elasticInOut",
+          "duration": 4
+        },
+        "zoom": 0.65
+      }
+    },
+    {
+      "name": "camera",
+      "time": 117032.098901099,
+      "args": {
+        "pos": {
+          "x": 100,
+          "y": 105
+        },
+        "strum": "spectator"
+      }
+    },
+    {
+      "name": "zoom",
+      "time": 118680.450549451,
+      "args": {
+        "direct": true,
+        "tweenInfo": {
+          "ease": "INSTANT",
+          "duration": 4
+        },
+        "zoom": 0.77
+      }
+    }
+  ]
 }

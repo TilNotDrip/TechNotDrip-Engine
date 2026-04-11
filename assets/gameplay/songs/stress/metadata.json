@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 178
-		}
-	],
-	"name": "Stress",
-	"characters": {
-		"spectator": "pico-speaker",
-		"opponent": "tankman",
-		"player": "bf-holding-gf"
-	},
-	"icon": "tankman",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "tankmanBattlefield",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "MtH + SpazKid"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 178
+    }
+  ],
+  "name": "Stress",
+  "characters": {
+    "spectator": "pico-speaker",
+    "opponent": "tankman",
+    "player": "bf-holding-gf"
+  },
+  "icon": "tankman",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "tankmanBattlefield",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "MtH + SpazKid"
+  }
 }

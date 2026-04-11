@@ -1,40 +1,40 @@
 {
-    "resolution": [32, 32],
-    "color": "#FFAA6F",
-    "antialiasing": false,
-    "shouldBop": true,
+  "resolution": [32, 32],
+  "color": "#FFAA6F",
+  "antialiasing": false,
+  "shouldBop": true,
 
-    "animations": [
-        {
-            "name": "normal",
-            "prefix": "",
-            "framerate": 24,
-            "indices": [0],
-            "looped": false,
-            "flipX": false,
-            "flipY": false
-        },
-        {
-            "name": "lose",
-            "prefix": "",
-            "framerate": 24,
-            "indices": [1],
-            "looped": false,
-            "flipX": false,
-            "flipY": false
-        }
-    ],
+  "animations": [
+    {
+      "name": "normal",
+      "prefix": "",
+      "framerate": 24,
+      "indices": [0],
+      "looped": false,
+      "flipX": false,
+      "flipY": false
+    },
+    {
+      "name": "lose",
+      "prefix": "",
+      "framerate": 24,
+      "indices": [1],
+      "looped": false,
+      "flipX": false,
+      "flipY": false
+    }
+  ],
 
-    "healthAnimations": [
-        {
-            "maximumHealth": 19,
-            "minimumHealth": 0,
-            "anim": "lose"
-        },
-        {
-            "maximumHealth": 100,
-            "minimumHealth": 20,
-            "anim": "normal"
-        }
-    ]
+  "healthAnimations": [
+    {
+      "maximumHealth": 19,
+      "minimumHealth": 0,
+      "anim": "lose"
+    },
+    {
+      "maximumHealth": 100,
+      "minimumHealth": 20,
+      "anim": "normal"
+    }
+  ]
 }

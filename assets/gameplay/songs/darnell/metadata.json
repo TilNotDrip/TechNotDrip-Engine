@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 155
-		}
-	],
-	"name": "Darnell",
-	"characters": {
-		"spectator": "nene",
-		"opponent": "darnell",
-		"player": "pico-playable"
-	},
-	"icon": "darnell",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "phillyStreets",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "fabs"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 155
+    }
+  ],
+  "name": "Darnell",
+  "characters": {
+    "spectator": "nene",
+    "opponent": "darnell",
+    "player": "pico-playable"
+  },
+  "icon": "darnell",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "phillyStreets",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "fabs"
+  }
 }

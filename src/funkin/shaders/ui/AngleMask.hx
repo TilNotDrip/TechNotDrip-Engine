@@ -5,17 +5,17 @@ import flixel.util.FlxColor;
 
 class AngleMask extends FlxShader
 {
-	public var extraColor(default, set):FlxColor = 0xFFFFFFFF;
+  public var extraColor(default, set):FlxColor = 0xFFFFFFFF;
 
-	function set_extraColor(value:FlxColor):FlxColor
-	{
-		extraTint.value = [value.redFloat, value.greenFloat, value.blueFloat];
-		this.extraColor = value;
+  function set_extraColor(value:FlxColor):FlxColor
+  {
+    extraTint.value = [value.redFloat, value.greenFloat, value.blueFloat];
+    this.extraColor = value;
 
-		return this.extraColor;
-	}
+    return this.extraColor;
+  }
 
-	@:glFragmentSource('
+  @:glFragmentSource('
     #pragma header
 
     uniform vec3 extraTint;
@@ -86,11 +86,11 @@ class AngleMask extends FlxShader
       // col.xyz = gamma(col.xyz);
       gl_FragColor = col;
     }')
-	public function new()
-	{
-		super();
+  public function new()
+  {
+    super();
 
-		endPosition.value = [90, 100]; // 100 AS DEFAULT WORKS NICELY FOR FREEPLAY?
-		extraTint.value = [1, 1, 1];
-	}
+    endPosition.value = [90, 100]; // 100 AS DEFAULT WORKS NICELY FOR FREEPLAY?
+    extraTint.value = [1, 1, 1];
+  }
 }

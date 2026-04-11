@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": -1,
-			"bpm": 182
-		}
-	],
-	"name": "2hot",
-	"characters": {
-		"spectator": "nene",
-		"opponent": "darnell",
-		"player": "pico-playable"
-	},
-	"icon": "darnell",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "phillyStreets",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "Jenny Crowe + Spazkid + ninjamuffin99"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": -1,
+      "bpm": 182
+    }
+  ],
+  "name": "2hot",
+  "characters": {
+    "spectator": "nene",
+    "opponent": "darnell",
+    "player": "pico-playable"
+  },
+  "icon": "darnell",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "phillyStreets",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "Jenny Crowe + Spazkid + ninjamuffin99"
+  }
 }

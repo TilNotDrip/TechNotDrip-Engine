@@ -12,74 +12,74 @@ import haxe.Timer;
  */
 class FunkinState extends FlxState
 {
-	var controls(get, never):FunkinControls;
+  var controls(get, never):FunkinControls;
 
-	inline function get_controls():FunkinControls
-		return FunkinControls.instance;
+  inline function get_controls():FunkinControls
+    return FunkinControls.instance;
 
-	/**
-	 * The conductor that controls everything music-wise inside this state.
-	 */
-	public var conductor:Conductor = null;
+  /**
+   * The conductor that controls everything music-wise inside this state.
+   */
+  public var conductor:Conductor = null;
 
-	public function new()
-	{
-		conductor = new Conductor();
-		conductor.stepHit.add(stepHit);
-		conductor.beatHit.add(beatHit);
-		conductor.sectionHit.add(sectionHit);
+  public function new()
+  {
+    conductor = new Conductor();
+    conductor.stepHit.add(stepHit);
+    conductor.beatHit.add(beatHit);
+    conductor.sectionHit.add(sectionHit);
 
-		#if FUNKIN_DISCORD_RPC
-		DiscordRPC.clearValues();
-		#end
+    #if FUNKIN_DISCORD_RPC
+    DiscordRPC.clearValues();
+    #end
 
-		super();
-	}
+    super();
+  }
 
-	override public function create():Void
-	{
-		super.create();
+  override public function create():Void
+  {
+    super.create();
 
-		if (FunkinTransition.instance == null)
-		{
-			new FunkinTransition();
-		}
+    if (FunkinTransition.instance == null)
+    {
+      new FunkinTransition();
+    }
 
-		openSubState(FunkinTransition.instance);
-		FunkinTransition.instance.onCompletion = null;
-		FunkinTransition.instance.startTransOut();
-	}
+    openSubState(FunkinTransition.instance);
+    FunkinTransition.instance.onCompletion = null;
+    FunkinTransition.instance.startTransOut();
+  }
 
-	override public function destroy():Void
-	{
-		conductor.destroy();
-		conductor = null;
+  override public function destroy():Void
+  {
+    conductor.destroy();
+    conductor = null;
 
-		super.destroy();
-	}
+    super.destroy();
+  }
 
-	override public function startOutro(onOutroComplete:() -> Void):Void
-	{
-		if (subState == null || !Std.isOfType(subState, FunkinTransition))
-		{
-			openSubState(new FunkinTransition());
-			FunkinTransition.instance.onCompletion = onOutroComplete;
-			FunkinTransition.instance.startTransIn();
-		}
-	}
+  override public function startOutro(onOutroComplete:() -> Void):Void
+  {
+    if (subState == null || !Std.isOfType(subState, FunkinTransition))
+    {
+      openSubState(new FunkinTransition());
+      FunkinTransition.instance.onCompletion = onOutroComplete;
+      FunkinTransition.instance.startTransIn();
+    }
+  }
 
-	/**
-	 * This function is called after the conductor step changes.
-	 */
-	public function stepHit():Void {}
+  /**
+   * This function is called after the conductor step changes.
+   */
+  public function stepHit():Void {}
 
-	/**
-	 * This function is called after the conductor beat changes.
-	 */
-	public function beatHit():Void {}
+  /**
+   * This function is called after the conductor beat changes.
+   */
+  public function beatHit():Void {}
 
-	/**
-	 * This function is called after the conductor section changes.
-	 */
-	public function sectionHit():Void {}
+  /**
+   * This function is called after the conductor section changes.
+   */
+  public function sectionHit():Void {}
 }

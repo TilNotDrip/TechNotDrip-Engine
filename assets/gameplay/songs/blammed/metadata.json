@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": -1,
-			"bpm": 165
-		}
-	],
-	"name": "Blammed",
-	"characters": {
-		"spectator": "gf",
-		"opponent": "pico",
-		"player": "bf"
-	},
-	"icon": "pico",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "phillyTrain",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "ninjamuffin99 + MtH"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": -1,
+      "bpm": 165
+    }
+  ],
+  "name": "Blammed",
+  "characters": {
+    "spectator": "gf",
+    "opponent": "pico",
+    "player": "bf"
+  },
+  "icon": "pico",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "phillyTrain",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH"
+  }
 }

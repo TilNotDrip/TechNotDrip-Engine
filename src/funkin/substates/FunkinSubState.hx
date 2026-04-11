@@ -12,56 +12,56 @@ import haxe.Timer;
  */
 class FunkinSubState extends FlxSubState
 {
-	var controls(get, never):FunkinControls;
+  var controls(get, never):FunkinControls;
 
-	inline function get_controls():FunkinControls
-		return FunkinControls.instance;
+  inline function get_controls():FunkinControls
+    return FunkinControls.instance;
 
-	/**
-	 * The conductor that controls everything music-wise inside this substate.
-	 */
-	public var conductor:Conductor = null;
+  /**
+   * The conductor that controls everything music-wise inside this substate.
+   */
+  public var conductor:Conductor = null;
 
-	/**
-	 * The parent FunkinState.
-	 */
-	var parentState(get, never):FunkinState;
+  /**
+   * The parent FunkinState.
+   */
+  var parentState(get, never):FunkinState;
 
-	function get_parentState():FunkinState
-	{
-		return cast(_parentState, FunkinState);
-	}
+  function get_parentState():FunkinState
+  {
+    return cast(_parentState, FunkinState);
+  }
 
-	public function new()
-	{
-		conductor = new Conductor();
-		conductor.stepHit.add(stepHit);
-		conductor.beatHit.add(beatHit);
-		conductor.sectionHit.add(sectionHit);
+  public function new()
+  {
+    conductor = new Conductor();
+    conductor.stepHit.add(stepHit);
+    conductor.beatHit.add(beatHit);
+    conductor.sectionHit.add(sectionHit);
 
-		super();
-	}
+    super();
+  }
 
-	override public function destroy():Void
-	{
-		conductor.destroy();
-		conductor = null;
+  override public function destroy():Void
+  {
+    conductor.destroy();
+    conductor = null;
 
-		super.destroy();
-	}
+    super.destroy();
+  }
 
-	/**
-	 * This function is called after the conductor step changes.
-	 */
-	public function stepHit():Void {}
+  /**
+   * This function is called after the conductor step changes.
+   */
+  public function stepHit():Void {}
 
-	/**
-	 * This function is called after the conductor beat changes.
-	 */
-	public function beatHit():Void {}
+  /**
+   * This function is called after the conductor beat changes.
+   */
+  public function beatHit():Void {}
 
-	/**
-	 * This function is called after the conductor section changes.
-	 */
-	public function sectionHit():Void {}
+  /**
+   * This function is called after the conductor section changes.
+   */
+  public function sectionHit():Void {}
 }

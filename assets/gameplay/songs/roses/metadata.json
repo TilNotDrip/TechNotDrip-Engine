@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": -1,
-			"bpm": 120
-		}
-	],
-	"name": "Roses",
-	"characters": {
-		"spectator": "gf-pixel",
-		"opponent": "senpai-angry",
-		"player": "bf-pixel"
-	},
-	"icon": "senpai",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "school",
-	"credits": {
-		"composer": "Kawai Sprite",
-		"charter": "ninjamuffin99 + MtH"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": -1,
+      "bpm": 120
+    }
+  ],
+  "name": "Roses",
+  "characters": {
+    "spectator": "gf-pixel",
+    "opponent": "senpai-angry",
+    "player": "bf-pixel"
+  },
+  "icon": "senpai",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "school",
+  "credits": {
+    "composer": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH"
+  }
 }

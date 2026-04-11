@@ -1,7 +1,7 @@
 {
-	"computerControlled": true,
-	"renderStrumline": true,
-	"strumlinePosition": "left",
-	"renderRatings": false,
-	"rgbToUse": "player"
+  "computerControlled": true,
+  "renderStrumline": true,
+  "strumlinePosition": "left",
+  "renderRatings": false,
+  "rgbToUse": "player"
 }

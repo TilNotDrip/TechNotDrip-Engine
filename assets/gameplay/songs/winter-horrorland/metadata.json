@@ -1,28 +1,28 @@
 {
-	"bpmChanges": [
-		{
-			"timeSignature": {
-				"denominator": 4,
-				"numerator": 4
-			},
-			"time": 0,
-			"bpm": 159
-		}
-	],
-	"name": "Winter Horrorland",
-	"characters": {
-		"spectator": "gf-christmas",
-		"opponent": "monster-christmas",
-		"player": "bf-christmas"
-	},
-	"icon": "monster",
-	"preview": {
-		"start": 0,
-		"end": 15000
-	},
-	"stage": "mallEvil",
-	"credits": {
-		"composer": "Bassetfilms",
-		"charter": "ninjamuffin99 + MtH"
-	}
+  "bpmChanges": [
+    {
+      "timeSignature": {
+        "denominator": 4,
+        "numerator": 4
+      },
+      "time": 0,
+      "bpm": 159
+    }
+  ],
+  "name": "Winter Horrorland",
+  "characters": {
+    "spectator": "gf-christmas",
+    "opponent": "monster-christmas",
+    "player": "bf-christmas"
+  },
+  "icon": "monster",
+  "preview": {
+    "start": 0,
+    "end": 15000
+  },
+  "stage": "mallEvil",
+  "credits": {
+    "composer": "Bassetfilms",
+    "charter": "ninjamuffin99 + MtH"
+  }
 }

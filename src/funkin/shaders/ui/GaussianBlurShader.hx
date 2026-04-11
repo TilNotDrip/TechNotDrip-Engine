@@ -7,9 +7,9 @@ import flixel.system.FlxAssets.FlxShader;
  */
 class GaussianBlurShader extends FlxShader
 {
-	public var amount:Float;
+  public var amount:Float;
 
-	@:glFragmentSource('#pragma header
+  @:glFragmentSource('#pragma header
 
 		// Modified version of a tilt shift shader from Martin Jonasson (http://grapefrukt.com/)
 		// Read http://notes.underscorediscovery.com/ for context on shaders and this file
@@ -124,15 +124,15 @@ class GaussianBlurShader extends FlxShader
 			gl_FragColor = blurredShit;
     }
 ')
-	public function new(amount:Float = 1.0)
-	{
-		super();
-		setAmount(amount);
-	}
+  public function new(amount:Float = 1.0)
+  {
+    super();
+    setAmount(amount);
+  }
 
-	public function setAmount(value:Float):Void
-	{
-		this.amount = value;
-		_amount.value = [amount];
-	}
+  public function setAmount(value:Float):Void
+  {
+    this.amount = value;
+    _amount.value = [amount];
+  }
 }
