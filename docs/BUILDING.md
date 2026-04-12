@@ -1,4 +1,9 @@
 # Building TechNotDrip Engine
+
+## Platforms:
+* [Android](#Android)
+* [Windows](#Windows)
+
 ## Android:
 1. Install Android Studio from [developer.android.com](https://developer.android.com/studio)
 2. Install Java 17 from [oracle.com](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
@@ -27,3 +32,52 @@
 11. You can now compile to Android!
 	- NOTE: Run and Debug from Visual Studio Code doesn't support Android Debugging, so you will need to compile from the command itself.
 	- The command is `lime build android`.
+
+## Windows:
+### Prerequisites:
+* [Haxe](https://haxe.org/) installed
+* [Git](https://git-scm.com/) installed
+* Visual Studio Build Tools (C++ workload)
+* Windows SDK installed
+
+## Steps:
+
+### 1. Setup Haxelib (if not already setup)
+```
+haxelib setup
+```
+
+### 2. Install required tooling
+```
+haxelib git haxelib https://github.com/FunkinCrew/haxelib.git funkin-patches
+haxelib git hmm https://github.com/FunkinCrew/hmm funkin-patches
+```
+
+### 3. Install project dependencies
+Run inside the project root which should contain `hmm.json`
+```
+cd <project-root>
+haxelib run hmm install -q
+```
+
+### 4. Build hxcpp tools (one-time per machine)
+Find the active haxelib repository path:
+```
+haxelib config
+```
+
+Then navigate to:
+```
+cd <haxelib-config-path>\hxcpp\git\tools\hxcpp
+haxe compile.hxml
+```
+
+Return to the project root:
+```
+cd <project-root>
+```
+
+### 5. Build project
+```
+haxelib run lime build windows
+```
