@@ -35,7 +35,7 @@ class VoicesGroup extends FlxSoundGroup
    * @see `getOpponent()`
    * @see `getPlayer()`
    */
-  var main:Null<FlxSound>;
+  var combined:Null<FlxSound>;
 
   public function new(songID:String)
   {
@@ -44,7 +44,7 @@ class VoicesGroup extends FlxSoundGroup
 
     var opponentSound:Null<Sound> = null;
     var playerSound:Null<Sound> = null;
-    var mainSound:Null<Sound> = null;
+    var combinedSound:Null<Sound> = null;
 
     super();
 
@@ -60,7 +60,7 @@ class VoicesGroup extends FlxSoundGroup
     {
       if (Paths.location.exists('${songPath}/Voices.${Paths.AUDIO_EXT}'))
       {
-        mainSound = Paths.content.audio('${songPath}/Voices');
+        combinedSound = Paths.content.audio('${songPath}/Voices');
 
         // Invalidate all other sounds, if they exist.
         opponentSound = null;
@@ -68,10 +68,10 @@ class VoicesGroup extends FlxSoundGroup
       }
     }
 
-    if (mainSound != null)
+    if (combinedSound != null)
     {
-      main = FlxG.sound.load(mainSound);
-      this.add(main);
+      combined = FlxG.sound.load(combinedSound);
+      this.add(combined);
     }
 
     if (opponentSound != null)
@@ -96,7 +96,7 @@ class VoicesGroup extends FlxSoundGroup
     {
       trace('[INFO] Voices Type for "${songID}": Opponent and Player seperated');
     }
-    else if (main != null)
+    else if (combined != null)
     {
       trace('[INFO] Voices Type for "${songID}": Opponent and Player pair');
     }
@@ -124,18 +124,46 @@ class VoicesGroup extends FlxSoundGroup
   }
 
   /**
+   * This function is for resyncing vocals. Please call sparingly, ideally for every music section only.
+   */
+  public function tryResync():Void
+  {
+    if (combined != null)
+    {
+      syncVocals(combined);
+      return;
+    }
+
+    syncVocals(player);
+    syncVocals(opponent);
+  }
+
+  // maybe even log time difference
+  // -silver984
+  private function syncVocals(vocals:Null<FlxSound>):Void
+  {
+    if (vocals != null)
+    {
+      var timeDif:Float = vocals.time - FlxG.sound.music.time;
+      // in milliseconds
+      var delayThreshold:Float = 10;
+      if (Math.abs(timeDif) >= delayThreshold)
+      {
+        vocals.time = FlxG.sound.music.time;
+      }
+    }
+  }
+
+  /**
    * Gets the player vocals, if they exist.
    * @return A `FlxSound` instance containing the vocals. If it's `null`, they do not exist.
    */
   public function getPlayer():Null<FlxSound>
   {
-    if (main != null)
-      return main;
+    if (combined != null)
+      return combined;
 
-    if (player != null)
-      return player;
-
-    return null;
+    return player;
   }
 
   /**
@@ -144,12 +172,9 @@ class VoicesGroup extends FlxSoundGroup
    */
   public function getOpponent():Null<FlxSound>
   {
-    if (main != null)
-      return main;
+    if (combined != null)
+      return combined;
 
-    if (opponent != null)
-      return opponent;
-
-    return null;
+    return opponent;
   }
 }

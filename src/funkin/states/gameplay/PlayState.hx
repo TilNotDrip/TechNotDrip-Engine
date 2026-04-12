@@ -113,6 +113,7 @@ class PlayState extends FunkinState
     voices.play();
 
     conductor.setupBPMChanges(metadata.bpmChanges);
+    conductor.sectionHit.add(voices.tryResync);
   }
 
   override public function update(elapsed:Float):Void
