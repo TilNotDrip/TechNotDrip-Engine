@@ -1,6 +1,8 @@
 package funkin;
 
+#if FUNKIN_GIT_DETAILS
 import funkin.macros.GitDefines;
+#end
 
 class Constants
 {
@@ -14,6 +16,7 @@ class Constants
    */
   public static final FNF_VERSION:String = '0.8.1';
 
+  #if FUNKIN_GIT_DETAILS
   /**
    * The current Git Commit Hash.
    */
@@ -33,6 +36,7 @@ class Constants
    * If there is local changes to the git branch.
    */
   public static final GIT_MODIFIED:Bool = GitDefines.gitModified();
+  #end
 
   /**
    * Default Difficulties

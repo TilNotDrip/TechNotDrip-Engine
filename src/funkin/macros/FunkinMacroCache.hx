@@ -1,5 +1,6 @@
 package funkin.macros;
 
+#if macro
 import haxe.Serializer;
 import haxe.Unserializer;
 import haxe.ds.StringMap;
@@ -8,7 +9,6 @@ import haxe.macro.Expr;
 import sys.FileSystem;
 import sys.io.File;
 
-#if macro
 /**
  * Pretty much a save file for macros.
  * Lets you keep values for later compiles.
