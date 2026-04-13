@@ -1,11 +1,11 @@
 package funkin.macros;
 
+#if macro
 import haxe.Serializer;
 import haxe.Unserializer;
 import haxe.ds.StringMap;
 import haxe.macro.Context;
 import haxe.macro.Expr;
-#if macro
 import sys.FileSystem;
 import sys.io.File;
 

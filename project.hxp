@@ -50,7 +50,6 @@ class Project extends HXProject
 	public function new()
 	{
 		super();
-		haxedefs.set("FUNKIN_GIT_DETAILS", "");
 		setenv('HAXEPATH', './'); // Fixes an issue for haxelibs that use native C++ files until Haxe 5 releases.
 
 		setupApplicationSettings();

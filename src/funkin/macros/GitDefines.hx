@@ -1,6 +1,6 @@
 package funkin.macros;
 
-#if (FUNKIN_GIT_DETAILS || display)
+#if FUNKIN_GIT_DETAILS
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
