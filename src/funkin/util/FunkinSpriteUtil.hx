@@ -1,16 +1,16 @@
 package funkin.util;
 
-import funkin.structures.ObjectStructure;
+import funkin.data.object.ObjectData;
 
 class FunkinSpriteUtil
 {
   /**
-   * Creates a new `FunkinSprite` from a `ObjectStructure`.
+   * Creates a new `FunkinSprite` from a `ObjectData`.
    * @param spriteToUse The `FunkinSprite` object to apply this to.
    * @param structure The structure data to use when applying it.
    * @return Freshly made `FunkinSprite`.
    */
-  public static function createFromStructure(?spriteToUse:FunkinSprite = null, structure:ObjectStructure):FunkinSprite
+  public static function createFromStructure(?spriteToUse:FunkinSprite = null, structure:ObjectData):FunkinSprite
   {
     if (structure == null)
       return spriteToUse;
@@ -51,12 +51,12 @@ class FunkinSpriteUtil
   }
 
   /**
-   * Adds animations to a `FunkinSprite` from a array with `AnimationArrayStructure`'s.
+   * Adds animations to a `FunkinSprite` from a array with `AnimationDataArray`'s.
    * @param sprite The `FunkinSprite` to apply this to.
-   * @param structure The array filled with `AnimationArrayStructure`. to create animations from.
+   * @param structure The array filled with `AnimationDataArray`. to create animations from.
    * @return `FunkinSprite` with animations added.
    */
-  public static function addAnimationsFromStructure(sprite:FunkinSprite, structure:Array<AnimationArrayStructure>):FunkinSprite
+  public static function addAnimationsFromStructure(sprite:FunkinSprite, structure:Array<AnimationDataArray>):FunkinSprite
   {
     if (sprite == null || structure == null)
       return sprite;

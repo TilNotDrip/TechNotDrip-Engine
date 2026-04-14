@@ -2,7 +2,7 @@ package funkin.data.song;
 
 import flixel.sound.FlxSoundGroup;
 import flixel.util.FlxSort;
-import funkin.structures.SongStructure;
+import funkin.data.song.SongData;
 
 class Song
 {
@@ -33,7 +33,7 @@ class Song
 
   /**
    * Gets a song using it's ID.
-   * @param id The ID of the song to search for. 
+   * @param id The ID of the song to search for.
    * @return The Song Object.
    */
   public static function getSongByID(id:String):Song

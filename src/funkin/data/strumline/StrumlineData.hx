@@ -2,12 +2,13 @@ package funkin.data.strumline;
 
 import flixel.util.FlxSignal;
 import flixel.util.FlxSort;
-import funkin.objects.gameplay.hud.HealthIcon;
-import funkin.objects.gameplay.hud.strumline.NoteSprite;
-import funkin.objects.gameplay.hud.strumline.Strumline;
-import funkin.objects.gameplay.hud.strumline.SustainNoteSprite;
-import funkin.util.FunkinControls;
-import funkin.util.InputUtil;
+import funkin.input.FunkinControls;
+import funkin.input.InputUtil;
+import funkin.play.hud.HealthIcon;
+import funkin.play.hud.strumline.NoteSprite;
+import funkin.play.hud.strumline.Strumline;
+import funkin.play.hud.strumline.SustainNoteSprite;
+import funkin.sound.Conductor;
 import haxe.Json;
 
 class StrumlineData

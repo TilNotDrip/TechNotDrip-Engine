@@ -1,25 +1,25 @@
 package funkin.data.save;
 
 import flixel.util.FlxSave;
-import funkin.structures.SaveStructure;
-import funkin.util.FunkinControls;
+import funkin.data.save.SaveData;
+import funkin.input.FunkinControls;
 
 class Save
 {
   /**
    * The path of which saves are loaded from. Usually the company name.
    */
-  public static final SAVE_PATH:String = 'TilNotDrip';
+  public static final SAVE_PATH:String = 'TilNotDrip' #if debug + '_DEBUG' #end;
 
   /**
    * The name of which saves are loaded from. Usually the name of the application.
    */
-  public static final SAVE_NAME:String = 'TechNotDrip';
+  public static final SAVE_NAME:String = 'TechNotDrip' #if debug + '_DEBUG' #end;
 
   /**
    * The current version of save file.
    */
-  public static final SAVE_VERSION:Version = '1.1.0';
+  public static final SAVE_VERSION:Version = '1.0.0';
 
   /**
    * The version rule for save files, means that they are compatible with this version.
@@ -36,9 +36,9 @@ class Save
   /**
    * The recently loaded save data.
    */
-  public var data:SaveStructure = null;
+  public var data:SaveData = null;
 
-  public function new(?data:SaveStructure)
+  public function new(?data:SaveData)
   {
     if (data == null)
     {
@@ -91,16 +91,16 @@ class Save
   /**
    * Options for the game
    */
-  public var options(get, set):OptionStructure;
+  public var options(get, set):SaveOptionData;
 
-  function set_options(value:OptionStructure):OptionStructure
+  function set_options(value:SaveOptionData):SaveOptionData
   {
     data.options = value;
     flush();
     return data.options;
   }
 
-  function get_options():OptionStructure
+  function get_options():SaveOptionData
   {
     return data.options;
   }
@@ -151,7 +151,7 @@ class Save
   /**
    * @return Returns the default save options
    */
-  public static function getDefault():SaveStructure
+  public static function getDefault():SaveData
   {
     return {
       version: SAVE_VERSION,

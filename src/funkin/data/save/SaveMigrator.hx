@@ -1,7 +1,6 @@
 package funkin.data.save;
 
 import flixel.util.FlxSave;
-import funkin.structures.SaveStructure;
 
 class SaveMigrator
 {
@@ -49,7 +48,7 @@ class SaveMigrator
   public static function migrateChillinEngine():Save
   {
     var oldSave:FlxSave = new FlxSave();
-    var newSave:SaveStructure = Save.getDefault();
+    var newSave:SaveData = Save.getDefault();
 
     // HIGHSCORES
     oldSave.bind('scores', 'tilnotdrip');

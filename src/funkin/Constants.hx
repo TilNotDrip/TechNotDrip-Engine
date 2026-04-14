@@ -1,7 +1,7 @@
 package funkin;
 
 #if FUNKIN_GIT_DETAILS
-import funkin.macros.GitDefines;
+import funkin.util.macro.GitDefines;
 #end
 
 class Constants
@@ -14,7 +14,7 @@ class Constants
   /**
    * The version of Friday Night Funkin' that TechNotDrip Engine is based off of.
    */
-  public static final FNF_VERSION:String = '0.8.1';
+  public static final FNF_VERSION:String = '0.8.5';
 
   #if FUNKIN_GIT_DETAILS
   /**

@@ -1,0 +1,86 @@
+package funkin.ui;
+
+import flixel.FlxBasic;
+import flixel.FlxState;
+import flixel.util.FlxSort;
+import funkin.input.FunkinControls;
+import funkin.sound.Conductor;
+import funkin.ui.FunkinTransition;
+import haxe.Timer;
+
+/**
+ * A FunkinState is a regular FlxState which adds more music functionality for it (etc. making objects play an animation on a beat hit).
+ */
+class FunkinState extends FlxState
+{
+  var controls(get, never):FunkinControls;
+
+  inline function get_controls():FunkinControls
+    return FunkinControls.instance;
+
+  /**
+   * The conductor that controls everything music-wise inside this state.
+   */
+  public var conductor:Conductor = null;
+
+  public function new()
+  {
+    conductor = new Conductor();
+    conductor.stepHit.add(stepHit);
+    conductor.beatHit.add(beatHit);
+    conductor.sectionHit.add(sectionHit);
+
+    #if FUNKIN_DISCORD_RPC
+    DiscordRPC.clearValues();
+    #end
+
+    super();
+  }
+
+  override public function create():Void
+  {
+    super.create();
+
+    if (FunkinTransition.instance == null)
+    {
+      new FunkinTransition();
+    }
+
+    openSubState(FunkinTransition.instance);
+    FunkinTransition.instance.onCompletion = null;
+    FunkinTransition.instance.startTransOut();
+  }
+
+  override public function destroy():Void
+  {
+    conductor.destroy();
+    conductor = null;
+
+    super.destroy();
+  }
+
+  override public function startOutro(onOutroComplete:() -> Void):Void
+  {
+    if (subState == null || !Std.isOfType(subState, FunkinTransition))
+    {
+      openSubState(new FunkinTransition());
+      FunkinTransition.instance.onCompletion = onOutroComplete;
+      FunkinTransition.instance.startTransIn();
+    }
+  }
+
+  /**
+   * This function is called after the conductor step changes.
+   */
+  public function stepHit():Void {}
+
+  /**
+   * This function is called after the conductor beat changes.
+   */
+  public function beatHit():Void {}
+
+  /**
+   * This function is called after the conductor section changes.
+   */
+  public function sectionHit():Void {}
+}

@@ -3,12 +3,12 @@ package funkin;
 import flixel.FlxBasic;
 import flixel.FlxGame;
 import flixel.util.typeLimit.NextState;
-import funkin.objects.ui.PerformanceStats;
-import funkin.states.ui.TitleState;
+import funkin.ui.PerformanceStats;
+import funkin.ui.title.TitleState;
 import lime.utils.Assets as LimeAssets;
 import openfl.utils.Assets as OpenFlAssets;
 #if FUNKIN_DISCORD_RPC
-import funkin.api.DiscordRPC;
+import funkin.api.discord.DiscordRPC;
 #end
 
 class FunkinGame extends FlxGame
