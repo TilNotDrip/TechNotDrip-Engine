@@ -1,4 +1,4 @@
-package funkin.shaders.ui;
+package funkin.ui.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 import flixel.util.FlxColor;

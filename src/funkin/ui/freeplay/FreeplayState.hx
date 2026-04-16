@@ -3,12 +3,12 @@ package funkin.ui.freeplay;
 import funkin.data.song.Song;
 import funkin.data.week.Week;
 import funkin.play.PlayState;
-import funkin.shaders.ui.AngleMask;
-import funkin.shaders.ui.StrokeShader;
 import funkin.ui.freeplay.backingcards.BackingCard;
 import funkin.ui.freeplay.backingcards.BoyfriendBackingCard;
 import funkin.ui.freeplay.dj.FreeplayDJ;
 import funkin.ui.menu.MenuState;
+import funkin.ui.shaders.AngleMask;
+import funkin.ui.shaders.StrokeShader;
 
 class FreeplayState extends FunkinState
 {

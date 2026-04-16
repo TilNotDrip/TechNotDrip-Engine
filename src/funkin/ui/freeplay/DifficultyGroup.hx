@@ -1,6 +1,6 @@
 package funkin.ui.freeplay;
 
-import funkin.shaders.ui.PureColor;
+import funkin.ui.shaders.PureColor;
 
 class DifficultyGroup extends FunkinSpriteGroup
 {

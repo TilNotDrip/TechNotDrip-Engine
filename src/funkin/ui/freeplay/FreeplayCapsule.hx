@@ -2,7 +2,7 @@ package funkin.ui.freeplay;
 
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import funkin.shaders.ui.GaussianBlurShader;
+import funkin.ui.shaders.GaussianBlurShader;
 
 class FreeplayCapsule extends FlxSpriteGroup
 {
