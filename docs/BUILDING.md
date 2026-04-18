@@ -1,4 +1,32 @@
 # Building TechNotDrip Engine
+
+## Platforms:
+* [Windows](#Windows)
+* [Android](#Android)
+
+## Windows:
+### Prerequisites:
+1. [Haxe](https://haxe.org/) installed
+2. [Git](https://git-scm.com/) installed
+3. Visual Studio Build Tools (C++ workload)
+4. Windows SDK installed
+
+### Steps:
+1. Setup Haxelib (if not already setup) by running `haxelib setup`
+2. Install required tooling. Run the following:
+	- `haxelib git haxelib https://github.com/FunkinCrew/haxelib.git funkin-patches`
+	- `haxelib git hmm https://github.com/FunkinCrew/hmm funkin-patches`
+3. Install project dependencies. Run these inside the project root which should contain `hmm.json`
+	- `cd <project-root>`
+	- `haxelib run hmm install -q`
+4. Build hxcpp tools (one-time per machine)
+	- Find the active haxelib repository path by running `haxelib config`
+	- Go to the `hxcpp` folder by running `cd <haxelib-config-path>\hxcpp\git\tools\hxcpp`
+	- Now that you're in the right folder, run `haxe compile.hxml`
+5. We can now finally build the project
+	- Return to the project root by running `cd <project-root>`
+	- Finally, you can build the engine by running `haxelib run lime build windows`
+
 ## Android:
 1. Install Android Studio from [developer.android.com](https://developer.android.com/studio)
 2. Install Java 17 from [oracle.com](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
