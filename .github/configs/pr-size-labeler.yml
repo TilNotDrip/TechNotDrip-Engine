@@ -1,0 +1,16 @@
+# Add 'Size: Small' to any changes below 15 lines
+'Size: Small':
+  max: 14
+
+# Add 'Size: Medium' to any changes between 15 and 100 lines
+'Size: Medium':
+  min: 15
+  max: 99
+
+# Add 'Size: Large' to any changes for more than 100 lines
+'Size: Large':
+  min: 100
+
+# Grant the 'MASSIVE' trophy for changes above 500 lines.
+'Trophy: MASSIVE':
+  min: 500
