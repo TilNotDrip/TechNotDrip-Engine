@@ -15,5 +15,5 @@ jobs:
     - name: "Automatically leave pull request related labels."
       uses: actions/labeler@v5
       with:
-        configuration-path: ".github/pr_labeler.yml"
+        configuration-path: ".github/configs/pr_labeler.yml"
         sync-labels: true
