@@ -1,4 +1,14 @@
 name: Compiling
+title: "Compiling: "
 description: This issue is about compiling the engine.
 labels: ["Issue: Compiling", "Status: Pending..."]
-title: "Compiling: "
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: A quick checklist to ensure something something yadi yada
+      options:
+        - label: I checked and searched if this issue has already been reported in this repo.
+    validations:
+      required: true

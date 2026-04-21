@@ -1,4 +1,14 @@
 name: Enhancement
-description: This issue is about a suggestion that you think should be added.
-labels: ["Issue: Enhancement", "Status: Pending..."]
 title: "Enhancement: "
+description: This issue is about an enhancement that you think should be added.
+labels: ["Issue: Enhancement", "Status: Pending..."]
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: A quick checklist to ensure something something yadi yada
+      options:
+        - label: I checked and searched if this enhancement has already been suggested.
+    validations:
+      required: true
