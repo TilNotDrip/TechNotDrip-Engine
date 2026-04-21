@@ -4,7 +4,7 @@ on:
 - pull_request_target
 
 jobs:
-  # PR Info Labeler, gives the `PR: ` labels upon creation.
+  # PR Info Labeler, gives the `PR: Type` labels upon creation.
   labeler:
     permissions:
       contents: read
