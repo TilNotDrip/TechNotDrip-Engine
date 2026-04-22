@@ -61,14 +61,6 @@ body:
     id: media
     attributes:
       label: "Media"
-      description: "If applicable, please leave a image/video of how the bug looks."
-    validations:
-      required: false
-
-  - type: upload
-    id: logs
-    attributes:
-      label: "Logs"
-      description: "If applicable, please leave related logs here."
+      description: "If applicable, please leave related image/video/logs."
     validations:
       required: false
