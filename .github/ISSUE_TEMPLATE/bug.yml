@@ -14,6 +14,10 @@ body:
     validations:
       required: true
 
+  - type: markdown
+    attributes:
+      value: "## Platform and Version"
+
   - type: input
     id: version
     attributes:
@@ -57,10 +61,23 @@ body:
     validations:
       required: false
 
+  - type: markdown
+    attributes:
+      value: "## Description"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Please describe the issue you're experiencing to the best of your ability so we can understand and help solve it."
+      placeholder: "Describe your issue here..."
+    validations:
+      required: true
+
   - type: upload
     id: media
     attributes:
       label: "Media"
-      description: "If applicable, please leave related image/video/logs."
+      description: "If applicable, please leave related images/videos/logs."
     validations:
       required: false

@@ -12,3 +12,24 @@ body:
         - label: "I checked and searched if this enhancement has already been suggested."
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "## Description"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Please describe the suggestion you wish to have implemented."
+      placeholder: "Describe your suggestion here..."
+    validations:
+      required: true
+
+  - type: upload
+    id: media
+    attributes:
+      label: "Media"
+      description: "If applicable, please leave images/videos if you wish to also visually represent it."
+    validations:
+      required: false
