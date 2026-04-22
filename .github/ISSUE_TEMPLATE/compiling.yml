@@ -1,38 +1,38 @@
 name: Compiling
 title: "Compiling: "
-description: This issue is about compiling the engine.
+description: "This issue is about compiling the engine."
 labels: ["Issue: Compiling", "Status: Pending..."]
 body:
   - type: checkboxes
     id: checklist
     attributes:
-      label: Checklist
-      description: A quick checklist to ensure something something yadi yada
+      label: "Checklist"
+      description: "A quick checklist to ensure something something yadi yada"
       options:
-        - label: I checked and searched if this issue has already been reported in this repo.
+        - label: "I checked and searched if this issue has already been reported in this repo."
     validations:
       required: true
 
   - type: input
     id: commit
     attributes:
-      label: Commit
-      description: What commit are you experiencing this on? (And PR if applicable)
-      placeholder: Example: Initial commit (566dd0c) (#2)
+      label: "Commit"
+      description: "What commit are you experiencing this on? (And PR if applicable)"
+      placeholder: "Example: Initial commit (566dd0c) (#2)"
     validations:
       required: true
 
   - type: dropdown
     id: target
     attributes:
-      label: Target
-      description: What target are you experiencing this on?
+      label: "Target"
+      description: "What target are you experiencing this on?"
       options:
-      - label: Windows
-      - label: MacOS
-      - label: Linux
-      - label: iOS/iPadOS
-      - label: Android
-      - label: HTML5
-      - label: HashLink
-      - label: Other
+      - label: "Windows"
+      - label: "MacOS"
+      - label: "Linux"
+      - label: "iOS/iPadOS"
+      - label: "Android"
+      - label: "HTML5"
+      - label: "HashLink"
+      - label: "Other (Please specify)"

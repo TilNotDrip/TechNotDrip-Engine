@@ -1,74 +1,74 @@
 name: Bug
 title: "Bug: "
-description: This issue is about a bug inside the engine.
+description: "This issue is about a bug inside the engine."
 labels: ["Issue: Bug", "Status: Pending..."]
 body:
   - type: checkboxes
     id: checklist
     attributes:
-      label: Checklist
-      description: A quick checklist to ensure something something yadi yada
+      label: "Checklist"
+      description: "A quick checklist to ensure something something yadi yada"
       options:
-        - label: I checked and searched if this issue has already been reported in this repo.
-        - label: I did not have any mods enabled/installed when reproducing.
+        - label: "I checked and searched if this issue has already been reported in this repo."
+        - label: "I did not have any mods enabled/installed when reproducing."
     validations:
       required: true
 
   - type: input
     id: version
     attributes:
-      label: Version
-      description: What version are you experiencing this on? (And commit + PR if applicable)
-      placeholder: Example: 0.1.0-alpha (566dd0c) (#2)
+      label: "Version"
+      description: "What version are you experiencing this on? (Include commit + PR if applicable)"
+      placeholder: "Example: 0.1.0-alpha (566dd0c) (#2)"
     validations:
       required: true
 
   - type: dropdown
     id: platform-type
     attributes:
-      label: Platform Type
-      description: What platform are you experiencing this on?
+      label: "Platform Type"
+      description: "What platform are you experiencing this on?"
       options:
-      - label: Windows
-      - label: MacOS
-      - label: Linux
-      - label: iOS/iPadOS
-      - label: Android
-      - label: Browser
-      - label: Other
+      - label: "Windows"
+      - label: "MacOS"
+      - label: "Linux"
+      - label: "iOS/iPadOS"
+      - label: "Android"
+      - label: "Browser"
+      - label: "Other (Please specify)"
     validations:
       required: true
 
   - type: input
     id: platform-version
     attributes:
-      label: Platform Version
-      description: What version of your platform are you playing on?
-      placeholder: Examples: 11 25H2, 26.4, SteamOS 3.0, Chrome
+      label: "Platform Version"
+      description: "What version of your platform are you playing on?"
+      placeholder: "Examples: 11 25H2, 26.4, SteamOS 3.0, Chrome"
     validations:
       required: true
 
   - type: input
     id: platform-model
     attributes:
-      label: Platform Model
-      description: If applicable, what device/specs are you using?
-      placeholder: iPhone 17 Pro Max, Samsung S26 Ultra
+      label: "Platform Model"
+      description: "If applicable, what device/specs are you using?"
+      placeholder: "Example: iPhone 17 Pro Max, Samsung S26 Ultra"
     validations:
       required: false
 
   - type: upload
     id: media
     attributes:
-      label: Media
-      description: If applicable, please leave a image/video of how the bug looks.
+      label: "Media"
+      description: "If applicable, please leave a image/video of how the bug looks."
     validations:
       required: false
 
   - type: upload
     id: logs
     attributes:
-      label: Logs
-      description: If applicable, please leave related logs here.
+      label: "Logs"
+      description: "If applicable, please leave related logs here."
     validations:
       required: false

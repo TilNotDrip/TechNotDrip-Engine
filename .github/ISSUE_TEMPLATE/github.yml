@@ -1,14 +1,14 @@
 name: GitHub
 title: "GitHub: "
-description: This issue is about the GitHub itself.
+description: "This issue is about the GitHub itself."
 labels: ["Issue: GitHub", "Status: Pending..."]
 body:
   - type: checkboxes
     id: checklist
     attributes:
-      label: Checklist
-      description: A quick checklist to ensure something something yadi yada
+      label: "Checklist"
+      description: "A quick checklist to ensure something something yadi yada"
       options:
-        - label: I checked and searched if this issue has already been reported in this repo.
+        - label: "I checked and searched if this issue has already been reported in this repo."
     validations:
       required: true
