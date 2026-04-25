@@ -33,13 +33,13 @@ body:
       label: "Platform Type"
       description: "What platform are you experiencing this on?"
       options:
-      - label: "Windows"
-      - label: "MacOS"
-      - label: "Linux"
-      - label: "iOS/iPadOS"
-      - label: "Android"
-      - label: "Browser"
-      - label: "Other (Please specify)"
+      - "Windows"
+      - "MacOS"
+      - "Linux"
+      - "iOS/iPadOS"
+      - "Android"
+      - "Browser"
+      - "Other (Please specify)"
     validations:
       required: true
 

@@ -32,14 +32,14 @@ body:
       label: "Target"
       description: "What target are you experiencing this on?"
       options:
-      - label: "Windows"
-      - label: "MacOS"
-      - label: "Linux"
-      - label: "iOS/iPadOS"
-      - label: "Android"
-      - label: "HTML5"
-      - label: "HashLink"
-      - label: "Other (Please specify)"
+      - "Windows"
+      - "MacOS"
+      - "Linux"
+      - "iOS/iPadOS"
+      - "Android"
+      - "HTML5"
+      - "HashLink"
+      - "Other (Please specify)"
 
   - type: markdown
     attributes:
