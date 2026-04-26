@@ -2,6 +2,18 @@ name: Build Game
 
 on:
   push:
+    paths:
+      - '.github/workflows/build-game.yml'
+      - 'assets/**'
+      - 'extras/appicons/**'
+      - 'src/**'
+      - '**/*.hx'
+      - '**/*.hxc'
+      - '**/*.hxs'
+      - '**/*.hxp'
+      - '**/*.hxpkg' # We don't use this anymore but we'll keep it anyways.
+      - '**/hmm.json'
+
   workflow_dispatch:
 
 jobs:
