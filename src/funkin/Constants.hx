@@ -83,6 +83,16 @@ class Constants
    */
   public static final DEFAULT_ATLAS_FONT:String = 'default';
 
+  /**
+   * The time it takes until turbo input is activated, in seconds.
+   */
+  public static final TURBO_INITIAL_TIME:Float = 0.5;
+
+  /**
+   * The time between each turbo press, in seconds.
+   */
+  public static final TURBO_INTERVAL_TIME:Float = 0.1;
+
   static function get_TECHNOTDRIP_VERSION():String
   {
     return FlxG.stage.application.meta.get('version');

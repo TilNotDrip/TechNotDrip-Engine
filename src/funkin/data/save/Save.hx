@@ -180,7 +180,20 @@ class Save
         devMode: false
       },
 
-      controls: FunkinControls.getDefaultControlMappings()
+      controls: [
+        'UI_UP' => {keyboard: [W, UP], gamepad: [DPAD_UP]},
+        'UI_DOWN' => {keyboard: [S, DOWN], gamepad: [DPAD_DOWN]},
+        'UI_LEFT' => {keyboard: [A, LEFT], gamepad: [DPAD_LEFT]},
+        'UI_RIGHT' => {keyboard: [D, RIGHT], gamepad: [DPAD_RIGHT]},
+        'NOTE_UP' => {keyboard: [W, UP], gamepad: [Y, DPAD_UP]},
+        'NOTE_DOWN' => {keyboard: [S, DOWN], gamepad: [A, DPAD_DOWN]},
+        'NOTE_LEFT' => {keyboard: [A, LEFT], gamepad: [X, DPAD_LEFT]},
+        'NOTE_RIGHT' => {keyboard: [D, RIGHT], gamepad: [B, DPAD_RIGHT]},
+        'ACCEPT' => {keyboard: [RETURN, SPACE], gamepad: [A, START]},
+        'BACK' => {keyboard: [ESCAPE, BACKSPACE], gamepad: [B]},
+        'PAUSE' => {keyboard: [RETURN, SPACE], gamepad: [GUIDE]},
+        'RESET' => {keyboard: [R], gamepad: []}
+      ]
     };
   }
 

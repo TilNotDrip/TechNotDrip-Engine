@@ -116,10 +116,10 @@ class MenuState extends FunkinState
       return;
     }
 
-    if (controls.waitAndRepeat().UI_UP)
+    if (controls.repeat.UI_UP)
       changeItem(-1);
 
-    if (controls.waitAndRepeat().UI_DOWN)
+    if (controls.repeat.UI_DOWN)
       changeItem(1);
 
     #if FLX_POINTER_INPUT

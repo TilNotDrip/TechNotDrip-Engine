@@ -8,19 +8,13 @@
     {
       "name": "flixel",
       "type": "haxelib",
-      "version": "6.1.0"
+      "version": "6.1.2"
     },
     {
       "name": "flixel-addons",
       "type": "git",
       "ref": "75a25a3adfe6c50690444e3af54cc0ed341b3274",
       "url": "https://github.com/HaxeFlixel/flixel-addons"
-    },
-    {
-      "name": "flixel-controls",
-      "type": "git",
-      "ref": "aa6aa1e8bf50c071907f3282696685ce60418725",
-      "url": "https://github.com/Geokureli/FlxControls"
     },
     {
       "name": "flixel-animate",
@@ -75,13 +69,15 @@
     },
     {
       "name": "lime",
-      "type": "haxelib",
-      "version": "8.2.2"
+      "type": "git",
+      "dir": null,
+      "ref": "abbfecdf509e040adf42ec08f9b516dd9494976f",
+      "url": "https://github.com/TilNotDrip/lime.git"
     },
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": "9.4.1"
+      "version": "9.5.2"
     },
     {
       "name": "thx.core",

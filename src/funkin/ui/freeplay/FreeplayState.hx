@@ -256,16 +256,16 @@ class FreeplayState extends FunkinState
         FlxG.switchState(MenuState.new);
       }
 
-      if (controls.waitAndRepeat().UI_UP)
+      if (controls.repeat.UI_UP)
         changeSelection(-1);
 
-      if (controls.waitAndRepeat().UI_DOWN)
+      if (controls.repeat.UI_DOWN)
         changeSelection(1);
 
-      if (controls.waitAndRepeat().UI_LEFT)
+      if (controls.repeat.UI_LEFT)
         changeDifficulty(-1);
 
-      if (controls.waitAndRepeat().UI_RIGHT)
+      if (controls.repeat.UI_RIGHT)
         changeDifficulty(1);
     }
   }

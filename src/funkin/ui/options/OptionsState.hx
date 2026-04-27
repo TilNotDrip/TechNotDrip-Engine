@@ -255,10 +255,10 @@ class OptionsState extends FunkinState
     switch (currentStatus)
     {
       case CATEGORY:
-        if (controls.waitAndRepeat().UI_LEFT)
+        if (controls.repeat.UI_LEFT)
           changeCategory(-1);
 
-        if (controls.waitAndRepeat().UI_RIGHT)
+        if (controls.repeat.UI_RIGHT)
           changeCategory(1);
 
         if (controls.justPressed.ACCEPT)
@@ -296,10 +296,10 @@ class OptionsState extends FunkinState
 
         categoryArrow.x = MathUtil.coolLerp(categoryArrow.x, lerpXPosArrow, 0.3);
       case OPTIONS:
-        if (controls.waitAndRepeat().UI_UP)
+        if (controls.repeat.UI_UP)
           changeOption(-1);
 
-        if (controls.waitAndRepeat().UI_DOWN)
+        if (controls.repeat.UI_DOWN)
           changeOption(1);
 
         if (controls.justPressed.BACK)

@@ -1,17 +1,24 @@
 package funkin.input;
 
-import flixel.addons.input.FlxControlInputType;
-import flixel.addons.input.FlxControls;
-import flixel.input.gamepad.FlxGamepad;
+import flixel.input.FlxInput;
+import flixel.input.IFlxInputManager;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
+import flixel.util.FlxSignal.FlxTypedSignal;
+import funkin.input.action.FunkinActionList;
+import funkin.input.action.FunkinActionType;
+import haxe.Int64;
+import haxe.ds.Either;
+import lime.ui.Gamepad;
+import lime.ui.GamepadButton;
+import lime.ui.KeyCode;
+import lime.ui.KeyModifier;
+import openfl.ui.Keyboard;
 
 /**
  * The base controls input manager for TechNotDrip Engine.
- *
- * TODO: Til wants to skin flixel-controls... fine...
  */
-class FunkinControls extends FlxControls<ControlAction>
+class FunkinControls implements IFlxInputManager
 {
   /**
    * The current and main instance of this FunkinControls class.
@@ -23,142 +30,246 @@ class FunkinControls extends FlxControls<ControlAction>
   static function get_instance():FunkinControls
   {
     if (_instance == null)
-      _instance = new FunkinControls(Save.instance.getControls(), FlxG.gamepads.getFirstActiveGamepad());
+      _instance = new FunkinControls(Save.instance.getControls());
 
     return _instance;
   }
 
   /**
-   * Internal, used for naming FlxControls.
+   * List for when an action is pressed.
    */
-  private static var CONTROL_ID:Int = -1;
+  public var pressed:FunkinActionList;
 
   /**
-   * @return Returns the default binds for controls.
+   * List for when an action is released.
    */
-  public static function getDefaultControlMappings():ControlMappings
-  {
-    return [
-      'UI_UP' => {keyboard: [87, 38], gamepad: [11, 34]},
-      'UI_DOWN' => {keyboard: [83, 40], gamepad: [12, 36]},
-      'UI_LEFT' => {keyboard: [65, 37], gamepad: [13, 37]},
-      'UI_RIGHT' => {keyboard: [68, 39], gamepad: [14, 35]},
-      'NOTE_UP' => {keyboard: [87, 38], gamepad: [11, 3]},
-      'NOTE_DOWN' => {keyboard: [83, 40], gamepad: [12, 0]},
-      'NOTE_LEFT' => {keyboard: [65, 37], gamepad: [13, 2]},
-      'NOTE_RIGHT' => {keyboard: [68, 39], gamepad: [14, 1]},
-      'ACCEPT' => {keyboard: [32, 13], gamepad: [0, 7]},
-      'BACK' => {keyboard: [8, 27], gamepad: [1]},
-      'PAUSE' => {keyboard: [13, 27], gamepad: [7]},
-      'RESET' => {keyboard: [82], gamepad: []}
-    ];
-  }
+  public var released:FunkinActionList;
+
+  /**
+   * List for when an action was just pressed.
+   */
+  public var justPressed:FunkinActionList;
+
+  /**
+   * List for when an action was just released.
+   */
+  public var justReleased:FunkinActionList;
+
+  /**
+   * List for when an action was just pressed.
+   *
+   * If held down long enough, the action will start repeating rapidly until released.
+   */
+  public var repeat:FunkinActionList;
+
+  /**
+   * A signal that gets dispatched when an action gets pressed.
+   */
+  public var onKeyDown:FlxTypedSignal<(FunkinActionType, Int64) -> Void>;
+
+  /**
+   * A signal that gets dispatched when an action gets released.
+   */
+  public var onKeyUp:FlxTypedSignal<(FunkinActionType, Int64) -> Void>;
+
+  /**
+   * All input handlers.
+   */
+  public var inputs:Array<FunkinInput>;
 
   /**
    * The current mapping for the controls.
    */
   public var mappings:ControlMappings;
 
-  /**
-   * The gamepad thats connected to the users system.
-   */
-  public var gamepad:FlxGamepad = null;
+  var keyboardLookup:Map<KeyCode, Array<FunkinActionType>>;
+  var gamepadLookup:Map<GamepadButton, Array<FunkinActionType>>;
 
-  public function new(mappings:ControlMappings, gamepad:FlxGamepad)
+  @:allow(funkin.input.FunkinInput)
+  var turboActive:Bool = false;
+  var turboTime:Float = 0;
+
+  public function new(mappings:ControlMappings)
   {
     this.mappings = mappings;
-    this.gamepad = gamepad;
-    super('FUNKIN_CONTROLS' + CONTROL_ID++);
+    inputs = [];
 
-    if (gamepad != null)
-      setGamepadID(gamepad.id);
+    pressed = new FunkinActionList(this, Pressed);
+    released = new FunkinActionList(this, Released);
+    justPressed = new FunkinActionList(this, JustPressed);
+    justReleased = new FunkinActionList(this, JustReleased);
+    repeat = new FunkinActionList(this, Repeat);
+
+    onKeyDown = new FlxTypedSignal<(FunkinActionType, Int64) -> Void>();
+    onKeyUp = new FlxTypedSignal<(FunkinActionType, Int64) -> Void>();
+
+    keyboardLookup = [];
+    gamepadLookup = [];
+
+    turboActive = false;
+    turboTime = 0;
+
+    for (actionString => mapping in mappings)
+    {
+      var actionEnum:FunkinActionType = Type.createEnum(FunkinActionType, actionString);
+      inputs.push(new FunkinInput(actionEnum, this));
+
+      for (key in mapping.keyboard)
+      {
+        var actionList:Array<FunkinActionType> = keyboardLookup.get(cast key) ?? [];
+        if (!actionList.contains(actionEnum))
+          actionList.push(actionEnum);
+
+        keyboardLookup.set(cast key, actionList);
+      }
+
+      for (button in mapping.gamepad)
+      {
+        var actionList:Array<FunkinActionType> = gamepadLookup.get(cast button) ?? [];
+        if (!actionList.contains(actionEnum))
+          actionList.push(actionEnum);
+
+        gamepadLookup.set(cast button, actionList);
+      }
+    }
+
+    FlxG.stage.window.onKeyDownPrecise.add(keyDownHandle);
+    FlxG.stage.window.onKeyUpPrecise.add(keyUpHandle);
+
+    FunkinGamepadListener.instance.onButtonDown.add(buttonDownHandle);
+    FunkinGamepadListener.instance.onButtonUp.add(buttonUpHandle);
 
     FlxG.inputs.addInput(this);
   }
 
-  function getDefaultMappings():ActionMap<ControlAction>
+  function keyDownHandle(keyCode:KeyCode, modifier:KeyModifier, timestamp:Int64):Void
   {
-    var toReturn:ActionMap<ControlAction> = new ActionMap<ControlAction>();
+    final inputs:Array<FunkinInput> = getInputs(Left(keyCode));
 
-    for (key => mapping in mappings)
+    for (input in inputs)
     {
-      var enumKey:ControlAction = Type.createEnum(ControlAction, key);
-      var value:Array<FlxControlInputType> = [];
+      var beforePressed:Bool = input.pressed;
+      input.keyDown(cast keyCode);
 
-      for (keyboardKey in mapping.keyboard)
-        value.push(FlxControlInputType.fromKey(keyboardKey));
+      if (beforePressed != input.pressed)
+        onKeyDown.dispatch(input.action, timestamp);
+    }
+  }
 
-      for (gamepadKey in mapping.gamepad)
-        value.push(FlxControlInputType.fromGamepad(gamepadKey));
+  function keyUpHandle(keyCode:KeyCode, modifier:KeyModifier, timestamp:Int64):Void
+  {
+    final inputs:Array<FunkinInput> = getInputs(Left(keyCode));
 
-      toReturn.set(enumKey, value);
+    for (input in inputs)
+    {
+      var beforePressed:Bool = input.pressed;
+      input.keyUp(cast keyCode);
+
+      if (beforePressed != input.pressed)
+        onKeyUp.dispatch(input.action, timestamp);
+    }
+  }
+
+  function buttonDownHandle(gamepad:Gamepad, button:GamepadButton, timestamp:Int64)
+  {
+    final inputs:Array<FunkinInput> = getInputs(Right(button));
+
+    for (input in inputs)
+    {
+      var beforePressed:Bool = input.pressed;
+      input.buttonDown(cast button);
+
+      if (beforePressed != input.pressed)
+        onKeyDown.dispatch(input.action, timestamp);
+    }
+  }
+
+  function buttonUpHandle(gamepad:Gamepad, button:GamepadButton, timestamp:Int64)
+  {
+    final inputs:Array<FunkinInput> = getInputs(Right(button));
+
+    for (input in inputs)
+    {
+      var beforePressed:Bool = input.pressed;
+      input.buttonUp(cast button);
+
+      if (beforePressed != input.pressed)
+        onKeyUp.dispatch(input.action, timestamp);
+    }
+  }
+
+  function getInputs(either:Either<KeyCode, GamepadButton>):Array<FunkinInput>
+  {
+    var actionList:Null<Array<FunkinActionType>> = switch (either)
+    {
+      case Left(v): keyboardLookup.get(v);
+      case Right(v): gamepadLookup.get(v);
+    };
+
+    if (actionList == null)
+      return [];
+
+    return inputs.filter(input -> input != null && actionList.contains(input.action));
+  }
+
+  /**
+   * Resets inputs.
+   */
+  public function reset():Void
+  {
+    for (input in inputs)
+      input?.reset();
+  }
+
+  /**
+   * Cleans up memory.
+   */
+  public function destroy():Void
+  {
+    FlxG.stage.window.onKeyDownPrecise.remove(keyDownHandle);
+    FlxG.stage.window.onKeyUpPrecise.remove(keyUpHandle);
+
+    FunkinGamepadListener.instance.onButtonDown.remove(buttonDownHandle);
+    FunkinGamepadListener.instance.onButtonUp.remove(buttonUpHandle);
+
+    inputs = [];
+  }
+
+  function update():Void
+  {
+    for (input in inputs)
+      input?.update();
+
+    updateTurbo(FlxG.elapsed);
+  }
+
+  function updateTurbo(elapsed:Float):Void
+  {
+    turboActive = false;
+
+    if (pressed.ANY)
+    {
+      turboTime += FlxG.elapsed;
+
+      turboActive = turboTime - Constants.TURBO_INITIAL_TIME >= Constants.TURBO_INTERVAL_TIME;
+      if (turboActive)
+        turboTime = Constants.TURBO_INITIAL_TIME;
+    }
+    else
+    {
+      turboTime = 0;
     }
 
-    return toReturn;
+    FlxG.watch.addQuick('turboActive', turboActive);
+    FlxG.watch.addQuick('turboTime', turboTime);
+  }
+
+  function onFocus():Void {}
+
+  function onFocusLost():Void
+  {
+    reset();
   }
 }
 
-enum ControlAction
-{
-  /**
-   * Up Key for UI States.
-   */
-  UI_UP;
-
-  /**
-   * Down Key for UI States.
-   */
-  UI_DOWN;
-
-  /**
-   * Left Key for UI States.
-   */
-  UI_LEFT;
-
-  /**
-   * Right Key for UI States.
-   */
-  UI_RIGHT;
-
-  /**
-   * Up Key for PlayState.
-   */
-  NOTE_UP;
-
-  /**
-   * Down Key for PlayState.
-   */
-  NOTE_DOWN;
-
-  /**
-   * Left Key for PlayState.
-   */
-  NOTE_LEFT;
-
-  /**
-   * Right Key for PlayState.
-   */
-  NOTE_RIGHT;
-
-  /**
-   * The accept key. Used for selecting an item.
-   */
-  ACCEPT;
-
-  /**
-   * The back key. Used for going back a state.
-   */
-  BACK;
-
-  /**
-   * The pause key. Used for pausing the game.
-   */
-  PAUSE;
-
-  /**
-   * The reset key. Used for utterly annihilating Boyfriend's Testicles.
-   */
-  RESET;
-}
-
-typedef ControlMappings = Map<String, {keyboard:Array<Int>, gamepad:Array<Int>}>;
+typedef ControlMappings = Map<String, {keyboard:Array<KeyCode>, gamepad:Array<GamepadButton>}>;

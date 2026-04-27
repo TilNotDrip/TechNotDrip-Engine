@@ -177,13 +177,13 @@ class CreditsState extends FunkinState
       FlxG.switchState(MenuState.new);
     }
 
-    if (controls.waitAndRepeat().UI_UP)
+    if (controls.repeat.UI_UP)
     {
       changeItem(-1);
       arrowUp.scale.set(1.2, 0.5);
     }
 
-    if (controls.waitAndRepeat().UI_DOWN)
+    if (controls.repeat.UI_DOWN)
     {
       changeItem(1);
       arrowDown.scale.set(1.2, 0.5);

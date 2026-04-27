@@ -125,10 +125,10 @@ class StoryModeState extends FunkinState
     if (selectedWeek)
       return;
 
-    if (controls.waitAndRepeat().UI_UP)
+    if (controls.repeat.UI_UP)
       changeItem(-1);
 
-    if (controls.waitAndRepeat().UI_DOWN)
+    if (controls.repeat.UI_DOWN)
       changeItem(1);
 
     if (controls.justPressed.ACCEPT)
@@ -160,7 +160,7 @@ class StoryModeState extends FunkinState
       FlxG.switchState(MenuState.new);
     }
 
-    if (controls.waitAndRepeat().UI_LEFT)
+    if (controls.repeat.UI_LEFT)
     {
       changeDifficulty(-1);
       leftArrow.playAnimation('push');
@@ -173,7 +173,7 @@ class StoryModeState extends FunkinState
       leftArrow.updateHitbox();
     }
 
-    if (controls.waitAndRepeat().UI_RIGHT)
+    if (controls.repeat.UI_RIGHT)
     {
       changeDifficulty(1);
       rightArrow.playAnimation('push');
