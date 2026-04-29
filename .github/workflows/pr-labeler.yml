@@ -1,0 +1,25 @@
+name: Pull Request Labeler
+
+on:
+- pull_request_target
+
+jobs:
+  # PR Info Labeler, gives the `PR: Type` labels upon creation.
+  labeler:
+    permissions:
+      contents: read
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Set pull request type labels."
+      uses: actions/labeler@v5
+      with:
+        configuration-path: ".github/configs/pr-type-labeler.yml"
+        sync-labels: true
+
+    - name: "Set pull request size labels."
+      uses: vkirilichev/changed-lines-count-labeler@v0.2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        configuration-path: .github/configs/pr-size-labeler.yml

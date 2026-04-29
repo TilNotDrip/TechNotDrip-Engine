@@ -1,0 +1,63 @@
+name: Compiling
+title: "Compiling: "
+description: "This issue is about compiling the engine."
+labels: ["Issue: Compiling", "Status: Pending..."]
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      description: "A quick checklist to ensure something something yadi yada"
+      options:
+        - label: "I checked and searched if this issue has already been reported in this repo."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Platform and Version"
+
+  - type: input
+    id: commit
+    attributes:
+      label: "Commit"
+      description: "What commit are you experiencing this on? (And PR if applicable)"
+      placeholder: "Example: Initial commit (566dd0c) (#2)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target
+    attributes:
+      label: "Target"
+      description: "What target are you experiencing this on?"
+      options:
+      - "Windows"
+      - "MacOS"
+      - "Linux"
+      - "iOS/iPadOS"
+      - "Android"
+      - "HTML5"
+      - "HashLink"
+      - "Other (Please specify)"
+
+  - type: markdown
+    attributes:
+      value: "## Description"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Please describe the issue you're experiencing to the best of your ability so we can understand and help solve it."
+      placeholder: "Describe your issue here..."
+    validations:
+      required: true
+
+  - type: upload
+    id: media
+    attributes:
+      label: "Media"
+      description: "If applicable, please leave related images/videos/logs."
+    validations:
+      required: false

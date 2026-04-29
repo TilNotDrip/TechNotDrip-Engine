@@ -1,0 +1,53 @@
+# Give any pr the "PR: Assets" tag if there are changes inside the assets/ or extras/ folder.
+'PR: Assets':
+- changed-files:
+  - any-glob-to-any-file:
+      - 'assets/**'
+
+      # Ignore script files
+      - '!**/*.hx'
+      - '!**/*.hxc'
+      - '!**/*.hxs'
+      - '!**/*.hxp'
+
+      - 'extras/appicons/**'
+      - '**/*.gitkeep' # For empty directories that need to be tracked.
+
+# Give any pr the "PR: Documentation" tag if any .MD files are changed or if there are changes inside the docs/ folder.
+'PR: Documentation':
+- changed-files:
+  - any-glob-to-any-file:
+      - 'docs/**'
+      - '**/*.md'
+      - 'LICENSE' # Meant to be off limits for any pr but Crusher or Til may change it.
+
+# Give any pr the "PR: GitHub" tag if any .yml files are changed or if there are changes inside the .github/ folder.
+'PR: GitHub':
+- changed-files:
+  - any-glob-to-any-file:
+      - '**/*.github/**'
+      - '**/*.gitattributes'
+      - '**/*.gitignore'
+      - '**/*.yml'
+
+# Give any pr the "PR: Haxe" tag if any haxe related files are changed.
+'PR: Haxe':
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/checkstyle.json'
+    - '**/hxformat.json'
+    - '**/*.hx'
+    - '**/*.hxc'
+    - '**/*.hxs'
+    - '**/*.hxp'
+    - '**/*.hxpkg' # We don't use this anymore but we'll keep it anyways.
+    - '**/hmm.json'
+
+# Give any pr the "PR: Misc" tag if any other files are changed that don't fit the rest of the tags.
+'PR: Misc':
+- changed-files:
+  - any-glob-to-any-file:
+    - '.vscode/**'
+    - 'extras/**'
+    - '!extras/appicons/**' # Meant to be an asset change.
+    - 'setup/**'
