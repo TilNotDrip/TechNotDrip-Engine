@@ -1,0 +1,262 @@
+'Status: Fixed':
+  issues:
+    close: true
+    close-reason: completed
+    unlabel:
+      - 'Status: Accepted'
+      - 'Status: Awaiting PR'
+      - 'Status: Duplicate'
+      - 'Status: Pending...'
+      - 'Status: Planned'
+      - 'Status: Rejected'
+      - 'Status: Reproduced Bug'
+      - 'Status: Requires Changes'
+      - 'Status: Stale'
+
+'Status: Accepted':
+  prs:
+    close: true
+    close-reason: completed
+    unlabel:
+      - 'Status: Fixed'
+      - 'Status: Awaiting PR'
+      - 'Status: Duplicate'
+      - 'Status: Pending...'
+      - 'Status: Planned'
+      - 'Status: Rejected'
+      - 'Status: Reproduced Bug'
+      - 'Status: Requires Changes'
+      - 'Status: Stale'
+
+'Status: Awaiting PR':
+  issues:
+    reopen: true
+    unlabel:
+      - 'Status: Fixed'
+      - 'Status: Accepted'
+      - 'Status: Duplicate'
+      - 'Status: Pending...'
+      - 'Status: Planned'
+      - 'Status: Rejected'
+      - 'Status: Reproduced Bug'
+      - 'Status: Requires Changes'
+      - 'Status: Stale'
+
+      # TilNotDrip Anti-Cheat
+
+      - 'Trophy: First *EVER* completed issue'
+      - 'Trophy: First completed issue'
+
+'Status: Duplicate':
+  issues:
+    comment: >
+      This issue has been closed due to being an duplicate of another issue, next time ensure that this issue hasn't already been opened beforehand.
+      The TilNotDrip Anti-Cheat has also been activated against this issue to ensure fair-play for all TilNotDrip contributors.
+
+  prs:
+    comment: >
+      This pull request has been closed due to being an duplicate of another pull request, next time ensure that this pull request hasn't already been opened beforehand.
+      The TilNotDrip Anti-Cheat has also been activated against this pull request to ensure fair-play for all TilNotDrip contributors.
+
+  close: true
+  close-reason: duplicate
+  unlabel:
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Pending...'
+    - 'Status: Planned'
+    - 'Status: Rejected'
+    - 'Status: Reproduced Bug'
+    - 'Status: Requires Changes'
+    - 'Status: Stale'
+
+    # TilNotDrip Anti-Cheat
+
+    - 'Trophy: First *EVER* completed issue'
+    - 'Trophy: First *EVER* merged pr'
+    - 'Trophy: First *EVER* opened issue'
+    - 'Trophy: First *EVER* opened pr'
+    - 'Trophy: First completed issue'
+    - 'Trophy: First merged pr'
+    - 'Trophy: First opened issue'
+    - 'Trophy: First opened pr'
+    - 'Trophy: Good formatted issue'
+    - 'Trophy: MASSIVE'
+
+'Status: Pending...':
+  reopen: true
+  unlabel:
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Duplicate'
+    - 'Status: Planned'
+    - 'Status: Rejected'
+    - 'Status: Reproduced Bug'
+    - 'Status: Requires Changes'
+    - 'Status: Stale'
+
+    # TilNotDrip Anti-Cheat
+
+    - 'Trophy: First *EVER* completed issue'
+    - 'Trophy: First *EVER* merged pr'
+    - 'Trophy: First completed issue'
+    - 'Trophy: First merged pr'
+
+
+'Status: Planned':
+  reopen: true
+  unlabel:
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Duplicate'
+    - 'Status: Pending...'
+    - 'Status: Rejected'
+    - 'Status: Reproduced Bug'
+    - 'Status: Requires Changes'
+    - 'Status: Stale'
+
+    # TilNotDrip Anti-Cheat
+
+    - 'Trophy: First *EVER* completed issue'
+    - 'Trophy: First *EVER* merged pr'
+    - 'Trophy: First completed issue'
+    - 'Trophy: First merged pr'
+
+'Status: Rejected':
+  close: true
+  close-reason: not planned
+  unlabel:
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Duplicate'
+    - 'Status: Pending...'
+    - 'Status: Planned'
+    - 'Status: Reproduced Bug'
+    - 'Status: Requires Changes'
+    - 'Status: Stale'
+
+    # TilNotDrip Anti-Cheat
+
+    - 'Trophy: First *EVER* completed issue'
+    - 'Trophy: First *EVER* merged pr'
+    - 'Trophy: First completed issue'
+    - 'Trophy: First merged pr'
+
+'Status: Reproduced Bug':
+  issues:
+    reopen: true
+    unlabel:
+      - 'Status: Fixed'
+      - 'Status: Accepted'
+      - 'Status: Awaiting PR'
+      - 'Status: Duplicate'
+      - 'Status: Pending...'
+      - 'Status: Planned'
+      - 'Status: Rejected'
+      - 'Status: Requires Changes'
+      - 'Status: Stale'
+
+      # TilNotDrip Anti-Cheat
+
+      - 'Trophy: First *EVER* completed issue'
+      - 'Trophy: First completed issue'
+
+'Status: Requires Changes':
+  prs:
+    reopen: true
+    unlabel:
+      - 'Status: Fixed'
+      - 'Status: Accepted'
+      - 'Status: Awaiting PR'
+      - 'Status: Duplicate'
+      - 'Status: Pending...'
+      - 'Status: Planned'
+      - 'Status: Rejected'
+      - 'Status: Stale'
+
+      # TilNotDrip Anti-Cheat
+
+      - 'Trophy: First *EVER* merged pr'
+      - 'Trophy: First merged pr'
+
+'Status: Stale':
+  close: true
+  close-reason: outdated
+  unlabel:
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Duplicate'
+    - 'Status: Pending...'
+    - 'Status: Planned'
+    - 'Status: Rejected'
+    - 'Status: Requires Changes'
+
+'Special: Unwanted Spam':
+  issues:
+    comment: >
+      This has been closed due to being marked as unwanted spam.
+      The TilNotDrip Anti-Cheat has also been activated against this issue to ensure fair-play for all TilNotDrip contributors.
+
+  prs:
+    comment: >
+      This has been closed due to being marked as unwanted spam.
+      The TilNotDrip Anti-Cheat has also been activated against this pull request to ensure fair-play for all TilNotDrip contributors.
+
+  close: true
+  close-reason: not planned
+  lock: true
+  lock-reason: spam
+  unlabel:
+    - 'Issue: Bug'
+    - 'Issue: Compliling'
+    - 'Issue: Documentation'
+    - 'Issue: Enhancement'
+    - 'Issue: GitHub'
+    - 'Platform: Android'
+    - 'Platform: iOS'
+    - 'Platform: Linux'
+    - 'Platform: Mac'
+    - 'Platform: Mobile'
+    - 'Platform: PC'
+    - 'Platform: Windows'
+    - 'PR: Bug'
+    - 'PR: Compliling'
+    - 'PR: Documentation'
+    - 'PR: Enhancement'
+    - 'PR: GitHub'
+    - 'Priority: High'
+    - 'Priority: Low'
+    - 'Priority: Medium'
+    - 'Priority: Urgent'
+    - 'Size: Large'
+    - 'Size: Medium'
+    - 'Size: Small'
+    - 'Special: Help Wanted'
+    - 'Status: Fixed'
+    - 'Status: Accepted'
+    - 'Status: Awaiting PR'
+    - 'Status: Duplicate'
+    - 'Status: Pending...'
+    - 'Status: Planned'
+    - 'Status: Reproduced Bug'
+    - 'Status: Rejected'
+    - 'Status: Requires Changes'
+    - 'Status: Stale'
+
+    # TilNotDrip Anti-Cheat
+
+    - 'Trophy: First *EVER* completed issue'
+    - 'Trophy: First *EVER* merged pr'
+    - 'Trophy: First *EVER* opened issue'
+    - 'Trophy: First *EVER* opened pr'
+    - 'Trophy: First completed issue'
+    - 'Trophy: First merged pr'
+    - 'Trophy: First opened issue'
+    - 'Trophy: First opened pr'
+    - 'Trophy: Good formatted issue'
+    - 'Trophy: MASSIVE'

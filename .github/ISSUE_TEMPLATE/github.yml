@@ -1,0 +1,35 @@
+name: GitHub
+title: "GitHub: "
+description: "This issue is about the GitHub itself."
+labels: ["Issue: GitHub", "Status: Pending..."]
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      description: "A quick checklist to ensure something something yadi yada"
+      options:
+        - label: "I checked and searched if this issue has already been reported in this repo."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Description"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Please describe the issue/suggestion."
+      placeholder: "Describe your issue/suggestion here..."
+    validations:
+      required: true
+
+  - type: upload
+    id: media
+    attributes:
+      label: "Media"
+      description: "If applicable, please leave related images/videos."
+    validations:
+      required: false
