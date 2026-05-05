@@ -213,7 +213,7 @@
   lock-reason: spam
   unlabel:
     - 'Issue: Bug'
-    - 'Issue: Compliling'
+    - 'Issue: Compiling'
     - 'Issue: Documentation'
     - 'Issue: Enhancement'
     - 'Issue: GitHub'
@@ -225,7 +225,7 @@
     - 'Platform: PC'
     - 'Platform: Windows'
     - 'PR: Bug'
-    - 'PR: Compliling'
+    - 'PR: Compiling'
     - 'PR: Documentation'
     - 'PR: Enhancement'
     - 'PR: GitHub'
