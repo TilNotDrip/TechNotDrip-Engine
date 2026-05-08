@@ -143,7 +143,7 @@ class PathsLocation
         assetToPush = Path.withoutExtension(assetToPush);
       }
 
-      // Avoid duplicates especially if your removing all extentions.
+      // Avoid duplicates especially if you're removing all extentions.
       if (!foundAssets.contains(assetToPush))
         foundAssets.push(assetToPush);
     }

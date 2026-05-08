@@ -24,7 +24,7 @@ typedef ObjectData =
    *
    * - Color (e.g "#00FF00") (Animations will not be used if this is used)
    *
-   * - URL (e.g "https://images.gamebanana.com/img/ss/mods/6341cc54e0b70.jpg") (Takes longer unless your loading the graphic on another thread)
+   * - URL (e.g "https://images.gamebanana.com/img/ss/mods/6341cc54e0b70.jpg") (Takes longer unless you're loading the graphic on another thread)
    */
   var path:String;
 
