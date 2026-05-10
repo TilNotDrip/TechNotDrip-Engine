@@ -81,7 +81,7 @@ class BoyfriendBackingCard extends BackingCard
     add(glow);
 
     backingTextYeah = new FunkinSprite(640, 370).loadFrames('ui/freeplay/backingCard/backing-text-yeah');
-    backingTextYeah.addAnimation("anim", "BF back card confirm raw", 24, false);
+    backingTextYeah.addAnimation("anim", "BF back card confirm raw", 0, 24, false);
     add(backingTextYeah);
   }
 

@@ -32,8 +32,8 @@ class FreeplayCapsule extends FlxSpriteGroup
     super();
 
     capsule = new FunkinSprite().loadFrames('ui/freeplay/capsule/default');
-    capsule.addAnimation('selected', 'mp3 capsule w backing0', null, 24);
-    capsule.addAnimation('unselected', 'mp3 capsule w backing NOT SELECTED', null, 24);
+    capsule.addAnimation('selected', 'mp3 capsule w backing0', 0, null, 24);
+    capsule.addAnimation('unselected', 'mp3 capsule w backing NOT SELECTED', 0, null, 24);
     capsule.scale.set(realScaled, realScaled);
     add(capsule);
 
@@ -73,7 +73,7 @@ class FreeplayCapsule extends FlxSpriteGroup
     capsuleText.alpha = selected ? 1 : 0.6;
     capsuleText.textBlur.visible = selected ? true : false;
     capsule.offset.x = selected ? 0 : -5;
-    capsule.animation.play(selected ? "selected" : "unselected");
+    capsule.playAnimation(selected ? "selected" : "unselected");
 
     if (capsuleText.tooLong)
       capsuleText.resetText();

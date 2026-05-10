@@ -118,13 +118,15 @@ class HealthIcon extends FunkinSprite
     for (anim in metadata.animations)
     {
       if (metadata.resolution != null)
-        animation.add(anim.name, anim.indices, anim.framerate, anim.looped, anim.flipX, anim.flipY);
+      {
+        animation.add(anim.id, anim?.indices ?? [0], anim?.framerate ?? 24, anim?.looped ?? true, anim?.flipX ?? false, anim?.flipY ?? false);
+        animation.getByName(anim.id).priority = anim.priority;
+      }
       else
       {
         if (anim.indices.length != 0)
-          animation.addByIndices(anim.name, anim.prefix, anim.indices, '', anim.framerate, anim.looped, anim.flipX, anim.flipY);
-        else
-          animation.addByPrefix(anim.name, anim.prefix, anim.framerate, anim.looped, anim.flipX, anim.flipY);
+          addAnimation(anim.id, anim.prefix, anim?.priority ?? 0, anim?.indices ?? [], anim?.framerate ?? 24, anim?.looped ?? true, anim?.flipX ?? false,
+            anim?.flipY ?? false);
       }
     }
 
@@ -151,7 +153,7 @@ class HealthIcon extends FunkinSprite
         continue;
 
       if (curHealth >= check.minimumHealth && curHealth <= check.maximumHealth)
-        animation.play(check.anim, true);
+        playAnimation(check.anim, true);
     }
   }
 

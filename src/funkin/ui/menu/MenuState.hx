@@ -195,8 +195,8 @@ class MenuState extends FunkinState
     {
       var itemSpr:FunkinSprite = new FunkinSprite(0, top + (spacing * i));
       itemSpr.loadFrames('ui/menu/items/' + item.id);
-      itemSpr.addAnimation('idle', item.id + ' idle', [], 30, true);
-      itemSpr.addAnimation('selected', item.id + ' selected', [], 30, true);
+      itemSpr.addAnimation('idle', item.id + ' idle', 0, [], 30, true);
+      itemSpr.addAnimation('selected', item.id + ' selected', 0, [], 30, true);
       itemSpr.playAnimation('idle');
       itemSpr.updateHitbox();
       itemSpr.screenCenter(X);
@@ -259,10 +259,10 @@ class MenuState extends FunkinState
       if (menuItemGroup.members.indexOf(item) == curSelected)
       {
         camFollow.setPosition(FlxG.width / 2, item.getGraphicMidpoint().y);
-        item.animation.play('selected', true);
+        item.playAnimation('selected', true);
       }
       else
-        item.animation.play('idle', true);
+        item.playAnimation('idle', true);
 
       item.centerOffsets();
     });

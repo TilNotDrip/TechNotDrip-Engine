@@ -84,9 +84,11 @@ typedef AnimationData =
 
 typedef AnimationDataArray =
 {
-  var name:String;
+  var id:String;
 
   var prefix:String;
+
+  var priority:Int;
 
   @:optional
   var ?indices:Array<Int>;

@@ -33,9 +33,9 @@ class FreeplayDJ extends FunkinSprite
         loadFrames('ui/freeplay/freeplay-boyfriend');
         applyStageMatrix = true;
 
-        addAnimation('idle', 'Idle', 24, false);
-        addAnimation('confirm', 'Confirm', 24, false);
-        addAnimation('intro', 'Intro', 24, false);
+        addAnimation('idle', 'Idle', 0, 24, false);
+        addAnimation('confirm', 'Confirm', 0, 24, false);
+        addAnimation('intro', 'Intro', 0, 24, false);
     }
 
     onAnimFinished.add(onFinishAnim);

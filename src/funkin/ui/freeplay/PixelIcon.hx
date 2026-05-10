@@ -49,13 +49,13 @@ class PixelIcon extends FunkinSprite
     if (animated)
     {
       active = true;
-      addAnimation('idle', 'idle', null, 10, true);
-      addAnimation('confirm', 'confirm', null, 10, false);
-      addAnimation('confirm-hold', 'confirm-hold', null, 10, true);
+      addAnimation('idle', 'idle', 0, null, 10, true);
+      addAnimation('confirm', 'confirm', 0, null, 10, false);
+      addAnimation('confirm-hold', 'confirm-hold', 0, null, 10, true);
 
-      onAnimFinished.add((name:String) ->
+      onAnimFinished.add((id:String) ->
       {
-        if (name == 'confirm')
+        if (id == 'confirm')
           playAnimation('confirm-hold');
       });
 

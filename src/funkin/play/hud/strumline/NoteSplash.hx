@@ -29,7 +29,7 @@ class NoteSplash extends FunkinSprite
     {
       for (i in 0...2)
       {
-        addAnimation('${direction}-$i', 'note impact ${i + 1} ${direction.color}', null, 24, false);
+        addAnimation('${direction}-$i', 'note impact ${i + 1} ${direction.color}', 0, null, 24, false);
       }
     }
 

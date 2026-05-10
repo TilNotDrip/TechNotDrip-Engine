@@ -52,16 +52,16 @@ class NoteHoldCover extends FunkinSprite
     // TODO: make this softcoded
     loadFrames('gameplay/hud/funkin/strumline/sustainCover');
 
-    addAnimation('start', 'sustain cover pre', null, 24, false);
-    addAnimation('loop', 'sustain cover', null, 24, true);
-    addAnimation('end', 'sustain cover end', null, 24, false);
+    addAnimation('start', 'sustain cover pre', 0, null, 24, false);
+    addAnimation('loop', 'sustain cover', 0, null, 24, true);
+    addAnimation('end', 'sustain cover end', 0, null, 24, false);
 
     onAnimFinished.add(onAnimationFinished);
   }
 
-  override public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
+  override public function playAnimation(name:String, ?restart:Bool = false, ?reversed:Bool = false):Void
   {
-    super.playAnimation(name, restart, stunAnimations, reversed);
+    super.playAnimation(name, restart, reversed);
     centerOffsets();
 
     switch (name)

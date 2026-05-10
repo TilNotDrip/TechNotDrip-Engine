@@ -19,7 +19,7 @@ class StrumlineNote extends FunkinSprite
   public var forceActive:Bool = false;
 
   /**
-   * Hold cover over this strumline note. 
+   * Hold cover over this strumline note.
    * This is never used internally, but is used by Strumline to find it.
    */
   // public var holdCover:NoteHoldCover;
@@ -34,10 +34,10 @@ class StrumlineNote extends FunkinSprite
     setGraphicSize(Std.int(width * 0.7));
     updateHitbox();
 
-    addAnimation('static', 'arrow ${direction.name}', null, 24, false);
-    addAnimation('press', '${direction.name} press', null, 24, false);
-    addAnimation('confirm', '${direction.name} confirm', null, 24, false);
-    addAnimation('confirm-hold', '${direction.name} confirm hold', null, 24, false);
+    addAnimation('static', 'arrow ${direction.name}', 0, null, 24, false);
+    addAnimation('press', '${direction.name} press', 0, null, 24, false);
+    addAnimation('confirm', '${direction.name} confirm', 0, null, 24, false);
+    addAnimation('confirm-hold', '${direction.name} confirm hold', 0, null, 24, false);
     playAnimation('static');
     onAnimFinished.add(onAnimationFinished);
   }
@@ -52,10 +52,10 @@ class StrumlineNote extends FunkinSprite
     }
   }
 
-  override public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
+  override public function playAnimation(id:String, ?restart:Bool = false, ?reversed:Bool = false):Void
   {
-    this.active = (forceActive || isAnimationDynamic(name));
-    super.playAnimation(name, restart, stunAnimations, reversed);
+    this.active = (forceActive || isAnimationDynamic(id));
+    super.playAnimation(id, restart, reversed);
     centerOffsets();
     centerOrigin();
 

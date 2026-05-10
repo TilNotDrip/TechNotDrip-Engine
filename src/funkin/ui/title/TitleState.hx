@@ -158,25 +158,25 @@ class TitleState extends FunkinState
   {
     logoBumpin = new FunkinSprite(-150 + 116, -100 + 106);
     logoBumpin.frames = Paths.content.sparrowAtlas('ui/title/logoBumpin');
-    logoBumpin.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-    logoBumpin.animation.play('bump');
+    logoBumpin.addAnimation('bump', 'logo bumpin', 0, 24, false);
+    logoBumpin.playAnimation('bump');
     logoBumpin.updateHitbox();
     logoBumpin.visible = false;
     add(logoBumpin);
 
     gfDance = new FunkinSprite(FlxG.width * 0.4, FlxG.height * 0.07);
     gfDance.loadFrames('ui/title/gfDanceTitle');
-    gfDance.addAnimation('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 24, false);
-    gfDance.addAnimation('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 24, false);
+    gfDance.addAnimation('danceLeft', 'gfDance', 0, [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 24, false);
+    gfDance.addAnimation('danceRight', 'gfDance', 0, [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 24, false);
     gfDance.updateHitbox();
     gfDance.visible = false;
     add(gfDance);
 
     enterSpr = new FunkinSprite(0, FlxG.height * 0.8);
     enterSpr.loadFrames('ui/title/titleEnter');
-    enterSpr.animation.addByPrefix('idle', "Press Enter to Begin", 24);
-    enterSpr.animation.addByPrefix('press', "ENTER PRESSED", 24);
-    enterSpr.animation.play('idle');
+    enterSpr.addAnimation('idle', "Press Enter to Begin", 0, 24);
+    enterSpr.addAnimation('press', "ENTER PRESSED", 0, 24);
+    enterSpr.playAnimation('idle');
     enterSpr.updateHitbox();
     enterSpr.screenCenter(X);
     enterSpr.visible = false;
@@ -406,12 +406,12 @@ class TitleState extends FunkinState
 
     if (logoBumpin != null && logoBumpin.animation != null)
     {
-      logoBumpin.animation.play('bump', true);
+      logoBumpin.playAnimation('bump', true);
     }
 
     if (gfDance != null && gfDance.animation != null)
     {
-      gfDance.animation.play('${gfHasDancedLeft ? 'danceLeft' : 'danceRight'}', true);
+      gfDance.playAnimation('${gfHasDancedLeft ? 'danceLeft' : 'danceRight'}', true);
     }
   }
 

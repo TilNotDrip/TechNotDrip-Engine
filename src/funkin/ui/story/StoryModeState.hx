@@ -196,7 +196,7 @@ class StoryModeState extends FunkinState
       for (spr in grp.members)
       {
         if (spr.currentAnim != 'confirm')
-          spr.animation.play(getIdleAnimationForSprite(spr), false);
+          spr.playAnimation(getIdleAnimationForSprite(spr), false);
       }
     }
   }

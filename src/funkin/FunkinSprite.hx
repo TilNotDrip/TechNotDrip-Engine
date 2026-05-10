@@ -107,47 +107,54 @@ class FunkinSprite extends FlxAnimate
    */
   public var currentAnim(default, null):String = '';
 
-  var animationStunned:Bool = false;
-
   /**
    * Plays an animation.
-   * @param name The name of the animation to play.
+   * @param id The id of the animation to play.
    * @param restart Should the animation restart if it's already playing?
-   * @param stunAnimations Should the animations be "stunned" until this one is finished?
    * @param reversed Should the animation be reversed?
    */
-  public function playAnimation(name:String, ?restart:Bool = false, ?stunAnimations:Bool = false, ?reversed:Bool = false):Void
+  public function playAnimation(id:String, ?restart:Bool = false, ?reversed:Bool = false):Void
   {
-    if (animationStunned)
+    if (animation?.getByName(id)?.priority ?? 0 < animation?.curAnim?.priority ?? 0)
+    {
       return;
+    }
 
-    animation.play(name, restart, reversed);
-    animationStunned = stunAnimations;
-    currentAnim = name;
+    animation.play(id, restart, reversed);
+    currentAnim = id;
   }
 
   /**
    * Adds an Animation to the sprite.
-   * @param name The name of the animation to add.
-   * @param anim The actual animation name.
+   * @param id The id of the animation to add.
+   * @param anim The actual animation name to be used.
    * @param indices The frame indices to use. (Optional)
    * @param frameRate The Frame Rate of the animation. (Optional)
    * @param looped Should the animation loop? (Optional)
+   * @param flipX Should the animation be flipped horizontally? (Optional)
+   * @param flipY Should the animation be flipped vertically? (Optional)
    */
-  public function addAnimation(name:String, anim:String, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true):Void
+  public function addAnimation(id:String, anim:String, ?priority:Int = 0, ?indices:Array<Int> = null, ?frameRate:Float = 24, ?looped:Bool = true,
+      ?flipX:Bool = false, ?flipY:Bool = false):Void
   {
     var atlasAnimList:Array<String> = super.getAnimateAnimations();
 
     if (atlasAnimList.contains(anim))
     {
-      super.addAnimateAtlasAnimation(name, anim, indices, frameRate, looped);
+      super.addAnimateAtlasAnimation(id, anim, priority, indices, frameRate, looped, flipX, flipY);
       return;
     }
 
     if (indices != null && indices.length > 0)
-      animation.addByIndices(name, anim + '0', indices, '', frameRate, looped);
+    {
+      animation.addByIndices(id, anim + '0', indices, '', frameRate, looped, flipX, flipY);
+    }
     else
-      animation.addByPrefix(name, anim + '0', frameRate, looped);
+    {
+      animation.addByPrefix(id, anim + '0', frameRate, looped, flipX, flipY);
+    }
+
+    animation.getByName(id).priority = priority;
   }
 
   /**
@@ -209,16 +216,16 @@ class FunkinSprite extends FlxAnimate
 
   /**
    * Checks if the animation specified exists.
-   * @param name The animation name to check for.
+   * @param id The animation id to check for.
    * @return If the animation exists.
    */
-  public function animationExists(name:String):Bool
+  public function animationExists(id:String):Bool
   {
     var atlasAnimList:Array<String> = super.getAnimateAnimations();
-    if (atlasAnimList.contains(name))
+    if (atlasAnimList.contains(id))
       return true;
 
-    return animation?.exists(name) ?? false;
+    return animation?.exists(id) ?? false;
   }
 
   /**

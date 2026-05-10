@@ -63,8 +63,8 @@ class FunkinSpriteUtil
 
     for (anim in structure)
     {
-      // TODO: Work with flipX and flipY.
-      sprite.addAnimation(anim.name, anim.prefix, anim?.indices ?? [], anim?.framerate ?? 24, anim?.looped ?? false);
+      sprite.addAnimation(anim.id, anim.prefix, anim?.priority ?? 0, anim?.indices ?? [], anim?.framerate ?? 24, anim?.looped ?? false, anim?.flipX ?? false,
+        anim?.flipY ?? false);
     }
 
     return sprite;

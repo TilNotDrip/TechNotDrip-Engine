@@ -77,7 +77,7 @@ class FlxAnimateUtil
    * Adds a Texture Atlas Animation to a sprite.
    * Frame Labels and Symbols are supported.
    * @param sprite The sprite to apply this animation to.
-   * @param name What this animation should be called (e.g. `"run"`).
+   * @param id What this animation should be called (e.g. `"run"`).
    * @param prefix The name of the Texture Atlas animation internally.
    * @param indices An array of numbers indicating what frames to play in what order (e.g. `[0, 1, 2]`).
    * @param frameRate The speed in frames per second that the animation should play at (e.g. `40` fps), leave ``null`` to use the default framerate.
@@ -85,8 +85,8 @@ class FlxAnimateUtil
    * @param flipX Whether the frames should be flipped horizontally.
    * @param flipY Whether the frames should be flipped vertically.
    */
-  public static function addAnimateAtlasAnimation(sprite:FlxAnimate, name:String, prefix:String, ?indices:Array<Int>, ?frameRate:Float, ?looped:Bool = true,
-      ?flipX:Bool, ?flipY:Bool):Void
+  public static function addAnimateAtlasAnimation(sprite:FlxAnimate, id:String, prefix:String, ?priority:Int = 0, ?indices:Array<Int>, ?frameRate:Float,
+      ?looped:Bool = true, ?flipX:Bool, ?flipY:Bool):Void
   {
     if (sprite.library == null)
       return;
@@ -109,16 +109,19 @@ class FlxAnimateUtil
     if (foundLabelFrames.length > 0)
     {
       if (indices != null)
-        sprite.anim.addByFrameLabelIndices(name, newPrefix, indices, frameRate, looped, flipX, flipY);
+        sprite.anim.addByFrameLabelIndices(id, newPrefix, indices, frameRate, looped, flipX, flipY);
       else
-        sprite.anim.addByFrameLabel(name, newPrefix, frameRate, looped, flipX, flipY);
+        sprite.anim.addByFrameLabel(id, newPrefix, frameRate, looped, flipX, flipY);
     }
     else
     {
       if (indices != null)
-        sprite.anim.addBySymbolIndices(name, newPrefix, indices, frameRate, looped, flipX, flipY);
+        sprite.anim.addBySymbolIndices(id, newPrefix, indices, frameRate, looped, flipX, flipY);
       else
-        sprite.anim.addBySymbol(name, newPrefix, frameRate, looped, flipX, flipY);
+        sprite.anim.addBySymbol(id, newPrefix, frameRate, looped, flipX, flipY);
     }
+
+    // TODO: idk if this works but i guess we'll find out the hard way
+    sprite.anim.getByName(id).priority = priority;
   }
 }
