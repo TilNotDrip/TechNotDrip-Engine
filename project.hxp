@@ -20,6 +20,13 @@ class Project extends HXProject
 	public final TECHNOTDRIP_VERSION:String = '0.1.0';
 
 	/**
+	 * `-DFUNKIN_ASSETS_FORWARDING`
+	 * Whether the game should forward its asset fetching to the root of the repository.
+	 * Developers can set this by checking the flag above.
+	 */
+	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_ASSETS_FORWARDING';
+
+	/**
 	 * `-DFUNKIN_DISCORD_RPC`
 	 * Whether the game should have Discord RPC.
 	 * Developers can set this by checking the flag above.
@@ -39,13 +46,6 @@ class Project extends HXProject
 	 * Developers can set this by checking the flag above.
 	 */
 	public final FUNKIN_GIT_DETAILS:FeatureFlag = 'FUNKIN_GIT_DETAILS';
-
-	/**
-	 * `-DFUNKIN_ASSETS_FORWARDING`
-	 * Whether the game should forward its asset fetching to the root of the repository.
-	 * Developers can set this by checking the flag above.
-	 */
-	public final FUNKIN_ASSETS_FORWARDING:FeatureFlag = 'FUNKIN_ASSETS_FORWARDING';
 
 	public function new()
 	{
