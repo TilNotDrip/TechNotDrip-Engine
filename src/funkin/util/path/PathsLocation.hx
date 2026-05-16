@@ -71,7 +71,6 @@ class PathsLocation
    */
   public function get(key:String):String
   {
-    // TODO: Better Link Detection system, this will do for the short run though.
     if (StringUtil.isURL(key))
       return key;
 
