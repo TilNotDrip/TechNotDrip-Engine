@@ -341,7 +341,7 @@ class FreeplayState extends FunkinState
         capsule.lerpPos.y -= 100; // another 100 for good measure
     }
 
-    lookForCurrrentVariation();
+    lookForCurrentVariation();
   }
 
   /**
@@ -357,7 +357,7 @@ class FreeplayState extends FunkinState
 
     curDifficulty = difficulties[curIndex];
     difficultySelector.changeDifficulty(curDifficulty, index);
-    lookForCurrrentVariation();
+    lookForCurrentVariation();
     filterSongs();
   }
 
@@ -389,7 +389,7 @@ class FreeplayState extends FunkinState
   /**
    * Looks for the current variation.
    */
-  public function lookForCurrrentVariation():Void
+  public function lookForCurrentVariation():Void
   {
     if (filteredSongs[curSelected] != null)
     {
