@@ -11,80 +11,54 @@ import openfl.media.Sound;
  */
 class VoicesGroup extends FlxSoundGroup
 {
-  /**
-   * The Song ID used for getting Voices.
-   */
-  public var songID:String;
-
-  /**
-   * The opponent vocals, if they exist.
-   * @see `getOpponent()`
-   */
-  var opponent:Null<FlxSound>;
-
-  /**
-   * The player vocals, if they exist.
-   * @see `getPlayer()`
-   */
-  var player:Null<FlxSound>;
-
-  /**
-   * The combined vocals, if they exist.
-   *
-   * For better context, this is a fallback to `Voices.ogg`
-   * @see `getOpponent()`
-   * @see `getPlayer()`
-   */
+  var strumlines:Map<String, FlxSound>;
   var combined:Null<FlxSound>;
+  var audioPath:String;
 
-  public function new(songID:String)
+  public function new(audioPath:String)
   {
-    var songPath:String = 'gameplay/songs/${songID}';
-    this.songID = songID;
-
-    var opponentSound:Null<Sound> = null;
-    var playerSound:Null<Sound> = null;
-    var combinedSound:Null<Sound> = null;
+    this.strumlines = [];
+    this.audioPath = audioPath;
 
     super();
 
-    // TODO: when character IDs are available, search through those too.
-
-    if (opponentSound == null && Paths.location.exists('${songPath}/Voices-Opponent.${Paths.AUDIO_EXT}'))
-      opponentSound = Paths.content.audio('${songPath}/Voices-Opponent');
-
-    if (playerSound == null && Paths.location.exists('${songPath}/Voices-Player.${Paths.AUDIO_EXT}'))
-      playerSound = Paths.content.audio('${songPath}/Voices-Player');
-
-    if (opponentSound == null && playerSound == null)
+    final combinedPath:String = '$audioPath/voices';
+    if (Paths.location.exists('$combinedPath.${Paths.AUDIO_EXT}'))
     {
-      if (Paths.location.exists('${songPath}/Voices.${Paths.AUDIO_EXT}'))
-      {
-        combinedSound = Paths.content.audio('${songPath}/Voices');
-
-        // Invalidate all other sounds, if they exist.
-        opponentSound = null;
-        playerSound = null;
-      }
-    }
-
-    if (combinedSound != null)
-    {
-      combined = FlxG.sound.load(combinedSound);
+      combined = FlxG.sound.load(Paths.content.audio(combinedPath));
       this.add(combined);
     }
+  }
 
-    if (opponentSound != null)
-    {
-      opponent = FlxG.sound.load(opponentSound);
-      this.add(opponent);
-    }
+  /**
+   * Registers a Strumline ID into the group, loading it if it exists.
+   * @param id The Strumline ID.
+   */
+  public function registerStrumline(id:String):Void
+  {
+    if (combined != null)
+      return;
 
-    if (playerSound != null)
-    {
-      player = FlxG.sound.load(playerSound);
-      this.add(player);
-    }
+    final path:String = '$audioPath/voices-$id';
+    if (!Paths.location.exists('$path.${Paths.AUDIO_EXT}'))
+      return;
+
+    var sound:FlxSound = FlxG.sound.load(Paths.content.audio(path));
+    strumlines.set(id, sound);
+    this.add(sound);
+  }
+
+  /**
+   * Gets the sound instance for a strumline.
+   * @param id The Strumline ID to look for.
+   * @return The sound instance. Will be `null` if it doesnt exist.
+   */
+  public function getStrumline(id:String):Null<FlxSound>
+  {
+    if (combined != null)
+      return combined;
+
+    return strumlines.get(id);
   }
 
   /**
@@ -92,18 +66,14 @@ class VoicesGroup extends FlxSoundGroup
    */
   public function traceInfo():Void
   {
-    if (opponent != null && player != null)
-    {
-      trace('[INFO] Voices Type for "${songID}": Opponent and Player seperated');
-    }
-    else if (combined != null)
-    {
-      trace('[INFO] Voices Type for "${songID}": Opponent and Player pair');
-    }
-    else
-    {
-      trace('[INFO] Voices Type for "${songID}": None found');
-    }
+    var type:String = 'None Found';
+
+    if (combined != null)
+      type = 'Paired';
+    else if (this.sounds.length > 0)
+      type = 'Seperated';
+
+    trace('[INFO] Voices Type for "$audioPath": $type');
   }
 
   /**
@@ -128,53 +98,28 @@ class VoicesGroup extends FlxSoundGroup
    */
   public function tryResync():Void
   {
-    if (combined != null)
-    {
-      syncVocals(combined);
+    for (sound in sounds)
+      syncVocals(sound);
+  }
+
+  function syncVocals(vocals:Null<FlxSound>):Void
+  {
+    if (vocals == null)
       return;
-    }
 
-    syncVocals(player);
-    syncVocals(opponent);
-  }
+    // maybe even log time difference
+    // -silver984
 
-  // maybe even log time difference
-  // -silver984
-  private function syncVocals(vocals:Null<FlxSound>):Void
-  {
-    if (vocals != null)
+    // Sure why not
+    // -Til
+
+    var timeDif:Float = vocals.time - FlxG.sound.music.time;
+    // in milliseconds
+    var delayThreshold:Float = 10;
+    if (Math.abs(timeDif) >= delayThreshold)
     {
-      var timeDif:Float = vocals.time - FlxG.sound.music.time;
-      // in milliseconds
-      var delayThreshold:Float = 10;
-      if (Math.abs(timeDif) >= delayThreshold)
-      {
-        vocals.time = FlxG.sound.music.time;
-      }
+      vocals.time = FlxG.sound.music.time;
+      trace('[WARNING] Vocals member resynced: abs($timeDif) >= $delayThreshold');
     }
-  }
-
-  /**
-   * Gets the player vocals, if they exist.
-   * @return A `FlxSound` instance containing the vocals. If it's `null`, they do not exist.
-   */
-  public function getPlayer():Null<FlxSound>
-  {
-    if (combined != null)
-      return combined;
-
-    return player;
-  }
-
-  /**
-   * Gets the opponent vocals, if they exist.
-   * @return A `FlxSound` instance containing the vocals. If it's `null`, they do not exist.
-   */
-  public function getOpponent():Null<FlxSound>
-  {
-    if (combined != null)
-      return combined;
-
-    return opponent;
   }
 }

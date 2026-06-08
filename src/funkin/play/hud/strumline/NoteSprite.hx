@@ -1,14 +1,24 @@
 package funkin.play.hud.strumline;
 
-import funkin.data.song.SongData;
+import funkin.data.song.SongFormat;
 
 // import funkin.shaders.gameplay.RGBShader;
 class NoteSprite extends FunkinSprite
 {
   /**
+   * The time of this note, in miliseconds.
+   */
+  public var time:Float = 0;
+
+  /**
+   * The length of this note, in miliseconds.
+   */
+  public var length:Float = 0;
+
+  /**
    * Data for the current note.
    */
-  public var data:NoteData;
+  public var data:SongNote;
 
   /**
    * The sustain note, if it exists.
@@ -26,11 +36,10 @@ class NoteSprite extends FunkinSprite
     loadNoteFrames();
   }
 
-  public function setupNoteSprite(data:NoteData):Void
+  public function setupNoteSprite(data:SongNote):Void
   {
     this.data = data;
-
-    playAnimation(cast(data.direction, NoteDirection).name);
+    playAnimation(data.direction.name);
   }
 
   public function loadNoteFrames():Void

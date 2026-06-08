@@ -23,19 +23,14 @@ class FreeplayState extends FunkinState
   public var curDifficulty:String = '';
 
   /**
-   * Current Variation.
-   */
-  public var curVariation:String = '';
-
-  /**
    * The songs.
    */
-  public var songs:Array<Song>;
+  public var songs:Array<FreeplaySong>;
 
   /**
    * The songs that are available with the current filter.
    */
-  public var filteredSongs:Array<Song>;
+  public var filteredSongs:Array<FreeplaySong>;
 
   /**
    * All difficulties available.
@@ -116,7 +111,8 @@ class FreeplayState extends FunkinState
           if (!difficultiesAvailable.contains(difficulty))
             difficultiesAvailable.push(difficulty);
         }
-        songs.push(song);
+
+        songs.push(new FreeplaySong(song, this));
       }
     }
 
@@ -170,7 +166,6 @@ class FreeplayState extends FunkinState
     ostName.shader = sillyStroke;
     add(ostName);
 
-    generateCapsules();
     changeSelection();
     changeDifficulty();
 
@@ -271,26 +266,32 @@ class FreeplayState extends FunkinState
   }
 
   /**
-   * Generates the capsules.
-   * @return Void
+   * Regenerates all members.
    */
-  public function generateCapsules():Void
+  public function regenerateCapsules():Void
   {
-    for (i => capsule in grpCapsules.members)
-    {
-      if (i != 0)
-        capsule.kill();
-    }
+    grpCapsules.killMembers();
 
+    // Revive the random capsule.
+    grpCapsules.members[0].revive();
+
+    var capsuleOrder:Array<FreeplayCapsule> = [grpCapsules.members[0]];
     for (song in filteredSongs)
     {
-      var capsule:FreeplayCapsule = grpCapsules.recycle(() ->
-      {
-        return new FreeplayCapsule();
-      });
-
-      capsule.init(song.getDisplayName(), song.metadatas.get('default').icon);
+      var capsule:FreeplayCapsule = grpCapsules.recycle(FreeplayCapsule);
+      capsule.init(song.displayName, song.freeplayIcon);
+      capsuleOrder.push(capsule);
     }
+
+    grpCapsules.members.sort((a:FreeplayCapsule, b:FreeplayCapsule) ->
+    {
+      if (capsuleOrder.contains(a) && capsuleOrder.contains(b))
+        return capsuleOrder.indexOf(a) - capsuleOrder.indexOf(b);
+      else if (capsuleOrder.contains(a))
+        return -1;
+      else
+        return 1;
+    });
 
     changeSelection();
   }
@@ -306,7 +307,6 @@ class FreeplayState extends FunkinState
     if (curSelected == -1)
     {
       conductor.changeBPM(145);
-      conductor.resetBPMChanges();
       var songPosToSetTo:Float = lastSongPos;
       lastSongPos = FlxG.sound.music.time;
       FlxG.sound.playMusic(Paths.content.audio('ui/freeplay/freeplayRandom'));
@@ -317,7 +317,6 @@ class FreeplayState extends FunkinState
     else if (isRandomPlaying)
     {
       conductor.changeBPM(102);
-      conductor.resetBPMChanges();
       var songPosToSetTo:Float = lastSongPos;
       lastSongPos = FlxG.sound.music?.time;
       FlxG.sound.playMusic(Paths.content.audio('ui/menu/freakyMenu'));
@@ -326,22 +325,18 @@ class FreeplayState extends FunkinState
       isRandomPlaying = false;
     }
 
+    var curSelectedWithRandom:Int = curSelected + 1;
     for (i => capsule in grpCapsules.members)
     {
-      i += 1;
+      final j:Int = i + 1;
+      capsule.selected = i == curSelectedWithRandom;
 
-      var curSelectedWithRandom:Int = curSelected + 1;
+      capsule.lerpPos.x = 270 + (60 * (Math.sin(j - curSelectedWithRandom)));
+      capsule.lerpPos.y = capsule.intendedY(j - curSelectedWithRandom);
 
-      capsule.selected = i == curSelectedWithRandom + 1;
-
-      capsule.lerpPos.y = capsule.intendedY(i - curSelectedWithRandom);
-      capsule.lerpPos.x = 270 + (60 * (Math.sin(i - curSelectedWithRandom)));
-
-      if (i < curSelectedWithRandom)
+      if (j < curSelectedWithRandom)
         capsule.lerpPos.y -= 100; // another 100 for good measure
     }
-
-    lookForCurrentVariation();
   }
 
   /**
@@ -350,14 +345,14 @@ class FreeplayState extends FunkinState
    */
   public function changeDifficulty(?index:Int = 0):Void
   {
-    var difficulties:Array<String> = filteredSongs[curSelected]?.getDifficulties(null) ?? difficultiesAvailable;
+    var difficulties:Array<String> = filteredSongs[curSelected]?.difficulties ?? difficultiesAvailable;
     var curIndex:Int = difficulties.indexOf(curDifficulty);
 
     curIndex = FlxMath.wrap(curIndex + index, 0, difficulties.length - 1);
 
     curDifficulty = difficulties[curIndex];
     difficultySelector.changeDifficulty(curDifficulty, index);
-    lookForCurrentVariation();
+
     filterSongs();
   }
 
@@ -366,42 +361,13 @@ class FreeplayState extends FunkinState
    */
   public function filterSongs():Void
   {
-    var filterBefore:Array<Song> = filteredSongs.copy();
-    filteredSongs = [];
+    var song:Null<FreeplaySong> = filteredSongs[curSelected];
+    filteredSongs = songs.filter(song -> song.hasDifficulty);
 
-    var shouldUpdateCapsules:Bool = false;
-    for (i => song in songs)
-    {
-      if (song.getDifficulties(null).contains(curDifficulty))
-        filteredSongs.push(song);
+    if (song != null)
+      curSelected = filteredSongs.indexOf(song);
 
-      if (!shouldUpdateCapsules && song != filterBefore[i])
-        shouldUpdateCapsules = true;
-    }
-
-    if (filterBefore.length != filteredSongs.length)
-      shouldUpdateCapsules = true;
-
-    if (shouldUpdateCapsules)
-      generateCapsules();
-  }
-
-  /**
-   * Looks for the current variation.
-   */
-  public function lookForCurrentVariation():Void
-  {
-    if (filteredSongs[curSelected] != null)
-    {
-      for (variation in filteredSongs[curSelected].getVariations())
-      {
-        if (filteredSongs[curSelected]?.getDifficulties(variation)?.contains(curDifficulty) ?? false)
-        {
-          curVariation = variation;
-          break;
-        }
-      }
-    }
+    regenerateCapsules();
   }
 
   /**
@@ -435,9 +401,10 @@ class FreeplayState extends FunkinState
 
     new FlxTimer().start(2, (_) ->
     {
+      var song:FreeplaySong = filteredSongs[curSelected];
       FlxG.switchState(() -> new PlayState({
-        song: filteredSongs[curSelected],
-        variation: curVariation,
+        song: song.song,
+        variation: song.curVariation,
         difficulty: curDifficulty
       }));
     });

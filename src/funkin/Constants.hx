@@ -49,6 +49,11 @@ class Constants
   public static final DEFAULT_DIFFICULTY:String = 'normal';
 
   /**
+   * Default Variation
+   */
+  public static final DEFAULT_VARIATION:String = 'default';
+
+  /**
    * How much space difficulties in Story Mode can have until they are sized down.
    */
   public static final DIFFICULTY_SPACING:Float = 320;

@@ -206,6 +206,7 @@ private class FreeplayCapsuleText extends FlxSpriteGroup
     textWhite.text = value;
     changeWhiteGlow(glowColor);
     checkClipWidth();
+    resetText();
 
     return value;
   }

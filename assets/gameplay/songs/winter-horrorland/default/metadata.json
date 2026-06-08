@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Winter Horrorland",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "monster-christmas",
+      "player": "bf-christmas",
+      "spectator": "gf-christmas"
+    },
+    "stage": "mallEvil",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 1, "hard": 2, "normal": 2 },
+    "album": "volume2",
+    "icon": "monster-christmas",
+    "preview": {}
+  },
+  "credits": { "artist": "Bassetfilms", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 159, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

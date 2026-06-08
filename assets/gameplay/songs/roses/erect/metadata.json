@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Roses Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "senpai-angry",
+      "player": "bf-pixel",
+      "spectator": "gf-pixel"
+    },
+    "stage": "schoolErect",
+    "noteStyle": "funkin-pixel"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
+    "icon": "senpai",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite",
+    "charter": "Jenny Crowe + fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 128, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

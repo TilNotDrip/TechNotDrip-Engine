@@ -188,20 +188,16 @@ class StrumlineData
     {
       var input:InputHit = notesPressed.shift();
 
-      /*if (strumline.isCurrentSustain(input.direction))
-        {
-          strumline.getStrumNoteForDirection(input.direction).playAnimation('confirm-hold');
-          continue;
-      }*/
-
       var possibleNotes:Array<NoteSprite> = strumline.notes.members.filter(function(note:NoteSprite)
       {
-        return note.alive && input.direction == note.data.direction && Math.abs(note.data.time - input.time) < InputUtil.MISS_THRESHOLD;
+        return note.alive
+          && input.direction == note.data.direction
+          && Math.abs(note.data.getTime(conductorInUse) - input.time) < InputUtil.MISS_THRESHOLD;
       });
 
       possibleNotes.sort(function(a:NoteSprite, b:NoteSprite)
       {
-        return FlxSort.byValues(FlxSort.ASCENDING, a.data.time /* - input.time*/, b.data.time /* - input.time*/);
+        return FlxSort.byValues(FlxSort.ASCENDING, a.data.getTime(conductorInUse), b.data.getTime(conductorInUse));
       });
 
       if (possibleNotes.length > 0)
@@ -209,7 +205,7 @@ class StrumlineData
         // TODO: do more input checking
         var noteHit:NoteSprite = possibleNotes[0];
 
-        var noteDiff:Float = input.time - noteHit.data.time;
+        var noteDiff:Float = input.time - noteHit.data.getTime(conductorInUse);
         var rating:String = InputUtil.judgeNote(noteDiff);
         var score:Int = InputUtil.scoreNote(noteDiff);
 

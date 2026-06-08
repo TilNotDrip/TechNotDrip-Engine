@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "name": "Pico",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": { "opponent": "pico", "player": "bf", "spectator": "gf" },
+    "stage": "phillyTrain",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 1, "hard": 2, "normal": 2 },
+    "album": "volume1",
+    "icon": "pico",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 150, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

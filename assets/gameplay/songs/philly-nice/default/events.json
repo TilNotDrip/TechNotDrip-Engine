@@ -1,0 +1,222 @@
+[
+  {
+    "id": "focus-camera",
+    "step": 0,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 33.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 98,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 160,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "play-animation",
+    "step": 160,
+    "params": { "force": true, "name": "cheer", "target": "spectator" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 162,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 226,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 287.992,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 288,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 351.995,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 415.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 416,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 479.99,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 543.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 544,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 607.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 672,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 672,
+    "params": {
+      "direct": false,
+      "duration": 12,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 672,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 735.992,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 799.995,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 863.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 927.99,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 928,
+    "params": { "direct": false, "duration": 24, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "play-animation",
+    "step": 928,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 991.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  }
+]

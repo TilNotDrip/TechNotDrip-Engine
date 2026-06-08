@@ -1,0 +1,132 @@
+[
+  {
+    "id": "focus-camera",
+    "step": 0,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 32,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 96,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 160,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 224,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 288,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 352,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 416,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 480,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 544,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 608,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 752,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 768,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  }
+]

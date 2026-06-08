@@ -1,0 +1,243 @@
+[
+  {
+    "id": "focus-camera",
+    "step": 0,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 64,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 64,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 96,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 96,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 124,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "play-animation",
+    "step": 124,
+    "params": { "force": false, "name": "cheer", "target": "opponent" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 128,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 128,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 160,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 160,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "play-animation",
+    "step": 188,
+    "params": { "force": true, "name": "hey", "target": "player" }
+  },
+  {
+    "id": "play-animation",
+    "step": 188,
+    "params": { "force": false, "name": "cheer", "target": "opponent" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 192,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 192,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 224,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 224,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 256,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 256,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 288,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 288,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 320,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 320,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 336,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 336,
+    "params": {
+      "direct": true,
+      "duration": 4,
+      "ease": "elasticInOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "ScrollSpeed",
+    "step": 400,
+    "params": {
+      "absolute": false,
+      "duration": 4,
+      "ease": "expoIn",
+      "scroll": 1.2,
+      "strumline": "both"
+    }
+  }
+]

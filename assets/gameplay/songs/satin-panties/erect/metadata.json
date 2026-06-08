@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Satin Panties Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "mom-car",
+      "player": "bf-car",
+      "spectator": "gf-car"
+    },
+    "stage": "limoRideErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 11, "nightmare": 12 },
+    "album": "expansion1",
+    "icon": "mom-car",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "fabs + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 135, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

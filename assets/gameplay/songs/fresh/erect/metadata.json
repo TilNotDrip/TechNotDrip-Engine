@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Fresh Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
+    "stage": "mainStageErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 6, "nightmare": 7 },
+    "album": "volume3",
+    "icon": "dad",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kohta Takahashi (feat. Saruky)",
+    "charter": "fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 125, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

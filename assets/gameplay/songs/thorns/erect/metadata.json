@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Thorns Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "spirit",
+      "player": "bf-pixel",
+      "spectator": "gf-pixel"
+    },
+    "stage": "schoolEvilErect",
+    "noteStyle": "funkin-pixel"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 9, "nightmare": 10 },
+    "album": "volume3",
+    "icon": "spirit",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite (feat. Saster)",
+    "charter": "Jenny Crowe + fabs"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 190, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

@@ -55,8 +55,7 @@ class Hud extends FlxTypedGroup<FlxBasic>
    */
   public function generateStrumlines():Void
   {
-    // TODO: change this Array to something from PlayState, so you can have more than 3 characters.
-    for (strumlineID in ['player', 'opponent', 'spectator'])
+    for (strumlineID in parent.song.getStrumlineIds())
     {
       var strumlineData:StrumlineData = new StrumlineData(strumlineID, parent.conductor);
       strumlineDatas.push(strumlineData);

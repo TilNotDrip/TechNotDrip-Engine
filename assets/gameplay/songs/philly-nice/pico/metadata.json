@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Philly Nice (Pico Mix)",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "pico",
+      "player": "pico-playable",
+      "spectator": "nene"
+    },
+    "stage": "phillyTrainErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 2, "hard": 4, "normal": 3 },
+    "album": "volume4",
+    "icon": "pico",
+    "preview": {}
+  },
+  "credits": { "artist": "tsuyunoshi (ft. Saruky)", "charter": "Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 175, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

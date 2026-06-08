@@ -76,20 +76,23 @@ class Week
     return data?.name ?? 'Unknown';
   }
 
+  var _songs:Null<Array<Song>> = null;
+
   function get_songs():Array<Song>
   {
-    var songIds:Array<String> = data?.songs ?? [];
-    var songObjs:Array<Song> = [];
-
-    for (id in songIds)
+    if (_songs == null)
     {
-      var song:Song = Song.getSongByID(id);
+      _songs = [];
 
-      if (song != null)
-        songObjs.push(song);
+      for (id in data?.songs ?? [])
+      {
+        // TODO: oh god this is awful
+        var song:Song = new Song(id);
+        _songs.push(song);
+      }
     }
 
-    return songObjs;
+    return _songs;
   }
 
   /**
@@ -100,7 +103,7 @@ class Week
     var displayNames:Array<String> = [];
 
     for (obj in songs)
-      displayNames.push(obj.getDisplayName('default'));
+      displayNames.push(obj.getDisplayName());
 
     return displayNames;
   }
@@ -133,12 +136,15 @@ class Week
     var difficulties:Array<String> = [];
     for (song in songs)
     {
-      for (difficulty in song.getDifficulties())
+      for (difficulty in song.getDifficulties(Constants.DEFAULT_VARIATION))
       {
         if (!difficulties.contains(difficulty))
           difficulties.push(difficulty);
       }
     }
+
+    if (difficulties.length < 1)
+      difficulties.push(Constants.DEFAULT_DIFFICULTY);
 
     return difficulties;
   }

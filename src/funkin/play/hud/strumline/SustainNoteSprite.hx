@@ -4,16 +4,26 @@ import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.frames.FlxFramesCollection;
 import flixel.math.FlxRect;
 import flixel.util.FlxDestroyUtil;
-import funkin.data.song.SongData.NoteData;
+import funkin.data.song.SongFormat;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
 
 class SustainNoteSprite extends FunkinSprite
 {
   /**
+   * The time of this sustain, in miliseconds.
+   */
+  public var time:Float = 0;
+
+  /**
+   * The time of this sustain, in miliseconds.
+   */
+  public var length:Float = 0;
+
+  /**
    * The note data for this sustain note.
    */
-  public var data:NoteData;
+  public var data:SongNote;
 
   /**
    * Current scroll speed.
@@ -44,14 +54,18 @@ class SustainNoteSprite extends FunkinSprite
    * Sets up sustain sprite for use.
    * @param data The note data for this sustain note.
    * @param scrollSpeed Current scroll speed.
+   * @param conductor Conductor to use for calculations.
    */
-  public function setupSustainSprite(data:NoteData, scrollSpeed:Float)
+  public function setupSustainSprite(data:SongNote, scrollSpeed:Float, conductor:Conductor)
   {
     this.data = data;
     this.scrollSpeed = scrollSpeed;
-    lengthLeft = data.length;
 
-    loadGraphic(generateSprite(data, scrollSpeed));
+    time = data.getTime(conductor);
+    length = data.getLengthMs(conductor);
+    lengthLeft = length;
+
+    loadGraphic(generateSprite(data, scrollSpeed, conductor));
     setGraphicSize(Std.int(width * 0.7));
     updateHitbox();
     centerOffsets();
@@ -67,16 +81,16 @@ class SustainNoteSprite extends FunkinSprite
     if (clipRect == null)
       clipRect = new FlxRect(0, 0, width / 0.7, height / 0.7);
 
-    if (data.time <= currentTime)
+    if (time <= currentTime)
     {
       clipRect.set(0, 0, width / 0.7, height / 0.7);
 
-      clipRect.y = height - sustainHeight((data.time + data.length) - currentTime, scrollSpeed);
+      clipRect.y = height - sustainHeight((time + length) - currentTime, scrollSpeed);
       clipRect.y /= 0.7;
 
       clipRect = clipRect;
 
-      lengthLeft = (data.time + data.length) - currentTime;
+      lengthLeft = (time + length) - currentTime;
     }
   }
 
@@ -93,13 +107,13 @@ class SustainNoteSprite extends FunkinSprite
   }
 
   // THIS ASSUMES YOU WILL SCALE IT BY 0.7!!
-  static function generateSprite(data:NoteData, scrollSpeed:Float):BitmapData
+  static function generateSprite(data:SongNote, scrollSpeed:Float, conductor:Conductor):BitmapData
   {
     var noteFrames:FlxFramesCollection = Paths.content.sparrowAtlas('gameplay/hud/funkin/strumline/notes');
-    var holdPiece:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold piece')[0];
-    var holdEnd:FlxFrame = noteFrames.getAllByPrefix('${cast (data.direction, NoteDirection).color} hold end')[0];
+    var holdPiece:FlxFrame = noteFrames.getAllByPrefix('${data.direction.color} hold piece')[0];
+    var holdEnd:FlxFrame = noteFrames.getAllByPrefix('${data.direction.color} hold end')[0];
     var toReturn:BitmapData = new BitmapData(Std.int(Math.max(holdPiece.sourceSize.x, holdEnd.sourceSize.x)),
-      Std.int(sustainHeight(data.length, scrollSpeed) / 0.7), true, 0);
+      Std.int(sustainHeight(data.getLengthMs(conductor), scrollSpeed) / 0.7), true, 0);
 
     var holdPieceLeft:Int = Std.int(toReturn.height - holdEnd.frame.height);
     var yPos:Int = 0;

@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Test",
+  "difficulties": ["normal"],
+  "playData": {
+    "characters": {
+      "opponent": "bf-pixel",
+      "player": "bf",
+      "spectator": "gf"
+    },
+    "stage": "mainStage",
+    "noteStyle": "funkin"
+  },
+  "freeplayData": {
+    "ratings": {},
+    "album": "volume2",
+    "icon": "bf",
+    "preview": {}
+  },
+  "credits": { "artist": "MtH (feat. Kawai Sprite)", "charter": "MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 150, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

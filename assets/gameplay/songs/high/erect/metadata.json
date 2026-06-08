@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "High Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "mom-car",
+      "player": "bf-car",
+      "spectator": "gf-car"
+    },
+    "stage": "limoRideErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume3",
+    "icon": "mom-car",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kohta Takahashi (feat. Kawai Sprite)",
+    "charter": "PhantomArcade + fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 125, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

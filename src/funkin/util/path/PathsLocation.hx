@@ -118,11 +118,11 @@ class PathsLocation
     if (ext != '' && !ext.startsWith('.'))
       ext = '.' + ext;
 
+    var assetKey:String = 'assets/' + key;
+
     for (asset in openflList)
     {
-      var assetKey:String = 'assets/' + key;
-
-      if ((!asset.startsWith(assetKey) || !asset.endsWith(ext)) || (!recursive && asset.split(assetKey)[1].contains('/')))
+      if ((!asset.startsWith(assetKey) || !asset.endsWith(ext)) || (!recursive && asset.substring(assetKey.length).contains('/')))
         continue;
 
       var assetToPush:String = switch (returnType)

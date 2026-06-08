@@ -1,89 +1,38 @@
 package funkin.data.song;
 
-import flixel.sound.FlxSoundGroup;
-import flixel.util.FlxSort;
-import funkin.data.song.SongData;
+import funkin.data.song.SongFormat;
+import funkin.data.sound.BPMChange;
+import json2object.JsonParser;
 
 class Song
 {
-  static var cachedSongs:Map<String, Song>;
-
   /**
-   * Caches all songs to use later.
+   * The path to all songs.
    */
-  public static function cacheSongs():Void
-  {
-    cachedSongs = new Map<String, Song>();
-
-    for (file in Paths.location.scan('gameplay/songs', '.json', true, PATH_FILE, false))
-    {
-      if (!file.endsWith('metadata'))
-        continue;
-
-      var endLength:Int = file.length - 'metadata'.length - 1;
-      var songName:String = file.substring('gameplay/songs/'.length, endLength);
-      var song:Song = new Song(songName);
-      cachedSongs.set(songName, song);
-    }
-
-    #if FLX_DEBUG
-    FlxG.console.registerFunction('cacheSongs', cacheSongs);
-    #end
-  }
+  public static final SONG_PATH:String = 'gameplay/songs';
 
   /**
-   * Gets a song using it's ID.
-   * @param id The ID of the song to search for.
-   * @return The Song Object.
-   */
-  public static function getSongByID(id:String):Song
-  {
-    if (cachedSongs == null)
-      cacheSongs();
-
-    return cachedSongs.get(id);
-  }
-
-  /**
-   * The song ID.
+   * The ID of this song.
    */
   public final id:String;
 
   /**
-   * All the metadatas.
-   * variation id => structure
+   * A list of all variations available.
    */
-  public final metadatas:Map<String, MetadataStructure>;
+  public final variations:Array<String>;
 
-  /**
-   * All the charts.
-   * variation id => charts
-   */
-  public final charts:Map<String, Array<ChartArrayElement>>;
-
-  /**
-   * All the events.
-   * variation id => events
-   */
-  public final events:Map<String, Array<EventData>>;
+  final _data:Map<String, SongMetadata>;
 
   public function new(id:String)
   {
     this.id = id;
+    this.variations = getVariations(id);
 
-    metadatas = new Map<String, MetadataStructure>();
-    charts = new Map<String, Array<ChartArrayElement>>();
-    events = new Map<String, Array<EventData>>();
-
-    for (variation in getVariations())
+    _data = [];
+    for (variation in this.variations)
     {
-      metadatas.set(variation, getSongMetadata(id, variation));
-
-      var chartJson:ChartStructure = getSongChart(id, variation);
-      charts.set(variation, chartJson.charts);
-
-      var eventsJson:EventsStructure = getSongEvents(id, variation);
-      events.set(variation, eventsJson.events);
+      var metadata:SongMetadata = getMetadata(this.id, variation);
+      _data.set(variation, metadata);
     }
   }
 
@@ -92,10 +41,10 @@ class Song
    * @param variation The variation to get the name from.
    * @return The name.
    */
-  public function getDisplayName(variation:String = 'default'):String
+  public function getDisplayName(?variation:String):String
   {
-    var metadata:MetadataStructure = metadatas.get(variation);
-    return metadata.name;
+    var metadata:Null<SongMetadata> = _data.get(variation ?? Constants.DEFAULT_VARIATION);
+    return metadata?.name ?? 'Unknown';
   }
 
   /**
@@ -103,124 +52,117 @@ class Song
    * @param variation The variation you want to search difficulties from. `null` for all variations.
    * @return The difficulties.
    */
-  public function getDifficulties(variation:Null<String> = 'default'):Array<String>
+  public function getDifficulties(variation:Null<String>):Array<String>
   {
+    final variations:Array<String> = variation == null ? this.variations : [variation];
     var difficulties:Array<String> = [];
-    var variationsToSearch:Array<String> = [];
 
-    if (variation == null)
-      variationsToSearch = getVariations().copy();
-    else
-      variationsToSearch = [variation];
-
-    for (variation in variationsToSearch)
+    for (variation in variations)
     {
-      for (chartData in charts.get(variation))
+      final metadata:Null<SongMetadata> = _data.get(variation);
+      if (metadata == null)
+        continue;
+
+      for (difficulty in metadata.difficulties)
       {
-        if (!difficulties.contains(chartData.difficulty))
-          difficulties.push(chartData.difficulty);
+        if (!difficulties.contains(difficulty))
+          difficulties.push(difficulty);
       }
     }
-
-    difficulties.sort(function(a:String, b:String)
-    {
-      var indexA:Int = Constants.DEFAULT_DIFFICULTIES.indexOf(a);
-      var indexB:Int = Constants.DEFAULT_DIFFICULTIES.indexOf(b);
-
-      if (indexA == -1)
-        indexA = Constants.DEFAULT_DIFFICULTIES.length;
-
-      if (indexB == -1)
-        indexB = Constants.DEFAULT_DIFFICULTIES.length;
-
-      return FlxSort.byValues(FlxSort.ASCENDING, indexA, indexB);
-    });
 
     return difficulties;
   }
 
   /**
-   * Gets the chart for `difficulty` in `variation`.
-   * @param variation The variation to check for.
-   * @param difficulty The difficulty to check for.
-   * @return The chart.
+   * Get the Freeplay Data for a song.
+   * @param variation The optional song variation to grab the freeplay data from.
+   * @return The freeplay data. Will be `null` if variation doesn't exist.
    */
-  public function getChart(?variation:String = 'default', difficulty:String):ChartArrayElement
+  public function getFreeplayData(?variation:String):Null<SongFreeplayData>
   {
-    for (chart in charts.get(variation) ?? [])
-    {
-      if (chart.difficulty == difficulty)
-        return chart;
-    }
-
-    return null;
+    var metadata:Null<SongMetadata> = _data.get(variation ?? Constants.DEFAULT_VARIATION);
+    return metadata?.freeplayData;
   }
-
-  static function getSongMetadata(id:String, variation:String):MetadataStructure
-  {
-    var path:String = 'gameplay/songs/' + id + '/';
-
-    if (variation != 'default')
-      path += variation + '-';
-
-    path += 'metadata';
-
-    var json:MetadataStructure = cast haxe.Json.parse(Paths.content.json(path));
-    // TODO: version checking
-    return json;
-  }
-
-  static function getSongChart(id:String, variation:String):ChartStructure
-  {
-    var path:String = 'gameplay/songs/' + id + '/';
-
-    if (variation != 'default')
-      path += variation + '-';
-
-    path += 'chart';
-
-    var json:ChartStructure = cast haxe.Json.parse(Paths.content.json(path));
-    // TODO: version checking
-    return json;
-  }
-
-  static function getSongEvents(id:String, variation:String):EventsStructure
-  {
-    var path:String = 'gameplay/songs/' + id + '/';
-
-    if (variation != 'default')
-      path += variation + '-';
-
-    path += 'events';
-
-    var json:EventsStructure = cast haxe.Json.parse(Paths.content.json(path));
-    // TODO: version checking
-    return json;
-  }
-
-  var _variations:Array<String>;
 
   /**
-   * Get all of the variations for this Song.
-   * @return The variations.
+   * Get the BPM Change Data for a song.
+   * @param variation The optional song variation to grab the BPm Changes from.
+   * @return The BPM Changes. Will be `null` if variation doesn't exist.
    */
-  public function getVariations():Array<String>
+  public function getBPMChanges(?variation:String):Array<BPMChange>
   {
-    if (_variations != null)
-      return _variations;
+    var metadata:Null<SongMetadata> = _data.get(variation ?? Constants.DEFAULT_VARIATION);
+    return metadata?.bpmChanges ?? [BPMChange.DEFAULT_BPM_CHANGE];
+  }
 
-    _variations = ['default'];
+  @:allow(funkin.data.song.PlaySong)
+  function getPlayData(variation:String):Null<SongPlayData>
+  {
+    var metadata:Null<SongMetadata> = _data.get(variation);
+    return metadata?.playData;
+  }
 
-    var queryPath:String = 'gameplay/songs/' + id;
-    for (file in Paths.location.scan(queryPath, 'metadata.json', false, FILE, false))
+  /**
+   * Loads a variation's chart and events.
+   * @param variation The variation to use.
+   * @return The chart and events, wrapped neatly in a nice `PlaySong` instance.
+   */
+  public function loadForPlay(variation:String):Null<PlaySong>
+  {
+    final chart:Null<SongChart> = getChart(this.id, variation);
+    final events:Null<SongEvents> = getEvents(this.id, variation);
+    if (chart == null || events == null)
+      return null;
+
+    return new PlaySong(variation, this, chart, events);
+  }
+
+  static function getVariations(id:String):Array<String>
+  {
+    var songIdPath:String = '$SONG_PATH/$id/';
+    var variations:Array<String> = [];
+
+    for (file in Paths.location.scan(songIdPath, '', true, PATH_FILE, false))
     {
-      if (file == '') // default
+      final slashIndex:Int = file.indexOf('/', songIdPath.length);
+      final variationId:String = file.substring(songIdPath.length, slashIndex);
+      if (slashIndex == -1)
         continue;
 
-      var variationWithoutDash:String = file.substring(0, file.length - 1);
-      _variations.push(variationWithoutDash);
+      if (!variations.contains(variationId))
+        variations.push(variationId);
     }
 
-    return _variations;
+    return variations;
+  }
+
+  static function getMetadata(id:String, variation:String):Null<SongMetadata>
+  {
+    final path:String = '$SONG_PATH/$id/$variation/metadata';
+    final content:String = Paths.content.json(path);
+
+    final parser:JsonParser<SongMetadata> = new JsonParser<SongMetadata>();
+    parser.fromJson(content, path);
+    return parser.value;
+  }
+
+  static function getChart(id:String, variation:String):Null<SongChart>
+  {
+    final path:String = '$SONG_PATH/$id/$variation/chart';
+    final content:String = Paths.content.json(path);
+
+    final parser:JsonParser<SongChart> = new JsonParser<SongChart>();
+    parser.fromJson(content, path);
+    return parser.value;
+  }
+
+  static function getEvents(id:String, variation:String):Null<SongEvents>
+  {
+    final path:String = '$SONG_PATH/$id/$variation/events';
+    final content:String = Paths.content.json(path);
+
+    final parser:JsonParser<SongEvents> = new JsonParser<SongEvents>();
+    parser.fromJson(content, path);
+    return parser.value;
   }
 }

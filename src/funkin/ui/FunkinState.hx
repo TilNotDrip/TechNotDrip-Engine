@@ -28,7 +28,6 @@ class FunkinState extends FlxState
     conductor = new Conductor();
     conductor.stepHit.add(stepHit);
     conductor.beatHit.add(beatHit);
-    conductor.sectionHit.add(sectionHit);
 
     #if FUNKIN_DISCORD_RPC
     DiscordRPC.clearValues();
@@ -78,9 +77,4 @@ class FunkinState extends FlxState
    * This function is called after the conductor beat changes.
    */
   public function beatHit():Void {}
-
-  /**
-   * This function is called after the conductor section changes.
-   */
-  public function sectionHit():Void {}
 }

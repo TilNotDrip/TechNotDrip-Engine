@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Blazin'",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "darnell-blazin",
+      "player": "pico-blazin",
+      "spectator": "nene"
+    },
+    "stage": "phillyBlazin",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 3, "hard": 5, "normal": 4 },
+    "album": "volume3",
+    "icon": "darnell-blazin",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "fabs + PhantomArcade" },
+  "bpmChanges": [{ "time": 0, "bpm": 180, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

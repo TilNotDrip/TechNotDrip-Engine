@@ -38,7 +38,6 @@ class FunkinSubState extends FlxSubState
     conductor = new Conductor();
     conductor.stepHit.add(stepHit);
     conductor.beatHit.add(beatHit);
-    conductor.sectionHit.add(sectionHit);
 
     super();
   }
@@ -60,9 +59,4 @@ class FunkinSubState extends FlxSubState
    * This function is called after the conductor beat changes.
    */
   public function beatHit():Void {}
-
-  /**
-   * This function is called after the conductor section changes.
-   */
-  public function sectionHit():Void {}
 }

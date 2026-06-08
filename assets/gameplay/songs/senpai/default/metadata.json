@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Senpai",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "senpai",
+      "player": "bf-pixel",
+      "spectator": "gf-pixel"
+    },
+    "stage": "school",
+    "noteStyle": "funkin-pixel"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 1, "hard": 3, "normal": 2 },
+    "album": "volume2",
+    "icon": "senpai",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 144, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

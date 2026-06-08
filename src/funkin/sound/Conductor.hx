@@ -3,7 +3,7 @@ package funkin.sound;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSignal;
 import flixel.util.FlxSort;
-import funkin.data.song.SongData.BPMChangeData;
+import funkin.data.sound.BPMChange;
 
 /**
  * The conductor is an class that handles most of the music timing.
@@ -21,39 +21,39 @@ class Conductor implements IFlxDestroyable
   public var beatHit:FlxSignal;
 
   /**
-   * Signal fired when this instance advances to a new section.
+   * Signal fired when this instance advances to a new measure.
    */
-  public var sectionHit:FlxSignal;
-
-  /**
-   * The current step.
-   */
-  public var curStep:Int;
-
-  /**
-   * The current beat.
-   */
-  public var curBeat:Int;
-
-  /**
-   * The current section.
-   */
-  public var curSection:Int;
+  public var measureHit:FlxSignal;
 
   /**
    * The current step, but in decimal form.
    */
-  public var curStepDecimal:Float;
+  public var curStepDecimal(get, never):Float;
+
+  /**
+   * The current step.
+   */
+  public var curStep(get, never):Int;
 
   /**
    * The current beat, but in decimal form.
    */
-  public var curBeatDecimal:Float;
+  public var curBeatDecimal(get, never):Float;
+
+  /**
+   * The current beat.
+   */
+  public var curBeat(get, never):Int;
 
   /**
    * The current section, but in decimal form.
    */
-  public var curSectionDecimal:Float;
+  public var curMeasureDecimal(get, never):Float;
+
+  /**
+   * The current measure.
+   */
+  public var curMeasure(get, never):Int;
 
   /**
    * Timestamp of the music that the conductor will follow.
@@ -82,29 +82,23 @@ class Conductor implements IFlxDestroyable
    */
   public var sectionCrochet(get, null):Float;
 
-  var bpmChanges:Array<BPMChangeData>;
-  var bpmChangesLeft:Array<BPMChangeData>;
+  /**
+   * The current BPM change.
+   */
+  public var currentBPMChange(get, never):BPMChange;
+
+  inline function get_currentBPMChange():BPMChange
+    return getBPMChangeFromMs(time);
+
+  var bpmChanges:Array<BPMChange>;
 
   public function new()
   {
     stepHit = new FlxSignal();
     beatHit = new FlxSignal();
-    sectionHit = new FlxSignal();
+    measureHit = new FlxSignal();
 
-    setupBPMChanges([
-      {
-        time: 0,
-        bpm: 100,
-        timeSignature: {
-          numerator: 4,
-          denominator: 4
-        }
-      }
-    ]);
-
-    // doing it here because time isnt initialized yet
-    bpmChangesLeft = bpmChanges.copy();
-
+    changeBPM(100);
     time = 0;
   }
 
@@ -112,37 +106,32 @@ class Conductor implements IFlxDestroyable
    * Changes the bpm, along with a few other changes.
    * @param bpm The bpm to change it to.
    * @param timeSignature Optional time signature to change it to.
-   * @param recalculate If disabled, it will act as a normal bpm change.
+   * @param reset Should this reset all other BPM changes, or act as one?
    */
-  public function changeBPM(bpm:Float, ?timeSignature:{numerator:Float, denominator:Float} = null, ?recalculate:Bool = true):Void
+  public function changeBPM(bpm:Float, ?timeSignature:TimeSignature = null, ?reset:Bool = true):Void
   {
-    if (timeSignature == null)
-      timeSignature = {numerator: 4, denominator: 4};
-
-    var bpmChangeToAdd:BPMChangeData = {
-      time: time,
-      bpm: bpm,
-      timeSignature: timeSignature,
-      beatTime: 0
-    };
-
-    if (recalculate)
-      bpmChangeToAdd.beatTime = time / calculateCrochet(bpm);
-
-    if (bpmChangesLeft[0].time == time)
+    if (reset)
     {
-      var oldBPMChange:BPMChangeData = bpmChangesLeft.shift();
-      bpmChanges.remove(oldBPMChange);
+      final bpmChange:BPMChange = {
+        time: 0,
+        bpm: bpm,
+        timeSignature: timeSignature ?? new TimeSignature()
+      };
+
+      bpmChanges = [bpmChange];
+    }
+    else
+    {
+      final bpmChange:BPMChange = {
+        time: time,
+        bpm: bpm,
+        timeSignature: timeSignature ?? new TimeSignature()
+      };
+
+      bpmChanges.push(bpmChange);
     }
 
-    bpmChanges.push(bpmChangeToAdd);
-
-    bpmChanges.sort((a:BPMChangeData, b:BPMChangeData) ->
-    {
-      return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
-    });
-
-    recalculateBPMChangeCache();
+    recalculateBeatTimes();
   }
 
   /**
@@ -150,13 +139,11 @@ class Conductor implements IFlxDestroyable
    */
   public function resetBPMChanges():Void
   {
-    var currentBPM:Float = bpmChangesLeft[0].bpm;
-    var currentTimeSignature:{numerator:Float, denominator:Float} = bpmChangesLeft[0].timeSignature;
     setupBPMChanges([
       {
-        bpm: currentBPM,
+        bpm: currentBPMChange.bpm,
         time: 0,
-        timeSignature: currentTimeSignature
+        timeSignature: currentBPMChange.timeSignature
       }
     ]);
   }
@@ -179,22 +166,32 @@ class Conductor implements IFlxDestroyable
 
   /**
    * Sets up the bpm changes for use.
-   * @param bpmChangeArray The BPM Changes to set up.
+   * @param bpmChanges The BPM Changes to set up.
    */
-  public function setupBPMChanges(bpmChangeArray:Array<BPMChangeData>)
+  public function setupBPMChanges(bpmChanges:Array<BPMChange>)
   {
-    bpmChanges = bpmChangeArray;
+    this.bpmChanges = bpmChanges.copy();
+    recalculateBeatTimes();
+  }
 
-    bpmChanges.sort((a:BPMChangeData, b:BPMChangeData) ->
+  function recalculateBeatTimes():Void
+  {
+    this.bpmChanges.sort((a:BPMChange, b:BPMChange) ->
     {
       return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
     });
 
-    // haxe 4.3 syntax my goat
-    for (bpmChange in bpmChanges)
-      bpmChange.beatTime ??= 0;
+    var lastTime:Float = 0;
+    var lastBeatTime:Float = 0;
 
-    recalculateBPMChangeCache();
+    for (bpmChange in bpmChanges)
+    {
+      bpmChange.beatTime = (bpmChange.time - lastTime) / calculateCrochet(bpmChange.bpm);
+      bpmChange.beatTime += lastBeatTime;
+
+      lastTime = bpmChange.time;
+      lastBeatTime = bpmChange.beatTime;
+    }
   }
 
   /**
@@ -204,45 +201,143 @@ class Conductor implements IFlxDestroyable
   {
     stepHit.destroy();
     beatHit.destroy();
-    sectionHit.destroy();
+    measureHit.destroy();
+  }
+
+  /**
+   * Gets the current step from a timestamp.
+   * @param time The timestamp, in miliseconds.
+   * @return The step.
+   */
+  public function getStepFromMs(time:Float):Float
+  {
+    final bpmChange:BPMChange = getBPMChangeFromMs(time);
+    return getBeatFromMs(time) * bpmChange.timeSignature.denominator;
+  }
+
+  /**
+   * Gets the timestamp of a step.
+   * @param step The step.
+   * @return The timestamp, in miliseconds.
+   */
+  public function getStepInMs(step:Float):Float
+  {
+    var toReturn:Float = 0;
+
+    for (bpmChange in bpmChanges)
+    {
+      final stepTime:Float = bpmChange.beatTime * bpmChange.timeSignature.denominator;
+      final stepsElapsed:Float = step - stepTime;
+
+      if (stepsElapsed < 0)
+        break;
+
+      final beatsElapsed:Float = stepsElapsed / bpmChange.timeSignature.denominator;
+      toReturn = (beatsElapsed * calculateCrochet(bpmChange.bpm)) + bpmChange.beatTime;
+    }
+
+    return toReturn;
+  }
+
+  /**
+   * Gets the current beat from a timestamp.
+   * @param time The timestamp, in miliseconds.
+   * @return The beat.
+   */
+  public function getBeatFromMs(time:Float):Float
+  {
+    final bpmChange:BPMChange = getBPMChangeFromMs(time);
+    return ((time - bpmChange.time) / calculateCrochet(bpmChange.bpm)) + bpmChange.beatTime;
+  }
+
+  /**
+   * Gets the timestamp of a beat.
+   * @param beat The beat.
+   * @return The timestamp, in miliseconds.
+   */
+  public function getBeatInMs(beat:Float):Float
+  {
+    var toReturn:Float = 0;
+
+    for (bpmChange in bpmChanges)
+    {
+      final beatsElapsed:Float = beat - bpmChange.beatTime;
+      if (beatsElapsed < 0)
+        break;
+
+      toReturn = (beatsElapsed * calculateCrochet(bpmChange.bpm)) + bpmChange.beatTime;
+    }
+
+    return toReturn;
+  }
+
+  /**
+   * Gets the current measure from a timestamp.
+   * @param time The timestamp, in miliseconds.
+   * @return The measure.
+   */
+  public function getMeasureFromMs(time:Float):Float
+  {
+    final bpmChange:BPMChange = getBPMChangeFromMs(time);
+    return getBeatFromMs(time) / bpmChange.timeSignature.numerator;
+  }
+
+  /**
+   * Gets the timestamp of a measure.
+   * @param measure The measure.
+   * @return The timestamp, in miliseconds.
+   */
+  public function getMeasureInMs(measure:Float):Float
+  {
+    var toReturn:Float = 0;
+
+    for (bpmChange in bpmChanges)
+    {
+      final measureTime:Float = bpmChange.beatTime / bpmChange.timeSignature.numerator;
+      final measuresElapsed:Float = measure - measureTime;
+
+      if (measuresElapsed < 0)
+        break;
+
+      final beatsElapsed:Float = measuresElapsed * bpmChange.timeSignature.numerator;
+      toReturn = (beatsElapsed * calculateCrochet(bpmChange.bpm)) + bpmChange.beatTime;
+    }
+
+    return toReturn;
+  }
+
+  /**
+   * Gets a BPM Change from a timestamp.
+   * @param time A timestamp, in miliseconds.
+   * @return The BPM Change.
+   */
+  public function getBPMChangeFromMs(time:Float):BPMChange
+  {
+    time = Math.max(time, 0);
+
+    for (i in 0...bpmChanges.length)
+    {
+      if (time >= bpmChanges[i].time && time < bpmChanges[i + 1]?.time)
+        return bpmChanges[i];
+    }
+
+    return bpmChanges[bpmChanges.length - 1];
   }
 
   function set_time(value:Float):Float
   {
-    var oldTime:Float = time;
     var oldStep:Int = curStep;
     var oldBeat:Int = curBeat;
-    var oldSection:Int = curSection;
+    var oldMeasure:Int = curMeasure;
 
     time = value;
-
-    // in case we went back for some reason
-    if (oldTime > time)
-      recalculateBPMChangeCache();
-
-    if (bpmChangesLeft[1] != null && time >= bpmChangesLeft[1].time)
-    {
-      bpmChangesLeft.shift();
-
-      FlxG.log.notice('New BPM Change!');
-
-      if (bpmChangesLeft[0].beatTime == 0)
-        bpmChangesLeft[0].beatTime = curBeatDecimal;
-    }
-
-    curBeatDecimal = bpmChangesLeft[0].beatTime + ((time - bpmChangesLeft[0].time) / crochet);
-    curStepDecimal = curBeatDecimal * bpmChangesLeft[0].timeSignature.denominator;
-    curSectionDecimal = curBeatDecimal / bpmChangesLeft[0].timeSignature.numerator;
-
-    curStep = Math.floor(curStepDecimal);
-    curBeat = Math.floor(curBeatDecimal);
-    curSection = Math.floor(curSectionDecimal);
 
     #if FLX_DEBUG
     FlxG.watch.addQuick('curStep', curStep);
     FlxG.watch.addQuick('curBeat', curBeat);
-    FlxG.watch.addQuick('curSection', curSection);
-    FlxG.watch.addQuick('BPM', bpmChangesLeft[0].bpm);
+    FlxG.watch.addQuick('curMeasure', curMeasure);
+    FlxG.watch.addQuick('BPM', currentBPMChange.bpm);
+    FlxG.watch.addQuick('time', time);
     #end
 
     if (oldStep != curStep)
@@ -251,11 +346,29 @@ class Conductor implements IFlxDestroyable
     if (oldBeat != curBeat)
       beatHit.dispatch();
 
-    if (oldSection != curSection)
-      sectionHit.dispatch();
+    if (oldMeasure != curMeasure)
+      measureHit.dispatch();
 
     return value;
   }
+
+  inline function get_curStepDecimal():Float
+    return getStepFromMs(time);
+
+  inline function get_curBeatDecimal():Float
+    return getBeatFromMs(time);
+
+  inline function get_curMeasureDecimal():Float
+    return getMeasureFromMs(time);
+
+  inline function get_curStep():Int
+    return Math.floor(curStepDecimal);
+
+  inline function get_curBeat():Int
+    return Math.floor(curBeatDecimal);
+
+  inline function get_curMeasure():Int
+    return Math.floor(curMeasureDecimal);
 
   function get_crochet():Float
   {
@@ -264,33 +377,17 @@ class Conductor implements IFlxDestroyable
 
   function get_stepCrochet():Float
   {
-    return bpmChangesLeft[0].timeSignature.denominator;
+    return crochet / currentBPMChange.timeSignature.denominator;
   }
 
   function get_sectionCrochet():Float
   {
-    return crochet * bpmChangesLeft[0].timeSignature.numerator;
+    return crochet * currentBPMChange.timeSignature.numerator;
   }
 
   function get_bpm():Float
   {
-    return bpmChangesLeft[0].bpm;
-  }
-
-  /**
-   * Resets the BPM Change cache.
-   */
-  public function recalculateBPMChangeCache():Void
-  {
-    bpmChangesLeft = bpmChanges.copy();
-
-    while (true)
-    {
-      if (bpmChangesLeft[1] != null && time >= bpmChangesLeft[1].time)
-        bpmChangesLeft.shift();
-      else
-        break;
-    }
+    return currentBPMChange.bpm;
   }
 
   /**
@@ -300,6 +397,6 @@ class Conductor implements IFlxDestroyable
    */
   static inline function calculateCrochet(bpm:Float):Float
   {
-    return ((60 / bpm) * 1000);
+    return (60 / bpm) * 1000;
   }
 }

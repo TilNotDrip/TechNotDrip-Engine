@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "2hot",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "darnell",
+      "player": "pico-playable",
+      "spectator": "nene"
+    },
+    "stage": "phillyStreets",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 3, "hard": 5, "normal": 4 },
+    "album": "volume3",
+    "icon": "darnell",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite",
+    "charter": "Jenny Crowe + Spazkid + ninjamuffin99"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 182, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

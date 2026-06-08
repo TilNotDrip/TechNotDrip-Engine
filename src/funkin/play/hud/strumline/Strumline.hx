@@ -6,7 +6,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSignal;
 import flixel.util.FlxSort;
-import funkin.data.song.SongData;
+import funkin.data.song.SongFormat;
 import funkin.data.strumline.StrumlineData;
 import funkin.input.InputUtil;
 import funkin.sound.Conductor;
@@ -66,12 +66,12 @@ class Strumline extends FlxSpriteGroup
   /**
    * The Note Data to use for spawning.
    */
-  public var noteData:Array<NoteData> = [];
+  public var noteData:Array<SongNote> = [];
 
   /**
    * The Note Data left for spawning.
    */
-  public var noteDataLeft:Array<NoteData> = [];
+  public var noteDataLeft:Array<SongNote> = [];
 
   /**
    * The scroll speed.
@@ -149,22 +149,13 @@ class Strumline extends FlxSpriteGroup
    * Sets up notes for spawning.
    * @param chart The chart for this song.
    */
-  public function setupNotes(chart:ChartArrayElement):Void
+  public function setupNotes(chart:SongDifficulty):Void
   {
-    var filteredNotes:Array<NoteData> = chart.chart.filter((note:NoteData) ->
-    {
-      return note.strum == data.id;
-    });
-
-    noteData = filteredNotes;
-    noteData.sort((a:NoteData, b:NoteData) ->
-    {
-      return FlxSort.byValues(FlxSort.ASCENDING, a.time, b.time);
-    });
-
-    scrollSpeed = chart.speed;
+    noteData = chart.notes.get(data.id) ?? [];
+    noteData.sort((a:SongNote, b:SongNote) -> FlxSort.byValues(FlxSort.ASCENDING, a.step, b.step));
 
     noteDataLeft = noteData.copy();
+    scrollSpeed = chart.speed;
   }
 
   public function noteHit(note:NoteSprite, showNoteSplash:Bool):Void
@@ -229,19 +220,23 @@ class Strumline extends FlxSpriteGroup
   {
     while (noteDataLeft.length > 0)
     {
+      var noteTime:Float = noteDataLeft[0].getTime(conductorInUse);
+
       renderingSquare.x = x;
-      renderingSquare.y = calculateNoteYPos(noteDataLeft[0].time);
+      renderingSquare.y = Math.max(calculateNoteYPos(noteTime), 0);
 
       if (!renderingSquare.isOnScreen())
         break;
 
       var noteSprite:NoteSprite = notes.recycle(NoteSprite);
       noteSprite.setupNoteSprite(noteDataLeft[0]);
+      noteSprite.time = noteTime;
+      noteSprite.length = noteDataLeft[0].getLengthMs(conductorInUse);
 
       if ((noteDataLeft[0].length ?? 0) > 0)
       {
         var sustainNoteSprite:SustainNoteSprite = sustainNotes.recycle(SustainNoteSprite);
-        sustainNoteSprite.setupSustainSprite(noteDataLeft[0], scrollSpeed);
+        sustainNoteSprite.setupSustainSprite(noteDataLeft[0], scrollSpeed, conductorInUse);
 
         noteSprite.sustainSprite = sustainNoteSprite;
       }
@@ -263,11 +258,11 @@ class Strumline extends FlxSpriteGroup
 
       var strumlineNote:StrumlineNote = getStrumNoteForDirection(note.data.direction);
       note.x = strumlineNote.x;
-      note.y = strumlineNote.y + calculateNoteYPos(note.data.time);
+      note.y = strumlineNote.y + calculateNoteYPos(note.time);
 
       if (data.data.computerControlled)
       {
-        if (note.data.time <= conductorInUse.time)
+        if (note.data.step <= conductorInUse.curStepDecimal)
         {
           noteHit(note, true);
         }
@@ -275,7 +270,7 @@ class Strumline extends FlxSpriteGroup
       else
       {
         // sustain missing is handled by sustains, duh
-        if (note.data.time + InputUtil.MISS_THRESHOLD <= conductorInUse.time && (note.data.length ?? 0) <= 0)
+        if (note.time + InputUtil.MISS_THRESHOLD <= conductorInUse.time && note.data.length <= 0)
         {
           noteMiss(note);
         }
@@ -291,13 +286,14 @@ class Strumline extends FlxSpriteGroup
       var strumlineMid:Float = strumlineNote.y + (STRUMLINE_SIZE / 2);
 
       sustainNote.x = strumlineNote.x;
-      sustainNote.y = strumlineMid + calculateNoteYPos(sustainNote.data.time);
+      sustainNote.y = strumlineMid + calculateNoteYPos(sustainNote.time);
 
-      if (data.data.computerControlled || currentlyPressed[sustainNote.data.direction])
+      final pressedDown:Bool = data.data.computerControlled || currentlyPressed[sustainNote.data.direction];
+
+      if (pressedDown)
         sustainNote.updateClip(conductorInUse.time);
 
-      if (sustainNote.data.time + sustainNote.data.length <= conductorInUse.time
-        && (data.data.computerControlled || currentlyPressed[sustainNote.data.direction]))
+      if (sustainNote.time + sustainNote.length <= conductorInUse.time && pressedDown)
       {
         strumlineNote.playAnimation('static', true);
         sustainNote.kill();
@@ -309,7 +305,7 @@ class Strumline extends FlxSpriteGroup
       if (!data.data.computerControlled)
       {
         // FIXME: this doesnt work how i want it to work: i want it to work like if it was a normal note
-        if (sustainNote.data.time + (sustainNote.data.length - sustainNote.lengthLeft) + InputUtil.MISS_THRESHOLD <= conductorInUse.time)
+        if (sustainNote.time + (sustainNote.length - sustainNote.lengthLeft) + InputUtil.MISS_THRESHOLD <= conductorInUse.time)
         {
           sustainNoteMiss(sustainNote);
         }
@@ -339,32 +335,6 @@ class Strumline extends FlxSpriteGroup
     }
 
     return null;
-  }
-
-  /**
-   * If there is a sustain currently in this direction.
-   * @param direction The direction.
-   * @return If there is or not.
-   */
-  public function isCurrentSustain(direction:NoteDirection):Bool
-  {
-    for (sustainNote in sustainNotes.members)
-    {
-      if (!sustainNote.alive)
-        continue;
-
-      if (sustainNote.data.time <= conductorInUse.time
-        && sustainNote.data.time + sustainNote.data.length >= conductorInUse.time
-        && sustainNote.data.direction == direction
-        && sustainNote.currentlyHeld
-        && sustainNote.parentWasHit)
-      {
-        trace('Is true!!');
-        return true;
-      }
-    }
-
-    return false;
   }
 
   /**

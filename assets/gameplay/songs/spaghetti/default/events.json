@@ -1,0 +1,3251 @@
+[
+  {
+    "id": "set-camera-bop",
+    "step": 2,
+    "params": { "intensity": 0, "offset": 0, "rate": 4 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 5.203,
+    "params": {
+      "direct": false,
+      "duration": 12,
+      "ease": "expoOut",
+      "zoom": 1.8
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 5.203,
+    "params": {
+      "duration": 12,
+      "ease": "expoOut",
+      "offset": [-440, 150],
+      "target": null
+    }
+  },
+  { "id": "sserafimKick", "step": 8.001, "params": { "final": false } },
+  {
+    "id": "focus-camera",
+    "step": 18.494,
+    "params": {
+      "duration": 8,
+      "ease": "expoOut",
+      "offset": [-71, 247],
+      "target": null
+    }
+  },
+  { "id": "sserafimKick", "step": 18.497, "params": { "final": true } },
+  {
+    "id": "zoom-camera",
+    "step": 18.502,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 29,
+    "params": { "intensity": 1.2, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 31.998,
+    "params": { "char": 1, "id": "yunjin" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 32,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 37.999,
+    "params": { "singing": [true, false, false, false, false, false] }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 51,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 67.004,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 82.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [-71, 247],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 83.496,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 88,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-359, 154],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 88,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.6
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 92,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-493, 90],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 92,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 2.2
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 96,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-627, 27],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 96,
+    "params": {
+      "direct": false,
+      "duration": 3,
+      "ease": "INSTANTOut",
+      "zoom": 2.7
+    }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 97.994,
+    "params": { "visible": [true, true, false, false, true] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 99.993,
+    "params": { "singing": [false, true, false, false, false, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 101.998,
+    "params": { "char": 1, "id": "kazuha" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 102,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [209, 417],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 102.499,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 115,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 127.995,
+    "params": { "visible": [true, true, false, false, true] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 129.994,
+    "params": { "singing": [false, false, false, false, true, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 131.999,
+    "params": { "char": 1, "id": "sakura" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 132,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 132.5,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 149,
+    "params": { "intensity": 0, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 152,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.9
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 152.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1585, 460],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 156,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 2.2
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 159,
+    "params": { "intensity": 0.9, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 160,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 2.6
+    }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 161.995,
+    "params": { "visible": [true, true, true, false, true] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 163.994,
+    "params": { "singing": [false, false, true, false, false, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 167.999,
+    "params": { "char": 1, "id": "chaewon" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 167.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [940, 101],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 168.5,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 192.002,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 200,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 208.006,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 216,
+    "params": { "intensity": 0, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 216,
+    "params": { "singing": [false, false, false, false, false, false] }
+  },
+  {
+    "id": "focus-camera",
+    "step": 218,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [900, -30],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 218,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "zoom": 1.6
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 220,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "zoom": 1.8
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 222,
+    "params": { "direct": false, "duration": 4, "ease": "INSTANTIn", "zoom": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 223,
+    "params": { "intensity": 1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 223.996,
+    "params": { "visible": [true, true, true, true, true] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 223.996,
+    "params": { "singing": [false, false, false, true, false, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 228,
+    "params": { "char": 1, "id": "eunchae" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 228.001,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [960, 541],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 228.502,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 256.003,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 264.001,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 271,
+    "params": { "intensity": 0, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 271.996,
+    "params": { "amount": 0.2, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 271.999,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.3 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 276.002,
+    "params": { "amount": 0.3, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 276.006,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 280.001,
+    "params": { "amount": 0.4, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 280.005,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 281.998,
+    "params": { "visible": [true, true, true, true, true] }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 283.998,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 284,
+    "params": { "direct": false, "duration": 4, "ease": "circIn", "zoom": 2.2 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 286,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFFFF43A1"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 287,
+    "params": { "intensity": 1.2, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 288,
+    "params": { "amount": 0.47, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 288,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 288,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 289.997,
+    "params": { "singing": [true, true, true, true, true, true] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 292.001,
+    "params": { "char": 1, "id": "kazuha" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 308,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 316,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 316,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 318,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 318.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 320,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 320.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 323.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 324,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 337.998,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 338.002,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 344.003,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 344.007,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [329, 417],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 346.003,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 346.007,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1455, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 347.999,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 348.007,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 348.007,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 350.001,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "sserafimLights",
+    "step": 352.001,
+    "params": { "amount": 0.7, "duration": 0.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 352.001,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 354,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFFFF43A1"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9]
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 356,
+    "params": {
+      "duration": 16,
+      "ease": "expoOut",
+      "offset": [49, 367],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 356,
+    "params": { "direct": false, "duration": 16, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 372,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 372.5,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 375,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 380,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.4
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 382,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.6
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 384,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.8
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 388,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 388.001,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 401.999,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 402.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 405.996,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 408,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 408,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 409.997,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 410.001,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 411.993,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 412,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [229, 317],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 412,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 412.5,
+    "params": {
+      "direct": false,
+      "duration": 3.5,
+      "ease": "circIn",
+      "zoom": 2.2
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 414.002,
+    "params": {
+      "colors": ["0xFFFF0000", "0xFFFF33CC", "0xFF00CC33", "0xFF3366FF"],
+      "durations": [0.5, 0.5, 0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9, 0.7, 0.9]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 415,
+    "params": { "intensity": 1.3, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 416.002,
+    "params": { "amount": 0.6, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 416.002,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 416.002,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 424,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 432,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 439.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 440,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 441.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 442,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 444,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 444,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 448.002,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 448.002,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 456.001,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 461.999,
+    "params": { "enabled": false }
+  },
+  { "id": "sserafimCover", "step": 463.999, "params": { "visible": true } },
+  {
+    "id": "set-camera-bop",
+    "step": 465,
+    "params": { "intensity": 0, "offset": 0, "rate": 1 }
+  },
+  { "id": "sserafimCover", "step": 465.998, "params": { "visible": false } },
+  {
+    "id": "zoom-camera",
+    "step": 471.997,
+    "params": {
+      "direct": false,
+      "duration": 1,
+      "ease": "INSTANTOut",
+      "zoom": 0.9
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 471.997,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [920, 400],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 473.997,
+    "params": {
+      "direct": false,
+      "duration": 1,
+      "ease": "INSTANTOut",
+      "zoom": 1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 473.997,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [1220, 500],
+      "target": null
+    }
+  },
+  { "id": "sserafimCover", "step": 475.996, "params": { "visible": true } },
+  { "id": "sserafimCover", "step": 475.996, "params": { "visible": true } },
+  {
+    "id": "focus-camera",
+    "step": 476,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 476,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 477.996,
+    "params": {
+      "colors": ["0xFF3386A7", "0xFF3386A7"],
+      "durations": [0.8],
+      "enabled": true,
+      "intensities": [0.3]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 479,
+    "params": { "intensity": 0.8, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 479.995,
+    "params": { "amount": 0.83, "duration": 0.1 }
+  },
+  { "id": "sserafimCover", "step": 479.995, "params": { "visible": false } },
+  { "id": "sserafimFlash", "step": 479.995, "params": { "duration": 1.6 } },
+  {
+    "id": "zoom-camera",
+    "step": 480,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.3 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 481.494,
+    "params": { "singing": [false, false, false, false, true, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 482.005,
+    "params": { "char": 1, "id": "sakura" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 498,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 505.001,
+    "params": {
+      "colors": ["0xFF3386A7", "0xFF7FBAC6"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.5, 0.7]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 506,
+    "params": { "intensity": 1.5, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 508,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 513.999,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 528,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 532,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 537.997,
+    "params": {
+      "colors": ["0xFF8BAEB5"],
+      "durations": [0.5],
+      "enabled": true,
+      "intensities": [0.9]
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 540,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.7 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 541.997,
+    "params": {
+      "colors": ["0xFF017690", "0xFFB65EC1"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.5, 0.7]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 543,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 544,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 546,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 548,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 548.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 554,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 556,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 1.65
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 556.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 560,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 561.998,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 564.997,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 567,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 569.996,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 572,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.7 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 572.995,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 576,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 577.995,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 580.993,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 584,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.7 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 586,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 588.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 591,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.8 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 594,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 596,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.9 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 596.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 597.999,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 599,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 1.95
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 601.998,
+    "params": {
+      "colors": ["0xFF8BAEB5"],
+      "durations": [0.5],
+      "enabled": true,
+      "intensities": [0.9]
+    }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 603.996,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 604,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 604.495,
+    "params": {
+      "direct": false,
+      "duration": 3.5,
+      "ease": "circIn",
+      "zoom": 2.4
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 607.001,
+    "params": {
+      "colors": ["0xFF017690", "0xFF10CE6C", "0xFFF0B67F", "0xFFB65EC1"],
+      "durations": [0.5, 0.5, 0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.5, 0.7, 0.4, 0.7]
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 607.997,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 607.997,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [1255, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 608.5,
+    "params": {
+      "duration": 36,
+      "ease": "linearIn",
+      "offset": [1500, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 610,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 613,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 618,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 621,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 624.001,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.3 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 626.006,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 629.006,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 634.004,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 636,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 637.004,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 642.002,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 643.001,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 643.001,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [1555, 820],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 643.503,
+    "params": {
+      "duration": 31,
+      "ease": "linearIn",
+      "offset": [1555, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 645.002,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 650,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 653,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 656,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.3 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 658.006,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 661.006,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 666.004,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 668,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 669.004,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 673,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 673.998,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 1.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 673.998,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [1655, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 674.5,
+    "params": {
+      "duration": 32,
+      "ease": "linearIn",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 676.995,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 681,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.9 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 681.994,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 684.993,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 689,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 690,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 692.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 697,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 697.998,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 700.003,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 700.997,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 705,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 705.998,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 705.998,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [1355, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 706.501,
+    "params": {
+      "duration": 27.5,
+      "ease": "linearIn",
+      "offset": [1450, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 708.995,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 711,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.3 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 713.995,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 716.994,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 719,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 722.001,
+    "params": { "intensity": 1.6, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 724.002,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 724.999,
+    "params": { "intensity": 1.2, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 726,
+    "params": { "intensity": 0, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 726.998,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 732,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 2.3 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 735,
+    "params": { "intensity": 0.4, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 735.999,
+    "params": { "amount": 0.76, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 736,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 736.993,
+    "params": { "singing": [false, true, false, false, false, false] }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 736.995,
+    "params": { "amount": 0.5, "duration": 3.2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 741,
+    "params": { "intensity": 0.5, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 742.001,
+    "params": { "char": 1, "id": "kazuha" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 742.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [329, 417],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 742.502,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.5
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 751,
+    "params": { "intensity": 0.6, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 754,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 758,
+    "params": { "intensity": 0.7, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 759,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.7 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 766,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 767,
+    "params": { "intensity": 0.8, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 774,
+    "params": { "intensity": 0.9, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 775.006,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 781.996,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 783,
+    "params": { "intensity": 1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 788.997,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.6 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 792,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.7 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 796,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 1.75
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 799,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 800,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.8 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 802.993,
+    "params": { "singing": [false, false, false, false, false, false] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 803.499,
+    "params": { "singing": [false, false, true, false, false, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 806.002,
+    "params": { "char": 1, "id": "chaewon" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 806.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [940, 101],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 806.503,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.4
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 820,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 828,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 832.994,
+    "params": { "singing": [false, false, false, false, false, false] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 833.5,
+    "params": { "singing": [false, false, false, true, false, false] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 834.999,
+    "params": { "char": 1, "id": "eunchae" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 835,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [960, 541],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 835.5,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.5
+    }
+  },
+  {
+    "id": "sserafimBeautiful",
+    "step": 849.994,
+    "params": { "beautiful": true }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 852.997,
+    "params": { "singing": [false, false, false, true, false, true] }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 852.998,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 853.003,
+    "params": { "char": 0, "flipX": true, "id": "gf" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 853.003,
+    "params": {
+      "duration": 8,
+      "ease": "CLASSICOut",
+      "offset": [1060, 400],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 856,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.3 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 860,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 861.496,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFF3636f7"],
+      "durations": [0.6, 0.5],
+      "enabled": true,
+      "intensities": [0.2, 0.3]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 863,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 864,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 864.001,
+    "params": { "amount": 0.78, "duration": 0.5 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 867.5,
+    "params": { "singing": [false, false, false, false, false, true] }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 869.997,
+    "params": { "singing": [true, false, false, false, false, true] }
+  },
+  {
+    "id": "focus-camera",
+    "step": 872,
+    "params": {
+      "duration": 8,
+      "ease": "CLASSICOut",
+      "offset": [100, 247],
+      "target": null
+    }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 872.002,
+    "params": { "char": 1, "id": "yunjin" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 872.503,
+    "params": { "direct": false, "duration": 16, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "sserafimLights",
+    "step": 889,
+    "params": { "amount": 1, "duration": 0.5 }
+  },
+  {
+    "id": "sserafimLights",
+    "step": 890.999,
+    "params": { "amount": 1, "duration": 0.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 896.006,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 904.003,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 912.01,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 919.994,
+    "params": { "singing": [false, false, false, false, false, false] }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 920.003,
+    "params": { "intensity": 0, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 920.502,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "focus-camera",
+    "step": 921.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [300, 200],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 921.996,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "zoom": 0.9
+    }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 923.993,
+    "params": { "singing": [false, false, false, false, false, false] }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 923.996,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 924.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [400, 160],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 924.999,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFF3636f7"],
+      "durations": [0.6, 0.5],
+      "enabled": true,
+      "intensities": [0.2, 0.3]
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 925.996,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "zoom": 0.8
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 926.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [500, 120],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 926.996,
+    "params": { "singing": [false, false, true, false, false, true] }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 927.003,
+    "params": { "intensity": 1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 932.004,
+    "params": { "char": 1, "id": "chaewon" }
+  },
+  {
+    "id": "focus-camera",
+    "step": 932.005,
+    "params": {
+      "duration": 16,
+      "ease": "expoOut",
+      "offset": [940, 101],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 932.505,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 960.007,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 968.004,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 975.003,
+    "params": { "intensity": 0, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 975.999,
+    "params": { "amount": 0.84, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 976.003,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.3 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 977.501,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 979.998,
+    "params": { "amount": 0.88, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 980.009,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.4 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 983.998,
+    "params": { "amount": 0.92, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 984.008,
+    "params": { "direct": false, "duration": 2, "ease": "expoOut", "zoom": 1.5 }
+  },
+  {
+    "id": "sserafimShow",
+    "step": 986.002,
+    "params": { "visible": [true, true, true, true, true] }
+  },
+  {
+    "id": "sserafimBeautiful",
+    "step": 986.998,
+    "params": { "beautiful": false }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 988.002,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 988.003,
+    "params": { "direct": false, "duration": 4, "ease": "circIn", "zoom": 2.2 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 989.996,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFFFF43A1"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 991.003,
+    "params": { "intensity": 1.2, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 991.996,
+    "params": { "amount": 0.47, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 991.996,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 991.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimSing",
+    "step": 993.993,
+    "params": { "singing": [true, true, true, true, true, true] }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 995.998,
+    "params": { "char": 1, "id": "kazuha" }
+  },
+  {
+    "id": "SetHealthIcon",
+    "step": 995.998,
+    "params": { "char": 0, "flipX": true, "id": "bf" }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1011.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1019.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1019.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1021.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1022,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1023.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1024,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1027.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1027.996,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1042.001,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1042.005,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1048.007,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1048.011,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [329, 417],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1050.007,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1050.011,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1455, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 1051.995,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1052.011,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1052.011,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 1053.997,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "sserafimLights",
+    "step": 1055.997,
+    "params": { "amount": 0.7, "duration": 0.5 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1055.997,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1.1 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 1057.996,
+    "params": {
+      "colors": ["0xFF6D43FF", "0xFFFF43A1"],
+      "durations": [0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9]
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1059.996,
+    "params": {
+      "duration": 16,
+      "ease": "expoOut",
+      "offset": [49, 367],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1059.996,
+    "params": { "direct": false, "duration": 16, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1075.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1076.496,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1078.996,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 1.2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1083.996,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.4
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1085.996,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.6
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1087.996,
+    "params": {
+      "direct": false,
+      "duration": 2,
+      "ease": "INSTANTOut",
+      "zoom": 1.8
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1091.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSICIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1091.997,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1106.002,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1106.006,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 1108.996,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1110.5,
+    "params": { "intensity": 0, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1112.003,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1112.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1114.001,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1114.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "sserafimGuitarVibration",
+    "step": 1115.996,
+    "params": { "duration": 0.55 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1116.003,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [229, 317],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1116.003,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1116.503,
+    "params": {
+      "direct": false,
+      "duration": 3.5,
+      "ease": "circIn",
+      "zoom": 2.2
+    }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 1117.998,
+    "params": {
+      "colors": ["0xFFFF0000", "0xFFFF33CC", "0xFF00CC33", "0xFF3366FF"],
+      "durations": [0.5, 0.5, 0.5, 0.5],
+      "enabled": true,
+      "intensities": [0.7, 0.9, 0.7, 0.9]
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1118.996,
+    "params": { "intensity": 1.3, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1119,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "sserafimDark",
+    "step": 1119.998,
+    "params": { "amount": 0.6, "duration": 0.1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1119.998,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1119.998,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1122,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1125,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1127.996,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1130,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1133,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1135.996,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1138,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1141,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1143.992,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1143.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1555, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1145.992,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1145.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1146,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1147.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1147.996,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1149,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1151.998,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1151.998,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1154.001,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1157.001,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1159.997,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1162.001,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1165.001,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1170.003,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1170.005,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1170.007,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1173.005,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1176.009,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1176.013,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [329, 417],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1178.009,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1178.013,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1455, 660],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1180.013,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1180.013,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1183.999,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1183.999,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1186.001,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1189.001,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1191.997,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1194.001,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1197.001,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1199.997,
+    "params": { "direct": false, "duration": 4, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1202,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1205,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1208,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.45
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1208.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [1000, 620],
+      "target": null
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1210.001,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1210.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1210.007,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1212.004,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1212.004,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [229, 317],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1213,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1215.999,
+    "params": { "direct": false, "duration": 1, "ease": "expoOut", "zoom": 0.8 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1215.999,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTIn",
+      "offset": [620, 300],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1218.002,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1221.002,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1223.998,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "expoOut",
+      "zoom": 0.85
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1226.002,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1229.002,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1233.996,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1233.998,
+    "params": { "intensity": 1.8, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1234,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1236.998,
+    "params": { "intensity": 1.4, "offset": 1, "rate": 1 }
+  },
+  {
+    "id": "sserafimPulseLights",
+    "step": 1238.002,
+    "params": { "enabled": false }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1239.997,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.35
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1239.997,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [-371, 147],
+      "target": null
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1241,
+    "params": { "intensity": 0, "offset": 1, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1241.994,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "INSTANTOut",
+      "zoom": 1.55
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1241.998,
+    "params": {
+      "duration": 4,
+      "ease": "INSTANTOut",
+      "offset": [870, 81],
+      "target": null
+    }
+  },
+  { "id": "sserafimEnd", "step": 1243.493, "params": {} }
+]

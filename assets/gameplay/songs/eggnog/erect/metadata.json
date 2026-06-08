@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Eggnog Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "parents-christmas",
+      "player": "bf-christmas",
+      "spectator": "gf-christmas"
+    },
+    "stage": "mallXmasErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 6, "nightmare": 7 },
+    "album": "expansion1",
+    "icon": "parents-christmas",
+    "preview": {}
+  },
+  "credits": { "artist": "Saruky", "charter": "fabs + Spazkid" },
+  "bpmChanges": [
+    { "time": 0, "bpm": 140, "timeSignature": {} },
+    { "time": 122000, "bpm": 80, "timeSignature": {} }
+  ],
+  "generatedBy": "Funkin' Converter INDEV"
+}

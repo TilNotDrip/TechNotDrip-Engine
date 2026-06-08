@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Spookeez Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "spooky-dark",
+      "player": "bf-dark",
+      "spectator": "gf-dark"
+    },
+    "stage": "spookyMansionErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 11, "nightmare": 12 },
+    "album": "volume3",
+    "icon": "spooky-dark",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite (feat. Saruky)",
+    "charter": "Spazkid + fabs"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 166, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

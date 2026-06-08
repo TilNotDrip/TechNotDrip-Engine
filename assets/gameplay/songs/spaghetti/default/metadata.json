@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "SPAGHETTI (feat. j-hope of BTS) (Clean ver.)",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "sserafim-kazuha",
+      "player": "sserafim-sakura",
+      "spectator": "sserafim-gf"
+    },
+    "stage": "sserafim",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 2, "hard": 5, "normal": 3 },
+    "album": "spaghetti",
+    "icon": "sserafim-kazuha",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "LE SSERAFIM (feat. j-hope)",
+    "charter": "fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 111.5, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

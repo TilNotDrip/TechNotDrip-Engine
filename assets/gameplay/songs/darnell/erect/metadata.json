@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Darnell Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "darnell",
+      "player": "pico-playable",
+      "spectator": "nene"
+    },
+    "stage": "phillyStreetsErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "expansion2",
+    "icon": "darnell",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "fabs + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 155, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

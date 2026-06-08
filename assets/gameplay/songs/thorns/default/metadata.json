@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Thorns",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "spirit",
+      "player": "bf-pixel",
+      "spectator": "gf-pixel"
+    },
+    "stage": "schoolEvil",
+    "noteStyle": "funkin-pixel"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 2, "hard": 4, "normal": 3 },
+    "album": "volume2",
+    "icon": "spirit",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 190, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

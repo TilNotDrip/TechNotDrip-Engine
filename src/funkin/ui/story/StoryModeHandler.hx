@@ -57,7 +57,7 @@ class StoryModeHandler
       if (foundSong == null)
         break;
 
-      var difficulties:Array<String> = foundSong.getDifficulties();
+      var difficulties:Array<String> = foundSong.getDifficulties(Constants.DEFAULT_VARIATION);
 
       if (difficulties.contains(difficulty))
       {
@@ -82,7 +82,7 @@ class StoryModeHandler
     }
 
     return new PlayState({
-      variation: 'default',
+      variation: Constants.DEFAULT_VARIATION,
       song: foundSong,
       difficulty: difficultyToUse
     });

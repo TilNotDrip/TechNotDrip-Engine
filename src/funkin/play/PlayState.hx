@@ -1,8 +1,9 @@
 package funkin.play;
 
 import flixel.util.FlxSort;
+import funkin.data.song.PlaySong;
 import funkin.data.song.Song;
-import funkin.data.song.SongData;
+import funkin.data.song.SongFormat;
 import funkin.play.hud.Hud;
 import funkin.sound.VoicesGroup;
 import funkin.ui.freeplay.FreeplayState;
@@ -29,22 +30,27 @@ class PlayState extends FunkinState
   /**
    * The current song used for `this`.
    */
-  public var song:Song;
-
-  /**
-   * The current chart used for `this`.
-   */
-  public var chart:ChartArrayElement;
-
-  /**
-   * The current metadata used for `this`.
-   */
-  public var metadata:MetadataStructure;
+  public var song:PlaySong;
 
   /**
    * The current difficulty used for `this`.
    */
   public var difficulty:String;
+
+  /**
+   * The current chart used for `this`.
+   */
+  public var chart(get, never):SongDifficulty;
+
+  function get_chart():SongDifficulty
+  {
+    final chart:Null<SongDifficulty> = song.getDifficulty(difficulty);
+
+    if (chart == null)
+      throw new Exception('Chart for difficulty "$difficulty" could not be found.');
+    else
+      return chart;
+  }
 
   /**
    * Collection of all HUD elements.
@@ -62,17 +68,11 @@ class PlayState extends FunkinState
 
     this.params = params;
 
-    // TODO: debate on whether these stay or not.
-    song = params.song;
+    song = params.song.loadForPlay(params.variation);
     difficulty = params.difficulty;
-    chart = song?.getChart(params.variation, difficulty);
-    metadata = song?.metadatas.get(params.variation);
 
-    if (chart == null)
-      throw new Exception("Chart was not loaded.");
-
-    if (metadata == null)
-      throw new Exception("Metadata was not loaded.");
+    if (song == null)
+      throw new Exception("Song was not loaded.");
 
     super();
   }
@@ -104,17 +104,17 @@ class PlayState extends FunkinState
    */
   public function generateSong():Void
   {
-    FlxG.sound.playMusic(Paths.content.audio('gameplay/songs/${song.id}/Inst'), 1, false);
+    FlxG.sound.playMusic(Paths.content.audio(song.getInstrumentalPath()), 1, false);
     FlxG.sound.music.stop();
 
-    voices = new VoicesGroup(song.id);
+    voices = song.createVoices();
     voices.traceInfo();
 
     FlxG.sound.music.play();
     voices.play();
 
-    conductor.setupBPMChanges(metadata.bpmChanges);
-    conductor.sectionHit.add(voices.tryResync);
+    conductor.setupBPMChanges(song.getBPMChanges());
+    conductor.measureHit.add(voices.tryResync);
   }
 
   override public function update(elapsed:Float):Void

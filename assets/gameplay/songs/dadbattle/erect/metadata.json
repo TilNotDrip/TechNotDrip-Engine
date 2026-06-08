@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "DadBattle Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
+    "stage": "mainStageErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 9, "nightmare": 10 },
+    "album": "volume3",
+    "icon": "dad",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite",
+    "charter": "Jenny Crowe + fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 190, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

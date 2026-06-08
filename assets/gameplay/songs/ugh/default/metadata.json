@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Ugh",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "tankman",
+      "player": "bf",
+      "spectator": "gf-tankmen"
+    },
+    "stage": "tankmanBattlefield",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 2, "hard": 4, "normal": 3 },
+    "album": "volume2",
+    "icon": "tankman",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 160, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

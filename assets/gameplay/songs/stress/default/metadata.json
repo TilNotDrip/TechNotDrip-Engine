@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Stress",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "tankman",
+      "player": "bf-holding-gf",
+      "spectator": "pico-speaker"
+    },
+    "stage": "tankmanBattlefield",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 3, "hard": 5, "normal": 4 },
+    "album": "volume2",
+    "icon": "tankman",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "MtH + Spazkid + Hundrec" },
+  "bpmChanges": [{ "time": 0, "bpm": 178, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

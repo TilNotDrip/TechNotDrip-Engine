@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "name": "Blammed Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": { "opponent": "pico", "player": "bf", "spectator": "gf" },
+    "stage": "phillyTrainErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 11, "nightmare": 12 },
+    "album": "volume3",
+    "icon": "pico",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "fabs + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 170, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

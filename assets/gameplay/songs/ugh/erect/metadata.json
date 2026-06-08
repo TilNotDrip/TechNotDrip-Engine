@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Ugh Erect",
+  "difficulties": ["normal", "erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "tankman",
+      "player": "bf",
+      "spectator": "gf-tankmen"
+    },
+    "stage": "tankmanBattlefieldErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 8, "nightmare": 9 },
+    "album": "volume4",
+    "icon": "tankman",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "fabs + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 170, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

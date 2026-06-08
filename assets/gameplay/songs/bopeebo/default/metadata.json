@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "name": "Bopeebo",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
+    "stage": "mainStage",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 1, "hard": 2, "normal": 1 },
+    "album": "volume1",
+    "icon": "dad",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 100, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

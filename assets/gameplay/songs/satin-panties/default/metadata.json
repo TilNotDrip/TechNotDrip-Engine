@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "Satin Panties",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "mom-car",
+      "player": "bf-car",
+      "spectator": "gf-car"
+    },
+    "stage": "limoRide",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 1, "hard": 2, "normal": 2 },
+    "album": "volume1",
+    "icon": "mom-car",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite",
+    "charter": "ninjamuffin99 + MtH + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 110, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

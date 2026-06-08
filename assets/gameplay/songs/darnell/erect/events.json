@@ -1,0 +1,867 @@
+[
+  {
+    "id": "focus-camera",
+    "step": 0.003,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 31.995,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 63.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 64,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 76,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 95.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 119.993,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 127.004,
+    "params": { "intensity": 1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 128,
+    "params": { "direct": false, "duration": 32, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 128.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 159.994,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 191.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 223.001,
+    "params": { "intensity": 1, "offset": 0, "rate": 4 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 223.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 224,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 255.003,
+    "params": { "intensity": 1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 256,
+    "params": { "direct": false, "duration": 32, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 256.001,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 287.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 319.994,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 336,
+    "params": { "direct": false, "duration": 32, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 336.001,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 351,
+    "params": { "intensity": 1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 351.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 352,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 367.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 383.002,
+    "params": { "intensity": 1, "offset": 0, "rate": 4 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 383.999,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 0.95
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 399.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 416.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 431.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 447.007,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 447.994,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 448,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 478.999,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 479.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 480,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 0.95
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 495.992,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "quartIn",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 511.001,
+    "params": { "intensity": 1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 511.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 544.001,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 575.006,
+    "params": { "intensity": 1, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 575.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 606.998,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 607.995,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 608,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 631.999,
+    "params": { "direct": false, "duration": 8, "ease": "quartIn", "zoom": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 639,
+    "params": { "intensity": 1.2, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 639.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 640,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "quartIn",
+      "zoom": 1.15
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 672,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 704.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 735.994,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 736,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 752,
+    "params": {
+      "direct": false,
+      "duration": 16,
+      "ease": "quartIn",
+      "zoom": 0.95
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 766.999,
+    "params": { "intensity": 0, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 799.001,
+    "params": { "intensity": 1.3, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 799.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 800,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 847.997,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 863.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 864,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 912.001,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 919.999,
+    "params": {
+      "direct": false,
+      "duration": 8,
+      "ease": "quartIn",
+      "zoom": 0.95
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 927,
+    "params": { "intensity": 1.2, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 928,
+    "params": {
+      "duration": 12,
+      "ease": "CLASSIC",
+      "offset": [-250, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 928,
+    "params": { "direct": false, "duration": 4, "ease": "linear", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 939.994,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 947.992,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 957.995,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 960,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.3
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 971.997,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 991.992,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 992,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1003.999,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1011.997,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1022,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1023.994,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1036.001,
+    "params": { "direct": false, "duration": 8, "ease": "expoOut", "zoom": 1 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1043.999,
+    "params": {
+      "direct": false,
+      "duration": 4,
+      "ease": "elasticOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1047.998,
+    "params": { "direct": false, "duration": 8, "ease": "quartIn", "zoom": 1 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1054.999,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1055.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1087.999,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1120.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1151.994,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1182.998,
+    "params": { "intensity": 0.9, "offset": 0, "rate": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1183.996,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1184,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.05
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1215.998,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1248.001,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1279.993,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1310.997,
+    "params": { "intensity": 1.1, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1311.995,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1312,
+    "params": {
+      "direct": false,
+      "duration": 32,
+      "ease": "expoOut",
+      "zoom": 1.1
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1343.997,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1376,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1408.002,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [0, 0],
+      "target": "player"
+    }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1431.995,
+    "params": { "direct": false, "duration": 8, "ease": "quartIn", "zoom": 1 }
+  },
+  {
+    "id": "focus-camera",
+    "step": 1439.994,
+    "params": {
+      "duration": 4,
+      "ease": "CLASSIC",
+      "offset": [-100, 0],
+      "target": "opponent"
+    }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1441.507,
+    "params": { "intensity": 0.7, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "set-camera-bop",
+    "step": 1483.006,
+    "params": { "intensity": 0, "offset": 0, "rate": 2 }
+  },
+  {
+    "id": "zoom-camera",
+    "step": 1483.993,
+    "params": { "direct": false, "duration": 8, "ease": "quartIn", "zoom": 0.9 }
+  }
+]

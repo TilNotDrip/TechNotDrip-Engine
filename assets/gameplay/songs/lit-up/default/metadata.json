@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Lit Up",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": {
+      "opponent": "darnell",
+      "player": "pico-playable",
+      "spectator": "nene"
+    },
+    "stage": "phillyStreets",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 2, "hard": 4, "normal": 3 },
+    "album": "volume3",
+    "icon": "darnell",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "Jenny Crowe + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 176, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

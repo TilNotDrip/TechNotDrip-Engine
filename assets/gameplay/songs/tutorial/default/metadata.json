@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "name": "Tutorial",
+  "difficulties": ["easy", "normal", "hard"],
+  "playData": {
+    "characters": { "opponent": "gf", "player": "bf" },
+    "stage": "mainStage",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "easy": 0, "hard": 1, "normal": 0 },
+    "album": "volume1",
+    "icon": "gf",
+    "preview": {}
+  },
+  "credits": { "artist": "Kawai Sprite", "charter": "ninjamuffin99 + MtH" },
+  "bpmChanges": [{ "time": 0, "bpm": 100, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

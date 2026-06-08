@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Bopeebo Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
+    "stage": "mainStageErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 7, "nightmare": 8 },
+    "album": "volume3",
+    "icon": "dad",
+    "preview": {}
+  },
+  "credits": {
+    "artist": "Kawai Sprite (feat. Saruky)",
+    "charter": "Jenny Crowe + fabs + Spazkid"
+  },
+  "bpmChanges": [{ "time": 0, "bpm": 123, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}

@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "Cocoa Erect",
+  "difficulties": ["erect", "nightmare"],
+  "playData": {
+    "characters": {
+      "opponent": "parents-christmas",
+      "player": "bf-christmas",
+      "spectator": "gf-christmas"
+    },
+    "stage": "mallXmasErect",
+    "noteStyle": "funkin-default"
+  },
+  "freeplayData": {
+    "ratings": { "erect": 7, "nightmare": 8 },
+    "album": "volume4",
+    "icon": "parents-christmas",
+    "preview": {}
+  },
+  "credits": { "artist": "Saster", "charter": "fabs + Spazkid" },
+  "bpmChanges": [{ "time": 0, "bpm": 174, "timeSignature": {} }],
+  "generatedBy": "Funkin' Converter INDEV"
+}
