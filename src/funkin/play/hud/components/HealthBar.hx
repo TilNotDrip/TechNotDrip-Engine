@@ -1,4 +1,4 @@
-package funkin.play.hud;
+package funkin.play.hud.components;
 
 import flixel.group.FlxSpriteGroup;
 import flixel.ui.FlxBar;
@@ -16,9 +16,7 @@ class HealthBar extends FlxSpriteGroup
    */
   public var healthLerp(default, set):Float;
 
-  public var ui(default, set):String = 'funkin';
   public var iconGrp:FlxTypedSpriteGroup<HealthIcon>;
-  public var downScroll(default, set):Bool = false; // TODO: you know i know we know
 
   /**
    * This toggles the easter egg whether the player can hit 9 during a song and iconP1 switches to their old icon.
@@ -27,31 +25,21 @@ class HealthBar extends FlxSpriteGroup
 
   var conductor:Conductor = null;
 
-  var bg:FlxSprite;
+  var bg:FunkinSprite;
   var bar:FlxBar;
 
   var initialized:Bool = false;
 
-  public function new(?params:HealthBarParams)
+  public function new(path:String)
   {
-    if (params == null)
-    {
-      params = {
-        ui: 'funkin',
-        downScroll: false // TODO: you know i know we know
-      };
-    }
-
     super(0, 0, 0);
 
-    ui = params.ui;
-    downScroll = params.downScroll;
-    easterEgg = params?.easterEgg ?? true;
+    easterEgg = true;
 
     conductor = PlayState.instance.conductor;
     conductor.beatHit.add(bop);
 
-    bg = new FlxSprite().loadGraphic(Paths.content.imageGraphic('gameplay/hud/$ui/healthBar'));
+    bg = new FunkinSprite().loadTexture(path);
     add(bg);
 
     bar = new FlxBar(4, 4, RIGHT_TO_LEFT, Std.int(bg.width - 8), Std.int(bg.height - 8), null, null, 0, 2, false);
@@ -61,7 +49,8 @@ class HealthBar extends FlxSpriteGroup
     iconGrp = new FlxTypedSpriteGroup<HealthIcon>();
     add(iconGrp);
 
-    healthLerp = health = 1; // Constants.HEALTH_STARTING;
+    healthLerp = 1; // Constants.HEALTH_STARTING;
+    health = 1; // Constants.HEALTH_STARTING;
 
     initialized = true;
   }
@@ -143,27 +132,4 @@ class HealthBar extends FlxSpriteGroup
 
     return healthLerp;
   }
-
-  function set_ui(value:String):String
-  {
-    ui = value;
-    return ui;
-  }
-
-  function set_downScroll(value:Bool):Bool
-  {
-    downScroll = value;
-
-    y = FlxG.height * 0.9;
-    y = FlxG.height - y - height; // beautiful code so everything is 1-1
-
-    return downScroll;
-  }
-}
-
-typedef HealthBarParams =
-{
-  var ui:String;
-  var downScroll:Bool;
-  var ?easterEgg:Bool;
 }

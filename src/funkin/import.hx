@@ -15,7 +15,6 @@ import flixel.util.FlxTimer;
 import funkin.FunkinSprite.FunkinSpriteGroup;
 import funkin.FunkinSprite;
 import funkin.data.save.Save;
-import funkin.play.hud.strumline.NoteDirection;
 import funkin.sound.Conductor;
 import funkin.ui.FunkinState;
 import funkin.ui.FunkinSubState;

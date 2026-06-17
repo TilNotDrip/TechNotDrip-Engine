@@ -80,7 +80,7 @@ class SongNote
   /**
    * The direction of this Note.
    */
-  public var direction:NoteDirection;
+  public var direction:Int;
 
   /**
    * The sustain length of this note, in steps.
@@ -183,9 +183,9 @@ class SongPlayData
   public var stage:String;
 
   /**
-   * The note style used by this song.
+   * The HUD used for this song.
    */
-  public var noteStyle:String;
+  public var hud:String;
 }
 
 @:structInit

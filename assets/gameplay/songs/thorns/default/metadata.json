@@ -9,7 +9,7 @@
       "spectator": "gf-pixel"
     },
     "stage": "schoolEvil",
-    "noteStyle": "funkin-pixel"
+    "hud": "funkin-pixel"
   },
   "freeplayData": {
     "ratings": { "easy": 2, "hard": 4, "normal": 3 },

@@ -1,10 +1,11 @@
 package funkin.play;
 
-import flixel.util.FlxSort;
 import funkin.data.song.PlaySong;
 import funkin.data.song.Song;
 import funkin.data.song.SongFormat;
-import funkin.play.hud.Hud;
+import funkin.play.hud.BaseHud;
+import funkin.play.hud.FunkinHud;
+import funkin.play.managers.ChartManager;
 import funkin.sound.VoicesGroup;
 import funkin.ui.freeplay.FreeplayState;
 import funkin.ui.story.StoryModeHandler;
@@ -55,7 +56,7 @@ class PlayState extends FunkinState
   /**
    * Collection of all HUD elements.
    */
-  public var hud:Hud;
+  public var hud:BaseHud;
 
   /**
    * The current vocals used for `this`.
@@ -87,11 +88,7 @@ class PlayState extends FunkinState
     greyBG.screenCenter();
     add(greyBG);
 
-    hud = new Hud({
-      ui: 'funkin',
-      downScroll: false // TODO: THE DRILL YOU KNOW IT
-    });
-    hud.generateStrumlines();
+    hud = new FunkinHud(); // TODO: make this changeable.
     add(hud);
 
     generateSong();
@@ -115,6 +112,9 @@ class PlayState extends FunkinState
 
     conductor.setupBPMChanges(song.getBPMChanges());
     conductor.measureHit.add(voices.tryResync);
+
+    var chartManager:ChartManager = new ChartManager(this);
+    add(chartManager);
   }
 
   override public function update(elapsed:Float):Void

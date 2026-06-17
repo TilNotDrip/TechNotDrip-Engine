@@ -9,7 +9,7 @@
       "spectator": "gf-tankmen"
     },
     "stage": "tankmanBattlefield",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 3, "hard": 5, "normal": 4 },

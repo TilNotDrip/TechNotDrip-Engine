@@ -5,7 +5,7 @@
   "playData": {
     "characters": { "opponent": "pico", "player": "bf", "spectator": "gf" },
     "stage": "phillyTrain",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 1, "hard": 3, "normal": 2 },

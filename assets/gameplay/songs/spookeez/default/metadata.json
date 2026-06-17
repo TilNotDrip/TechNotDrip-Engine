@@ -5,7 +5,7 @@
   "playData": {
     "characters": { "opponent": "spooky", "player": "bf", "spectator": "gf" },
     "stage": "spookyMansion",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 1, "hard": 2, "normal": 1 },

@@ -1,4 +1,4 @@
-package funkin.play.hud;
+package funkin.play.hud.components;
 
 import flixel.math.FlxPoint;
 import funkin.data.icon.IconData;

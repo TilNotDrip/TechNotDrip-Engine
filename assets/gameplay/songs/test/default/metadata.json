@@ -9,7 +9,7 @@
       "spectator": "gf"
     },
     "stage": "mainStage",
-    "noteStyle": "funkin"
+    "hud": "funkin"
   },
   "freeplayData": {
     "ratings": {},

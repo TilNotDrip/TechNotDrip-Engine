@@ -2,6 +2,7 @@ package funkin.data.song;
 
 import funkin.data.song.SongFormat;
 import funkin.data.sound.BPMChange;
+import funkin.data.strumline.StrumlineData;
 import funkin.sound.VoicesGroup;
 
 class PlaySong
@@ -47,6 +48,15 @@ class PlaySong
       voices.registerStrumline(id);
 
     return voices;
+  }
+
+  /**
+   * Loads in all strumline data used in this song.
+   * @return The strumline data.
+   */
+  public function loadStrumlineData():Array<StrumlineData>
+  {
+    return [for (id in getStrumlineIds()) StrumlineData.load(id)];
   }
 
   /**

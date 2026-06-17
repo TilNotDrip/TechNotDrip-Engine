@@ -9,7 +9,7 @@
       "spectator": "gf-dark"
     },
     "stage": "spookyMansionErect",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "erect": 11, "nightmare": 12 },

@@ -9,7 +9,7 @@
       "spectator": "gf-car"
     },
     "stage": "limoRide",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 2, "hard": 4, "normal": 3 },

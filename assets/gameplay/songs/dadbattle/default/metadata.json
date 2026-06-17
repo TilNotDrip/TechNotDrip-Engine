@@ -5,7 +5,7 @@
   "playData": {
     "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
     "stage": "mainStage",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 1, "hard": 3, "normal": 2 },

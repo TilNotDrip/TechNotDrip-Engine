@@ -9,7 +9,7 @@
       "spectator": "nene"
     },
     "stage": "phillyStreetsErect",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "erect": 8, "nightmare": 9 },

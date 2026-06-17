@@ -9,7 +9,7 @@
       "spectator": "gf-christmas"
     },
     "stage": "mallXmas",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "easy": 1, "hard": 2, "normal": 2 },

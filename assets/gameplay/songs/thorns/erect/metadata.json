@@ -9,7 +9,7 @@
       "spectator": "gf-pixel"
     },
     "stage": "schoolEvilErect",
-    "noteStyle": "funkin-pixel"
+    "hud": "funkin-pixel"
   },
   "freeplayData": {
     "ratings": { "erect": 9, "nightmare": 10 },

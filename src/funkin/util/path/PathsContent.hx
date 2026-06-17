@@ -131,6 +131,10 @@ class PathsContent
     }
 
     var frames:FlxAnimateFrames = FlxAnimateFrames._fromAnimateInput(animation, spritemaps, metadata, path, isInlined, libraryList, settings);
+
+    frames.parent.persist = true;
+    frames.parent.destroyOnNoUse = false;
+
     FlxAnimateFrames._cachedAtlases.remove(path);
     return frames;
   }

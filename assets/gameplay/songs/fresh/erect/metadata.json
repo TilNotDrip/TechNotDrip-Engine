@@ -5,7 +5,7 @@
   "playData": {
     "characters": { "opponent": "dad", "player": "bf", "spectator": "gf" },
     "stage": "mainStageErect",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "erect": 6, "nightmare": 7 },

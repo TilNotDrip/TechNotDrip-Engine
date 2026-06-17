@@ -5,7 +5,7 @@
   "playData": {
     "characters": { "opponent": "pico", "player": "bf", "spectator": "gf" },
     "stage": "phillyTrainErect",
-    "noteStyle": "funkin-default"
+    "hud": "funkin-default"
   },
   "freeplayData": {
     "ratings": { "erect": 8, "nightmare": 9 },
