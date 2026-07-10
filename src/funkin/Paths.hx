@@ -1,7 +1,7 @@
 package funkin;
 
-import funkin.fs.FunkinContent;
-import funkin.fs.FunkinFileSystem;
+import funkin.resource.FunkinContent;
+import funkin.resource.FunkinFileSystem;
 
 /**
  * This is a paths class mostly used for getting content from files.

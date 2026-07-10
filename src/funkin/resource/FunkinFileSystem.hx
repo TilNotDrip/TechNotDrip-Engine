@@ -1,4 +1,4 @@
-package funkin.fs;
+package funkin.resource;
 
 import hxd.fs.FileSystem;
 

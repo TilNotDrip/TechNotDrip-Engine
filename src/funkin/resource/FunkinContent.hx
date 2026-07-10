@@ -1,4 +1,4 @@
-package funkin.fs;
+package funkin.resource;
 
 import haxe.io.Path as PathTools;
 
