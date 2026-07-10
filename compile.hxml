@@ -1,0 +1,12 @@
+--class-path src
+--main Main
+
+--define windowTitle=Friday Night Funkin': TechNotDrip Engine
+--define windowSize=1280x720
+--define debug
+
+--library heaps
+--library hlsdl
+--library hlopenal
+
+--hl export/hl/TechNotDrip.hl

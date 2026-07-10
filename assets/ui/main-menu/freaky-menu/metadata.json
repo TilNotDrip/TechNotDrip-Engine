@@ -1,0 +1,6 @@
+{
+  "name": "Gettin' Freaky (Main Menu)",
+  "composer": "Kawai Sprite",
+  "looped": true,
+  "bpmChanges": [{ "time": 0, "bpm": 102, "timeSignature": {} }]
+}
