@@ -16,8 +16,6 @@
     "export/**/*.*": true
   },
 
-  "githubPullRequests.ignoredPullRequestBranches": ["alpha"],
-
   "[haxe]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
