@@ -4,4 +4,9 @@
 --define windowTitle=Friday Night Funkin': TechNotDrip Engine
 --define windowSize=1280x720
 
+--define dce=no
+--define message.reporting=pretty
+
+--macro include('funkin')
+
 --library heaps
