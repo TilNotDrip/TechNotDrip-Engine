@@ -1,0 +1,4 @@
+build/base.hxml
+
+--library hlopenal
+--library hlsdl

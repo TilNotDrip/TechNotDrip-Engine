@@ -37,6 +37,6 @@ class Paths
   public static function init():Void
   {
     // TODO: This is very temporary, and looks very awful!
-    fileSystem.child = new hxd.fs.LocalFileSystem('../../assets', null);
+    fileSystem.child = new hxd.fs.LocalFileSystem('../../../assets', null);
   }
 }

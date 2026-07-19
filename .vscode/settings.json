@@ -26,6 +26,7 @@
     "editor.tabSize": 2
   },
   "haxe.enableExtendedIndentation": true,
+  "haxe.configurations": [["build/hl/debug.hxml"], ["build/hl/release.hxml"]],
 
   "[json]": {
     "editor.formatOnSave": true,

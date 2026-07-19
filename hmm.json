@@ -6,6 +6,13 @@
       "version": "3.8.0"
     },
     {
+      "name": "hashlink",
+      "type": "git",
+      "dir": "other/haxelib",
+      "ref": "b44a11a755e85bd04baf5d2bb053dfdbdda8e25d",
+      "url": "https://github.com/HaxeFoundation/hashlink"
+    },
+    {
       "name": "heaps",
       "type": "git",
       "dir": null,
@@ -25,6 +32,13 @@
       "dir": "libs/sdl",
       "ref": "b44a11a755e85bd04baf5d2bb053dfdbdda8e25d",
       "url": "https://github.com/HaxeFoundation/hashlink"
+    },
+    {
+      "name": "hxcpp",
+      "type": "git",
+      "dir": null,
+      "ref": "2e969d0154ac536c1b5a5c89d2c2b73d7126bd2e",
+      "url": "https://github.com/FunkinCrew/hxcpp"
     }
   ]
 }

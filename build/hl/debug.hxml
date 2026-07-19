@@ -1,0 +1,4 @@
+build/hl/base.hxml
+
+--define debug
+--hl export/hl/debug/TechNotDrip.hl

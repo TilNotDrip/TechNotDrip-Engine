@@ -1,0 +1,4 @@
+build/hl/base.hxml
+
+--hl export/hl/release/TechNotDrip.c
+--define hlgen.makefile=hxcpp

@@ -1,4 +1,12 @@
 {
   "version": "0.2.0",
-  "configurations": []
+  "configurations": [
+    {
+      "name": "Build + Debug",
+      "type": "hl",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "haxe: active configuration"
+    }
+  ]
 }
