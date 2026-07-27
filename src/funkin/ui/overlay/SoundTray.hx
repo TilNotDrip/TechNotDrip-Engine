@@ -1,7 +1,5 @@
 package funkin.ui.overlay;
 
-import funkin.graphics.FunkinTile;
-import h2d.Bitmap;
 import h2d.Object;
 import h2d.col.Bounds;
 import hxd.Key;

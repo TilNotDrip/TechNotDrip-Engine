@@ -24,6 +24,11 @@ class FunkinAnimation
   public var curFrame(default, set):Int;
 
   /**
+   * The index of the current frame in the full tile collection.
+   */
+  public var frameIndex(default, set):Int;
+
+  /**
    * The priority of this animation.
    */
   public var priority:Int;
@@ -115,9 +120,18 @@ class FunkinAnimation
     else
       curFrame = frame;
 
-    parent.frameIndex = frames[curFrame];
+    frameIndex = frames[curFrame];
 
     return curFrame;
+  }
+
+  function set_frameIndex(index:Int):Int
+  {
+    if (parent.curAnim == this)
+      parent.frameIndex = index;
+
+    frameIndex = index;
+    return index;
   }
 
   function set_frameRate(value:Float):Float

@@ -2,7 +2,6 @@ package funkin.graphics;
 
 import funkin.graphics.animation.FunkinAnimationController;
 import funkin.graphics.animation.FunkinAtlasFrames;
-import h2d.Tile;
 import h2d.col.Matrix;
 
 @:access(h2d.col.Matrix)
@@ -10,14 +9,14 @@ import h2d.col.Matrix;
 class FunkinSprite extends h2d.Drawable
 {
   /**
-   * Collection of tiles to use for animations.
-   */
-  public var tiles:Array<FunkinTile> = [];
-
-  /**
    * The animation controller.
    */
   public var animation:FunkinAnimationController;
+
+  /**
+   * Collection of tiles to use for animations.
+   */
+  public var tiles:Array<FunkinTile> = [];
 
   /**
    * The current tile being displayed.
@@ -30,10 +29,6 @@ class FunkinSprite extends h2d.Drawable
    */
   public var tileIndex(default, set):Int = 0;
 
-  #if SHOW_BOUNDS
-  var debugGfx:h2d.Graphics;
-  #end
-
   public function new(?x:Float, ?y:Float)
   {
     super(null);
@@ -41,10 +36,6 @@ class FunkinSprite extends h2d.Drawable
     animation = new FunkinAnimationController(this);
     this.x = x ?? 0;
     this.y = y ?? 0;
-
-    #if SHOW_BOUNDS
-    debugGfx = new h2d.Graphics();
-    #end
   }
 
   /**
@@ -86,9 +77,7 @@ class FunkinSprite extends h2d.Drawable
     final image:Image = Paths.content.image(key);
     final text:String = Paths.content.text('$key.txt');
 
-    final tiles:Array<FunkinTile> = FunkinAtlasFrames.fromPacker(image, text);
-    tile = tiles[0];
-
+    tiles = FunkinAtlasFrames.fromPacker(image, text);
     return this;
   }
 
@@ -122,17 +111,6 @@ class FunkinSprite extends h2d.Drawable
 
   function set_tileIndex(value:Int):Int
   {
-    #if SHOW_BOUNDS
-    debugGfx.clear();
-    debugGfx.lineStyle(1, 0xFFFF0000);
-    debugGfx.moveTo(tile.dx, tile.dy);
-    debugGfx.lineTo(tile.dx + tile.width, tile.dy);
-    debugGfx.lineTo(tile.dx + tile.width, tile.dy + tile.height);
-    debugGfx.lineTo(tile.dx, tile.dy + tile.height);
-    debugGfx.lineTo(tile.dx, tile.dy);
-    debugGfx.endFill();
-    #end
-
     if (tileIndex != value)
     {
       tileIndex = value;
@@ -145,7 +123,6 @@ class FunkinSprite extends h2d.Drawable
   override function sync(ctx:RenderContext):Void
   {
     animation.update(ctx.elapsedTime);
-    #if SHOW_BOUNDS debugGfx.sync(ctx); #end
     super.sync(ctx);
   }
 
@@ -154,20 +131,16 @@ class FunkinSprite extends h2d.Drawable
     this.emitTile(ctx, tile);
   }
 
-  override function calcAbsPos():Void
-  {
-    // We don't really calculate the position here anymore.
-  }
-
   var _mat:Null<Matrix> = null;
 
-  override function emitTile(ctx:RenderContext, tile:Tile):Void
+  override function calcAbsPos():Void
   {
-    final tile:FunkinTile = cast tile;
-
     if (_mat == null)
       _mat = new Matrix();
     _mat.identity();
+
+    if (tile == null)
+      return;
 
     final offsetX:Float = ((tile.width * scaleX) - tile.width) / 2;
     final offsetY:Float = ((tile.height * scaleY) - tile.height) / 2;
@@ -176,7 +149,6 @@ class FunkinSprite extends h2d.Drawable
     final centerY:Float = tile.height / 2;
 
     _mat.translate(-centerX, -centerY);
-    // _mat.translate(tile.dx, tile.dy);
     _mat.rotate(tile.rotation);
 
     if (tile.xFlip)
@@ -214,16 +186,5 @@ class FunkinSprite extends h2d.Drawable
     matD = _mat.d;
     absX = _mat.x;
     absY = _mat.y;
-    super.emitTile(ctx, tile);
-
-    #if SHOW_BOUNDS
-    debugGfx.matA = matA;
-    debugGfx.matB = matB;
-    debugGfx.matC = matC;
-    debugGfx.matD = matD;
-    debugGfx.absX = absX;
-    debugGfx.absY = absY;
-    debugGfx.draw(ctx);
-    #end
   }
 }
