@@ -1,7 +1,19 @@
 package funkin.ui.title;
 
+import hxd.Event;
+import hxd.Key;
+
+enum TitleState
+{
+  Intro;
+  Idle;
+  Begin;
+}
+
 class TitleScene extends FunkinScene
 {
+  public var state:TitleState = Intro;
+
   /**
    * The sprite containing GF bopping to the beat.
    */
@@ -46,6 +58,23 @@ class TitleScene extends FunkinScene
     titleText.animation.addByPrefix('idle', 'Press Enter to Begin', 24, true);
     titleText.animation.play('idle');
     addChild(titleText);
+
+    state = Idle;
+
+    addEventListener(event ->
+    {
+      if (event.kind == EKeyDown && event.keyCode == Key.ENTER)
+        pressEnter();
+    });
+  }
+
+  public function pressEnter()
+  {
+    if (state == Begin)
+      return;
+    state = Begin;
+
+    trace("entr");
   }
 
   override function beatHit():Void
@@ -63,11 +92,4 @@ class TitleScene extends FunkinScene
     Conductor.instance.update();
     super.sync(ctx);
   }
-}
-
-enum TitleState
-{
-  Intro;
-  Idle;
-  Begin;
 }

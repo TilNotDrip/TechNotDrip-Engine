@@ -25,6 +25,7 @@
     },
     "editor.tabSize": 2
   },
+  "haxe.exclude": ["polymod"],
   "haxe.enableExtendedIndentation": true,
   "haxe.configurations": [["build/hl/debug.hxml"], ["build/hl/release.hxml"]],
 

@@ -101,7 +101,7 @@ class Conductor
     measureHit = new Signal<Void->Void>();
 
     changeBPM(100);
-    time = 0;
+    time = -1;
   }
 
   /**
@@ -325,9 +325,9 @@ class Conductor
 
   function set_time(value:Float):Float
   {
-    var oldStep:Int = curStep;
-    var oldBeat:Int = curBeat;
-    var oldMeasure:Int = curMeasure;
+    final oldStep:Int = curStep;
+    final oldBeat:Int = curBeat;
+    final oldMeasure:Int = curMeasure;
 
     time = value;
 
