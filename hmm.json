@@ -2,36 +2,39 @@
   "dependencies": [
     {
       "name": "format",
-      "type": "haxelib",
-      "version": "3.8.0"
+      "type": "git",
+      "dir": null,
+      "ref": "9d69fb342d030fa120d2deafafbbffad248332b8",
+      "url": "https://github.com/HaxeFoundation/format"
     },
     {
       "name": "hashlink",
       "type": "git",
       "dir": "other/haxelib",
-      "ref": "b44a11a755e85bd04baf5d2bb053dfdbdda8e25d",
+      "ref": "9b9b9d31572d2bacadf8ea32480c7fb88b4fc662",
       "url": "https://github.com/HaxeFoundation/hashlink"
     },
     {
       "name": "heaps",
       "type": "git",
       "dir": null,
-      "ref": "e458125e740909b7aedeb1be88d946af57b0b81c",
+      "ref": "0c5b02f4e601868b9e1d8a9b4bd1c9b3bb2216b4",
       "url": "https://github.com/HeapsIO/heaps"
     },
     {
+      "name": "hldx",
+      "path": ".haxelib/hashlink/git/libs/directx",
+      "type": "dev"
+    },
+    {
       "name": "hlopenal",
-      "type": "git",
-      "dir": "libs/openal",
-      "ref": "b44a11a755e85bd04baf5d2bb053dfdbdda8e25d",
-      "url": "https://github.com/HaxeFoundation/hashlink"
+      "path": ".haxelib/hashlink/git/libs/openal",
+      "type": "dev"
     },
     {
       "name": "hlsdl",
-      "type": "git",
-      "dir": "libs/sdl",
-      "ref": "b44a11a755e85bd04baf5d2bb053dfdbdda8e25d",
-      "url": "https://github.com/HaxeFoundation/hashlink"
+      "path": ".haxelib/hashlink/git/libs/sdl",
+      "type": "dev"
     },
     {
       "name": "hxcpp",

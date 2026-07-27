@@ -40,13 +40,13 @@ class FunkinScene extends Scene implements IEventDispatcher
 
   function beatHit():Void
   {
-    final event:ConductorEvent = new ConductorEvent(STEP, Conductor.instance);
+    final event:ConductorEvent = new ConductorEvent(BEAT, Conductor.instance);
     dispatchFunkinEvent(event);
   }
 
   function measureHit():Void
   {
-    final event:ConductorEvent = new ConductorEvent(STEP, Conductor.instance);
+    final event:ConductorEvent = new ConductorEvent(MEASURE, Conductor.instance);
     dispatchFunkinEvent(event);
   }
 }
