@@ -1,8 +1,11 @@
 package;
 
+import funkin.Paths;
+import funkin.graphics.FunkinImage;
 import funkin.ui.overlay.FunkinOverlay;
 import h3d.Engine;
 import hxd.App;
+import hxd.Window;
 
 class Main extends App
 {
@@ -31,6 +34,8 @@ class Main extends App
   {
     setScene(new funkin.ui.title.TitleScene());
     overlay = new FunkinOverlay();
+
+    Window.getInstance().setIcon(new FunkinImage(Paths.embedFileSystem.get('icons/iconOG.png')).toBitmap());
   }
 
   override function update(dt:Float)

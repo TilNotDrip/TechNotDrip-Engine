@@ -2,6 +2,7 @@ package funkin;
 
 import funkin.resource.FunkinContent;
 import funkin.resource.FunkinFileSystem;
+import hxd.fs.EmbedFileSystem;
 
 /**
  * This is a paths class mostly used for getting content from files.
@@ -32,11 +33,18 @@ class Paths
   public static final fileSystem:FunkinFileSystem = new FunkinFileSystem();
 
   /**
+   * The embedded assets file system.
+   */
+  public static final embedFileSystem:FunkinFileSystem = new FunkinFileSystem();
+
+  /**
    * (Re)initializes the File System.
    */
   public static function init():Void
   {
     // TODO: This is very temporary, and looks very awful!
     fileSystem.child = new hxd.fs.LocalFileSystem('../../../assets', null);
+
+    embedFileSystem.child = EmbedFileSystem.create('../../../assets/embed');
   }
 }

@@ -14,7 +14,17 @@ class FunkinContent
   public function audio(key:String):Sound
   {
     final path:String = PathTools.withExtension(key, Paths.AUDIO_EXT);
-    final entry:FileEntry = Paths.fileSystem.get(path);
+    var entry:FileEntry = null;
+
+    try
+    {
+      entry = Paths.fileSystem.get(path);
+    }
+    catch (e)
+    {
+      trace('[ERROR] `$path` was not found. Returning default sound...');
+      entry = Paths.embedFileSystem.get('default.wav');
+    }
 
     // TODO: Cache this instead of creating a new one every time.
     return new Sound(entry);
