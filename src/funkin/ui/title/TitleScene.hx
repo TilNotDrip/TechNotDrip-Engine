@@ -1,17 +1,14 @@
 package funkin.ui.title;
 
-import hxd.Event;
 import hxd.Key;
-
-enum TitleState
-{
-  Intro;
-  Idle;
-  Begin;
-}
 
 class TitleScene extends FunkinScene
 {
+  /**
+   * The current state of this scene.
+   *
+   * This handles what we should currently show to the user.
+   */
   public var state:TitleState = Intro;
 
   /**
@@ -56,6 +53,7 @@ class TitleScene extends FunkinScene
     titleText = new FunkinSprite(100, height * 0.8);
     titleText.loadSparrow('ui/title/begin-text');
     titleText.animation.addByPrefix('idle', 'Press Enter to Begin', 24, true);
+    titleText.animation.addByPrefix('confirm', 'ENTER PRESSED', 24, true);
     titleText.animation.play('idle');
     addChild(titleText);
 
@@ -68,13 +66,18 @@ class TitleScene extends FunkinScene
     });
   }
 
-  public function pressEnter()
+  /**
+   * Handle the enter sequence.
+   */
+  public function pressEnter():Void
   {
     if (state == Begin)
       return;
-    state = Begin;
 
-    trace("entr");
+    titleText.animation.play('confirm', true);
+    // TODO: play confirm sound
+
+    state = Begin;
   }
 
   override function beatHit():Void
@@ -92,4 +95,11 @@ class TitleScene extends FunkinScene
     Conductor.instance.update();
     super.sync(ctx);
   }
+}
+
+enum TitleState
+{
+  Intro;
+  Idle;
+  Begin;
 }

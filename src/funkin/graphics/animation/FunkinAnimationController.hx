@@ -44,7 +44,6 @@ class FunkinAnimationController
   {
     var allFrames:Array<Int> = findFrames(prefix);
     var frames:Array<Int> = indices.map(i -> allFrames[i]);
-    trace(frames);
 
     var animation:FunkinAnimation = new FunkinAnimation(this, name, frames);
     animation.frameRate = frameRate ?? 24;
