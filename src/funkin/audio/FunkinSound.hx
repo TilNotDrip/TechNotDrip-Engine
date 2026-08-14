@@ -290,7 +290,6 @@ class FunkinSound
     music.looped = looped;
     music.volume = vol ?? 1.0;
 
-    trace(music.volume);
     return music;
   }
 
