@@ -59,7 +59,7 @@ class Conductor
 
   /**
    * Timestamp of the music that the conductor will follow.
-   * Should be in miliseconds.
+   * Should be in seconds.
    */
   public var time(default, set):Float;
 
@@ -70,17 +70,17 @@ class Conductor
   public var bpm(get, null):Float;
 
   /**
-   * The length between a beat, in miliseconds.
+   * The length between a beat, in seconds.
    */
   public var crochet(get, null):Float;
 
   /**
-   * The length between a step, in miliseconds.
+   * The length between a step, in seconds.
    */
   public var stepCrochet(get, null):Float;
 
   /**
-   * The length between a section, in miliseconds.
+   * The length between a section, in seconds.
    */
   public var sectionCrochet(get, null):Float;
 
@@ -162,7 +162,7 @@ class Conductor
     }
     else if (FunkinSound.music != null)
     {
-      time = FunkinSound.music.position * 1000;
+      time = FunkinSound.music.time;
     }
   }
 
@@ -205,21 +205,21 @@ class Conductor
 
   /**
    * Gets the current step from a timestamp.
-   * @param time The timestamp, in miliseconds.
+   * @param time The timestamp, in seconds.
    * @return The step.
    */
-  public function getStepFromMs(time:Float):Float
+  public function getStepFromSeconds(time:Float):Float
   {
     final bpmChange:BPMChange = getBPMChangeFromMs(time);
-    return getBeatFromMs(time) * bpmChange.timeSignature.denominator;
+    return getBeatFromSeconds(time) * bpmChange.timeSignature.denominator;
   }
 
   /**
    * Gets the timestamp of a step.
    * @param step The step.
-   * @return The timestamp, in miliseconds.
+   * @return The timestamp, in seconds.
    */
-  public function getStepInMs(step:Float):Float
+  public function getStepInSeconds(step:Float):Float
   {
     var toReturn:Float = 0;
 
@@ -240,10 +240,10 @@ class Conductor
 
   /**
    * Gets the current beat from a timestamp.
-   * @param time The timestamp, in miliseconds.
+   * @param time The timestamp, in seconds.
    * @return The beat.
    */
-  public function getBeatFromMs(time:Float):Float
+  public function getBeatFromSeconds(time:Float):Float
   {
     final bpmChange:BPMChange = getBPMChangeFromMs(time);
     return ((time - bpmChange.time) / calculateCrochet(bpmChange.bpm)) + bpmChange.beatTime;
@@ -252,9 +252,9 @@ class Conductor
   /**
    * Gets the timestamp of a beat.
    * @param beat The beat.
-   * @return The timestamp, in miliseconds.
+   * @return The timestamp, in seconds.
    */
-  public function getBeatInMs(beat:Float):Float
+  public function getBeatInSeconds(beat:Float):Float
   {
     var toReturn:Float = 0;
 
@@ -272,21 +272,21 @@ class Conductor
 
   /**
    * Gets the current measure from a timestamp.
-   * @param time The timestamp, in miliseconds.
+   * @param time The timestamp, in seconds.
    * @return The measure.
    */
-  public function getMeasureFromMs(time:Float):Float
+  public function getMeasureFromSeconds(time:Float):Float
   {
     final bpmChange:BPMChange = getBPMChangeFromMs(time);
-    return getBeatFromMs(time) / bpmChange.timeSignature.numerator;
+    return getBeatFromSeconds(time) / bpmChange.timeSignature.numerator;
   }
 
   /**
    * Gets the timestamp of a measure.
    * @param measure The measure.
-   * @return The timestamp, in miliseconds.
+   * @return The timestamp, in seconds.
    */
-  public function getMeasureInMs(measure:Float):Float
+  public function getMeasureInSeconds(measure:Float):Float
   {
     var toReturn:Float = 0;
 
@@ -307,7 +307,7 @@ class Conductor
 
   /**
    * Gets a BPM Change from a timestamp.
-   * @param time A timestamp, in miliseconds.
+   * @param time A timestamp, in seconds.
    * @return The BPM Change.
    */
   public function getBPMChangeFromMs(time:Float):BPMChange
@@ -344,13 +344,13 @@ class Conductor
   }
 
   inline function get_curStepDecimal():Float
-    return getStepFromMs(time);
+    return getStepFromSeconds(time);
 
   inline function get_curBeatDecimal():Float
-    return getBeatFromMs(time);
+    return getBeatFromSeconds(time);
 
   inline function get_curMeasureDecimal():Float
-    return getMeasureFromMs(time);
+    return getMeasureFromSeconds(time);
 
   inline function get_curStep():Int
     return Math.floor(curStepDecimal);
@@ -394,10 +394,10 @@ class Conductor
   /**
    * Calculate the crochet, which is the length between a beat.
    * @param bpm The bpm to use for calculating.
-   * @return The crochet, in miliseconds.
+   * @return The crochet, in seconds.
    */
   static inline function calculateCrochet(bpm:Float):Float
   {
-    return (60 / bpm) * 1000;
+    return (60 / bpm);
   }
 }

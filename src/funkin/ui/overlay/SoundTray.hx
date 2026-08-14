@@ -3,7 +3,6 @@ package funkin.ui.overlay;
 import h2d.Object;
 import h2d.col.Bounds;
 import hxd.Key;
-import hxd.snd.Manager as SoundManager;
 
 class SoundTray extends Object
 {
@@ -82,33 +81,33 @@ class SoundTray extends Object
 
   function updateInput():Void
   {
-    final soundManager:SoundManager = SoundManager.get();
-    var volume:Float = soundManager.masterVolume;
+    var volume:Float = FunkinSound.masterVolume;
 
     if (Key.isPressed(Key.NUMBER_0))
-      volume = 0;
+      volume = 0.0;
     else if (Key.isPressed(Key.QWERTY_MINUS))
       volume -= 0.1;
     else if (Key.isPressed(Key.QWERTY_EQUALS))
       volume += 0.1;
 
-    if (volume != soundManager.masterVolume)
+    if (volume != FunkinSound.masterVolume)
     {
       final variant:String =
         {
           if (volume >= 1)
             'max';
-          else if (volume > soundManager.masterVolume)
+          else if (volume > FunkinSound.masterVolume)
             'up';
           else
             'down';
         };
 
-      final sound:Sound = Paths.content.audio('ui/sound-tray/vol-$variant');
-      soundManager.masterVolume = volume.clamp(0, 1);
+      FunkinSound.masterVolume = volume;
+
+      final sound:FunkinSound = new FunkinSound('ui/sound-tray/vol-$variant');
       sound.play();
 
-      final barVal:Int = Math.round(soundManager.masterVolume * 10);
+      final barVal:Int = Math.round(FunkinSound.masterVolume * 10);
 
       if (barVal > 0)
       {

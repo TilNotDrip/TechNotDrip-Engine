@@ -75,7 +75,7 @@ class TitleScene extends FunkinScene
       return;
 
     titleText.animation.play('confirm', true);
-    // TODO: play confirm sound
+    FunkinSound.playOnce('ui/main-menu/confirm');
 
     state = Begin;
   }

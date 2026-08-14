@@ -3,21 +3,28 @@ package;
 import funkin.Paths;
 import funkin.graphics.FunkinImage;
 import funkin.ui.overlay.FunkinOverlay;
+import funkin.util.Signal;
 import h3d.Engine;
 import hxd.App;
 import hxd.Window;
 
 class Main extends App
 {
+  public static var instance:Main = null;
+
   public static function main():Void
   {
-    new Main();
+    instance = new Main();
   }
 
   /**
    * The overlay on top of everything.
    */
   public var overlay:Null<FunkinOverlay> = null;
+
+  public var preUpdate(default, null):Signal<(dt:Float) -> Void> = new Signal<(dt:Float) -> Void>();
+
+  public var postUpdate(default, null):Signal<(dt:Float) -> Void> = new Signal<(dt:Float) -> Void>();
 
   public function new()
   {
@@ -38,10 +45,14 @@ class Main extends App
     Window.getInstance().setIcon(new FunkinImage(Paths.embedFileSystem.get('icons/iconOG.png')).toBitmap());
   }
 
-  override function update(dt:Float)
+  override function update(dt:Float):Void
   {
+    preUpdate.dispatch([dt]);
+
     overlay.setElapsedTime(dt);
     super.update(dt);
+
+    postUpdate.dispatch([dt]);
   }
 
   override function render(e:Engine)
