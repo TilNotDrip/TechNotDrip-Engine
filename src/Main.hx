@@ -47,12 +47,12 @@ class Main extends App
 
   override function update(dt:Float):Void
   {
-    preUpdate.dispatch([dt]);
+    preUpdate.dispatch(dt);
 
     overlay.setElapsedTime(dt);
     super.update(dt);
 
-    postUpdate.dispatch([dt]);
+    postUpdate.dispatch(dt);
   }
 
   override function render(e:Engine)

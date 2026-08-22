@@ -1,5 +1,6 @@
 package funkin;
 
+#if !macro
 import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinSprite;
 import funkin.graphics.FunkinTile;
@@ -15,3 +16,4 @@ import hxd.res.Sound;
 using StringTools;
 using funkin.util.tools.FloatTools;
 using funkin.util.tools.MatrixTools;
+#end
