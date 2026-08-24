@@ -1,7 +1,5 @@
 package;
 
-import funkin.Paths;
-import funkin.graphics.FunkinImage;
 import funkin.ui.overlay.FunkinOverlay;
 import funkin.util.Signal;
 import h3d.Engine;
@@ -33,7 +31,9 @@ class Main extends App
 
   override function loadAssets(onLoaded:() -> Void):Void
   {
-    funkin.Paths.init();
+    // TODO: This is very temporary, and looks very awful!
+    funkin.assets.Paths.tree.add('funkin', new hxd.fs.LocalFileSystem('../../../assets', null));
+
     onLoaded();
   }
 
@@ -41,8 +41,6 @@ class Main extends App
   {
     setScene(new funkin.ui.title.TitleScene());
     overlay = new FunkinOverlay();
-
-    Window.getInstance().setIcon(new FunkinImage(Paths.embedFileSystem.get('icons/iconOG.png')).toBitmap());
   }
 
   override function update(dt:Float):Void

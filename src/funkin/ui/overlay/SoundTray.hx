@@ -3,6 +3,7 @@ package funkin.ui.overlay;
 import h2d.Object;
 import h2d.col.Bounds;
 import hxd.Key;
+import hxd.res.Image;
 
 class SoundTray extends Object
 {
@@ -29,8 +30,8 @@ class SoundTray extends Object
 
     for (i in 0...10)
     {
-      final image:Image = Paths.content.image('ui/sound-tray/bars/${i + 1}');
-      barTiles.push(cast image.toTile());
+      final tile:FunkinTile = Paths.image('ui/sound-tray/bars/${i + 1}').tile();
+      barTiles.push(tile);
     }
 
     box = new FunkinSprite(null);

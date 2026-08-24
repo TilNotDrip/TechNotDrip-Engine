@@ -3,6 +3,7 @@ package funkin.graphics;
 import funkin.graphics.animation.FunkinAnimationController;
 import funkin.graphics.animation.FunkinAtlasFrames;
 import h2d.col.Matrix;
+import hxd.res.Image;
 
 @:access(h2d.col.Matrix)
 @:access(h2d.Tile)
@@ -45,8 +46,7 @@ class FunkinSprite extends h2d.Drawable
    */
   public function loadTexture(key:String):FunkinSprite
   {
-    final image:Image = Paths.content.image(key);
-    tile = cast image.toTile();
+    tile = Paths.image(key).tile();
 
     return this;
   }
@@ -58,12 +58,12 @@ class FunkinSprite extends h2d.Drawable
    */
   public function loadSparrow(key:String):FunkinSprite
   {
-    final image:Image = Paths.content.image(key);
+    final tile:FunkinTile = Paths.image(key).tile();
 
-    final xmlText:String = Paths.content.text('$key.xml');
+    final xmlText:String = Paths.file('$key.xml').text();
     final xml:Xml = Xml.parse(xmlText);
 
-    tiles = FunkinAtlasFrames.fromSparrow(image, xml);
+    tiles = FunkinAtlasFrames.fromSparrow(tile, xml);
     return this;
   }
 
@@ -74,10 +74,10 @@ class FunkinSprite extends h2d.Drawable
    */
   public function loadPacker(key:String):FunkinSprite
   {
-    final image:Image = Paths.content.image(key);
-    final text:String = Paths.content.text('$key.txt');
+    final tile:FunkinTile = Paths.image(key).tile();
+    final text:String = Paths.file('$key.txt').text();
 
-    tiles = FunkinAtlasFrames.fromPacker(image, text);
+    tiles = FunkinAtlasFrames.fromPacker(tile, text);
     return this;
   }
 

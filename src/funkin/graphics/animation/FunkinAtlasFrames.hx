@@ -1,12 +1,12 @@
 package funkin.graphics.animation;
 
 import haxe.xml.Access;
+import hxd.res.Image;
 
 class FunkinAtlasFrames
 {
-  public static function fromSparrow(source:Image, xml:Xml):Array<FunkinTile>
+  public static function fromSparrow(tile:FunkinTile, xml:Xml):Array<FunkinTile>
   {
-    final sourceTex:h3d.mat.Texture = source.toTexture();
     final frames:Array<FunkinTile> = [];
 
     var data:Access = new Access(xml.firstElement());
@@ -29,7 +29,7 @@ class FunkinAtlasFrames
       final offsetX:Float = trimmed ? Std.parseFloat(texture.att.frameX) : 0;
       final offsetY:Float = trimmed ? Std.parseFloat(texture.att.frameY) : 0;
 
-      var tile:FunkinTile = new FunkinTile(sourceTex, x, y, width, height, -offsetX, -offsetY);
+      var tile:FunkinTile = cast tile.sub(x, y, width, height, -offsetX, -offsetY);
       tile.rotation = hxd.Math.degToRad(rotated ? 270 : 0);
       tile.xFlip = flipX;
       tile.yFlip = flipY;
@@ -40,9 +40,8 @@ class FunkinAtlasFrames
     return frames;
   }
 
-  public static function fromPacker(source:Image, data:String):Array<FunkinTile>
+  public static function fromPacker(tile:FunkinTile, data:String):Array<FunkinTile>
   {
-    final texture:h3d.mat.Texture = source.toTexture();
     final frames:Array<FunkinTile> = [];
 
     for (anim in data.trim().split('\n'))
@@ -50,7 +49,7 @@ class FunkinAtlasFrames
       final name:String = anim.substring(0, anim.indexOf('=')).trim();
       final frameData:Array<Float> = anim.substring(anim.indexOf('=') + 1).split(',').map(v -> Std.parseFloat(v.trim()));
 
-      final tile:FunkinTile = new FunkinTile(texture, frameData[0], frameData[1], frameData[2], frameData[3]);
+      final tile:FunkinTile = cast tile.sub(frameData[0], frameData[1], frameData[2], frameData[3]);
       tile.name = name;
       frames.push(tile);
     }

@@ -97,7 +97,7 @@ class FunkinSound
 
   public function new(path:String)
   {
-    currentSound = Paths.content.audio(path);
+    currentSound = Paths.sound(path).sound().resource();
 
     Main.instance.preUpdate.add(update);
 
