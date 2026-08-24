@@ -32,7 +32,11 @@ class Main extends App
   override function loadAssets(onLoaded:() -> Void):Void
   {
     // TODO: This is very temporary, and looks very awful!
+    #if hl
     funkin.assets.Paths.tree.add('funkin', new hxd.fs.LocalFileSystem('../../../assets', null));
+    #else
+    funkin.assets.Paths.tree.add('funkin', hxd.fs.EmbedFileSystem.create('assets', null));
+    #end
 
     onLoaded();
   }

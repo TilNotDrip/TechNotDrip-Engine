@@ -1,0 +1,3 @@
+build/base.hxml
+
+--library stb_ogg_sound

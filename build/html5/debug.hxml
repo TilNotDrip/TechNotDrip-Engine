@@ -1,0 +1,4 @@
+build/html5/base.hxml
+
+--define debug
+--js export/js/debug/TechNotDrip.js

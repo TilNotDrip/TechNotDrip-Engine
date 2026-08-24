@@ -33,7 +33,7 @@ class TitleScene extends FunkinScene
     super();
     name = 'title';
 
-    FunkinSound.playMusic('ui/main-menu/freaky-menu/audio', true);
+    #if !js FunkinSound.playMusic('ui/main-menu/freaky-menu/audio', true); #end
     Conductor.instance.changeBPM(102);
 
     logo = new FunkinSprite(-34, 6);

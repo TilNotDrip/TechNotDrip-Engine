@@ -41,7 +41,7 @@ class Image implements IFunkinAsset
     // `SDL_image` implementation for HashLink,
     // `js.html.Image` directly for JavaScript.
     final pixels:Pixels = new HeapsImage(file).getPixels();
-    _texture = Texture.fromPixels(pixels);
+    _texture = Texture.fromPixels(pixels, #if js Texture.nativeFormat #else pixels.format #end);
     pixels.dispose();
 
     // We handle disposing ourselves, so disable Auto Dispose.
